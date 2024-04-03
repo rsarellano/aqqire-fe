@@ -1,0 +1,192 @@
+<template>
+  <div class="relative inline-flex z-0">
+    <button
+      ref="trigger"
+      class="inline-flex justify-center items-center group hover:text-slate-200 bg-slate-50 px-2 py-1 rounded-full shadow-md"
+      aria-haspopup="true"
+      @click.prevent="dropdownOpen = !dropdownOpen"
+      :aria-expanded="dropdownOpen">
+      <div v-if="isImage">
+        <img
+          class="w-8 h-8 rounded-full object-cover"
+          alt="Q"
+          :src="userProfile.profileImage" />
+      </div>
+      <div v-else>
+        <div class="rounded-full w-8 h-8 bg-blue-800 hover:opacity-80">
+          <span
+            class="text-xs tracking-wider text-white flex items-center justify-center h-full">
+            {{ userProfile.profileImage }}
+          </span>
+        </div>
+      </div>
+
+      <div class="flex items-center truncate">
+        <span
+          class="truncate hidden md:flex ml-3 text-sm font-semibold font-sans text-stone-700 group-hover:text-slate-800">
+          {{ userProfile.firstName }}
+        </span>
+
+        <svg
+          class="w-3 h-3 shrink-0 ml-2 fill-current text-slate-900"
+          viewBox="0 0 12 12">
+          <path d="M5.9 11.4L.5 6l1.4-1.4 4 4 4-4L11.3 6z" />
+        </svg>
+      </div>
+    </button>
+    <div></div>
+    <div>
+      <transition
+        enter-active-class="transition ease-out duration-200 transform"
+        enter-from-class="opacity-0 -translate-y-2"
+        enter-to-class="opacity-100 translate-y-0"
+        leave-active-class="transition ease-out duration-200"
+        leave-from-class="opacity-100"
+        leave-to-class="opacity-0">
+        <div
+          v-show="dropdownOpen"
+          class="origin-top-right z-10 absolute top-full min-w-44 bg-white border border-slate-200 py-1.5 rounded shadow-lg overflow-hidden mt-1"
+          :class="align === 'right' ? 'right-0' : 'left-0'">
+          <div class="pt-0.5 pb-2 px-3 mb-1 border-b border-slate-200">
+            <div class="text-slate-900 font-light font-sans tracking-wide">
+              <span>{{ userProfile.email }}</span>
+            </div>
+            <div class="text-xs capitalize text-slate-600 font-sans">
+              <span>{{ userProfile.role }}</span>
+            </div>
+          </div>
+          <ul
+            ref="dropdown"
+            @focusin="dropdownOpen = true"
+            @focusout="dropdownOpen = false">
+            <li>
+              <NuxtLink
+                class="font-medium text-sm text-blue-700 hover:text-blue-900 flex items-center py-1 px-3 hover:bg-slate-100 w-full"
+                to="/"
+                @click="dropdownOpen = false">
+                Home
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink
+                class="font-medium text-sm text-blue-700 hover:text-blue-900 flex items-center py-1 px-3 hover:bg-slate-100 w-full"
+                to="broker-home"
+                @click="dropdownOpen = false">
+                Dashboard
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink
+                class="font-medium text-sm text-blue-700 hover:text-blue-900 flex items-center py-1 px-3 hover:bg-slate-100 w-full"
+                to="/dashboard/settings/account"
+                @click="dropdownOpen = false">
+                Account
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink
+                class="font-medium text-sm text-blue-700 hover:text-blue-900 flex items-center py-1 px-3 hover:bg-slate-100 w-full"
+                to="/dashboard/properties"
+                @click="dropdownOpen = false">
+                My Listings
+              </NuxtLink>
+            </li>
+            <li>
+              <button
+                class="font-medium text-sm text-rose-500 hover:text-rose-600 flex items-center py-1 px-3 hover:bg-slate-100 w-full">
+                <!-- @click="handleSignOut" -->
+                Sign Out
+              </button>
+            </li>
+          </ul>
+        </div>
+      </transition>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  const props = defineProps({
+    align: String,
+  });
+  const dropdownOpen = ref(false);
+  const trigger = ref();
+  const dropdown = ref();
+
+  const userProfile = {
+    profileImage: "https://picsum.photos/200/300?grayscale",
+    firstName: "Neil",
+    email: "adwa@neil.com",
+    role: "Broker",
+  };
+
+  // const router = useRouter();
+  // const route = useRoute();
+  // const store = useStore();
+  // const userProfile = reactive({
+  //   email: computed(() =>
+  //     store.state.userProfile.email ? store.state.userProfile.email : null
+  //   ),
+  //   firstName: computed(() =>
+  //     store.state.userProfile.firstName
+  //       ? store.state.userProfile.firstName
+  //       : null
+  //   ),
+  //   role: computed(() =>
+  //     store.state.userProfile.role ? store.state.userProfile.role : null
+  //   ),
+  //   profileImage: computed(() =>
+  //     store.state.userProfile.profileImage
+  //       ? store.state.userProfile.profileImage
+  //       : null
+  //   ),
+  // });
+
+  // Test for with image link
+
+  const isImage = computed(() => {
+    const profileImage = userProfile.profileImage
+      ? userProfile.profileImage
+      : "?";
+    return (
+      (profileImage.length > 2 && profileImage.includes("https")) ||
+      profileImage.includes("data") ||
+      profileImage.includes("s3")
+    );
+  });
+
+  // const handleSignOut = async () => {
+  //   await store.dispatch("logout");
+  //   router.push({ path: "/" });
+  //   if (route.path === "/") {
+  //     window.location.reload();
+  //   }
+  // };
+
+  // close on click outside
+  const clickHandler = ({ target }: Event) => {
+    if (
+      !dropdownOpen.value ||
+      dropdown.value.contains(target) ||
+      trigger.value.contains(target)
+    )
+      return;
+    dropdownOpen.value = false;
+  };
+
+  // close if the esc key is pressed
+  const keyHandler = ({ key }: KeyboardEvent) => {
+    if (!dropdownOpen.value || key !== "Escape") return;
+    dropdownOpen.value = false;
+  };
+
+  onMounted(() => {
+    document.addEventListener("click", clickHandler);
+    document.addEventListener("keydown", keyHandler);
+  });
+
+  onUnmounted(() => {
+    document.removeEventListener("click", clickHandler);
+    document.removeEventListener("keydown", keyHandler);
+  });
+</script>
