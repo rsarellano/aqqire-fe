@@ -66,6 +66,23 @@
     <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
       <ul class="mt-1 pl-9" :class="!parentLink.expanded && 'hidden'">
         <NuxtLink
+          to="/utility/database"
+          custom
+          v-slot="{ href, navigate, isExactActive }">
+          <li class="mb-1 last:mb-0">
+            <a
+              class="block truncate transition duration-150 text-slate-400 hover:text-slate-200"
+              :class="isExactActive && '!text-indigo-500'"
+              :href="href"
+              @click="navigate">
+              <span
+                class="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                Database
+              </span>
+            </a>
+          </li>
+        </NuxtLink>
+        <NuxtLink
           to="/utility/changelog"
           custom
           v-slot="{ href, navigate, isExactActive }">
