@@ -14,7 +14,7 @@
         <FormKit
           v-model="search"
           type="text"
-          label="Search by Author"
+          label="Search by Broker"
           :delay="400"
         />
 
@@ -28,7 +28,7 @@
 
         <FormKit
           type="select"
-          label="Active"
+          label="Status"
           v-model="filters.status.value"
           :options="statusOptions"
         />
@@ -54,6 +54,8 @@
           'propertyAssetType',
           'propertyUrl',
           'propertyPrice',
+          'propertyDate',
+          'lastUpdated',
           'active',
           'disabled',
           'address',
@@ -65,15 +67,15 @@
       >
         <template #empty>No Properties found.</template>
         <template #header>
-          <h1 class="text-xl text-center text-blue-500"
-            >({{ posts.length }}) Properties
-          </h1>
+          <h1 class="text-xl text-center text-blue-500"> Properties </h1>
         </template>
 
         <Column
           field="name"
           header="Name"
           :showFilterMenu="false"
+          sortable
+          sort-field="lastUpdated"
         >
           <template #body="{ data }">
             <div class="max-w-xs space-y-1">
@@ -160,11 +162,15 @@
           field="propertyPrice"
           header="Price"
           :showFilterMenu="false"
-          sortable
         >
           <template #body="{ data }">
             <div class="max-w-xs space-y-1">
-              <p class="text-sm font-bold">$ {{ data.propertyPrice }}</p>
+              <p class="text-sm font-bold">
+                <template v-if="typeof data.propertyPrice == 'number'">
+                  $
+                </template>
+                {{ data.propertyPrice }}</p
+              >
             </div>
           </template>
         </Column>
@@ -215,7 +221,7 @@
               </NuxtLink>
 
               <button title="Enable or Disable(Soft Delete)">
-                <InputSwitch v-model="data.disabled" />
+                <InputSwitch v-model="data.status" />
               </button>
             </div>
           </template>
