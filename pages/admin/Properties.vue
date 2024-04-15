@@ -2,220 +2,285 @@
   <div>
     <AdminNav />
 
-    <!-- Main  Section -->
-    <div class="flex gap-4 p-2 rounded-md">
-      <div class="flex flex-col grow">
-        <h2
-          class="p-2 font-bold text-center text-white bg-blue-500 rounded-t-md">
-          Property Table List
-        </h2>
+    <div class="px-12">
+      <div class="flex items-center justify-center gap-2 py-2 mt-2">
+        <FormKit
+          v-model="filters.global.value"
+          type="text"
+          label="Search"
+          :delay="400"
+        />
 
-        <DataTable
-          :value="filteredProperties"
-          showGridlines
-          v-model:filters="filters">
-          <template #header>
-            <div class="flex gap-2 justify-content-end">
-              <FormKit placeholder="Filter by Last Updated" />
-              <FormKit placeholder="Keyword Search" />
-              <FormKit placeholder="Keyword Search" />
+        <FormKit
+          v-model="search"
+          type="text"
+          label="Search by Broker"
+          :delay="400"
+        />
+
+        <FormKit
+          type="select"
+          label="Property Type"
+          placeholder="Filter by Property Type"
+          v-model="filters.propertyType.value"
+          :options="propertyTypes"
+        />
+
+        <FormKit
+          type="select"
+          label="Status"
+          v-model="filters.status.value"
+          :options="statusOptions"
+        />
+      </div>
+
+      <DataTable
+        v-model:filters="filters"
+        :value="posts"
+        show-gridlines
+        paginator
+        :rows="10"
+        class="text-xs"
+        dataKey="id"
+        sortMode="multiple"
+        :globalFilterFields="[
+          'name',
+          'id',
+          'brokers',
+          'email',
+          'propertyType',
+          'propertyDate',
+          'propertyAddress',
+          'propertyAssetType',
+          'propertyUrl',
+          'propertyPrice',
+          'propertyDate',
+          'lastUpdated',
+          'active',
+          'disabled',
+          'address',
+          'owner',
+          'status',
+        ]"
+        :showFilterOperator="false"
+        ref="dt"
+      >
+        <template #empty>No Properties found.</template>
+        <template #header>
+          <h1 class="text-xl text-center text-blue-500"> Properties </h1>
+        </template>
+
+        <Column
+          field="name"
+          header="Name"
+          :showFilterMenu="false"
+          sortable
+          sort-field="lastUpdated"
+        >
+          <template #body="{ data }">
+            <div class="max-w-xs space-y-1">
+              <Tag>
+                {{ data.id }}
+              </Tag>
+              <p class="font-bold">
+                {{ data.name }}
+              </p>
+              <p
+                class="text-green-500"
+                :class="{
+                  'text-red-500 font-bold':
+                    elapsedSince(data.lastUpdated).numerical?.months! > 6,
+                  'text-yellow-500 font-semibold':
+                    elapsedSince(data.lastUpdated).numerical?.months! < 6 &&
+                    elapsedSince(data.lastUpdated).numerical?.months! > 3,
+                }"
+                >Last Updated {{ elapsedSince(data.lastUpdated).value }} (
+                {{ new Date(data.lastUpdated).toLocaleDateString() }} )</p
+              >
+              <p
+                >Created {{ elapsedSince(data.propertyDate).value }} ({{
+                  new Date(data.propertyDate).toLocaleDateString()
+                }})
+              </p>
+            </div>
+          </template>
+        </Column>
+
+        <Column
+          field="address"
+          header="Address"
+          :showFilterMenu="false"
+        >
+          <template #body="{ data }">
+            <div class="max-w-xs space-y-2">
+              <Tag
+                value="primary"
+                class="capitalize"
+              >
+                {{ data.propertyType }}
+              </Tag>
+
+              <p class="text-sm">
+                {{ data.propertyAddress }}
+              </p>
             </div>
           </template>
 
-          <Column field="name" header="Property Information" sortable>
-            <template #body="props">
-              <div class="text-xs w-fit">
-                <div class="max-w-xs pb-1 font-bold">
-                  {{ props.data.propertyName }}
-                </div>
+          <template #filter="{ filterModel, filterCallback }"> </template>
+        </Column>
 
-                <div
-                  class="flex items-center gap-2"
-                  :class="{
-                    'text-red-500 font-bold':
-                      props.data.propertyDate.numerical > 6 ||
-                      props.data.propertyDate.time === 'years',
-                    'text-yellow-500 font-semibold':
-                      props.data.propertyDate.numerical > 1 &&
-                      props.data.propertyDate.numerical < 6,
-                  }">
-                  Last Updated {{ props.data.propertyDate.value }}
-
-                  <!-- Show warning if propery hasn't been updated after 6 months or greater -->
-                  <i
-                    v-if="
-                      props.data.propertyDate.numerical > 6 ||
-                      props.data.propertyDate.time === 'years'
-                    "
-                    class="text-sm pi pi-exclamation-circle"></i>
-                </div>
-                <div>Created {{ props.data.propertyDate.value }}</div>
+        <Column
+          field="brokers"
+          header="Broker Information"
+          :showFilterMenu="false"
+          body-class="max-w-xs"
+        >
+          <template #body="{ data }">
+            <div class="space-y-1 w-fit">
+              <div
+                class="p-4 space-y-1"
+                v-for="(broker, key) in data.brokers"
+                :key="key"
+              >
+                <Tag
+                  :severity="broker.status === 'Limited' ? 'warning' : 'info'"
+                >
+                  {{ broker.status }}
+                </Tag>
+                <p class="font-bold">
+                  {{ broker.name }}
+                </p>
+                <p class="text-gray-500">
+                  {{ broker.email }}
+                </p>
               </div>
-            </template>
-          </Column>
+            </div>
+          </template>
+        </Column>
 
-          <Column header="Address">
-            <template #body="props">
-              <div class="max-w-xs space-y-1 text-xs w-fit">
-                <div class="flex gap-1">
-                  <Tag
-                    class="capitalize"
-                    :severity="
-                      props.data.propertyType === 'premium'
-                        ? 'primary'
-                        : 'warning'
-                    "
-                    :value="props.data.propertyType"></Tag>
-                  <Tag value="primary" class="capitalize">
-                    {{ props.data.propertyAssetType }}
-                  </Tag>
-                </div>
-                <div class="font-bold capitalize">
-                  {{ props.data.propertyAddress }}
-                </div>
-                <div class="font-semibold">
-                  Property ID: {{ props.data.propertyID }}
-                </div>
-              </div>
-            </template>
-          </Column>
+        <Column
+          field="propertyPrice"
+          header="Price"
+          :showFilterMenu="false"
+        >
+          <template #body="{ data }">
+            <div class="max-w-xs space-y-1">
+              <p class="text-sm font-bold">
+                <template v-if="typeof data.propertyPrice == 'number'">
+                  $
+                </template>
+                {{ data.propertyPrice }}</p
+              >
+            </div>
+          </template>
+        </Column>
 
-          <Column field="broker" header="Broker Information">
-            <template #body="props">
-              <div class="space-y-1 text-xs w-fit">
-                <div class="space-x-2 font-semibold">
-                  <i class="pr-1 pi pi-envelope"></i>
-                  {{ props.data.propertyOwnerEmail }}
-                </div>
-                <div class="font-semibold c">
-                  <i class="pr-1 pi pi-user"></i>
-
-                  {{ props.data.propertyOwner }}
-                </div>
-              </div>
-            </template>
-          </Column>
-
-          <Column field="price" header="Price($)" sortable>
-            <template #body="props">
-              <div class="font-semibold w-fit">
-                {{ props.data.propertyPrice.toLocaleString() }}
-              </div>
-            </template>
-          </Column>
-
-          <Column
-            header="Status"
-            :showFilterMenu="false"
-            :filterMenuStyle="{ width: '14rem' }">
-            <template #body="props">
+        <Column
+          field="status"
+          header="Status"
+          :showFilterMenu="false"
+        >
+          <template #body="{ data }">
+            <div class="max-w-xs mx-auto space-y-1 w-fit">
               <Tag
-                v-if="props.data.active"
+                v-if="data.status"
                 icon="pi pi-check"
-                value="Active"></Tag>
+                value="Active"
+              ></Tag>
               <Tag
                 v-else
                 icon="pi pi-times"
                 severity="warning"
-                value="Inactive"></Tag>
-            </template>
+                value="Inactive"
+              ></Tag>
+            </div>
+          </template>
+        </Column>
 
-            <template #filter="{ filterModel, filterCallback }">
-              <Dropdown
-                v-model="filterModel.value"
-                :options="statuses"
-                placeholder="Select One"
-                class="p-column-filter"
-                style="min-width: 12rem"
-                :showClear="true">
-                <template #option="slotProps">
-                  <h1>hello</h1>
-                </template>
-              </Dropdown>
-            </template>
-          </Column>
+        <Column
+          field="actions"
+          header="Actions"
+          :showFilterMenu="false"
+        >
+          <template #body="{ data }">
+            <div class="flex items-center justify-center max-w-xs gap-1">
+              <NuxtLink
+                :to="'/properties/property/' + data.id"
+                class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500"
+              >
+                <i class="pi pi-info"></i>
+              </NuxtLink>
+              <NuxtLink
+                to="#"
+                class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500"
+              >
+                <i
+                  class="pi pi-pencil"
+                  title="Edit"
+                ></i>
+              </NuxtLink>
 
-          <Column field="category" header="Action">
-            <template #body="props">
-              <div class="flex items-center gap-2 text-xs">
-                <NuxtLink
-                  :to="'/properties/property/' + props.data.propertyID"
-                  class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500">
-                  <i class="pi pi-info"></i>
-                </NuxtLink>
-                <NuxtLink
-                  to="#"
-                  class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500">
-                  <i class="pi pi-pencil" title="Edit"></i>
-                </NuxtLink>
-
-                <button title="Enable or Disable(Soft Delete)">
-                  <InputSwitch v-model="props.data.disabled" />
-                </button>
-              </div>
-            </template>
-          </Column>
-        </DataTable>
-      </div>
+              <button title="Enable or Disable(Soft Delete)">
+                <InputSwitch v-model="data.status" />
+              </button>
+            </div>
+          </template>
+        </Column>
+      </DataTable>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { elapsedSince } from "../../composables/dateTimeUtils";
-  import { FilterMatchMode } from "primevue/api";
+  import { ref, onMounted } from "vue"
+  import { FilterMatchMode } from "primevue/api"
+  import { data } from "../data"
 
-  const statuses = ref(["active", "inactive", "in-contract"]);
   const filters = ref({
-    global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    name: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    broker: { value: null, matchMode: FilterMatchMode.IN },
-    status: { value: null, matchMode: FilterMatchMode.EQUALS },
-  });
+    global: { value: undefined, matchMode: FilterMatchMode.STARTS_WITH },
+    name: { value: undefined, matchMode: FilterMatchMode.CONTAINS },
+    address: { value: undefined, matchMode: FilterMatchMode.STARTS_WITH },
+    status: { value: undefined, matchMode: FilterMatchMode.EQUALS },
+    brokers: { value: undefined, matchMode: FilterMatchMode.CONTAINS },
+    propertyType: { value: undefined, matchMode: FilterMatchMode.EQUALS },
+  })
 
-  const properties = [
-    {
-      propertyName:
-        "Lease-Purchase for Inventory Only! Liquor Store with Property in Cadwell, GA! Over $15K in Monthly Net Profit!",
-      propertyID: "65a570676492fb00335be313",
-      propertyOwner: "Kavita Purohit",
-      propertyOwnerEmail: "communications@riverbrokers.com",
-      propertyType: "limited",
-      propertyDate: "2024-01-15T17:50:31.096Z",
-      propertyAddress: "Cadwell, GA , Cadwell, Georgia",
-      propertyAssetType: "retail",
-      propertyUrl:
-        "/property/retail/georgia/lease-purchase-for-inventory-only!-liquor-store-with-property-in-cadwell-ga!-over-dollar15k-in-monthly-net-profit!",
-      propertyPrice: 499000,
-      active: true,
-      disabled: false,
-    },
-    {
-      propertyName: "Fairfield Inn & Suites by Marriott",
-      propertyID: "65a570676492fb00335be313",
-      propertyOwner: "Bharat Vakil",
-      propertyOwnerEmail: "bharat.vakil@newgenadv.com",
-      propertyType: "premium",
-      propertyDate: "2022-01-15T17:50:31.096Z",
-      propertyAddress: "1517 S Stuart Ave, Monahans, Texas",
-      propertyAssetType: "hotel",
-      propertyUrl:
-        "/property/hotel/texas/fairfield-inn-and-suites-by-marriott/1704388005589",
-      propertyPrice: 11500000,
-      active: false,
-      disabled: true,
-    },
-  ];
+  const statusOptions = [
+    { label: "Any", value: null },
+    { label: "Active", value: true },
+    { label: "Inactive", value: false },
+  ]
 
-  const filteredProperties = ref(
-    properties.map((property) => {
-      return {
-        ...property,
-        propertyDate: {
-          date: property.propertyDate,
-          ...elapsedSince(property.propertyDate),
-        },
-      };
-    })
-  );
+  const propertyTypes = [
+    { label: "All", value: null },
+    { label: "Hotel", value: "Hotel" },
+    { label: "Gas Station", value: "Gas Station" },
+    { label: "Retail", value: "Retail" },
+    { label: "Multi Family", value: "Multi Family" },
+    { label: "Restaurant", value: "Restaurant" },
+    { label: "Land", value: "Land" },
+    { label: "Industrial", value: "Industrial" },
+    { label: "Health Office", value: "Health Office" },
+    { label: "Specialty", value: "Specialty" },
+    { label: "Office", value: "Office" },
+  ]
+
+  const filterByBroker = (name: string) => {
+    return data.filter((item) =>
+      item.brokers.some((broker) => broker.name.includes(name))
+    )
+  }
+
+  const posts = ref([...data])
+  const dt = ref()
+  const search = ref()
+
+  watch(search, () => {
+    const data = filterByBroker(search.value)
+    posts.value = [...data]
+  })
+
+  const exportCSV = () => {
+    dt.value.exportCSV()
+  }
 </script>
