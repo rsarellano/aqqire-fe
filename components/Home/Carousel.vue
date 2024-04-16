@@ -42,7 +42,7 @@
             enter-to-class="translate-y-0 opacity-1"
           >
             <div
-              class="container md:p-16 flex flex-col items-start p-4 mx-auto text-left"
+              class="container flex flex-col items-start p-4 mx-auto text-left md:p-16 md:pb-4"
             >
               <div class="p-2 text-xl font-bold tracking-wider bg-blue-500">
                 ${{ slide.price.toLocaleString() }}
@@ -61,7 +61,7 @@
           <transition v-show="index === currentIndex">
             <NuxtLink
               to="#"
-              class="container z-50 md:px-16 md:pt-10 flex items-center gap-2 p-4 pt-4 mx-auto my-10 font-semibold duration-200 ease-in-out border-t cursor-pointer fill-white hover:fill-blue-500 hover:text-blue-500"
+              class="container z-50 flex items-center gap-2 p-4 pt-4 mx-auto my-10 font-semibold duration-200 ease-in-out border-t cursor-pointer md:px-16 md:pt-10 fill-white hover:fill-blue-500 hover:text-blue-500"
             >
               <span>Read More</span>
               <IconChevronRight class="size-6" />
