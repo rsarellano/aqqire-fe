@@ -1,4 +1,4 @@
-import { email } from "@formkit/icons"
+
 
 export const data = [
   {
@@ -8,21 +8,21 @@ export const data = [
       {
         name: "John Doe",
         email: "john.doe@example.com",
-        status: "Premium",
+        status: "Premium In-Contract",
       },
       {
         name: "Ferne Gutkowski",
         email: "Eileen35@hotmail.com",
-        status: "Limited",
+        status: "Limited In-Contract",
       },
       {
         name: "Hermann Jacinthe",
         email: "Wendell_Kohler@gmail.com",
-        status: "Premium",
+        status: "Premium In-Contract",
       },
     ],
     propertyAddress: "123 Lakeview Drive, Beverly Hills, CA 90210",
-    propertyPrice: 1500000,
+    propertyPrice: 'Contact Broker for Pricing',
     status: true,
     url: "/hotel",
     propertyType: "Hotel",
@@ -45,7 +45,7 @@ export const data = [
       },
     ],
     propertyAddress: "456 Broadway Avenue, New York, NY 10001",
-    propertyPrice: 850000,
+    propertyPrice: 'Confidential',
     status: false,
     url: "/gas-station",
     propertyType: "Gas Station",
@@ -91,7 +91,7 @@ export const data = [
       },
     ],
     propertyAddress: "123 Main Street, Springfield, IL 62701",
-    propertyPrice: 1000000,
+    propertyPrice: 'Call for Pricing',
     status: false,
     url: "/multi-family",
     propertyType: "Multi Family",
@@ -420,6 +420,7 @@ export const data = [
         name: "Nova Hane",
         email: "Lois14@gmail.com",
         status: "Limited",
+        
       },
       {
         name: "Blick Colton",

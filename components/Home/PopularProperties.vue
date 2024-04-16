@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-6xl py-8 mx-auto">
     <!-- properties list -->
-    <h1 class="w-full mt-4 mb-4 text-4xl font-bold text-center uppercase lg:text-left">Popular</h1>
+    <h1 class="w-full mt-4 mb-4 text-4xl font-bold text-center uppercase lg:text-left px-12 p-4">Popular</h1>
 
     <Carousel
       :value="properties"
