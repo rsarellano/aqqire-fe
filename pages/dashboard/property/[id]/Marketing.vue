@@ -10,29 +10,36 @@
         class="p-4 py-2 text-lg font-semibold text-center text-white bg-blue-600 rounded-t"
         >Top Performing Properties</h2
       >
+
       <DataTable
-        :value="top"
+        :value="formattedTop"
         size="small"
+        show-gridlines
       >
         <Column
           field="name"
           header="Property"
+          sortable
         ></Column>
         <Column
           field="clicks"
           header="Clicks"
+          sortable
         ></Column>
         <Column
           field="views"
           header="Views"
+          sortable
         ></Column>
         <Column
           field="impressions"
           header="Impressions"
+          sortable
         ></Column>
         <Column
-          field="lastUpdated"
+          field="lastUpdated.value"
           header="Last Updated"
+          sortable
         ></Column>
       </DataTable>
     </div>
@@ -44,28 +51,34 @@
         >Low Performing Properties</h2
       >
       <DataTable
-        :value="low"
+        :value="formattedLow"
         size="small"
+        show-gridlines
       >
         <Column
           field="name"
           header="Property"
+          sortable
         ></Column>
         <Column
           field="clicks"
           header="Clicks"
+          sortable
         ></Column>
         <Column
           field="views"
           header="Views"
+          sortable
         ></Column>
         <Column
           field="impressions"
           header="Impressions"
+          sortable
         ></Column>
         <Column
-          field="lastUpdated"
+          field="lastUpdated.value"
           header="Last Updated"
+          sortable
         ></Column>
       </DataTable>
     </div>
@@ -76,7 +89,7 @@
       exposure:</p
     >
 
-    <div class="flex gap-2">
+    <div class="flex flex-wrap gap-2">
       <Button
         class="!p-1 group bg-blue-500 max-w-64 w-full"
         v-ripple
@@ -172,6 +185,11 @@
 </template>
 
 <script setup lang="ts">
+  const formatDateTable = (arr: any) => {
+    return arr.map((item: any) => {
+      return { ...item, lastUpdated: elapsedSince(item.lastUpdated) }
+    })
+  }
   const top = [
     {
       name: "Berge Springs",
@@ -256,4 +274,7 @@
         "Wed Feb 21 2024 19:38:40 GMT+0800 (Philippine Standard Time)",
     },
   ]
+
+  const formattedLow = ref(formatDateTable(low))
+  const formattedTop = ref(formatDateTable(top))
 </script>
