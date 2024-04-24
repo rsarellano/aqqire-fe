@@ -55,7 +55,7 @@
 </template>
 
 <script setup lang="ts">
-  import { isPremium } from '~/store/isPremium'
+  import { isPremium } from '../store/isPremium'
 
   const sidebar = ref(true)
 
