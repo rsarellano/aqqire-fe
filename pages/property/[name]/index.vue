@@ -1,46 +1,23 @@
 <template>
   <div
     class="container flex flex-col items-center justify-center gap-6 p-4 mx-auto bg-slate-50">
-   
-
-    <div
-      class="flex flex-col justify-center w-full max-w-6xl gap-4 p-2 rounded-md md:overflow-hidden md:flex-row">
-      <Galleria
-        circular
-        :auto-play="true"
-        :showThumbnails="false"
-        :show-item-navigators="true"
-        v-model:activeIndex="activeIndex"
-        :value="images"
-        :responsiveOptions="responsiveOptions"
-        :numVisible="5"
-        container-class="w-full">
-        <template #item="slotProps">
-          <img
-            :src="slotProps.item.itemImageSrc"
-            :alt="slotProps.item.alt"
-            class="w-full" />
-        </template>
-
-        <template #thumbnail="slotProps">
-          <img
-            :src="slotProps.item.thumbnailImageSrc"
-            :alt="slotProps.item.alt" />
-        </template>
-      </Galleria>
-
-      <div
-        class="flex md:grid md:grid-cols-2 gap-2 md:w-[25%] no-scrollbar max-h-[670px] overflow-auto">
-        <button
-          v-for="(item, key) in images"
-          @click="activeIndex = key"
-          class="col-span-1">
-          <img
-            :src="item.itemImageSrc"
-            class="size-full" />
-        </button>
-      </div>
-    </div>
+    <Galleria
+      v-model:activeIndex="activeIndex"
+      circular
+      autoPlay
+      :showThumbnails="false"
+      showIndicators
+      showItemNavigators
+      :value="images"
+      :responsiveOptions="responsiveOptions"
+      container-class="w-full ">
+      <template #item="slotProps">
+        <img
+          :src="slotProps.item.itemImageSrc"
+          :alt="slotProps.item.alt"
+          class="w-full h-full" />
+      </template>
+    </Galleria>
 
     <!-- Share -->
     <section class="w-full max-w-6xl p-0">
