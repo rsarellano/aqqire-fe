@@ -48,7 +48,7 @@
               r="4.5" />
           </svg>
           <span
-            class="ml-3 text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+            class="ml-3 text-sm font-medium duration-200 ">
             Utility
           </span>
         </div>
@@ -76,7 +76,7 @@
               :href="href"
               @click="navigate">
               <span
-                class="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                class="text-sm font-medium duration-200 ">
                 Database
               </span>
             </a>
@@ -93,7 +93,7 @@
               :href="href"
               @click="navigate">
               <span
-                class="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                class="text-sm font-medium duration-200 ">
                 Changelog
               </span>
             </a>
@@ -110,7 +110,7 @@
               :href="href"
               @click="navigate">
               <span
-                class="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                class="text-sm font-medium duration-200 ">
                 Roadmap
               </span>
             </a>
@@ -127,7 +127,7 @@
               :href="href"
               @click="navigate">
               <span
-                class="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                class="text-sm font-medium duration-200 ">
                 FAQs
               </span>
             </a>
@@ -144,7 +144,7 @@
               :href="href"
               @click="navigate">
               <span
-                class="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                class="text-sm font-medium duration-200 ">
                 Empty State
               </span>
             </a>
@@ -161,7 +161,7 @@
               :href="href"
               @click="navigate">
               <span
-                class="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                class="text-sm font-medium duration-200 ">
                 404
               </span>
             </a>
