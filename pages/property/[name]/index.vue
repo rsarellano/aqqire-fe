@@ -22,10 +22,11 @@
     <PropertyShare />
     <PropertyBasicInfo />
 
-    <section class="flex w-full md:max-w-6xl gap-4 p-1 flex-col lg:flex-row">
-      <div class="space-y-2 max-h-min">
+    <section class="flex w-full md:max-w-6xl gap-4 p-1 flex-col lg:flex-row ">
+      <div class="space-y-2 max-h-min grow">
         <PropertyDetails />
         <PropertyFeatures />
+        <PropertyDocuments />
       </div>
       <PropertyContactRight />
     </section>
