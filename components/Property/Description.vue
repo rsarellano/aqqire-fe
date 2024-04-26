@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 space-y-2 bg-white rounded-md grow h-max">
+  <div class="p-8 md:p-4 space-y-2 bg-white rounded-md grow h-max">
     <h2 class="text-2xl font-bold">Property Description</h2>
     <p class="text-sm text-slate-500">
       Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet

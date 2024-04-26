@@ -1,16 +1,15 @@
 <template>
   <div
-    class="container flex flex-col items-center justify-center gap-6 p-4 mx-auto bg-slate-50">
+    class="xs:max-w-80 container flex flex-col items-center justify-center gap-6 p-4 mx-auto bg-slate-50">
     <Galleria
       v-model:activeIndex="activeIndex"
       circular
       autoPlay
       :showThumbnails="false"
-      showIndicators
       showItemNavigators
       :value="images"
       :responsiveOptions="responsiveOptions"
-      container-class="w-full ">
+      container-class="w-full xs:w-6/7">
       <template #item="slotProps">
         <img
           :src="slotProps.item.itemImageSrc"
@@ -21,67 +20,25 @@
 
     <!-- Share -->
     <PropertyShare />
+    <PropertyBasicInfo />
 
-    <section
-      class="flex flex-col justify-between w-full max-w-6xl p-4 text-gray-700 bg-white rounded-md md:flex-row">
-      <div class="space-y-3 md:block md:space-y-2">
-        <h1
-          class="text-2xl font-bold text-center md:text-left md:text-4xl text-slate-800">
-          Family Home in Glasgow
-        </h1>
-        <p class="space-x-2 text-center md:text-left">
-          <i class="text-blue-500 pi pi-map-marker"></i>
-          <span class="italic text-gray-400">
-            60 High St, Glasgow, London
-          </span>
-        </p>
-        <p class="text-sm text-center text-gray-400 md:text-left">
-          <i class="pi pi-building"></i>
-          Building Size 103,484 sq. ft.</p
-        >
+    <section class="flex w-full md:max-w-6xl gap-4 p-1 flex-col lg:flex-row">
+      <div class="space-y-2 max-h-min">
+        <PropertyDetails />
+        <PropertyFeatures />
       </div>
-      <div
-        class="flex flex-col items-center justify-center gap-2 mt-4 md:items-end md:justify-between">
-        <Tag>Gas Station</Tag>
-        <p class="text-2xl font-bold text-blue-500">$7,500,000</p>
-        <p class="text-sm text-gray-400">Cap Rate 9.36%</p>
-      </div>
+      <PropertyContactRight />
     </section>
 
     <!-- Descriptioon -->
-    <section class="flex flex-col w-full max-w-6xl gap-4 mt-2 lg:flex-row">
-      <div class="p-4 space-y-2 bg-white rounded-md grow">
-        <h2 class="text-2xl font-bold">Property Description</h2>
-        <p class="text-sm text-slate-500">
-          Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Vitae quidem atque illum minima cum
-          iste! Cumque, ex! Corporis recusandae dolorem possimus totam inventore
-          voluptate saepe, tempore quaerat reprehenderit velit ad in nihil culpa
-          explicabo iste ab natus debitis quibusdam? Non consequuntur fugit
-          obcaecati nisi similique sequi voluptatum porro ratione repellat?
-        </p>
-
-        <p class="text-sm text-slate-500">
-          Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Vitae quidem atque illum minima cum
-          iste! Cumque, ex! Corporis recusandae dolorem possimus totam inventore
-          voluptate saepe, tempore quaerat reprehenderit velit ad in nihil culpa
-          explicabo iste ab natus debitis quibusdam? Non consequuntur fugit
-          obcaecati nisi similique sequi voluptatum porro ratione repellat?
-        </p>
-      </div>
+    <section class="flex w-full md:max-w-6xl gap-4 mt-2 flex-col h-full">
+      <PropertyDescription />
 
       <!-- Recently Added Section -->
-      <div
-        class="p-4 px-4 space-y-2 overflow-hidden bg-white rounded-md lg:max-w-[25%] w-full">
-        <h2 class="text-xl font-bold">Recently Added</h2>
-
-        <div
-          class="flex flex-col flex-grow md:flex-row lg:flex-col gap-2 max-h-[35rem] overflow-auto no-scrollbar">
-          <PropertyCardSmall />
-          <PropertyCardSmall />
-        </div>
-      </div>
+      <h2 class="text-xl font-bold bg-white w-full p-4 text-center md:text-left"
+        >Other Properties from this broker</h2
+      >
+      <PropertyRecommendedProperties />
     </section>
 
     <section class="flex flex-col w-full max-w-6xl gap-4 mt-2 lg:flex-row">
