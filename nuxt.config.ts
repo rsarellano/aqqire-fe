@@ -3,26 +3,27 @@
 export default defineNuxtConfig({
   debug: true,
   alias: {
-    "@": "/<srcDir>",
+    '@': '/<srcDir>',
   },
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@formkit/nuxt", "nuxt-primevue"],
+  modules: ['@nuxtjs/tailwindcss', '@formkit/nuxt', 'nuxt-primevue'],
   formkit: {
     autoImport: true,
-    configFile: "./formkit.config.ts",
+    configFile: './formkit.config.ts',
   },
   tailwindcss: {
     exposeConfig: true,
+    configPath: './tailwind.config'
   },
   primevue: {
     options: {
       unstyled: true,
       ripple: true,
     },
-    importPT: { as: "Lara", from: "../presets/lara/index.js" },
+    importPT: { as: 'Lara', from: '../presets/lara/index.js' },
     components: {
-      include: "*",
-      exclude: ["Editor", "Chart"],
+      include: '*',
+      exclude: ['Editor', 'Chart'],
     },
   },
-});
+})

@@ -18,28 +18,28 @@
       <div
         class="flex flex-col items-center gap-4 p-4 md:flex-row md:items-start md:justify-center">
         <!-- Advertisement left -->
-
-        <section
+        <!-- Uncomment to show -->
+        <!-- <section
           class="w-full h-full pt-4 max-w-36"
           v-if="isPremium === false">
           <img
             src="https://picsum.photos/120/700"
             class="sticky hidden w-full md:block top-4" />
-        </section>
+        </section> -->
 
         <div class="lg:p-4">
           <slot />
         </div>
 
         <!-- Advertisement Right -->
-        <section
+        <!-- Uncomment -->
+        <!-- <section
           class="w-full h-full pt-4 max-w-36"
           v-if="isPremium === false">
           <img
             src="https://picsum.photos/120/700"
             class="sticky hidden w-full md:block top-4" />
-
-        </section>
+        </section> -->
       </div>
       <section
         v-if="isPremium === false"

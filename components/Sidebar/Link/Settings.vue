@@ -41,7 +41,7 @@
               d="M19.707 9.292a3.012 3.012 0 00-1.415 1.415L13.286 5.7c-.4.195-.84.298-1.286.3a3 3 0 113-3 2.969 2.969 0 01-.3 1.286l5.007 5.006z" />
           </svg>
           <span
-            class="ml-3 text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+            class="ml-3 text-sm font-medium duration-200 ">
             Settings
           </span>
         </div>
@@ -69,7 +69,7 @@
               :href="href"
               @click="navigate">
               <span
-                class="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                class="text-sm font-medium duration-200 ">
                 My Account
               </span>
             </a>
@@ -86,7 +86,7 @@
               :href="href"
               @click="navigate">
               <span
-                class="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                class="text-sm font-medium duration-200 ">
                 My Notifications
               </span>
             </a>
@@ -103,7 +103,7 @@
               :href="href"
               @click="navigate">
               <span
-                class="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                class="text-sm font-medium duration-200 ">
                 Connected Apps
               </span>
             </a>
@@ -120,7 +120,7 @@
               :href="href"
               @click="navigate">
               <span
-                class="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                class="text-sm font-medium duration-200 ">
                 Plans
               </span>
             </a>
@@ -137,7 +137,7 @@
               :href="href"
               @click="navigate">
               <span
-                class="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                class="text-sm font-medium duration-200 ">
                 Billing & Invoices
               </span>
             </a>
@@ -154,7 +154,7 @@
               :href="href"
               @click="navigate">
               <span
-                class="text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+                class="text-sm font-medium duration-200 ">
                 Give Feedback
               </span>
             </a>

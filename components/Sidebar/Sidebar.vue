@@ -8,7 +8,7 @@ import { sidebarExpanded } from './SidebarStore';
     <div
       id="sidebar"
       ref="sidebar"
-      class="fixed z-[50] max-w-full flex flex-col h-screen overflow-y-scroll transition-all duration-200 ease-in-out transform lg:max-w-[15%] lg:static lg:overflow-y-auto overflow-x-hidden no-scrollbar shrink-0 bg-stone-950"
+      class="fixed z-[100] max-w-full flex flex-col h-screen overflow-y-scroll transition-all duration-200 ease-in-out transform lg:max-w-[25%] 2xl:max-w-[15%] lg:static lg:overflow-y-auto overflow-x-hidden no-scrollbar shrink-0 bg-stone-950"
       :class="sidebarExpanded ? 'w-full p-4' : 'w-0'">
       <!-- Sidebar header -->
       <div class="flex justify-between w-full pr-3 mb-10 sm:px-2">
