@@ -1,8 +1,11 @@
 <template>
-  <div class="flex flex-col w-full gap-2 bg-white rounded-md p-8 lg:max-w-[35%]">
-    <h2 class="text-2xl font-bold text-slate-700">Contact Broker</h2>
+  <div
+    class="flex flex-col w-full gap-2 bg-white rounded-md p-8 lg:max-w-[35%]">
+    <h2 class="text-2xl font-bold text-slate-700 text-center uppercase my-4"
+      >Contact Broker</h2
+    >
 
-    <div class="flex-1 space-y-4">
+    <div class="space-y-4">
       <div class="flex flex-col">
         <div class="text-xl font-bold text-slate-700">Name:</div>
         <div class="font-semibold md:text-xl text-slate-500">Neil Infante</div>
@@ -28,3 +31,7 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+  import { FormKit } from '@formkit/vue'
+</script>
