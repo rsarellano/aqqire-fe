@@ -1,6 +1,6 @@
 <template>
   <div
-    class="xs:max-w-80 container flex flex-col items-center justify-center gap-6 p-4 mx-auto bg-slate-50"
+    class="xs:max-w-80 container flex flex-col items-center justify-center gap-2 p-4 mx-auto bg-slate-50"
   >
     <Galleria
       v-model:activeIndex="activeIndex"
@@ -34,6 +34,7 @@
       </div>
       <PropertyContactRight />
     </section>
+    <PropertyNearby />
 
     <!-- Descriptioon -->
     <section class="flex w-full md:max-w-6xl gap-4 mt-2 flex-col h-full">
@@ -43,7 +44,6 @@
       >
       <PropertyRecommendedProperties />
     </section>
-
     <PropertyLocation />
 
     <section class="w-full max-w-6xl mt-2 space-y-2">
