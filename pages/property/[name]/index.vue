@@ -1,6 +1,7 @@
 <template>
   <div
-    class="xs:max-w-80 container flex flex-col items-center justify-center gap-6 p-4 mx-auto bg-slate-50">
+    class="xs:max-w-80 container flex flex-col items-center justify-center gap-6 p-4 mx-auto bg-slate-50"
+  >
     <Galleria
       v-model:activeIndex="activeIndex"
       circular
@@ -9,20 +10,23 @@
       showItemNavigators
       :value="images"
       :responsiveOptions="responsiveOptions"
-      container-class="w-full xs:w-6/7">
+      container-class="w-full xs:w-6/7"
+    >
       <template #item="slotProps">
         <img
           :src="slotProps.item.itemImageSrc"
           :alt="slotProps.item.alt"
-          class="w-full h-full" />
+          class="w-full h-full"
+        />
       </template>
     </Galleria>
 
     <!-- Share -->
     <PropertyShare />
     <PropertyBasicInfo />
+    <PropertyDescription />
 
-    <section class="flex w-full md:max-w-6xl gap-4 p-1 flex-col lg:flex-row ">
+    <section class="flex w-full md:max-w-6xl gap-4 p-1 flex-col lg:flex-row">
       <div class="space-y-2 max-h-min grow">
         <PropertyDetails />
         <PropertyFeatures />
@@ -33,8 +37,6 @@
 
     <!-- Descriptioon -->
     <section class="flex w-full md:max-w-6xl gap-4 mt-2 flex-col h-full">
-      <PropertyDescription />
-
       <!-- Recently Added Section -->
       <h2 class="text-xl font-bold bg-white w-full p-4 text-center md:text-left"
         >Other Properties from this broker</h2
@@ -42,13 +44,7 @@
       <PropertyRecommendedProperties />
     </section>
 
-    <section class="flex flex-col w-full max-w-6xl gap-4 mt-2 lg:flex-row">
-      <div class="p-8 space-y-2 bg-white rounded-md grow">
-        <h2 class="text-2xl font-bold uppercase">Location</h2>
-        <img
-          src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/191:100/w_1280,c_limit/GoogleMapTA.jpg" />
-      </div>
-    </section>
+    <PropertyLocation />
 
     <section class="w-full max-w-6xl mt-2 space-y-2">
       <h2
@@ -58,70 +54,28 @@
 
       <!-- Buyer Details -->
       <div class="flex flex-col w-full gap-2 md:flex-row">
-        <div class="flex-1 p-8 space-y-4 bg-white rounded-md">
-          <div class="flex flex-col">
-            <div class="text-xl font-bold text-slate-700">Name:</div>
-            <div class="font-semibold md:text-xl text-slate-500"
-              >Neil Infante</div
-            >
-          </div>
-
-          <div>
-            <div class="text-xl font-bold text-slate-700">Phone:</div>
-            <div class="font-semibold md:text-xl text-slate-500"
-              >(63) 121-7141</div
-            >
-          </div>
-
-          <div>
-            <div class="text-xl font-bold text-slate-700">Email:</div>
-            <div class="font-semibold sm:text-xl text-slate-500"
-              >neil.infante@eflexervices.com</div
-            >
-          </div>
-
-          <div>
-            <div class="pb-4 text-xl font-bold text-slate-700">Message:</div>
-            <FormKit type="textarea" />
-          </div>
-          <Button class="w-full">Send Message</Button>
-        </div>
+        <PropertyBuyer />
 
         <!-- Seller Details -->
-        <div
-          class="flex flex-col items-center justify-start p-8 space-y-2 bg-white rounded-md">
-          <p class="pb-4 text-2xl font-bold"> Broker Details</p>
-          <NuxtLink
-            to="/"
-            class="overflow-hidden rounded-xl size-36 border-slate-400"
-            ><img
-              src="https://fastly.picsum.photos/id/928/200/300.jpg?hmac=0vBcHV9dVfFTsvcFDn8PRUQiOaH72_2aaKnmlU1PHWk"
-              class="w-full h-full"
-          /></NuxtLink>
-
-          <NuxtLink
-            to="/"
-            class="text-xl font-bold text-slate-600"
-            >John Allen Doe</NuxtLink
-          >
-          <p class="text-slate-400"> Investment Sales Advisor at Capstone</p>
-          <NuxtLink
-            to="/"
-            class="overflow-hidden">
-            <img
-              src="https://st3.depositphotos.com/43745012/44906/i/450/depositphotos_449066958-stock-photo-financial-accounting-logo-financial-logo.jpg"
-              class="max-w-28"
-              alt="" />
-          </NuxtLink>
-        </div>
+        <PropertyBroker />
       </div>
+
+      <!-- Mortgage -->
+      <PropertyMortgage />
+
+      <section class="flex w-full md:max-w-6xl gap-4 mt-2 flex-col h-full">
+        <h2
+          class="text-xl font-bold bg-white w-full p-4 text-center md:text-left"
+        >
+          Other Properties from Aqqire
+        </h2>
+        <PropertyRecommendedProperties />
+      </section>
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { FormKit } from '@formkit/vue'
-  import { isPremium } from '~/store/isPremium'
   const images = [
     {
       itemImageSrc:
