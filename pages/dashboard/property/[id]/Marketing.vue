@@ -192,86 +192,86 @@
   }
   const top = [
     {
-      name: "Berge Springs",
+      name: 'Berge Springs',
       clicks: 752,
       views: 96105,
       impressions: 2062,
       lastUpdated:
-        "Thu Sep 07 2023 23:28:53 GMT+0800 (Philippine Standard Time)",
+        'Thu Sep 07 2023 23:28:53 GMT+0800 (Philippine Standard Time)',
     },
     {
-      name: "Hoppe Trail",
+      name: 'Hoppe Trail',
       clicks: 421,
       views: 69783,
       impressions: 67332,
       lastUpdated:
-        "Tue Sep 26 2023 10:56:31 GMT+0800 (Philippine Standard Time)",
+        'Tue Sep 26 2023 10:56:31 GMT+0800 (Philippine Standard Time)',
     },
     {
-      name: "Brekke Port",
+      name: 'Brekke Port',
       clicks: 359,
       views: 71790,
       impressions: 95046,
       lastUpdated:
-        "Sat Feb 10 2024 03:05:17 GMT+0800 (Philippine Standard Time)",
+        'Sat Feb 10 2024 03:05:17 GMT+0800 (Philippine Standard Time)',
     },
     {
-      name: "Madisen Freeway",
+      name: 'Madisen Freeway',
       clicks: 474,
       views: 95976,
       impressions: 36169,
       lastUpdated:
-        "Mon Aug 28 2023 09:54:45 GMT+0800 (Philippine Standard Time)",
+        'Mon Aug 28 2023 09:54:45 GMT+0800 (Philippine Standard Time)',
     },
     {
-      name: "Alfredo Pines",
+      name: 'Alfredo Pines',
       clicks: 46,
       views: 53993,
       impressions: 90555,
       lastUpdated:
-        "Fri May 05 2023 17:39:08 GMT+0800 (Philippine Standard Time)",
+        'Fri May 05 2023 17:39:08 GMT+0800 (Philippine Standard Time)',
     },
   ]
   const low = [
     {
-      name: "Klocko Isle",
+      name: 'Klocko Isle',
       clicks: 582,
       views: 12818,
       impressions: 28780,
       lastUpdated:
-        "Sun Mar 24 2024 20:29:18 GMT+0800 (Philippine Standard Time)",
+        'Sun Mar 24 2024 20:29:18 GMT+0800 (Philippine Standard Time)',
     },
     {
-      name: "Schneider Tunnel",
+      name: 'Schneider Tunnel',
       clicks: 353,
       views: 33606,
       impressions: 66458,
       lastUpdated:
-        "Tue Apr 02 2024 12:18:23 GMT+0800 (Philippine Standard Time)",
+        'Tue Apr 02 2024 12:18:23 GMT+0800 (Philippine Standard Time)',
     },
     {
-      name: "Ullrich Crossroad",
+      name: 'Ullrich Crossroad',
       clicks: 612,
       views: 50406,
       impressions: 94756,
       lastUpdated:
-        "Fri Aug 18 2023 04:53:21 GMT+0800 (Philippine Standard Time)",
+        'Fri Aug 18 2023 04:53:21 GMT+0800 (Philippine Standard Time)',
     },
     {
-      name: "Tillman Falls",
+      name: 'Tillman Falls',
       clicks: 553,
       views: 78391,
       impressions: 6890,
       lastUpdated:
-        "Sat Jul 01 2023 06:46:16 GMT+0800 (Philippine Standard Time)",
+        'Sat Jul 01 2023 06:46:16 GMT+0800 (Philippine Standard Time)',
     },
     {
-      name: "Verner Tunnel",
+      name: 'Verner Tunnel',
       clicks: 398,
       views: 36811,
       impressions: 80030,
       lastUpdated:
-        "Wed Feb 21 2024 19:38:40 GMT+0800 (Philippine Standard Time)",
+        'Wed Feb 21 2024 19:38:40 GMT+0800 (Philippine Standard Time)',
     },
   ]
 

@@ -1,7 +1,6 @@
 <template>
   <div class="flex flex-col gap-4 p-4 px-12">
     <h1 class="px-2 text-2xl font-bold capitalize"> Add Property </h1>
-    {{ store }}
 
     <FormKit
       type="select"
@@ -78,25 +77,25 @@
 </template>
 
 <script setup lang="ts">
-  import { store, resetFields } from "~/components/Broker/Property/store"
+  import { store, resetFields } from '~/components/Broker/Property/store'
 
   const propertyTypes = [
-    "Hotel",
-    "Gas Station",
-    "Retail",
-    "Multi-Family",
-    "Land",
-    "Industrial",
-    "Restaurant",
-    "Health",
-    "Office",
-    "Special",
+    'Hotel',
+    'Gas Station',
+    'Retail',
+    'Multi-Family',
+    'Land',
+    'Industrial',
+    'Restaurant',
+    'Health',
+    'Office',
+    'Special',
   ]
 
   const route = useRoute()
 
   const propertyType = ref()
   const handleClick = () => {
-    console.log("click")
+    console.log('click')
   }
 </script>

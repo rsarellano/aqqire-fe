@@ -1,0 +1,26 @@
+<template>
+  <div class="flex flex-col gap-4 mt-4 text-slate-600 lg:mt-0">
+    <h1 class="pb-4 text-2xl font-semibold border-b border-slate-200">
+      Professional Information
+    </h1>
+    <div class="flex flex-col gap-2 md:flex-row">
+      <FormKit label="Company" />
+      <FormKit label="Job Title:" />
+    </div>
+
+    <div class="flex flex-col gap-2 md:flex-row">
+      <FormKit
+        label="Date Started"
+        type="month"
+      />
+      <FormKit
+        label="Date Finished"
+        type="month"
+      />
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+  import { states } from '~/store/states'
+</script>
