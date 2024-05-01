@@ -1,42 +1,42 @@
 <template>
-  <div class="flex gap-4 flex-col text-slate-600">
-    <h1 class="text-2xl font-semibold pb-4 border-b border-slate-200"
+  <div class="flex flex-col gap-4 text-slate-600">
+    <h1 class="pb-4 text-2xl font-semibold border-b border-slate-200"
       >Login Information</h1
     >
 
     <!-- Email -->
     <div>
-      <p class="text-red-500 italic">
+      <p class="italic text-red-500">
         Be extra careful when
-        <span
-          @click.ctrl="disabled = !disabled"
-          class="font-bold cursor-pointer"
-          v-tooltip="'Ctrl + Click to edit'"
+        <button
+          @click="disabled = !disabled"
+          class="p-1 px-2 font-bold text-white bg-red-500 rounded cursor-pointer"
+          v-tooltip="'Click to edit'"
         >
           EDITING
-        </span>
+        </button>
         this field.
       </p>
       <FormKit
         type="email"
+        v-model="model.email"
         label="Email"
         :disabled="disabled"
       />
     </div>
 
-    <h2 class="text-xl font-semibold border-b border-slate-200 pb-3"
+    <h2 class="pb-3 text-xl font-semibold border-b border-slate-200"
       >User Role</h2
     >
     <!-- User Role(?) -->
-    <div class="flex gap-4 flex-wrap p-1">
+    <div class="flex flex-wrap gap-4 p-1">
       <div
         v-for="(role, key) of roles"
         :key="key"
         class="flex gap-2"
       >
         <Checkbox
-          v-model="userRoles"
-          :inputId="key"
+          v-model="model.userRoles"
           name="category"
           :value="role"
         />
@@ -48,33 +48,32 @@
       </div>
     </div>
 
-    <div class="flex gap-8 md:flex-row flex-col">
-      <div class="flex grow flex-col gap-4 p-1">
-
+    <div class="flex flex-col gap-8 md:flex-row">
+      <div class="flex flex-col gap-4 p-1 grow">
         <!-- User Type(?) -->
-        <h2 class="text-xl font-semibold border-b border-slate-200 pb-3"
+        <h2 class="pb-3 text-xl font-semibold border-b border-slate-200"
           >User Type</h2
         >
         <FormKit
-          v-model="userType"
+          v-model="model.userType"
           type="radio"
           :options="types"
           decorator-icon="circle"
-          options-class="flex justify-between capitalize md:flex-row flex-col gap-4"
+          options-class="flex flex-col justify-between gap-4 capitalize md:flex-row"
         />
       </div>
 
       <!-- User Package(?) -->
-      <div class="flex grow flex-col gap-4 p-1">
-        <h2 class="text-xl font-semibold border-b border-slate-200 pb-3"
+      <div class="flex flex-col gap-4 p-1 grow">
+        <h2 class="pb-3 text-xl font-semibold border-b border-slate-200"
           >User Package</h2
         >
         <FormKit
-          v-model="userPackage"
+          v-model="model.userPackage"
           type="radio"
           :options="packages"
           decorator-icon="circle"
-          options-class="flex justify-between capitalize md:flex-row flex-col gap-4"
+          options-class="flex flex-col justify-between gap-4 capitalize md:flex-row"
         />
       </div>
     </div>
@@ -86,7 +85,11 @@
   const roles = ['active', 'staff', 'superuser', 'company admin']
   const types = ['broker', 'owner', 'buyer']
   const packages = ['limited', 'standard', 'premium']
-  const userRoles = ref([''])
-  const userType = ref('')
-  const userPackage = ref('')
+
+  const model = defineModel<{
+    email: string
+    userRoles: string[]
+    userType: string
+    userPackage: string
+  }>({ required: true })
 </script>
