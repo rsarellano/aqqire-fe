@@ -1,7 +1,7 @@
 <template>
-  <div class="relative z-[40]">
+  <div class="relative z-[40] w-full mb-b pb-4 ">
     <!-- Desktop Navbar -->
-    <div class="hidden w-full gap-6 p-4 border-b border-b-gray-400 lg:flex">
+    <div class="hidden w-full gap-6 p-4 border-b border-b-gray-400 md:flex overflow-x-scroll  no-scrollbar">
       <NuxtLink
         v-for="(route, key) in routes"
         :key="key"
@@ -17,7 +17,7 @@
       </NuxtLink>
     </div>
 
-    <div class="lg:hidden">
+    <div class="md:hidden">
       <!-- Control button for mobile Nav -->
       <div class="flex justify-end w-full p-4 bg-white">
         <button class="h-full" @click="open = !open">
@@ -57,7 +57,7 @@
 
 <script setup lang="ts">
   const router = useRoute();
-  const open = ref(false);
+  const open = ref(true);
 
   const activeRoute = computed(
     () => (route: string) => router.path.toLowerCase() === route.toLowerCase()
