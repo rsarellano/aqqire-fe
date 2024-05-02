@@ -6,7 +6,10 @@
 
     <!-- Email -->
     <div>
-      <p class="italic text-red-500">
+      <p
+        class="italic text-red-500"
+        v-if="!checkRoute"
+      >
         Be extra careful when
         <button
           @click="disabled = !disabled"
@@ -87,6 +90,11 @@
   const types = ['broker', 'owner', 'buyer']
   const packages = ['limited', 'standard', 'premium']
 
-
+  const route = useRoute()
+  const checkRoute = route.path.includes('/add')
+  
+  onMounted(() => {
+    checkRoute ? (disabled.value = false) : (disabled.value = true)
+  })
   const model = defineModel<User>()
 </script>
