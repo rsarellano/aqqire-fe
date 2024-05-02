@@ -2,17 +2,6 @@
   <div class="flex flex-col gap-8 lg:flex-row md:p-4">
     <!-- Left -->
 
-    <div class="flex flex-col gap-4">
-      <template v-for="(key, value) in user">
-        <div>
-          {{ value }} -
-
-          <span class="text-blue-500">
-            {{ key }}
-          </span>
-        </div>
-      </template>
-    </div>
     <div class="space-y-2 grow">
       <UserLoginInfo v-model="user" />
       <UserGeneralInfo v-model="user" />
