@@ -1,4 +1,6 @@
-export const user = ref({
+import type { User } from '~/types/user'
+
+export const user = ref<User>({
   email: '',
   userRoles: [],
   userType: '',
@@ -27,5 +29,3 @@ export const user = ref({
   companyLogo: '',
   profilePicture: '',
 })
-
-export type userType = typeof user

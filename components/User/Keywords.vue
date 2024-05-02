@@ -5,12 +5,13 @@
     </h1>
 
     <Chips
-      v-model="value"
+      v-model="model!.keywords"
       separator=","
     />
   </div>
 </template>
 
 <script setup lang="ts">
-  const value = ref()
+  import type { User } from '~/types/user'
+  const model = defineModel<User>()
 </script>

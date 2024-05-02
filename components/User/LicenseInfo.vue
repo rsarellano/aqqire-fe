@@ -9,8 +9,12 @@
         :options="states"
         label="License State"
         selectIcon="caretDown"
+        v-model="model!.licenseState"
       />
-      <FormKit label="License Number" />
+      <FormKit
+        label="License Number"
+        v-model="model!.licenseNumber"
+      />
       <Button class="!p-2 !px-4 my-auto h-min">Add License</Button>
     </div>
   </div>
@@ -18,4 +22,7 @@
 
 <script setup lang="ts">
   import { states } from '~/store/states'
+
+  import type { User } from '~/types/user'
+  const model = defineModel<User>()
 </script>

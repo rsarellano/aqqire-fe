@@ -4,12 +4,10 @@
       Upload Company Logo
     </h1>
 
-    <div
-      class="flex flex-col gap-4"
-    >
+    <div class="flex flex-col gap-4">
       <div class="aspect-square max-w-40">
         <img
-          :src="img"
+          :src="model!.companyLogo"
           class="size-full"
         />
       </div>
@@ -26,8 +24,11 @@
 
 <script setup lang="ts">
   import type { FileUploadSelectEvent } from 'primevue/fileupload'
-  const img = ref()
+  import type { User } from '~/types/user'
+
   const selectImage = (event: FileUploadSelectEvent) => {
-    img.value = event.files[0].objectURL
+    model.value!.companyLogo = event.files[0].objectURL
   }
+
+  const model = defineModel<User>()
 </script>

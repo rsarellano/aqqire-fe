@@ -7,6 +7,7 @@
       <FormKit
         type="text"
         label="Email CC"
+        v-model="model!.emailCC"
       />
     </div>
   </div>
@@ -14,4 +15,7 @@
 
 <script setup lang="ts">
   import { states } from '~/store/states'
+
+  import type { User } from '~/types/user'
+  const model = defineModel<User>()
 </script>

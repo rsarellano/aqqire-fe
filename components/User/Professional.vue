@@ -4,23 +4,28 @@
       Professional Information
     </h1>
     <div class="flex flex-col gap-2 md:flex-row">
-      <FormKit label="Company" />
-      <FormKit label="Job Title:" />
+      <FormKit label="Company"  
+      v-model="model!.companyProfessional"/>
+      <FormKit label="Job Title:"  
+      v-model="model!.jobTitle"/>
     </div>
 
     <div class="flex flex-col gap-2 md:flex-row">
       <FormKit
         label="Date Started"
         type="month"
+        v-model="model!.dateStarted"
       />
       <FormKit
         label="Date Finished"
         type="month"
+        v-model="model!.dateFinished"
       />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { states } from '~/store/states'
+  import type { User } from '~/types/user'
+  const model = defineModel<User>()
 </script>

@@ -19,7 +19,7 @@
       </p>
       <FormKit
         type="email"
-        v-model="model.email"
+        v-model="model!.email"
         label="Email"
         :disabled="disabled"
       />
@@ -36,7 +36,7 @@
         class="flex gap-2"
       >
         <Checkbox
-          v-model="model.userRoles"
+          v-model="model!.userRoles"
           name="category"
           :value="role"
         />
@@ -55,7 +55,7 @@
           >User Type</h2
         >
         <FormKit
-          v-model="model.userType"
+          v-model="model!.userType"
           type="radio"
           :options="types"
           decorator-icon="circle"
@@ -69,7 +69,7 @@
           >User Package</h2
         >
         <FormKit
-          v-model="model.userPackage"
+          v-model="model!.userPackage"
           type="radio"
           :options="packages"
           decorator-icon="circle"
@@ -81,15 +81,12 @@
 </template>
 
 <script setup lang="ts">
+  import type { User } from '~/types/user'
   const disabled = ref(true)
   const roles = ['active', 'staff', 'superuser', 'company admin']
   const types = ['broker', 'owner', 'buyer']
   const packages = ['limited', 'standard', 'premium']
 
-  const model = defineModel<{
-    email: string
-    userRoles: string[]
-    userType: string
-    userPackage: string
-  }>({ required: true })
+
+  const model = defineModel<User>()
 </script>

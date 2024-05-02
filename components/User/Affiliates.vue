@@ -42,4 +42,7 @@
 </template>
 
 <script setup lang="ts">
+
+import type { User } from '~/types/user'
+  const model = defineModel<User>()
 </script>

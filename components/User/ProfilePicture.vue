@@ -7,7 +7,7 @@
     <div class="flex flex-col gap-4">
       <div class="aspect-square max-w-40">
         <img
-          :src="img"
+          :src="model!.profilePicture"
           class="size-full"
         />
       </div>
@@ -24,8 +24,11 @@
 
 <script setup lang="ts">
   import type { FileUploadSelectEvent } from 'primevue/fileupload'
-  const img = ref()
+  import type { User } from '~/types/user'
+
+  const model = defineModel<User>()
+  
   const selectImage = (event: FileUploadSelectEvent) => {
-    img.value = event.files[0].objectURL
+    model.value!.profilePicture = event.files[0].objectURL
   }
 </script>
