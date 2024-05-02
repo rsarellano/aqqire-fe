@@ -26,4 +26,5 @@ export type User = {
   profilePicture: string
   licenseState: string
   licenseNumber: string
+  affiliates: string[]
 }

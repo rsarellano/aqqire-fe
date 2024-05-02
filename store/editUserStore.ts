@@ -28,4 +28,8 @@ export const user = ref<User>({
   keywords: [],
   companyLogo: '',
   profilePicture: '',
+
+  licenseNumber: '',
+  licenseState: '',
+  affiliates: [],
 })
