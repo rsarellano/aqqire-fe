@@ -41,6 +41,17 @@
           header="Last Updated"
           sortable
         ></Column>
+
+        <Column
+          field="actions"
+          header="Actions"
+        >
+          <template #body>
+            <div class="flex justify-center">
+              <DashboardMarketingActions />
+            </div>
+          </template>
+        </Column>
       </DataTable>
     </div>
 
@@ -80,6 +91,17 @@
           header="Last Updated"
           sortable
         ></Column>
+
+        <Column
+          field="actions"
+          header="Actions"
+        >
+          <template #body>
+            <div class="flex justify-center">
+              <DashboardMarketingActions />
+            </div>
+          </template>
+        </Column>
       </DataTable>
     </div>
 
@@ -111,7 +133,7 @@
         </Card>
       </Button>
 
-      <Button
+      <!-- <Button
         class="!p-1 group bg-blue-500 max-w-64 w-full"
         v-ripple
       >
@@ -135,7 +157,7 @@
             </div>
           </template>
         </Card>
-      </Button>
+      </Button> -->
 
       <Button
         class="!p-1 group bg-blue-500 max-w-64 w-full"
