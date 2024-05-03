@@ -7,6 +7,7 @@
     <div class="flex flex-col gap-4">
       <div class="aspect-square max-w-40">
         <img
+          v-if="model!.companyLogo"
           :src="model!.companyLogo"
           class="size-full"
         />
