@@ -1,7 +1,13 @@
 <template>
+  
   <div>
     <AdminNav />
 
+    <div class="w-full px-4 text-right">
+      <Button>
+        <NuxtLink to="/admin/users/add">Create User</NuxtLink>
+      </Button>
+    </div>
     <!-- Filters -->
     <div class="flex flex-wrap items-center justify-center gap-2 pt-2">
       <FormKit

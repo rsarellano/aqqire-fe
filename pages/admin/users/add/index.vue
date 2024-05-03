@@ -1,6 +1,6 @@
 <template>
+  <AdminNav />
   <div class="p-4 space-y-8">
-
     <h1 class="text-4xl font-bold">Create User</h1>
     <!-- Left -->
     <div class="flex flex-col gap-8 lg:flex-row">
