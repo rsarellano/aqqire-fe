@@ -1,5 +1,4 @@
 <template>
-  
   <div>
     <AdminNav />
 
@@ -198,6 +197,16 @@
               ></i>
             </NuxtLink>
 
+            <button
+              @click="deleteUser(data)"
+              class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-red-500 hover:text-red-500"
+            >
+              <i
+                class="pi pi-trash"
+                title="Edit"
+              ></i>
+            </button>
+
             <button title="Enable or Disable(Soft Delete)">
               <InputSwitch v-model="data.status" />
             </button>
@@ -205,12 +214,47 @@
         </template>
       </Column>
     </DataTable>
+
+    <Dialog
+      v-model:visible="showDialog"
+      modal
+    >
+      <div class="text-2xl font-bold text-center text-red-500">
+        Are you sure you want to delete this user?
+      </div>
+
+      <div class="flex flex-col items-center justify-center gap-4 my-8">
+        <div class="overflow-hidden border rounded-md size-44">
+          <img
+            :src="currentUser.img"
+            class="size-full"
+          />
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <template v-for="(name, key) in currentUser">
+            <div class="flex gap-2 grow">
+              <div class="font-bold capitalize"> {{ key }}: </div>
+              <div class="text-blue-500 capitalize"> {{ name }}: </div>
+            </div>
+          </template>
+        </div>
+      </div>
+
+      <Button
+        severity="danger"
+        icon="pi pi-trash"
+        class="w-full"
+      ></Button>
+    </Dialog>
   </div>
 </template>
 
 <script setup lang="ts">
   import { FilterMatchMode } from 'primevue/api'
   import { FormKit } from '@formkit/vue'
+  import { useDialog } from 'primevue/usedialog'
+
   const users = ref([
     {
       name: 'John Doe',
@@ -374,4 +418,11 @@
   ]
 
   const search = ref()
+  const showDialog = ref(false)
+  const currentUser = ref()
+
+  const deleteUser = (user: (typeof users.value)[0]) => {
+    showDialog.value = true
+    currentUser.value = user
+  }
 </script>
