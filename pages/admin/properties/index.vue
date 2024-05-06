@@ -3,7 +3,9 @@
     <AdminNav />
 
     <div class="lg:px-4 xl:px-12">
-      <div class="grid items-center justify-center gap-2 py-2 mt-2 flex-col md:grid-cols-4 grid-cols-2 w-full">
+      <div
+        class="grid flex-col items-center justify-center w-full grid-cols-2 gap-2 py-2 mt-2 md:grid-cols-4"
+      >
         <FormKit
           v-model="filters.global.value"
           type="text"
@@ -210,8 +212,9 @@
               >
                 <i class="pi pi-info"></i>
               </NuxtLink>
+
               <NuxtLink
-                to="#"
+                :to="'/admin/properties/edit/' + data.id"
                 class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500"
               >
                 <i
@@ -234,7 +237,7 @@
 <script setup lang="ts">
   import { ref, onMounted } from "vue"
   import { FilterMatchMode } from "primevue/api"
-  import { data } from "../data"
+  import { data } from "../../data"
 
   const filters = ref({
     global: { value: undefined, matchMode: FilterMatchMode.STARTS_WITH },

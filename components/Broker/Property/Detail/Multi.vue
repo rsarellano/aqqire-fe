@@ -4,24 +4,24 @@
       <FormKit
         label="Number of Buildings"
         outer-class="font-bold uppercase"
-        v-model="store.numberOfBuildings"
+        v-model="model!.numberOfBuildings"
       />
       <FormKit
         label="Number of Units"
         outer-class="font-bold uppercase"
-        v-model="store.numberOfUnits"
+        v-model="model!.numberOfUnits"
       />
     </div>
     <div class="flex flex-col gap-2 lg:flex-row">
       <FormKit
         label="Total building size in Square Foot"
         outer-class="font-bold uppercase"
-        v-model="store.buildingSizeinSqFt"
+        v-model="model!.buildingSizeinSqFt"
       />
       <FormKit
         label="Number of Floors"
         outer-class="font-bold uppercase"
-        v-model="store.numberOfFloors"
+        v-model="model!.numberOfFloors"
       />
     </div>
 
@@ -29,35 +29,36 @@
       <FormKit
         label="Price per Square Foot"
         outer-class="font-bold uppercase"
-        v-model="store.pricePerSquareFt"
+        v-model="model!.pricePerSquareFt"
       />
       <FormKit
         label="Net Rentable Area"
         outer-class="font-bold uppercase"
-        v-model="store.netRentableArea"
+        v-model="model!.netRentableArea"
       />
     </div>
 
     <FormKit
       label="Lot size in Acre"
       outer-class="font-bold uppercase"
-      v-model="store.lotSizeAcre"
+      v-model="model!.lotSizeAcre"
     />
     <div class="flex flex-col gap-2 lg:flex-row">
       <FormKit
         label="Year Built"
         outer-class="font-bold uppercase"
-        v-model="store.yearBuilt"
+        v-model="model!.yearBuilt"
       />
       <FormKit
         label="Year Renovated"
         outer-class="font-bold uppercase"
-        v-model="store.yearRenovated"
+        v-model="model!.yearRenovated"
       />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { store } from "../store"
+  import type { Property } from "~/types/property"
+  const model = defineModel<Property>()
 </script>

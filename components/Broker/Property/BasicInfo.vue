@@ -5,31 +5,32 @@
         type="text"
         label="Property Name"
         label-class="pb-1 text-2xl uppercase"
-        v-model="store.propertyName"
+        v-model="model!.propertyName"
       />
       <FormKit
         label="Price"
         type="number"
         prefix-icon="dollar"
         label-class="pb-1 text-2xl uppercase"
-        v-model="store.price"
+        v-model="model!.price"
       />
     </div>
     <FormKit
       type="text"
       label="Brand"
       label-class="pb-1 text-2xl uppercase"
-      v-model="store.brand"
+      v-model="model!.brand"
     />
     <FormKit
       type="text"
       label="Sale Type"
       label-class="pb-1 text-2xl uppercase"
-      v-model="store.saleType"
+      v-model="model!.saleType"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-  import { store } from "./store"
+  import type { Property } from "~/types/property"
+  const model = defineModel<Property>()
 </script>

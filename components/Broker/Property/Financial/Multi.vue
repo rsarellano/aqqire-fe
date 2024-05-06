@@ -3,21 +3,22 @@
     <FormKit
       label="Net Operating Income"
       outer-class="font-bold uppercase"
-      v-model="store.netOperatingIncome"
+      v-model="model!.netOperatingIncome"
     />
     <FormKit
       label="Occupancy"
       outer-class="font-bold uppercase"
-      v-model="store.occupancy"
+      v-model="model!.occupancy"
     />
     <FormKit
       label="Cap Rate"
       outer-class="font-bold uppercase"
-      v-model="store.capRate"
+      v-model="model!.capRate"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-  import { store } from "../store"
+  import type { Property } from "~/types/property"
+  const model = defineModel<Property>()
 </script>

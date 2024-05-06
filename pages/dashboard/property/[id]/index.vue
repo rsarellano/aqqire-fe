@@ -1,6 +1,8 @@
 <template>
   <div class="flex flex-col gap-4 p-4 px-12">
-    <h1 class="px-2 text-2xl font-bold capitalize"> Edit Property {{ route.params.id }}</h1>
+    <h1 class="px-2 text-2xl font-bold capitalize">
+      Edit Property {{ route.params.id }}</h1
+    >
 
     <template v-if="propertyType">
       <BrokerPropertyBasicInfo />
@@ -77,7 +79,7 @@
 
   const route = useRoute()
 
-  const propertyType = ref('hotel')
+  const propertyType = ref("hotel")
   const handleClick = () => {
     console.log("click")
   }
