@@ -2,8 +2,8 @@
   <div>
     <AdminNav />
 
-    <div class="px-12">
-      <div class="flex items-center justify-center gap-2 py-2 mt-2">
+    <div class="lg:px-4 xl:px-12">
+      <div class="grid items-center justify-center gap-2 py-2 mt-2 flex-col md:grid-cols-4 grid-cols-2 w-full">
         <FormKit
           v-model="filters.global.value"
           type="text"

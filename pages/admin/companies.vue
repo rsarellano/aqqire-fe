@@ -7,8 +7,9 @@
         class="p-4 py-2 mx-auto my-2 font-bold text-center text-white bg-blue-500 rounded-t-md">
         Featured Logos
       </div>
+
       <div class="flex flex-col h-full gap-4 p-4 bg-white rounded-md">
-        <div class="flex justify-between">
+        <div class="flex flex-col md:flex-row gap-4 justify-between">
           <h2 class="text-2xl font-bold">Drag and Drop to change sorting</h2>
           <button
             @click="modal = !modal"
