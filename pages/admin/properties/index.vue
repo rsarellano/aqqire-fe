@@ -1,8 +1,12 @@
 <template>
   <div>
     <AdminNav />
-
-    <div class="lg:px-4 xl:px-12">
+    <div class="flex justify-end w-full">
+      <NuxtLink to="/admin/properties/add">
+        <Button>Create Property</Button>
+      </NuxtLink>
+    </div>
+    <div class="">
       <div
         class="grid flex-col items-center justify-center w-full grid-cols-2 gap-2 py-2 mt-2 md:grid-cols-4"
       >

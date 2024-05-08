@@ -1,7 +1,17 @@
 <template>
+  <AdminNav />
   <div class="flex flex-col gap-4 p-4 px-12">
-    <h1 class="px-2 text-2xl font-bold capitalize">
+    <h1
+      class="px-2 text-2xl font-bold capitalize"
+      v-if="store.propertyType"
+    >
       Add {{ store.propertyType }} Property
+    </h1>
+    <h1
+      class="px-2 text-2xl font-bold capitalize"
+      v-else
+    >
+      Select Property type
     </h1>
 
     <FormKit
@@ -15,6 +25,7 @@
     />
 
     <template v-if="store.propertyType">
+      <AdminPropertyBrokerSearch v-model="store.brokers" />
       <BrokerPropertyBasicInfo v-model="store" />
       <BrokerPropertyLocation v-model="store" />
 
@@ -108,7 +119,7 @@
           severity="danger"
           >Reset Fields</Button
         >
-        <Button @click="handleClick">Create Property</Button>
+        <Button @click="">Create Property</Button>
       </div>
     </template>
   </div>
@@ -129,8 +140,4 @@
     "Office",
     "Special",
   ]
-
-  const handleClick = () => {
-    console.log("click")
-  }
 </script>

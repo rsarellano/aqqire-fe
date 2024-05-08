@@ -55,10 +55,12 @@ const defaultValues = {
   averageDailyRate: "",
   revPar: "",
   multiplier: "",
+
+  brokers: []
 }
 
 export const store = ref<Property>(defaultValues)
 
 export const resetFields = () => {
-  store.value = defaultValues
+  store.value = { ...defaultValues, propertyType: store.value.propertyType }
 }

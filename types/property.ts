@@ -53,4 +53,6 @@ export type Property = {
   averageDailyRate: string
   revPar: string
   multiplier: string
+
+  brokers: string[]
 }
