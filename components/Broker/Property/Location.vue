@@ -32,12 +32,14 @@
     <div class="flex flex-col gap-4 lg:flex-row">
       <FormKit
         label="Address"
+        validation="required|length:4"
         type="text"
         label-class="pb-1 text-2xl uppercase"
         v-model="model!.address"
       />
       <FormKit
         label="City"
+        validation="required|length:4"
         type="text"
         label-class="pb-1 text-2xl uppercase"
         v-model="model!.city"
@@ -46,11 +48,13 @@
     <div class="flex flex-col gap-4 lg:flex-row">
       <FormKit
         label="State"
+        validation="required|length:4"
         label-class="pb-1 text-2xl uppercase"
         v-model="model!.state"
       />
       <FormKit
         label="Zip Code"
+        validation="required|length:4"
         label-class="pb-1 text-2xl uppercase"
         v-model="model!.zip"
       />
