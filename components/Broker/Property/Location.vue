@@ -4,7 +4,7 @@
       Location
     </h2>
     <div class="flex items-center gap-2">
-      <InputSwitch v-model="store.international" />
+      <InputSwitch v-model="model!.international" />
       <p class="flex items-end gap-2 font-semibold text-gray-700 text-md">
         International Property?
         <i
@@ -32,32 +32,37 @@
     <div class="flex flex-col gap-4 lg:flex-row">
       <FormKit
         label="Address"
+        validation="required|length:4"
         type="text"
         label-class="pb-1 text-2xl uppercase"
-        v-model="store.address"
+        v-model="model!.address"
       />
       <FormKit
         label="City"
+        validation="required|length:4"
         type="text"
         label-class="pb-1 text-2xl uppercase"
-        v-model="store.city"
+        v-model="model!.city"
       />
     </div>
     <div class="flex flex-col gap-4 lg:flex-row">
       <FormKit
         label="State"
+        validation="required|length:4"
         label-class="pb-1 text-2xl uppercase"
-        v-model="store.state"
+        v-model="model!.state"
       />
       <FormKit
         label="Zip Code"
+        validation="required|length:4"
         label-class="pb-1 text-2xl uppercase"
-        v-model="store.zip"
+        v-model="model!.zip"
       />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  import { store } from "./store"
+  import type { Property } from "~/types/property"
+  const model = defineModel<Property>()
 </script>

@@ -3,32 +3,36 @@
     <FormKit
       label="Average Daily Rate"
       label-class="pb-1 text-2xl uppercase"
-      v-model="store.averageDailyRate"
+      v-model="model!.averageDailyRate"
     />
     <FormKit
       label="Occupancy"
       label-class="pb-1 text-2xl uppercase"
-      v-model="store.occupancy"
+      v-model="model!.occupancy"
     />
     <FormKit
       label="Rev Par"
       label-class="pb-1 text-2xl uppercase"
-      v-model="store.revPar"
+      v-model="model!.revPar"
     />
     <FormKit
       label="Net Operating Income"
       label-class="pb-1 text-2xl uppercase"
-      v-model="store.netOperatingIncome"
+      v-model="model!.netOperatingIncome"
     />
-    <FormKit label="Cap Rate" />
+    <FormKit
+      label="Cap Rate"
+      v-model="model!.capRate"
+    />
     <FormKit
       label="Multiplier"
       label-class="pb-1 text-2xl uppercase"
-      v-model="store.capRate"
+      v-model="model!.capRate"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-  import { store } from "../store"
+  import type { Property } from "~/types/property"
+  const model = defineModel<Property>()
 </script>

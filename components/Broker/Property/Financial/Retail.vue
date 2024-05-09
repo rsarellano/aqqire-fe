@@ -2,27 +2,28 @@
   <div class="flex flex-col gap-2 py-4">
     <FormKit
       label="Price per Square Foot"
-      v-model="store.pricePerSquareFt"
+      v-model="model!.pricePerSquareFt"
     />
     <FormKit
       label="Gross Rental Income"
-      v-model="store.grossRentalIncome"
+      v-model="model!.grossRentalIncome"
     />
     <FormKit
       label="Net Rental Income"
-      v-model="store.netRentalIncome"
+      v-model="model!.netRentalIncome"
     />
     <FormKit
       label="Net Operating Income"
-      v-model="store.netOperatingIncome"
+      v-model="model!.netOperatingIncome"
     />
     <FormKit
       label="Cap Rate"
-      v-model="store.capRate"
+      v-model="model!.capRate"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-  import { store } from "../store"
+  import type { Property } from "~/types/property"
+  const model = defineModel<Property>()
 </script>
