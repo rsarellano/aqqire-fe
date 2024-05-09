@@ -16,7 +16,7 @@
         <img
           :src="slotProps.item.itemImageSrc"
           :alt="slotProps.item.alt"
-          class="w-full h-full"
+          class="w-full !max-h-[44rem] h-full"
         />
       </template>
     </Galleria>
