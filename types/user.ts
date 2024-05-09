@@ -1,0 +1,30 @@
+export type User = {
+  email: string
+  userRoles: string[]
+  userType: string
+  userPackage: string
+  firstName: string
+  middleName: string
+  lastName: string
+  phone: string
+  street: string
+  city: string
+  state: string
+  zip: string
+  company: string
+  workType: string
+  companyPosition: string
+  profileDescription: string
+  password: string
+  emailCC: string
+  jobTitle: string
+  companyProfessional: string
+  dateStarted: string
+  dateFinished: string
+  keywords: string[]
+  companyLogo: string
+  profilePicture: string
+  licenseState: string
+  licenseNumber: string
+  affiliates: string[]
+}
