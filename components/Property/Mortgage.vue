@@ -32,6 +32,5 @@
 
 <script setup lang="ts">
   import { FormKit } from "@formkit/vue"
-
-  const downpayment = ref()
+  const downpayment = ref('20')
 </script>
