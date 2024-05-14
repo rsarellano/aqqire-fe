@@ -14,6 +14,10 @@ const defaultValues = {
   city: "",
   state: "",
   zip: "",
+  coordinates: {
+    lat: 0,
+    lng: 0,
+  },
 
   // Common Info
   buildingSizeinSqFt: "",
@@ -56,7 +60,7 @@ const defaultValues = {
   revPar: "",
   multiplier: "",
 
-  brokers: []
+  brokers: [],
 }
 
 export const store = ref<Property>(defaultValues)

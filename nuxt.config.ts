@@ -1,29 +1,35 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      googleApi: "",
+      mapId: "",
+    },
+  },
   debug: true,
   alias: {
-    '@': '/<srcDir>',
+    "@": "/<srcDir>",
   },
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@formkit/nuxt', 'nuxt-primevue'],
+  modules: ["@nuxtjs/tailwindcss", "@formkit/nuxt", "nuxt-primevue"],
   formkit: {
     autoImport: true,
-    configFile: './formkit.config.ts',
+    configFile: "./formkit.config.ts",
   },
   tailwindcss: {
     exposeConfig: true,
-    configPath: './tailwind.config'
+    configPath: "./tailwind.config",
   },
   primevue: {
     options: {
       unstyled: true,
       ripple: true,
     },
-    importPT: { as: 'Lara', from: '../presets/lara/index.js' },
+    importPT: { as: "Lara", from: "../presets/lara/index.js" },
     components: {
-      include: '*',
-      exclude: ['Editor', 'Chart'],
+      include: "*",
+      exclude: ["Editor", "Chart"],
     },
   },
 })

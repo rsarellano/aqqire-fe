@@ -34,7 +34,9 @@
 <script setup lang="ts">
   /// <reference types="@types/google.maps" />
   import { Loader } from "@googlemaps/js-api-loader"
+  import type { Property } from "../../../types/property"
 
+  const model = defineModel<Property>()
   let map: google.maps.Map
   const defaultLocation = { lat: 37.7749, lng: -122.4194 } // San Francisco
   const mainMap = ref()
@@ -49,7 +51,6 @@
     libraries: ["core", "maps", "places"],
   })
 
-  // Search
   const searchPlace = async () => {
     if (!autocompleteInput.value) return (autoCompletePlaces.value = null)
 
@@ -69,7 +70,6 @@
       useStrictTypeFiltering: false,
     })
     autoCompletePlaces.value = places
-    console.log(places)
   }
 
   const addPin = (coordinates: { lat: number; lng: number }) => {
@@ -77,11 +77,12 @@
     pin.value.map = null
 
     // Jump to coordinates when clicked
-    map.setCenter({ lat: coordinates.lat, lng: coordinates.lng })
+    map.setCenter(coordinates)
 
     // Put another pin after clearing the old pin and removing the infoWindow
     pin.value.position = coordinates
     pin.value.map = map
+    model.value!.coordinates = coordinates
 
     // Clear input after click
     autocompleteInput.value = null
@@ -95,7 +96,7 @@
 
     map = new Map(mainMap.value, {
       center: defaultLocation,
-      zoom: 18,
+      zoom: 14,
       mapId: config.public.mapId,
     })
 
@@ -124,6 +125,7 @@
       // Put another pin after clearing the old pin and removing the infoWindow
       pin.value.position = mapsMouseEvent.latLng
       pin.value.map = map
+      model.value!.coordinates = pin.value.position
     })
   })
 </script>

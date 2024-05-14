@@ -84,14 +84,14 @@
 </template>
 
 <script setup lang="ts">
-  import type { User } from '~/types/user'
+  import type { User } from "~/types/user"
   const disabled = ref(true)
-  const roles = ['active', 'staff', 'superuser', 'company admin']
-  const types = ['broker', 'owner', 'buyer']
-  const packages = ['limited', 'standard', 'premium']
+  const roles = ["active", "staff", "superuser", "company admin"]
+  const types = ["broker", "owner", "buyer"]
+  const packages = ["limited", "standard", "premium"]
 
   const route = useRoute()
-  const checkRoute = route.path.includes('/add')
+  const checkRoute = route.path.includes("/add")
 
   onMounted(() => {
     checkRoute ? (disabled.value = false) : (disabled.value = true)
