@@ -13,6 +13,7 @@
       <AdminPropertyBrokerSearch v-model="store.brokers" />
       <BrokerPropertyBasicInfo v-model="store" />
       <BrokerPropertyLocation v-model="store" />
+      <BrokerPropertyMap v-model="store" />
 
       <h2
         class="pb-4 text-2xl font-bold text-gray-700 capitalize border-b border-gray-700"
@@ -141,6 +142,10 @@
       city: "Los Angeles",
       state: "California",
       zip: "90001",
+      coordinates: {
+        lat: 0,
+        lng: 0,
+      },
 
       // Common Info
       buildingSizeinSqFt: "50,000",

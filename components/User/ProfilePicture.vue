@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-4 text-slate-600">
+  <div class="flex flex-col gap-4 pb-4 text-slate-600">
     <h1 class="pb-4 text-2xl font-semibold border-b border-slate-200">
       Upload Profile Picture
     </h1>
@@ -24,8 +24,8 @@
 </template>
 
 <script setup lang="ts">
-  import type { FileUploadSelectEvent } from 'primevue/fileupload'
-  import type { User } from '~/types/user'
+  import type { FileUploadSelectEvent } from "primevue/fileupload"
+  import type { User } from "~/types/user"
 
   const model = defineModel<User>()
 

@@ -59,10 +59,13 @@
         v-model="model!.zip"
       />
     </div>
+    <!-- Map -->
   </div>
 </template>
 
 <script setup lang="ts">
   import type { Property } from "~/types/property"
+  const config = useRuntimeConfig()
   const model = defineModel<Property>()
+
 </script>

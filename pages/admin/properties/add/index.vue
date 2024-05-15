@@ -28,6 +28,8 @@
       <AdminPropertyBrokerSearch v-model="store.brokers" />
       <BrokerPropertyBasicInfo v-model="store" />
       <BrokerPropertyLocation v-model="store" />
+      <BrokerPropertyMap v-model="store" />
+
 
       <h2
         class="pb-4 text-2xl font-bold text-gray-700 capitalize border-b border-gray-700"

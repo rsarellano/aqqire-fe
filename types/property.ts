@@ -1,3 +1,5 @@
+/// <reference types="@types/google.maps" />
+
 export type Property = {
   propertyType: string
   // Basic Info
@@ -12,6 +14,10 @@ export type Property = {
   city: string
   state: string
   zip: string
+  coordinates: {
+    lat: number
+    lng: number
+  }
 
   // Common Info
   buildingSizeinSqFt: string
