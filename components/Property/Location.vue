@@ -1,10 +1,45 @@
 <template>
-  <section class="flex flex-col w-full max-w-6xl gap-4 mt-2 lg:flex-row">
-    <div class="p-8 space-y-2 bg-white rounded-md grow">
-      <h2 class="text-2xl font-bold uppercase">Location</h2>
-      <img
-        src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/191:100/w_1280,c_limit/GoogleMapTA.jpg" />
-    </div>
-  </section>
+  <div
+    ref="mainMap"
+    id="map"
+    class="w-full h-[30rem] rounded-md max-w-6xl"
+  >
+  </div>
 </template>
 
+<script setup lang="ts">
+  /// <reference types="@types/google.maps" />
+  import { Loader } from "@googlemaps/js-api-loader"
+
+  let map: google.maps.Map
+  const defaultLocation = { lat: 37.7749, lng: -122.4194 } // San Francisco
+  const mainMap = ref()
+  const pin = ref()
+  const config = useRuntimeConfig()
+
+  const loader = new Loader({
+    apiKey: config.public.googleApi,
+    version: "weekly",
+    libraries: ["core", "maps", "places"],
+  })
+
+  onMounted(async () => {
+    const [{ Map }, { AdvancedMarkerElement }] = await Promise.all([
+      loader.importLibrary("maps"),
+      loader.importLibrary("marker"),
+    ])
+
+    map = new Map(mainMap.value, {
+      center: defaultLocation,
+      zoom: 14,
+      mapId: config.public.mapId,
+    })
+
+    // add a pin at default location when page loads
+    pin.value = new AdvancedMarkerElement({
+      map,
+      gmpDraggable: true,
+      position: defaultLocation,
+    })
+  })
+</script>
