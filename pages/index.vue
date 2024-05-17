@@ -1,6 +1,5 @@
 <template>
   <div class="w-full">
-    <Navbar />
     <HomeCarousel />
     <HomeFilter />
 

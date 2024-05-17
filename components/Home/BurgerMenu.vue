@@ -3,7 +3,7 @@
     <Button
       type="button"
       icon="pi pi-align-justify"
-      class="mb-2 fill-white"
+      class="mb-2 border border-white fill-white"
       @click="toggle"
       aria-haspopup="true"
       aria-controls="overlay_menu" />
