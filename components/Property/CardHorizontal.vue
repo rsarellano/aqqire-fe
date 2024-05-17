@@ -1,11 +1,15 @@
 <template>
-  <div class="m-2 my-4 rounded-md shadow-lg hover:shadow-xl">
+  <div
+    class="flex flex-col w-full overflow-hidden rounded-md shadow-lg cursor-pointer md:flex-row hover:shadow-xl hover:border"
+  >
     <!-- Image -->
-    <div class="relative overflow-hidden group rounded-t-md">
-      <img
-        src="https://lion-coders.com/demo/html/sarchholm-real-estate-template/images/property/property_1.jpg"
-        class="scale-125 duration-700 ease-in-out group-hover:scale-[1.8] -z-9999"
-      />
+    <div class="relative md:w-2/5 group">
+      <div class="overflow-hidden max-h-72">
+        <img
+          src="https://lion-coders.com/demo/html/sarchholm-real-estate-template/images/property/property_1.jpg"
+          class="duration-700 ease-in-out group-hover:scale-[1.8] -z-9999 size-full"
+        />
+      </div>
 
       <div class="absolute flex gap-1 top-4 right-4">
         <div class="p-1 px-2 text-xs font-bold text-white bg-blue-500">
@@ -48,26 +52,31 @@
         </div>
       </div>
     </div>
+
     <!-- Info -->
-    <div class="p-4 border border-t-0 border-black rounded-b-md">
-      <h2 class="text-sm font-semibold uppercase lg:text-xl"
-        >Villa on hartford</h2
-      >
-      <p class="text-xs text-gray-500">2854 Meadow View Drive, Hartford, USA</p>
-      <div
-        class="grid justify-between w-full grid-cols-1 mt-2 text-sm lg:grid-cols-2 gap-x-4"
-      >
-        <div>- 4 Bedrooms</div>
-        <div>- 3 baths</div>
-        <div>- 2 Garage</div>
-        <div>- 2142 sq. ft</div>
-      </div>
-      <div class="w-full h-[1px] mt-4 bg-gray-500"></div>
-      <div class="flex justify-between mt-2">
-        <div class="pl-2 font-bold">Tony Stark</div>
-        <div class="flex items-baseline gap-1">
-          <p class="font-bold text-blue-500">$7500</p>
+    <div class="flex flex-col justify-between p-4 px-8 md:flex-row grow">
+      <div class="flex flex-col justify-between gap-4 p-2">
+        <div class="space-y-2">
+          <h2 class="text-xl font-semibold uppercase lg:text-2xl">
+            Villa on hartford
+          </h2>
+          <p class="text-gray-500 text-md ">
+            <i class="pr-2 text-xs text-blue-500 pi pi-map-marker md:text-sm"></i>2854 Meadow View
+            Drive, Hartford, USA
+          </p>
         </div>
+        <div class="flex items-center gap-4 ">
+          <p class="pl-2 text-gray-500">2 Days ago</p>
+          <p class="text-slate-500">
+            <i class="pi pi-building"></i>
+            2457 sqft
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col justify-between gap-4 p-2 items-right">
+        <p class="text-2xl font-bold text-blue-500">$7,500,000</p>
+        <Button size="small">Go to Property</Button>
       </div>
     </div>
 

@@ -1,7 +1,11 @@
 <template>
   <div class="items-center justify-center hidden card md:flex">
     <NuxtLink to="/login">
-      <Button type="button" class="mb-2 fill-white">Login</Button>
+      <Button
+        type="button"
+        class="mb-2 border border-white"
+        >Login</Button
+      >
     </NuxtLink>
 
     <!--
@@ -37,9 +41,9 @@
 </template>
 
 <script setup lang="ts">
-  const menu = ref();
+  const menu = ref()
 
   const toggle = (event: Event) => {
-    menu.value.toggle(event);
-  };
+    menu.value.toggle(event)
+  }
 </script>
