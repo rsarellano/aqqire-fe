@@ -21,6 +21,9 @@ useHead({
 })
   definePageMeta({
     layout: "none",
+
+    //disable global authentication on this page - @bhong
+    auth: false    
   });
 
   const logo =
