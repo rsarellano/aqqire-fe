@@ -4,6 +4,8 @@ export const data = [
   {
     name: "Luxury Lakeside Villa",
     id: "33893e44-360f-481e-8638-75d4cfc358c9",
+    views: 19,
+    impressions: 1218,
     brokers: [
       {
         name: "John Doe",
@@ -32,6 +34,8 @@ export const data = [
   {
     name: "Exquisite Gas Station",
     id: "b063878f-cad4-4fbd-bbbe-6694154ba538",
+    views: 76,
+    impressions: 7458,
     brokers: [
       {
         email: "john.doe@example.com",
@@ -55,6 +59,8 @@ export const data = [
   {
     name: "Retail Paradise",
     id: "0d9a4861-9232-4e52-85e8-362c40564f25",
+    views: 97,
+    impressions: 7387,
     brokers: [
       {
         name: "Medhurst Demario",
@@ -73,6 +79,8 @@ export const data = [
   {
     name: "Multifamily Dreams",
     id: "25be7f08-3645-4d45-9dfc-6ef5e1fd7ab5",
+    views: 68,
+    impressions: 196,
     brokers: [
       {
         name: "John Doe",
@@ -101,6 +109,8 @@ export const data = [
   {
     name: "Rooftop Restaurant",
     id: "58791480-01ba-47d6-951a-d3e78efb7dec",
+    views: 55,
+    impressions: 9435,
     brokers: [
       {
         name: "John Doe",
@@ -129,6 +139,8 @@ export const data = [
   {
     name: "Prime Land Investment",
     id: "944ff70d-a2d9-4b78-93ee-7eed60a82d16",
+    views: 21,
+    impressions: 4506,
     brokers: [
       {
         name: "John Doe",
@@ -157,6 +169,8 @@ export const data = [
   {
     name: "Industrial Complex",
     id: "32f9be4b-ee93-4106-927f-4c4e82ee4513",
+    views: 39,
+    impressions: 5462,
     brokers: [
       {
         name: "John Doe",
@@ -185,6 +199,8 @@ export const data = [
   {
     name: "Health Office Haven",
     id: "d8f7be17-358a-4d2b-b011-a2161f4afb3d",
+    views: 50,
+    impressions: 9518,
     brokers: [
       {
         name: "John Doe",
@@ -213,6 +229,8 @@ export const data = [
   {
     name: "Specialty Storefront",
     id: "1b8807da-8438-4cb0-8bea-d0402e66ec21",
+    views: 16,
+    impressions: 6057,
     brokers: [
       {
         name: "John Doe",
@@ -241,6 +259,8 @@ export const data = [
   {
     name: "Corporate Office Tower",
     id: "4712cd9b-1236-4335-9cd6-225e42807273",
+    views: 13,
+    impressions: 6300,
     brokers: [
       {
         name: "John Doe",
@@ -269,6 +289,8 @@ export const data = [
   {
     name: "Corporate Office Tower2",
     id: "4712cd9b-1236-4335-9cd6-225e42807273",
+    views: 4,
+    impressions: 3409,
     brokers: [
       {
         name: "John Doe",
@@ -298,6 +320,8 @@ export const data = [
   {
     name: "Corporate Office Tower3",
     id: "4712cd9b-1236-4335-9cd6-225e42807273",
+    views: 61,
+    impressions: 3328,
     brokers: [
       {
         name: "John Doe",
@@ -326,6 +350,8 @@ export const data = [
   {
     name: "Cozy Bed and Breakfast",
     id: "7c1fb08d-8697-4984-8e0f-408a95dcac1b",
+    views: 81,
+    impressions: 8652,
     brokers: [
       {
         name: "John Doe",
@@ -354,6 +380,8 @@ export const data = [
   {
     name: "Convenience Store",
     id: "a055d1e2-54c1-4d95-9024-1dcbd9acbe66",
+    views: 34,
+    impressions: 9510,
     brokers: [
       {
         name: "John Doe",
@@ -382,6 +410,8 @@ export const data = [
   {
     name: "Boutique Clothing Store",
     id: "28fe7994-d12b-4abd-9474-da7cd1a4ee2b",
+    views: 15,
+    impressions: 9043,
     brokers: [
       {
         name: "John Doe",
@@ -410,6 +440,8 @@ export const data = [
   {
     name: "Apartment Complex",
     id: "50cb2a33-6e20-4605-b5e4-283fd6f17af7",
+    views: 83,
+    impressions: 5133,
     brokers: [
       {
         name: "John Doe",
@@ -439,6 +471,8 @@ export const data = [
   {
     name: "Café and Bakery",
     id: "c09311c7-4bf0-4929-9ef6-458e4a27efaf",
+    views: 40,
+    impressions: 9508,
     brokers: [
       {
         name: "John Doe",
@@ -467,6 +501,8 @@ export const data = [
   {
     name: "Residential Plot",
     id: "20d2d05a-e88a-437c-88b9-745a595294f4",
+    views: 2,
+    impressions: 8192,
     brokers: [
       {
         name: "John Doe",
@@ -490,11 +526,13 @@ export const data = [
     url: "/land",
     propertyType: "Land",
     propertyDate: "2023-07-18T13:45:20.678Z",
-    lastUpdated: "2024-04-05T10:55:45.789Z",
+    lastUpdated: "2024-05-05T10:55:45.789Z",
   },
   {
     name: "Warehouse Facility",
     id: "46fc7c5e-153f-47c9-b174-f9f9850879c5",
+    views: 30,
+    impressions: 8427,
     brokers: [
       {
         name: "John Doe",
@@ -523,6 +561,8 @@ export const data = [
   {
     name: "Medical Clinic",
     id: "3c0f53c1-2092-4285-baca-340ca35e6e93",
+    views: 1,
+    impressions: 8699,
     brokers: [
       {
         name: "John Doe",
@@ -551,6 +591,8 @@ export const data = [
   {
     name: "Tech Startup Office",
     id: "3827b954-dd6a-4eb8-a88a-364ed94b0b35",
+    views: 78,
+    impressions: 895,
     brokers: [
       {
         name: "John Doe",
@@ -579,6 +621,8 @@ export const data = [
   {
     name: "Luxury Spa Retreat",
     id: "67f75e04-bc4f-468f-a2b0-c3e3f2fc0cb0",
+    views: 56,
+    impressions: 8288,
     brokers: [
       {
         name: "John Doe",

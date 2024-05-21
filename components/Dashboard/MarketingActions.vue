@@ -1,5 +1,5 @@
 <template>
-  <div class="card flex justify-content-center">
+  <div class="flex card justify-content-center">
     <Button
       class="!p-1 !w-min bg-transparent !text-blue-500 hover:!text-white"
       type="button"
@@ -28,7 +28,6 @@
         {
           label: 'Exclusive Emails',
           icon: 'pi pi-envelope',
-          command: () => console.log('hello'),
         },
         {
           label: 'Banner Ads',

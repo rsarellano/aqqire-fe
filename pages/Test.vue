@@ -1,129 +1,114 @@
 <template>
-  <div class="flex flex-col">
-    <div class="relative">
-      <FormKit
-        v-model="autocompleteInput"
-        @input="searchPlace"
-        :delay="180"
-        type="text"
-        placeholder="Search for a location"
-      />
-      <div
-        class="absolute inset-x-0 z-50 flex flex-col w-full top-11"
-        v-if="autocompleteInput"
-      >
-        <button
-          v-for="place in autoCompletePlaces"
-          class="p-2 text-left bg-white border hover:text-white hover:bg-blue-500"
-          @click="addPin(place.location)"
+  <template v-if="loading">
+    <Loader />
+  </template>
+  <template v-else>
+    <!-- <button @click="layout = 'none'">none</button>
+      <button @click="layout = 'default'">default</button> -->
+    <div class="flex flex-col gap-4 p-4 mx-auto">
+      <div class="w-full p-4 mx-auto space-y-4 shadow-lg bg-slate-50 max-w-7xl">
+        <h1 class="text-2xl font-bold text-gray-700">Search for Properties</h1>
+        <div class="flex flex-col gap-2 md:flex-row">
+          <FormKit type="text" />
+          <Button class="!px-12 h-min">Search</Button>
+        </div>
+
+        <Accordion
+          expandIcon="pi pi-caret-down"
+          collapseIcon="pi pi-caret-up"
         >
-          <i class="pi pi-map-marker"></i>
-          <span class="font-bold text-slate-700">{{ place.displayName }}</span>
-        </button>
+          <AccordionTab>
+            <template #header>
+              <h2 class="w-full text-right"> More Filter Options </h2>
+            </template>
+            <div>
+              <div class="flex gap-2">
+                <FormKit
+                  type="select"
+                  label="Select State"
+                  :options="[
+                    'New York',
+                    'California',
+                    'Washington',
+                    'New Jersey',
+                    'Los Angeles',
+                  ]"
+                />
+                <FormKit
+                  type="select"
+                  label="Select City"
+                  :options="[
+                    'New York',
+                    'California',
+                    'Washington',
+                    'New Jersey',
+                    'Los Angeles',
+                  ]"
+                />
+                <FormKit
+                  type="select"
+                  label="Select Property Type"
+                  :options="[
+                    'Hotel',
+                    'Multi-Family',
+                    'Retail',
+                    'Gas Station',
+                    'Los Angeles',
+                    'Land',
+                    'Industrial',
+                    'Restaurant',
+                    'Special',
+                    'Office',
+                    'Health',
+                  ]"
+                />
+              </div>
+              <div class="flex flex-1 gap-2">
+                <FormKit
+                  type="number"
+                  label="Minimum Price"
+                />
+                <FormKit
+                  type="number"
+                  label="Maximum Price"
+                />
+              </div>
+            </div>
+          </AccordionTab>
+        </Accordion>
+      </div>
+
+      <div class="grid w-full grid-cols-6 gap-4 mx-auto max-w-7xl">
+        <div
+          class="flex flex-col items-center justify-between col-span-6 p-2 pt-4 pb-1 md:flex-row"
+        >
+          <div class="w-full md:w-1/3">
+            <FormKit
+              label="Sort By"
+              type="select"
+              placeholder="Sort By"
+              :options="['Newest', 'Oldest', 'Popular']"
+            />
+          </div>
+          <div class="text-center grow md:text-right"> Showing 30 Listings </div>
+        </div>
+        <div
+          class="col-span-6 py-4"
+          v-for="(item, key) in items"
+          :key="key"
+        >
+          <PropertyCardHorizontal />
+        </div>
       </div>
     </div>
-    <div
-      ref="mainMap"
-      id="map"
-      class="w-full h-[30rem] rounded-md"
-    >
-    </div>
-  </div>
+  </template>
 </template>
 
 <script setup lang="ts">
-  /// <reference types="@types/google.maps" />
-  import { Loader } from "@googlemaps/js-api-loader"
-
-  let map: google.maps.Map
-  const defaultLocation = { lat: 37.7749, lng: -122.4194 } // San Francisco
-  const mainMap = ref()
-  const pin = ref()
-  const autocompleteInput = ref()
-  const autoCompletePlaces = ref()
-  const config = useRuntimeConfig()
-
-  const loader = new Loader({
-    apiKey: config.public.googleApi,
-    version: "weekly",
-    libraries: ["core", "maps", "places"],
-  })
-
-  // Search
-  const searchPlace = async () => {
-    if (!autocompleteInput.value) return (autoCompletePlaces.value = null)
-
-    const Test = await loader.importLibrary("places")
-
-    const { places } = await Test.Place.searchByText({
-      textQuery: autocompleteInput.value,
-      fields: [
-        "displayName",
-        "location",
-        "addressComponents",
-        "formattedAddress",
-      ],
-      language: "en-US",
-      maxResultCount: 8,
-      region: "us",
-      useStrictTypeFiltering: false,
-    })
-    autoCompletePlaces.value = places
-    console.log(places)
-  }
-
-  const addPin = (coordinates: { lat: number; lng: number }) => {
-    // Reset the pin when clicking another coordinate
-    pin.value.map = null
-
-    // Jump to coordinates when clicked
-    map.setCenter({ lat: coordinates.lat, lng: coordinates.lng })
-
-    // Put another pin after clearing the old pin and removing the infoWindow
-    pin.value.position = coordinates
-    pin.value.map = map
-
-    // Clear input after click
-    autocompleteInput.value = null
-  }
-
-  onMounted(async () => {
-    const [{ Map, InfoWindow }, { AdvancedMarkerElement }] = await Promise.all([
-      loader.importLibrary("maps"),
-      loader.importLibrary("marker"),
-    ])
-
-    map = new Map(mainMap.value, {
-      center: defaultLocation,
-      zoom: 18,
-      mapId: config.public.mapId,
-    })
-
-    // Tooltip when first opening the map at the page
-    let infoWindow = new InfoWindow({
-      content: "Click on map to pin your property location",
-      position: defaultLocation,
-    })
-
-    // add a pin at default location
-    pin.value = new AdvancedMarkerElement({
-      map,
-      gmpDraggable: true,
-      position: defaultLocation,
-    })
-
-    infoWindow.open(map)
-
-    // Add pin to clicked location
-    map.addListener("click", (mapsMouseEvent: google.maps.MapMouseEvent) => {
-      // Reset the pin when clicking another coordinate
-      pin.value.map = null
-      // Close info window
-      infoWindow.close()
-
-      // Put another pin after clearing the old pin and removing the infoWindow
-      pin.value.position = mapsMouseEvent.latLng
-      pin.value.map = map
-    })
+  const loading = ref(false)
+  const layout = ref("default")
+  const items = ref([...new Array(10)])
+  definePageMeta({
+    layout: "none",
   })
 </script>
