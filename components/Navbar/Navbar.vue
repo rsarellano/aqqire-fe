@@ -31,15 +31,20 @@
         ></div>
       </li>
     </ul>
-    <div class="flex items-center gap-4">
-      <Login />
-
+    <div class="flex items-center gap-4" v-if="status=='authenticated'">
       <HomeBurgerMenu />
+    </div>
+    <div class="flex items-center gap-4" v-if="status!='authenticated'">
+      <Login />
     </div>
   </nav>
 </template>
 
 <script setup lang="ts">
+  //added authentication to access user specific functions 
+  import { useAuth } from '#imports'
+  const { signOut, token, data, status, lastRefreshedAt } = useAuth()
+
   import { links } from "./links"
   const logo =
     "https://s3.us-west-1.amazonaws.com/storage.aqqire.com/a9ae25d8-94a0-41ff-be66-40db0720b6aa-aqq%281%29.png"

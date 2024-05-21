@@ -43,6 +43,16 @@
 </template>
 
 <script setup lang="ts">
+  //added authentication to access user specific functions 
+  import { useAuth } from '#imports'
+  const { signOut, token, data, status, lastRefreshedAt } = useAuth()
+  const userProfile = {
+    profileImage: data.value.picture,
+    firstName: data.value.name,
+    email: data.value.username,
+    role: data.value.role,
+  };
+
   import { ref } from "vue";
   import { links } from "../Navbar/links";
   const menu = ref();
@@ -55,6 +65,11 @@
   const items = ref([
     {
       items: [
+        {
+          label: "Dashoard",
+          icon: "pi pi-plus",
+          destination: "/dashboard",
+        },
         {
           label: "Add Listings",
           icon: "pi pi-plus",
