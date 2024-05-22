@@ -16,7 +16,7 @@
     </div>
 
     <!-- Main Nav Links -->
-    <ul
+    <!-- <ul
       class="z-50 items-center justify-center hidden h-full gap-12 p-4 text-sm lg:flex"
     >
       <li
@@ -24,13 +24,12 @@
         v-for="(link, key) in links"
         :key="key"
       >
-        <NuxtLink :to="link.destination">{{ link.text }}</NuxtLink>
-        <!-- bar -->
+        <NuxtLink v-if='link.destination' :to="link.destination">{{ link.text }}</NuxtLink>
         <div
           class="w-0 group-hover:w-full h-[2px] bg-blue-500 duration-200 ease-in-out"
         ></div>
       </li>
-    </ul>
+    </ul> -->
     <div class="flex items-center gap-4" v-if="status=='authenticated'">
       <HomeBurgerMenu />
     </div>
