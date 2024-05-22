@@ -66,14 +66,14 @@
     {
       items: [
         {
-          label: "Dashoard",
+          label: "Dashboard",
           icon: "pi pi-plus",
           destination: "/dashboard",
         },
         {
           label: "Add Listings",
           icon: "pi pi-plus",
-          destination: "/dashboard/properties/create",
+          destination: "/dashboard/property/add",
         },
         {
           label: "Advertise",

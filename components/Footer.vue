@@ -48,7 +48,7 @@
   const footerLinks = [
     { text: "Home", destination: "/" },
     { text: "About", destination: "/about" },
-    { text: "Faq", destination: "/frequently-asked-questions" },
+    { text: "Faq", destination: "/faq" },
     { text: "Privacy Policy", destination: "/privacy-policy" },
     { text: "Terms of Use Policy", destination: "/terms" },
     { text: "Contact", destination: "/contact" },
