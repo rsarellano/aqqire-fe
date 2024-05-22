@@ -3,31 +3,32 @@
     <FormKit
       label="Price Per Square Foot"
       outer-class="font-bold uppercase"
-      v-model="store.pricePerSquareFt"
+      v-model="model!.pricePerSquareFt"
     />
     <FormKit
       label="Gross Rental Income"
       outer-class="font-bold uppercase"
-      v-model="store.grossRentalIncome"
+      v-model="model!.grossRentalIncome"
     />
     <FormKit
       label="Net Rental Income"
       outer-class="font-bold uppercase"
-      v-model="store.netRentalIncome"
+      v-model="model!.netRentalIncome"
     />
     <FormKit
       label="Net Operating Income"
       outer-class="font-bold uppercase"
-      v-model="store.netOperatingIncome"
+      v-model="model!.netOperatingIncome"
     />
     <FormKit
       label="Cap Rate"
       outer-class="font-bold uppercase"
-      v-model="store.capRate"
+      v-model="model!.capRate"
     />
   </div>
 </template>
 
 <script setup lang="ts">
-  import { store } from "../store"
+  import type { Property } from "~/types/property"
+  const model = defineModel<Property>()
 </script>

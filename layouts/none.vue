@@ -1,6 +1,8 @@
 <template>
   <div class="flex h-screen overflow-hidden bg-white">
-    <div class="relative flex-1 overflow-y-auto overflow-x-hidden">
+    <div class="relative flex-1 overflow-x-hidden overflow-y-auto">
+      <Navbar />
+
       <slot />
     </div>
   </div>

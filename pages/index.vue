@@ -1,6 +1,5 @@
 <template>
   <div class="w-full">
-    <Navbar />
     <HomeCarousel />
     <HomeFilter />
 
@@ -22,6 +21,9 @@ useHead({
 })
   definePageMeta({
     layout: "none",
+
+    //disable global authentication on this page - @bhong
+    auth: false    
   });
 
   const logo =

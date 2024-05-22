@@ -93,8 +93,9 @@
             </li>
             <li>
               <button
-                class="font-medium text-sm text-rose-500 hover:text-rose-600 flex items-center py-1 px-3 hover:bg-slate-100 w-full">
-                <!-- @click="handleSignOut" -->
+                class="font-medium text-sm text-rose-500 hover:text-rose-600 flex items-center py-1 px-3 hover:bg-slate-100 w-full"
+                @click="handleSignOut()"
+                >                
                 Sign Out
               </button>
             </li>
@@ -106,19 +107,37 @@
 </template>
 
 <script lang="ts" setup>
+  //added authentication to access user specific functions 
+  import { useAuth } from '#imports'
+  const { signOut, token, data, status, lastRefreshedAt } = useAuth()
+  //sample extraction of user details from auth data
+  const userProfile = {
+    // profileImage: "https://picsum.photos/200/300?grayscale",
+    profileImage: data.value.picture,
+    firstName: data.value.name,
+    email: data.value.username,
+    role: data.value.role,
+  };
+  //handle user signout
+  const handleSignOut = async () => {
+    signOut();
+    //navigate to homepage or login page
+    navigateTo('/');
+    // navigateAuthenticatedTo: '/'
+    // await store.dispatch("logout");
+    // router.push({ path: "/" });
+    // if (route.path === "/") {
+    //   window.location.reload();
+    // }
+  };
+
   const props = defineProps({
     align: String,
   });
+ 
   const dropdownOpen = ref(false);
   const trigger = ref();
   const dropdown = ref();
-
-  const userProfile = {
-    profileImage: "https://picsum.photos/200/300?grayscale",
-    firstName: "Neil",
-    email: "adwa@neil.com",
-    role: "Broker",
-  };
 
   // const router = useRouter();
   // const route = useRoute();
@@ -155,13 +174,7 @@
     );
   });
 
-  // const handleSignOut = async () => {
-  //   await store.dispatch("logout");
-  //   router.push({ path: "/" });
-  //   if (route.path === "/") {
-  //     window.location.reload();
-  //   }
-  // };
+
 
   // close on click outside
   const clickHandler = ({ target }: Event) => {

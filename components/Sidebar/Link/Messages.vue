@@ -24,7 +24,7 @@
                 d="M11 1C5.477 1 1 4.582 1 9c0 1.797.75 3.45 2 4.785V19l4.833-2.416C8.829 16.85 9.892 17 11 17c5.523 0 10-3.582 10-8s-4.477-8-10-8z" />
             </svg>
             <span
-              class="ml-3 text-sm font-medium duration-200 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100">
+              class="ml-3 text-sm font-medium duration-200">
               Messages
             </span>
           </div>

@@ -3,7 +3,7 @@
     <Button
       type="button"
       icon="pi pi-align-justify"
-      class="mb-2 fill-white"
+      class="mb-2 border border-white fill-white"
       @click="toggle"
       aria-haspopup="true"
       aria-controls="overlay_menu" />
@@ -43,6 +43,16 @@
 </template>
 
 <script setup lang="ts">
+  //added authentication to access user specific functions 
+  import { useAuth } from '#imports'
+  const { signOut, token, data, status, lastRefreshedAt } = useAuth()
+  const userProfile = {
+    profileImage: data.value.picture,
+    firstName: data.value.name,
+    email: data.value.username,
+    role: data.value.role,
+  };
+
   import { ref } from "vue";
   import { links } from "../Navbar/links";
   const menu = ref();
@@ -56,9 +66,14 @@
     {
       items: [
         {
+          label: "Dashboard",
+          icon: "pi pi-plus",
+          destination: "/dashboard",
+        },
+        {
           label: "Add Listings",
           icon: "pi pi-plus",
-          destination: "/dashboard/properties/create",
+          destination: "/dashboard/property/add",
         },
         {
           label: "Advertise",
