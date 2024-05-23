@@ -1,5 +1,7 @@
 <template>
   <div class="flex flex-col gap-4 p-4 px-12">
+    <DashboardNav />
+
     <h1 class="px-2 text-2xl font-bold capitalize">
       Add {{ store.propertyType }} Property
     </h1>

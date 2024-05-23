@@ -16,32 +16,39 @@
     </div>
 
     <!-- Main Nav Links -->
-    <!-- <ul
+    <ul
       class="z-50 items-center justify-center hidden h-full gap-12 p-4 text-sm lg:flex"
     >
-      <li
+      <NuxtLink
         class="relative text-xl font-bold text-white uppercase duration-200 ease-in-out hover:drop-shadow-2xl group hover:text-slate-700"
         v-for="(link, key) in links"
+        :to="link.destination"
         :key="key"
       >
-        <NuxtLink v-if='link.destination' :to="link.destination">{{ link.text }}</NuxtLink>
+        <li>{{ link.text }}</li>
         <div
           class="w-0 group-hover:w-full h-[2px] bg-blue-500 duration-200 ease-in-out"
         ></div>
-      </li>
-    </ul> -->
-    <div class="flex items-center gap-4" v-if="status=='authenticated'">
+      </NuxtLink>
+    </ul>
+    <div
+      class="flex items-center gap-4"
+      v-if="status == 'authenticated'"
+    >
       <HomeBurgerMenu />
     </div>
-    <div class="flex items-center gap-4" v-if="status!='authenticated'">
+    <div
+      class="flex items-center gap-4"
+      v-if="status != 'authenticated'"
+    >
       <Login />
     </div>
   </nav>
 </template>
 
 <script setup lang="ts">
-  //added authentication to access user specific functions 
-  import { useAuth } from '#imports'
+  //added authentication to access user specific functions
+  import { useAuth } from "#imports"
   const { signOut, token, data, status, lastRefreshedAt } = useAuth()
 
   import { links } from "./links"
