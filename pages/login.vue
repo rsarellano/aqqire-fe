@@ -1,31 +1,36 @@
 <template>
-  <div class="w-full max-w-md">
-    <h1 class="my-4 text-2xl font-bold">Welcome Back!</h1>
-    <pre>Status: {{ status }}</pre>
-    <pre>Data: {{ data || "no session data present, are you logged in?" }}</pre>
-    <pre>Last refreshed at: {{ lastRefreshedAt || "no refresh happened" }}</pre>
-    <pre>JWT token: {{ token || "no token present, are you logged in?" }}</pre>
-    <form @submit.prevent="handleSignIn()">
+  <div class="w-full max-w-md space-y-8">
+    <h1 class="my-4 text-4xl font-bold text-center md:text-left">
+      Welcome Back!
+    </h1>
+    <form
+      @submit.prevent="handleSignIn()"
+      class="flex flex-col gap-4 px-4 md:px-0"
+    >
       <FormKit
         v-model="username"
         type="text"
+        required
         placeholder="Username"
       />
       <FormKit
         v-model="password"
         type="password"
+        required
         placeholder="Password"
       />
-      <button type="submit"> sign in </button>
+      <Button type="submit">Sign In </Button>
     </form>
   </div>
 </template>
 
 <script setup lang="ts">
   import { ref } from "vue"
+
   //added authentication to access user specific functions
   import { useAuth } from "#imports"
   const { signIn, token, data, status, lastRefreshedAt } = useAuth()
+  const test = useAuth()
 
   const username = ref("")
   const password = ref("")
@@ -34,7 +39,7 @@
     layout: "auth",
     //add authentication specifics
     auth: {
-      unauthenticatedOnly: false,
+      unauthenticatedOnly: true,
       navigateAuthenticatedTo: "/dashboard",
     },
   })
