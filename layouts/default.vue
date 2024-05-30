@@ -63,8 +63,6 @@
 <script setup lang="ts">
   import { isPremium } from '../store/isPremium'
   const route = useRoute()
-  console.log(route.path, 'path')
-  console.log(route.path.startsWith('/admin/'), 'check')
 
   const sidebar = ref(true)
 
