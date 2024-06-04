@@ -18,23 +18,35 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
+  import { ref } from "vue"
 
   const menu = ref()
   const items = ref([
     {
-      label: 'Options',
+      label: "Options",
       items: [
         {
-          label: 'Exclusive Emails',
-          icon: 'pi pi-envelope',
+          label: "Exclusive Emails",
+          icon: "pi pi-envelope",
         },
         {
-          label: 'Banner Ads',
-          icon: 'pi pi-flag',
+          label: "Banner Ads",
+          icon: "pi pi-flag",
         },
         {
-          label: 'Other Tools',
+          label: "Other Tools",
+        },
+        {
+          label: "Add Email Impressions",
+        },
+        {
+          label: "Edit Property",
+        },
+        {
+          label: "Activate Property",
+        },
+        {
+          label: "Mark as Sold",
         },
       ],
     },
