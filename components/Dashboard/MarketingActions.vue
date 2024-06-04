@@ -39,6 +39,15 @@
         {
           label: "Add Email Impressions",
         },
+        {
+          label: "Edit Property",
+        },
+        {
+          label: "Activate Property",
+        },
+        {
+          label: "Mark as Sold",
+        },
       ],
     },
   ])

@@ -3,27 +3,21 @@
     <h1 class="text-4xl font-bold"> Welcome Back {{ user.name }} </h1>
     <DashboardNav />
 
-    <div class="flex justify-between gap-4 text-xl font-bold text-white uppercase">
-      <div
-        class="flex flex-col gap-4 px-8 py-12 bg-blue-500 border-2 rounded-md grow"
-      >
-        <div class="flex justify-between">
-          <p>Views</p>
-        </div>
-        <p class="text-4xl font-bold">59</p>
-      </div>
-      <div
-        class="flex flex-col gap-4 p-12 bg-blue-500 border-2 rounded-md grow"
-      >
-        <p> Clicks </p>
-        <p class="text-4xl font-bold">36</p>
-      </div>
-      <div
-        class="flex flex-col gap-4 p-12 bg-blue-500 border-2 rounded-md grow"
-      >
-        <p> Impressions </p>
-        <p class="text-4xl font-bold">20</p>
-      </div>
+    <div
+      class="flex flex-col md:flex-row justify-between gap-4 text-xl font-bold text-white uppercase"
+    >
+      <DashboardCard
+        header="Views"
+        value="378"
+      />
+      <DashboardCard
+        header="Clicks"
+        value="127"
+      />
+      <DashboardCard
+        header="Impressions"
+        value="25"
+      />
     </div>
     <div>
       <h2
@@ -41,6 +35,9 @@
           field="name"
           header="Property"
           sortable
+        >
+          <template #body="{data}">
+            <NuxtLink to="/property/asda/" class="text-blue-500">{{data.name}}</NuxtLink></template
         ></Column>
         <Column
           field="clicks"

@@ -39,9 +39,9 @@
               v-model="filters.global.value"
               label="Search Properties"
             />
-            <!-- <NuxtLink to="/dashboard/property/addSold">
+            <NuxtLink to="/dashboard/property/addSold">
               <Button>Add Sold Property</Button>
-            </NuxtLink> -->
+            </NuxtLink>
           </div>
         </div>
       </template>
