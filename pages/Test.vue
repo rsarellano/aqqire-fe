@@ -1,12 +1,14 @@
 <template>
-  <div v-if="status === 'authenticated'">
-    
-    {{ status }}
-    {{ data }}
-  </div>
-  <div v-else>hello</div>
+  <div> </div>
 </template>
 
 <script setup lang="ts">
-  const { signIn, token, data, status, lastRefreshedAt } = useAuth()
+  import type { SessionData } from "#auth"
+  import { useAuth } from "#imports"
+  definePageMeta({
+    layout: "none",
+    auth: false,
+  })
+
+  const { data, status } = useAuth()
 </script>
