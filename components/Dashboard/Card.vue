@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col gap-4 p-4 md:px-8 md:py-12 bg-blue-500 border-2 rounded-md grow"
+    class="flex flex-col flex-1 gap-4 p-4 bg-blue-500 border-2 rounded-md md:px-8 md:py-12 grow"
   >
     <div class="flex justify-between">
       <p>{{ props.header }}</p>
