@@ -844,10 +844,13 @@
       </div>
     </main>
   </div>
-
 </template>
 
 <script setup lang="ts">
+  definePageMeta({
+    layout: "none",
+    auth: false,
+  })
 </script>
 
 <style scoped>
