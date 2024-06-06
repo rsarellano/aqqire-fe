@@ -3,8 +3,7 @@
     <h1 class="my-4 text-2xl font-bold">Reset Your Password</h1>
     <FormKit
       type="email"
-      label="Email Address"
-    />
+      label="Email Address" />
     <Button>Send Reset Link</Button>
   </div>
 </template>
@@ -12,6 +11,9 @@
 <script setup lang="ts">
   definePageMeta({
     layout: "auth",
-    auth: false,
+    auth: {
+      unauthenticatedOnly: true,
+      navigateAuthenticatedTo: "/dashboard",
+    },
   })
 </script>

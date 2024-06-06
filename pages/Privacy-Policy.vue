@@ -493,6 +493,10 @@
 
 <script setup lang="ts">
   const route = useRoute();
+  definePageMeta({
+    layout: "none",
+    auth: false,
+  })
 </script>
 
 <style scoped>

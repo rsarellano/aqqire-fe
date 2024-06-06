@@ -1,7 +1,7 @@
 <template>
-  <div class="h-full p-6">
+  <div class="h-full md:p-6">
     <div
-      class="h-full p-4 space-y-5 text-gray-700 rounded px-7 lg:p-6 lg:px-12 bg-slate-100">
+      class="h-full p-4 space-y-5 text-gray-700 rounded md:px-7 lg:p-6 lg:px-12 bg-slate-100">
       <h1 class="text-3xl font-bold">Account Settings</h1>
       <Avatar :image="image" size="avatar" shape="circle" />
       <FileUpload
