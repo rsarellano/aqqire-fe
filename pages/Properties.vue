@@ -20,7 +20,7 @@
               <h2 class="w-full text-right"> More Filter Options </h2>
             </template>
             <div>
-              <div class="flex gap-2">
+              <div class="flex flex-col gap-2 md:flex-row">
                 <FormKit
                   type="select"
                   label="Select State"
@@ -61,7 +61,7 @@
                   ]"
                 />
               </div>
-              <div class="flex flex-1 gap-2">
+              <div class="flex flex-col flex-1 gap-2 md:flex-row">
                 <FormKit
                   type="number"
                   label="Minimum Price"
