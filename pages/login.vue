@@ -20,6 +20,7 @@
         placeholder="Password"
       />
       <Button type="submit">Sign In </Button>
+      <NuxtLink to="/register" class="text-blue-500">Dont have an account? Sign up!</NuxtLink>
     </form>
   </div>
 </template>

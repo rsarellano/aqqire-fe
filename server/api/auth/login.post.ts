@@ -18,7 +18,7 @@ export default eventHandler(async (event) => {
   
   //@todo: enable token refresh (currently disabled via nuxtconfig) 
   // const expiresIn = 15
-  const expiresIn = 60
+  const expiresIn = 123132131231231
   const refreshToken = Math.floor(Math.random() * (1000000000000000 - 1 + 1)) + 1
   const user = {
     id: '12343',

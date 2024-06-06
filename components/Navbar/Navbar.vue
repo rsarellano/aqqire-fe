@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="z-[9999] flex items-center justify-between w-full p-12 text-gray-700 bg-blue-500"
+    class="z-[9999] flex items-center justify-between w-full md:p-12 p-4 text-gray-700 bg-blue-500"
   >
     <!-- Logo -->
     <div
@@ -20,7 +20,7 @@
       class="z-50 items-center justify-center hidden h-full gap-12 p-4 text-sm lg:flex"
     >
       <NuxtLink
-        class="relative text-xl font-bold text-white uppercase duration-200 ease-in-out hover:drop-shadow-2xl group hover:text-slate-700"
+        class="relative text-lg font-bold text-white uppercase duration-200 ease-in-out hover:drop-shadow-2xl group hover:text-slate-700"
         v-for="(link, key) in links"
         :to="link.destination"
         :key="key"
