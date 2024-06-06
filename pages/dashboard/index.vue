@@ -1,79 +1,71 @@
 <template>
-  <div class="h-screen mx-auto space-y-4">
-    <h1 class="text-4xl font-bold"> Welcome Back {{ user.name }} </h1>
+  <div class="mx-auto space-y-4">
+    <h1 class="text-2xl font-bold md:text-4xl">Welcome Back {{ user.name }}</h1>
     <DashboardNav />
 
     <div
-      class="flex flex-col md:flex-row justify-between gap-4 text-xl font-bold text-white uppercase"
-    >
+      class="flex flex-col justify-between gap-2 text-xl font-bold text-white uppercase lg:gap-4 md:flex-row">
       <DashboardCard
         header="Views"
-        value="378"
-      />
+        value="378" />
       <DashboardCard
-        header="Clicks"
-        value="127"
-      />
+        header="Clicks" 
+        value="127" />
       <DashboardCard
         header="Impressions"
-        value="25"
-      />
+        value="25" />
     </div>
     <div>
       <h2
-        class="p-4 py-2 text-lg font-semibold text-center text-white bg-blue-600 rounded-t"
-        >My Properties</h2
-      >
+        class="p-4 py-2 text-lg font-semibold text-center text-white bg-blue-600 rounded-t">
+        My Properties
+      </h2>
 
       <DataTable
         :value="formattedTop"
         paginator
         :rows="10"
-        show-gridlines
-      >
+        show-gridlines>
         <Column
           field="name"
           header="Property"
-          sortable
-        >
-          <template #body="{data}">
-            <NuxtLink to="/property/asda/" class="text-blue-500">{{data.name}}</NuxtLink></template
-        ></Column>
+          sortable>
+          <template #body="{ data }">
+            <NuxtLink
+              to="/property/asda/"
+              class="text-blue-500">
+              {{ data.name }}
+            </NuxtLink>
+          </template>
+        </Column>
         <Column
           field="clicks"
           header="Clicks"
-          sortable
-        ></Column>
+          sortable></Column>
         <Column
           field="views"
           header="Views"
-          sortable
-        ></Column>
+          sortable></Column>
         <Column
           field="impressions"
           header="Total Impressions"
-          sortable
-        ></Column>
+          sortable></Column>
         <Column
           field="impressions"
           header="Website Impressions"
-          sortable
-        ></Column>
+          sortable></Column>
         <Column
           field="impressions"
           header="Email Impressions"
-          sortable
-        ></Column>
+          sortable></Column>
         <Column
           field="lastUpdated.value"
           header="Last Updated"
-          sortable
-        ></Column>
+          sortable></Column>
 
         <Column
           field="actions"
-          header="Actions"
-        >
+          header="Actions">
           <template #body>
             <div class="flex justify-center">
               <DashboardMarketingActions />
