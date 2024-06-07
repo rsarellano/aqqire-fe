@@ -63,7 +63,7 @@
         </div>
       </div>
     </button>
-    <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
+    <div class="lg:block 2xl:block">
       <ul
         class="mt-1 pl-9"
         :class="!parentLink.expanded && 'hidden'"
@@ -78,7 +78,7 @@
               class="block truncate transition duration-150 text-slate-400 hover:text-slate-200"
               :class="isExactActive && '!text-indigo-500'"
               :href="href"
-              @click="navigate"
+              @click.prevent="navigate"
             >
               <span class="text-sm font-medium duration-200"> My Account </span>
             </a>
