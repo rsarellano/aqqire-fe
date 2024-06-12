@@ -19,7 +19,7 @@
       </section>
 
       <main
-        class="flex flex-col items-center gap-4 p-4 md:flex-row md:items-start md:justify-center"
+        class="flex flex-col items-center gap-4 p-4 md:flex-row md:items-start md:justify-center size-full"
       >
         <!-- Advertisement left -->
         <!-- Uncomment to show -->
@@ -31,7 +31,7 @@
             class="sticky hidden w-full md:block top-4" />
         </section> -->
 
-        <div class="w-full">
+        <div class="w-full h-full">
           <slot />
         </div>
 
