@@ -207,7 +207,7 @@
       <template #body="{ data }">
         <div class="flex items-center justify-center max-w-xs gap-1">
           <NuxtLink
-            :to="'/properties/property/' + data.id"
+            :to="'/property/' + data.id"
             class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500">
             <i class="pi pi-info"></i>
           </NuxtLink>
@@ -262,11 +262,13 @@
     { label: "Office", value: "Office" },
   ]
 
+  const route = useRoute()
   const properties = ref([...data])
+  const search = ref()
+  const page = ref(route.query.page || 0)
 
   // Ref for exporting the data on the table
   const dt = ref()
-  const search = ref()
 
   const exportCSV = () => {
     dt.value.exportCSV()
@@ -278,11 +280,17 @@
     )
   }
 
-  // add api logic here
   const searchApi = async () => {
     const apiLink = ""
+
+    page.value = parseInt(route.query.page as string)
     try {
-      let { data, clear, error } = await useFetch(apiLink)
+      let { data, clear, error } = await useFetch(apiLink, {
+        query: {
+          page: route.query.page || 0,
+          items: route.query.items || 20,
+        },
+      })
     } catch (e) {
       console.error(e)
     }
@@ -291,5 +299,14 @@
   watch(search, () => {
     const data = filterByBroker(search.value)
     properties.value = [...data]
+  })
+
+  watch(route, () => {
+    const data = filterByBroker(search.value)
+    properties.value = [...data]
+  })
+
+  onMounted(() => {
+    searchApi()
   })
 </script>
