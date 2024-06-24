@@ -301,10 +301,6 @@
     properties.value = [...data]
   })
 
-  watch(route, () => {
-    const data = filterByBroker(search.value)
-    properties.value = [...data]
-  })
 
   onMounted(() => {
     searchApi()

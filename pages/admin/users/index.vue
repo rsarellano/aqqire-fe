@@ -412,7 +412,24 @@
   const search = ref()
   const showDialog = ref(false)
   const currentUser = ref()
+  const route = useRoute()
+  const page = ref(route.query.page || 0)
 
+  const searchApi = async () => {
+    const apiLink = ""
+
+    page.value = parseInt(route.query.page as string)
+    try {
+      let { data, clear, error } = await useFetch(apiLink, {
+        query: {
+          page: route.query.page || 0,
+          items: route.query.items || 20,
+        },
+      })
+    } catch (e) {
+      console.error(e)
+    }
+  }
   const deleteUser = (user: (typeof users.value)[0]) => {
     showDialog.value = true
     currentUser.value = user
