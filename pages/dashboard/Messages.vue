@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-  import { sidebarOpen } from "~/components/messages/store"
+  import { sidebarOpen } from "~/components/Messages/store"
   definePageMeta({
     layout: "messages",
     auth: true,
