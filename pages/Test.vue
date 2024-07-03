@@ -1,14 +1,14 @@
 <template>
-  <div> </div>
+  <div>{{ data }}</div>
+  {{status}}
 </template>
 
 <script setup lang="ts">
-  import type { SessionData } from "#auth"
-  import { useAuth } from "#imports"
   definePageMeta({
     layout: "none",
     auth: false,
   })
+  const { signIn, token, data, status, lastRefreshedAt } = useAuth()
 
-  const { data, status } = useAuth()
+  const test = ref()
 </script>
