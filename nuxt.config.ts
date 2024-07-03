@@ -2,6 +2,7 @@
 
 export default defineNuxtConfig({
   runtimeConfig: {
+    jwtSecret: "",
     public: {
       googleApi: "",
       mapId: "",

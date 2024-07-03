@@ -1,6 +1,11 @@
 <template>
   <div class="mx-auto space-y-4">
-    <h1 class="text-2xl font-bold md:text-4xl">Welcome Back {{ user.name }}</h1>
+    <h1 class="text-2xl font-bold md:text-4xl">
+      Welcome Back
+      <span class="text-blue-500">
+        {{ user.first_name }} {{ user.last_name }}
+      </span>
+    </h1>
     <DashboardNav />
 
     <div
@@ -9,7 +14,7 @@
         header="Views"
         value="378" />
       <DashboardCard
-        header="Clicks" 
+        header="Clicks"
         value="127" />
       <DashboardCard
         header="Impressions"
@@ -78,8 +83,10 @@
 </template>
 
 <script setup lang="ts">
+  import { use } from "@formkit/core"
+
   const { signIn, token, data, status, lastRefreshedAt } = useAuth()
-  const user: any = data.value!
+  const user: any = { ...data.value! }
   definePageMeta({
     middleware: "auth",
   })
