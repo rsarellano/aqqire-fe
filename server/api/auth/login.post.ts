@@ -30,14 +30,6 @@ export default eventHandler(async (event) => {
       throw createError({ statusCode: 403, statusMessage: "Unauthorized" })
     }
 
-    // Check if there is user details if none throw an error
-    if (!db_user.data) {
-      throw createError({
-        statusCode: 401,
-        statusMessage: "Invalid Credentials",
-      })
-    }
-
     //@todo: apply user role scope -@bhong
     const accessToken = sign(
       { ...db_user, scope: ["broker", "vendor"] },
