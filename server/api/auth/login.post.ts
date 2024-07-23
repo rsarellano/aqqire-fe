@@ -38,15 +38,9 @@ export default eventHandler(async (event) => {
       })
     }
 
-    const user = {
-      ...db_user.data,
-      picture: db_user.picture || "https://picsum.photos/200/300?grayscale",
-      role: "Broker",
-    }
-
     //@todo: apply user role scope -@bhong
     const accessToken = sign(
-      { ...user, scope: ["broker", "vendor"] },
+      { ...db_user, scope: ["broker", "vendor"] },
       runtimeConfig.jwtSecret,
       {
         expiresIn,
@@ -54,7 +48,7 @@ export default eventHandler(async (event) => {
     )
     refreshTokens[refreshToken] = {
       accessToken,
-      user,
+      ...db_user,
     }
 
     return {
