@@ -25,12 +25,14 @@ export default eventHandler(async (event) => {
     const { username, password } = data
     const db_user = await loginDB({ username, password })
 
-    // Check if theres a response
-    if (!db_user) {
-      throw createError({ statusCode: 403, statusMessage: "Unauthorized" })
+    // Check if incorrect user/password
+    if (!db_user || db_user.statusCode===401) {
+      throw createError({ 
+        statusCode: 401, 
+        statusMessage: "Unauthorized" 
+      })
     }
 
-    //@todo: apply user role scope -@bhong
     const accessToken = sign(
       { ...db_user, scope: ["broker", "vendor"] },
       runtimeConfig.jwtSecret,
@@ -49,10 +51,12 @@ export default eventHandler(async (event) => {
         refreshToken,
       },
     }
+    
   } catch (error: any) {
-    return {
-      statusCode: error.statusCode,
-      message: error.message,
-    }
+    console.error(error) // Log the error for debugging
+    return createError({ 
+      statusCode: 500, 
+      statusMessage: error.message || "Internal Server Error" 
+    })
   }
 })

@@ -8,7 +8,7 @@ type User = {
 export default async function ({ username, password }: User) {
   try {
     // TODO change to ENV
-    const db_user = await $fetch("https://api3.aqqire.com/login", {
+    const response = await fetch("https://api3.aqqire.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -19,11 +19,15 @@ export default async function ({ username, password }: User) {
       }),
     })
 
-    if(!db_user) {
-      throw new Error('Invalid Credentials')
+    if(response.status === 401) {
+      return createError({ 
+        statusCode: 401, 
+        statusMessage: "Unauthorized" 
+      })
     }
 
-    return db_user
+    return response.json()
+
   } catch (error: any) {
     console.error('Error in logindb', error)
     return { ...error }
