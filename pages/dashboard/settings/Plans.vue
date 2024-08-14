@@ -1,7 +1,7 @@
 <template>
   <div class="h-full lg:p-6">
     <div
-      class="h-full p-4 space-y-5 text-gray-700 rounded px-7 lg:p-6 lg:px-12 bg-slate-100">
+      class="h-full p-4 space-y-5 text-gray-700 rounded md:px-7 lg:p-6 lg:px-12 bg-slate-100">
       <h1 class="text-3xl font-bold">Plans</h1>
       <h2 class="text-sm text-gray-500">
         This workspace’s Basic Plan is set to $34 per month and will renew on
@@ -18,7 +18,7 @@
       </div>
 
       <!-- Plans -->
-      <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+      <div class="grid grid-cols-1 gap-2 md:gap-8 lg:grid-cols-3">
         <DashboardPlanCard
           bg="bg-teal-400"
           name="Basic"

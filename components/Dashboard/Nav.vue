@@ -24,6 +24,10 @@
   const route = useRoute()
   const routes = ref([
     {
+      label: "Dashboard",
+      route: "/dashboard/",
+    },
+    {
       label: "active properties",
       route: "/dashboard/property/active",
     },
@@ -31,10 +35,7 @@
       label: "inactive properties",
       route: "/dashboard/property/inactive",
     },
-    {
-      label: "saved properties",
-      route: "/dashboard/property/saved",
-    },
+
     {
       label: "sold properties",
       route: "/dashboard/property/sold",

@@ -44,7 +44,10 @@
           }" />
       </div>
       <div class="flex justify-center w-full">
-        <Button label="Submit" type="submit" class="px-12 mt-2" />
+        <Button
+          label="Submit"
+          type="submit"
+          class="px-12 mt-2" />
       </div>
     </div>
     <div class="w-full pl-12 space-y-4 text-center uppercase lg:text-left">
@@ -60,5 +63,10 @@
     email: "",
     fullName: "",
     subject: "",
-  });
+  })
+
+  definePageMeta({
+    layout: "none",
+    auth: false,
+  })
 </script>

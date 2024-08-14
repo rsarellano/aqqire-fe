@@ -79,11 +79,13 @@
   const drag = ref(false);
   const modal = ref(false);
 
-  // const addBanner = () => {
-  //   banners.value.push({
-  //     ...addItem.value,
-  //     id: banners.value.length + 1,
-  //   });
-  //   modal.value = false;
-  // };
+
+
+  const addBanner = () => {
+    banners.value.push({
+      ...addItem.value,
+      id: banners.value.length + 1,
+    });
+    modal.value = false;
+  };
 </script>

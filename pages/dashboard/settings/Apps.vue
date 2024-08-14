@@ -1,8 +1,8 @@
 <template>
   <div class="h-full lg:p-6">
     <div
-      class="h-full p-4 space-y-5 text-gray-700 rounded px-7 lg:p-6 lg:px-12 bg-slate-100">
-      <h1 class="text-3xl font-bold">Connected Apps</h1>
+      class="h-full px-2 py-4 space-y-5 text-gray-700 rounded md:px-7 lg:p-6 lg:px-12 bg-slate-100">
+      <h1 class="text-3xl font-bold text-center md:text-left">Connected Apps</h1>
 
       <TabView>
         <TabPanel>

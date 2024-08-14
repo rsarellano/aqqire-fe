@@ -1,6 +1,5 @@
 <template>
   <div class="">
-    <DashboardNav />
     <DataTable
       v-model:filters="filters"
       showGridlines
@@ -63,9 +62,20 @@
       >
       <Column
         sortable
-        field="impressions"
-        header="Impressions"
-      ></Column>
+        field="brokers"
+        header="Broker"
+      >
+        <template #body="{ data }">
+          <div class="flex gap-2">
+            <div
+              class="flex"
+              v-for="broker in data.brokers"
+            >
+              {{ broker.name }}
+            </div>
+          </div>
+        </template>
+      </Column>
       <Column
         sortable
         field="views"

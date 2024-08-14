@@ -57,19 +57,15 @@
       ></Column>
       <Column
         sortable
-        field="propertyDate"
-        header="Date Created"
-      >
-        <template #body="{ data }">
-          {{ elapsedSince(data.propertyDate).value }}
-        </template></Column
-      >
+        field="propertyPrice"
+        header="Price"
+      ></Column>
       <Column
         field="propertyDate"
         header="Closing Date"
       >
         <template #body="{ data }">
-          {{ elapsedSince(data.propertyDate).value }}
+          {{ formatISODate(data.propertyDate) }}
         </template>
       </Column>
     </DataTable>
@@ -79,7 +75,7 @@
   import { data } from "../../data"
   import { FilterMatchMode } from "primevue/api"
 
-  import { elapsedSince } from "../../../composables/dateTimeUtils"
+  import { formatISODate } from "../../../composables/dateTimeUtils"
   const properties = ref([...data])
   const filters = ref({
     global: { value: "", matchMode: FilterMatchMode.CONTAINS },

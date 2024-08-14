@@ -1,6 +1,6 @@
 import { ref } from "vue";
 
-export const sidebarExpanded = ref(true);
+export const sidebarExpanded = ref(false);
 
 export const toggleSidebar = () => {
   sidebarExpanded.value = !sidebarExpanded.value;

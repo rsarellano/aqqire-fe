@@ -38,11 +38,73 @@
         :disabled="checkType">
         Search Properties
       </button>
+      
+    </div>
+  </div>
+
+  <div class="flex items-center justify-center mt-12">
+    <div class="flex flex-col items-center space-y-4">
+      <div class="flex space-x-2">
+        <input v-model="query" placeholder="Search..." class="w-[28rem] px-4 py-2 border rounded" />
+        <button @click="search" class="w-64 px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600">Search</button>
+      </div>
+      <div v-if="loading">Loading...</div>
+      <div v-else>
+        <ul>
+          <li v-for="record in records" :key="record.id">{{ record.name }}</li>
+        </ul>
+        <div class="flex space-x-2 mt-4">
+          <button @click="prevPage" :disabled="page <= 1" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 disabled:opacity-50">Previous</button>
+          <button @click="nextPage" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Next</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+
+  const query = ref('')
+  const records = ref([])
+  const page = ref(1)
+  const items = ref(20)
+  const loading = ref(false)
+
+  const fetchResults = async () => {
+    loading.value = true
+    const { data, error } = await useFetch(`https://api3.aqqire.com/search`, {
+      params: {
+        q: query.value,
+        page: page.value,
+        items: items.value
+        }
+    })
+
+    if (!error.value) {
+      records.value = data.value.data
+    }
+    loading.value = false
+  }
+
+  const search = () => {
+    page.value = 1  // Reset to first page on new search
+    fetchResults()
+  }
+
+  const prevPage = () => {
+    if (page.value > 1) {
+      page.value -= 1
+      fetchResults()
+    }
+  }
+
+  const nextPage = () => {
+    page.value += 1
+    fetchResults()
+  }
+
+  watch([query, page, items], fetchResults, { immediate: true })
+
   const property_types = [
     { label: "Hotel", value: "hotel", attrs: { disabled: false } },
     { label: "Gas Station", value: "gas", attrs: { disabled: false } },

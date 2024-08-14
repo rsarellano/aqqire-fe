@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    to="/dashboard/home"
+    to="/dashboard"
     class="text-white transition-all duration-150 ease-in-out group hover:text-slate-300">
     <li
       class="px-3 py-2 rounded-sm mb-0.5 last:mb-0"

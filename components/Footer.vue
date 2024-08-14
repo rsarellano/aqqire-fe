@@ -1,10 +1,10 @@
 <template>
-  <div class="flex items-center justify-center w-full p-8 mt-auto bg-blue-600">
+  <div class="flex items-center justify-center w-full pt-4 mt-auto bg-blue-600">
     <div class="container flex flex-col items-center gap-12 p-4">
       <!-- logo -->
 
       <div>
-        <div class="mx-auto w-72">
+        <div class="mx-auto max-w-72">
           <img :src="logo" alt="Aqqire Logo" class="size-full" />
         </div>
         <p class="max-w-md mt-2 text-sm text-center text-white">
