@@ -26,5 +26,15 @@
 </template>
 
 <script setup lang="ts">
-  import { user } from '~/store/editUserStore'
+import { user } from '~/store/editUserStore'
+import type { User } from '~/types/user';
+
+const route = useRoute()
+
+const { data } = await useFetch<User>('https://api3.aqqire.com/user/' + route.params.id)
+
+user.value = {
+  ...user.value,
+  ...data.value,
+}
 </script>

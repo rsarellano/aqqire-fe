@@ -1,30 +1,40 @@
 export type User = {
+  id?: number
   email: string
-  userRoles: string[]
-  userType: string
-  userPackage: string
-  firstName: string
-  middleName: string
-  lastName: string
-  phone: string
-  street: string
-  city: string
-  state: string
-  zip: string
-  company: string
-  workType: string
-  companyPosition: string
-  profileDescription: string
-  password: string
-  emailCC: string
-  jobTitle: string
-  companyProfessional: string
-  dateStarted: string
-  dateFinished: string
-  keywords: string[]
-  companyLogo: string
-  profilePicture: string
-  licenseState: string
-  licenseNumber: string
+  first_name: string
+  last_name: string
+  account_type: string
+  profile_pic: string
+  role: string
+  work_type: string
+  active: boolean
+  broker: boolean
+  owner: boolean
+  staff: boolean
+  superuser: boolean
+
+  password?: string
+
+  // Optionals
+  userPackage?: string
+  middle_name?: string
+  phone?: string
+  street?: string
+  city?: string
+  state?: string
+  zip?: string
+  company?: string
+  company_position?: string
+  profile_description?: string
+  email_CC?: string
+  job_title?: string
+  company_professional?: string
+  date_started: string 
+  date_finished: string
+  keywords?: string[]
+  company_logo: string
+  license_number: string
+  license_state: string
   affiliates: string[]
+  roles?: []
 }

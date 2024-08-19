@@ -49,7 +49,7 @@
     //add authentication specifics
     auth: {
       unauthenticatedOnly: true,
-      navigateAuthenticatedTo: "/dashboard",
+      navigateAuthenticatedTo: "/test",
     },
   })
 
@@ -67,7 +67,7 @@
           password: password.value,
         },
         {
-          callbackUrl: "/dashboard",
+          callbackUrl: "/test",
         }
       )
       console.log(userLogin)

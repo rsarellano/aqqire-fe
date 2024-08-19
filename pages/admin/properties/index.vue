@@ -232,6 +232,9 @@
 <script setup lang="ts">
   import { FilterMatchMode } from "primevue/api"
   import { data } from "../../data"
+  definePageMeta({
+    auth: false
+  })
 
   const filters = ref({
     global: { value: undefined, matchMode: FilterMatchMode.STARTS_WITH },

@@ -7,7 +7,7 @@
       <FormKit
         type="text"
         label="Email CC"
-        v-model="model!.emailCC"
+        v-model="model!.email_CC"
       />
     </div>
   </div>
