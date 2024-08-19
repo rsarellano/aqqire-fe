@@ -7,8 +7,8 @@
     <div class="flex flex-col gap-4">
       <div class="aspect-square max-w-40">
         <img
-          v-if="model!.companyLogo"
-          :src="model!.profilePicture"
+          v-if="model!.profile_pic"
+          :src="model!.profile_pic"
           class="size-full"
         />
       </div>
@@ -30,6 +30,6 @@
   const model = defineModel<User>()
 
   const selectImage = (event: FileUploadSelectEvent) => {
-    model.value!.profilePicture = event.files[0].objectURL
+    model.value!.profile_pic = event.files[0].objectURL
   }
 </script>

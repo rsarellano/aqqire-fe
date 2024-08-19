@@ -1,7 +1,7 @@
 <template>
   <div class="relative z-[40] w-full mb-b pb-4 ">
     <!-- Desktop Navbar -->
-    <div class="hidden w-full gap-6 p-4 border-b border-b-gray-400 md:flex overflow-x-scroll  no-scrollbar">
+    <div class="hidden w-full gap-6 p-4 overflow-x-scroll border-b border-b-gray-400 md:flex no-scrollbar">
       <NuxtLink
         v-for="(route, key) in routes"
         :key="key"
@@ -17,6 +17,8 @@
       </NuxtLink>
     </div>
 
+
+    <!-- Mobile -->
     <div class="md:hidden">
       <!-- Control button for mobile Nav -->
       <div class="flex justify-end w-full p-4 bg-white">

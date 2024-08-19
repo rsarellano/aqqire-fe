@@ -9,11 +9,11 @@
         :options="states"
         label="License State"
         selectIcon="caretDown"
-        v-model="model!.licenseState"
+        v-model="model!.license_state"
       />
       <FormKit
         label="License Number"
-        v-model="model!.licenseNumber"
+        v-model="model!.license_number"
       />
       <Button class="!p-2 !px-4 my-auto h-min">Add License</Button>
     </div>
