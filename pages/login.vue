@@ -67,7 +67,7 @@
           password: password.value,
         },
         {
-          callbackUrl: "/test",
+          callbackUrl: "/dashboard",
         }
       )
       console.log(userLogin)
