@@ -131,11 +131,11 @@
         items: items,
       },
     })
-    console.log(data)
+    console.log(data.value, 'cali')
     if (!error.value) {
       properties.value = data.value
     }
-    loading.value = false
+    loading.value = false 
   }
 
   const search = async (query: string | undefined) => {

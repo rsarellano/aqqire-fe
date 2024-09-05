@@ -4,7 +4,6 @@
   <div class="flex items-center justify-between w-full">
     <!-- Search api for records -->
     <FormKit
-      @input="searchApi"
       outerClass="!max-w-[30%] w-full"
       type="text"
       label="Search"
@@ -12,15 +11,14 @@
     <NuxtLink to="/admin/properties/add">
       <Button>Create Property</Button>
     </NuxtLink>
+    
   </div>
 
   <DataTable
-    v-model:filters="filters"
-    :value="properties"
+    :value="data?.properties"
     show-gridlines
     paginator
     :rows="10"
-    :rowsPerPageOptions="[10, 40, 50, 100]"
     class="text-xs"
     dataKey="id"
     sortMode="multiple"
@@ -57,7 +55,7 @@
           <template #header>
             <h2 class="w-full text-right">Table Filter Options</h2>
           </template>
-          <div
+          <!-- <div
             class="grid flex-col items-center justify-center w-full grid-cols-2 gap-2 py-2 pt-4 mt-2">
             <FormKit
               v-model="filters.global.value"
@@ -83,7 +81,7 @@
               label="Status"
               v-model="filters.status.value"
               :options="statusOptions" />
-          </div>
+          </div> -->
         </AccordionTab>
       </Accordion>
     </template>
@@ -128,21 +126,29 @@
       header="Address"
       :showFilterMenu="false">
       <template #body="{ data }">
-        <div class="max-w-xs space-y-2">
+        <div class="max-w-xs space-x-2 space-y-2">
           <Tag
             value="primary"
+            v-if="data.asset_type"
             class="capitalize">
-            {{ data.propertyType }}
+            {{ data.asset_type }}
+          </Tag>
+
+          <Tag
+            value="primary"
+            v-if="data.property_type"
+            class="capitalize">
+            {{ data.property_type }}
           </Tag>
 
           <p class="text-sm">
-            {{ data.propertyAddress }}
+            {{ data.address }} {{ data.city }}
           </p>
         </div>
       </template>
     </Column>
 
-    <Column
+    <!-- <Column
       field="brokers"
       header="Broker Information"
       :showFilterMenu="false"
@@ -165,7 +171,7 @@
           </div>
         </div>
       </template>
-    </Column>
+    </Column> -->
 
     <Column
       field="propertyPrice"
@@ -175,7 +181,7 @@
         <div class="max-w-xs space-y-1">
           <p class="text-sm font-bold">
             <template v-if="typeof data.propertyPrice == 'number'">$</template>
-            {{ data.propertyPrice }}
+            {{ data.property_price   }}
           </p>
         </div>
       </template>
@@ -188,7 +194,7 @@
       <template #body="{ data }">
         <div class="max-w-xs mx-auto space-y-1 w-fit">
           <Tag
-            v-if="data.status"
+            v-if="data.active"
             icon="pi pi-check"
             value="Active"></Tag>
           <Tag
@@ -231,81 +237,74 @@
 
 <script setup lang="ts">
   import { FilterMatchMode } from "primevue/api"
-  import { data } from "../../data"
+
   definePageMeta({
-    auth: false
+    auth: false,
   })
 
-  const filters = ref({
-    global: { value: undefined, matchMode: FilterMatchMode.STARTS_WITH },
-    name: { value: undefined, matchMode: FilterMatchMode.CONTAINS },
-    address: { value: undefined, matchMode: FilterMatchMode.STARTS_WITH },
-    status: { value: undefined, matchMode: FilterMatchMode.EQUALS },
-    brokers: { value: undefined, matchMode: FilterMatchMode.CONTAINS },
-    propertyType: { value: undefined, matchMode: FilterMatchMode.EQUALS },
-  })
+  // const filters = ref({
+  //   global: { value: undefined, matchMode: FilterMatchMode.STARTS_WITH },
+  //   name: { value: undefined, matchMode: FilterMatchMode.CONTAINS },
+  //   address: { value: undefined, matchMode: FilterMatchMode.STARTS_WITH },
+  //   status: { value: undefined, matchMode: FilterMatchMode.EQUALS },
+  //   brokers: { value: undefined, matchMode: FilterMatchMode.CONTAINS },
+  //   propertyType: { value: undefined, matchMode: FilterMatchMode.EQUALS },
+  // })
 
-  const statusOptions = [
-    { label: "Any", value: null },
-    { label: "Active", value: true },
-    { label: "Inactive", value: false },
-  ]
+  // const statusOptions = [
+  //   { label: "Any", value: null },
+  //   { label: "Active", value: true },
+  //   { label: "Inactive", value: false },
+  // ]
 
-  const propertyTypes = [
-    { label: "All", value: null },
-    { label: "Hotel", value: "Hotel" },
-    { label: "Gas Station", value: "Gas Station" },
-    { label: "Retail", value: "Retail" },
-    { label: "Multi Family", value: "Multi Family" },
-    { label: "Restaurant", value: "Restaurant" },
-    { label: "Land", value: "Land" },
-    { label: "Industrial", value: "Industrial" },
-    { label: "Health Office", value: "Health Office" },
-    { label: "Specialty", value: "Specialty" },
-    { label: "Office", value: "Office" },
-  ]
+  // const propertyTypes = [
+  //   { label: "All", value: null },
+  //   { label: "Hotel", value: "Hotel" },
+  //   { label: "Gas Station", value: "Gas Station" },
+  //   { label: "Retail", value: "Retail" },
+  //   { label: "Multi Family", value: "Multi Family" },
+  //   { label: "Restaurant", value: "Restaurant" },
+  //   { label: "Land", value: "Land" },
+  //   { label: "Industrial", value: "Industrial" },
+  //   { label: "Health Office", value: "Health Office" },
+  //   { label: "Specialty", value: "Specialty" },
+  //   { label: "Office", value: "Office" },
+  // ]
 
   const route = useRoute()
-  const properties = ref([...data])
+  const router = useRouter()
+  const properties = ref()
   const search = ref()
-  const page = ref(route.query.page || 0)
 
   // Ref for exporting the data on the table
   const dt = ref()
+  // const exportCSV = () => {
+  //   dt.value.exportCSV()
+  // }
 
-  const exportCSV = () => {
-    dt.value.exportCSV()
-  }
-
-  const filterByBroker = (name: string) => {
-    return data.filter((item) =>
-      item.brokers.some((broker) => broker.name.includes(name))
-    )
-  }
-
-  const searchApi = async () => {
-    const apiLink = ""
-
-    page.value = parseInt(route.query.page as string)
-    try {
-      let { data, clear, error } = await useFetch(apiLink, {
-        query: {
-          page: route.query.page || 0,
-          items: route.query.items || 20,
-        },
-      })
-    } catch (e) {
-      console.error(e)
-    }
-  }
-
-  watch(search, () => {
-    const data = filterByBroker(search.value)
-    properties.value = [...data]
+  const page = computed(() => route.query.page || 0)
+  const items = ref(10)
+  const { data, refresh } = await useFetch(() => "https://api3.aqqire.com/properties", {
+    // key: `users-${currentPage.value}`,
+    query: {
+      page: page,
+      total: items,
+    },
   })
 
+  // const searchApi = async () => {
+  //   const apiLink = ""
 
-  onMounted(() => {
-    searchApi()
-  })
+  //   page.value = parseInt(route.query.page as string)
+  //   try {
+  //     let { data, clear, error } = await useFetch(apiLink, {
+  //       query: {
+  //         page: route.query.page || 0,
+  //         items: route.query.items || 20,
+  //       },
+  //     })
+  //   } catch (e) {
+  //     console.error(e)
+  //   }
+  // }
 </script>
