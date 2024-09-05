@@ -1,12 +1,19 @@
 <template>
   <AdminNav />
   <div class="flex items-center justify-between w-full px-4">
-    <FormKit
-      outerClass="!max-w-[30%] w-full"
-      type="text"
-      label="Search"
-      @input="getData('email', $event, 0)"
-      :delay="400" />
+    <div class="flex items-center gap-2 grow">
+      <FormKit
+        outerClass="!max-w-[30%] w-full"
+        type="text"
+        label="Search"
+        v-model="value" />
+      <Button
+        @click="getData(0)"
+        class="!h-min mt-1.5 px-6"
+        size="small">
+        Search
+      </Button>
+    </div>
 
     <NuxtLink to="/admin/users/add">
       <Button>Create User</Button>
@@ -17,13 +24,14 @@
     class="text-sm"
     v-model:filters="filters"
     :value="data?.users"
-    :total-records="data?.total"
     show-gridlines
     dataKey="id"
+    :loading="loading"
+    :total-records="data?.total"
     :first="currentPage * numberOfRows"
-    sortMode="multiple"
     :rows="numberOfRows"
     @page="paginate"
+    sortMode="multiple"
     paginator
     :lazy="true"
     :globalFilterFields="[
@@ -334,37 +342,33 @@
   const params = ref()
 
   const data = ref<Data | null>()
+  const value = ref("")
+  const field = ref("email")
+  const loading = ref(false)
 
-  await router.push({ query: { ...route.query, page: 0 } })
-  const getData = async (
-    field?: string,
-    value?: string,
-    page: number = Number(route.query.page) || 0
-  ) => {
-    await router.push({
-      query: { ...route.query, field: field || "", value: value || "" },
-    })
+  const getData = async (page?: number) => {
+    loading.value = true
     const { data: fetchedData, refresh } = await useFetch<Data>(() => apiUrl, {
       key: `users-${currentPage.value}`,
       params: {
-        page: currentPage,
+        page: page || currentPage.value,
         items: numberOfRows,
-        field: field || "",
-        value: value || "",
+        field,
+        value,
       },
     })
+
     data.value = fetchedData.value
+    loading.value = false
   }
 
   const paginate = async (event: PageState) => {
     await router.push({
       query: {
-        field: route.query.field || "",
-        value: route.query.value || "",
         page: event?.page || 0,
       },
     })
-    await getData(route.query.field as string, route.query.value as string)
+    await getData()
   }
 
   const deleteUser = (user: User) => {

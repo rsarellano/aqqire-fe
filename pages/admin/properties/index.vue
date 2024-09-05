@@ -3,11 +3,19 @@
 
   <div class="flex items-center justify-between w-full">
     <!-- Search api for records -->
-    <FormKit
-      outerClass="!max-w-[30%] w-full"
-      type="text"
-      label="Search"
-      :delay="400" />
+    <div class="flex items-center gap-2 grow">
+      <FormKit
+        outerClass="!max-w-[30%] w-full"
+        type="text"
+        label="Search"
+        v-model="query" />
+      <Button
+        @click="getData(1)"
+        class="!h-min mt-1.5 px-6"
+        size="small">
+        Search
+      </Button>
+    </div>
     <NuxtLink to="/admin/properties/add">
       <Button>Create Property</Button>
     </NuxtLink>
@@ -15,13 +23,19 @@
   </div>
 
   <DataTable
-    :value="data?.properties"
+    :key="currentPage"
+    :value="properties.data"
+    class="text-sm"
+    :loading="loading"
     show-gridlines
     paginator
     :rows="10"
-    class="text-xs"
+    :rowsPerPageOptions="[10, 40, 50, 100]"
     dataKey="id"
-    sortMode="multiple"
+    :total-records="properties?.total"
+    :first="currentPage * numberOfRows - 1"
+    @page="paginate"
+    :lazy="true"
     :globalFilterFields="[
       'name',
       'id',
@@ -55,6 +69,7 @@
           <template #header>
             <h2 class="w-full text-right">Table Filter Options</h2>
           </template>
+          <!-- <div
           <!-- <div
             class="grid flex-col items-center justify-center w-full grid-cols-2 gap-2 py-2 pt-4 mt-2">
             <FormKit
@@ -104,19 +119,15 @@
             class="text-green-500"
             :class="{
               'text-red-500 font-bold':
-                elapsedSince(data.lastUpdated).numerical?.months! > 6,
+                elapsedSince(data.updated_at).numerical?.months! > 6,
               'text-yellow-500 font-semibold':
-                elapsedSince(data.lastUpdated).numerical?.months! < 6 &&
-                elapsedSince(data.lastUpdated).numerical?.months! > 3,
+                elapsedSince(data.updated_at).numerical?.months! < 6 &&
+                elapsedSince(data.updated_at).numerical?.months! > 3,
             }">
-            Last Updated {{ elapsedSince(data.lastUpdated).value }} (
-            {{ new Date(data.lastUpdated).toLocaleDateString() }} )
+            Last Updated {{ elapsedSince(data.updated_at).value }} (
+            {{ new Date(data.updated_at).toLocaleDateString() }} )
           </p>
-          <p>
-            Created {{ elapsedSince(data.propertyDate).value }} ({{
-              new Date(data.propertyDate).toLocaleDateString()
-            }})
-          </p>
+          <p></p>
         </div>
       </template>
     </Column>
@@ -141,8 +152,10 @@
             {{ data.property_type }}
           </Tag>
 
-          <p class="text-sm">
-            {{ data.address }} {{ data.city }}
+          <p class="text-xs">
+            {{ data.address }}
+            <span v-if="data.city">{{ data.city }},</span>
+            <span v-if="data.state">{{ data.state }}</span>
           </p>
         </div>
       </template>
@@ -181,7 +194,7 @@
         <div class="max-w-xs space-y-1">
           <p class="text-sm font-bold">
             <template v-if="typeof data.propertyPrice == 'number'">$</template>
-            {{ data.property_price   }}
+            {{ data.property_price }}
           </p>
         </div>
       </template>
@@ -237,10 +250,7 @@
 
 <script setup lang="ts">
   import { FilterMatchMode } from "primevue/api"
-
-  definePageMeta({
-    auth: false,
-  })
+  import type { PageState } from "primevue/paginator"
 
   // const filters = ref({
   //   global: { value: undefined, matchMode: FilterMatchMode.STARTS_WITH },
@@ -273,7 +283,6 @@
 
   const route = useRoute()
   const router = useRouter()
-  const properties = ref()
   const search = ref()
 
   // Ref for exporting the data on the table
@@ -282,15 +291,34 @@
   //   dt.value.exportCSV()
   // }
 
-  const page = computed(() => route.query.page || 0)
-  const items = ref(10)
-  const { data, refresh } = await useFetch(() => "https://api3.aqqire.com/properties", {
-    // key: `users-${currentPage.value}`,
-    query: {
-      page: page,
-      total: items,
-    },
-  })
+  const query = ref("california")
+
+  const currentPage = computed(() => Number(route.query.page) || 1)
+  const numberOfRows = ref(10)
+  const properties = ref()
+  const loading = ref(false)
+
+  const getData = async (newPage?: number) => {
+    loading.value = true
+    const { data, refresh } = await useFetch("https://api3.aqqire.com/search", {
+      query: {
+        q: query.value,
+        page: newPage || currentPage.value,
+        items: numberOfRows.value,
+      },
+    })
+    properties.value = data.value
+    loading.value = false
+  }
+
+  const paginate = async (event: PageState) => {
+    await router.push({
+      query: {
+        page: event?.page + 1 || 1,
+      },
+    })
+    getData()
+  }
 
   // const searchApi = async () => {
   //   const apiLink = ""
@@ -307,4 +335,6 @@
   //     console.error(e)
   //   }
   // }
+
+  await getData()
 </script>
