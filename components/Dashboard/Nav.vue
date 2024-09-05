@@ -44,5 +44,9 @@
       label: "add property",
       route: "/dashboard/property/add",
     },
+    {
+      label: "Analytics",
+      route: "/dashboard/property/analytics",
+    },
   ])
 </script>
