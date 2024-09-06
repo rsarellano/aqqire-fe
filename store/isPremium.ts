@@ -1,1 +1,1 @@
-export const isPremium = ref(false)
+export const isPremium = ref(true)

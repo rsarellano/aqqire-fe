@@ -114,9 +114,9 @@
   const userProfile = {
     // profileImage: "https://picsum.photos/200/300?grayscale",
     profileImage: data.value?.picture,
-    firstName: data.value!.first_name,
-    email: data.value.username,
-    role: data.value.role,
+    firstName: data.value?.first_name,
+    email: data.value?.username,
+    role: data.value?.role,
   };
   //handle user signout
   const handleSignOut = async () => {

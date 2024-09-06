@@ -1,0 +1,147 @@
+export interface Property {
+  id: number
+  name: string
+  property_type: string
+  asset_type: string
+  address: string
+  city: string
+  state_name: string
+  updated_at: string
+  created_at: string
+  user_first_name: string
+  user_last_name: string
+  clicks: number
+  views: number
+  impressions: number
+  active: boolean
+  user_email: string
+  mongodata: Mongodata
+}
+
+export interface Mongodata {
+  _id: string
+  adr: string
+  ppr: number
+  url: string
+  city: string
+  name: string
+  slug: string
+  sold: boolean
+  tags: string[]
+  user: string
+  year: number
+  brand: string
+  isNew: boolean
+  price: string
+  state: string
+  units: number
+  views: number
+  active: boolean
+  broker: any[]
+  ca_pdf: string
+  clicks: number
+  floors: number
+  revPar: string
+  address: string
+  archive: boolean
+  ca_type: string
+  country: string
+  demands: Demand[]
+  summary: string
+  archived: boolean
+  cap_rate: number
+  featured: boolean
+  interest: string
+  keywords: string[]
+  latitude: number
+  postedBy: string
+  promoted: boolean
+  totalRev: string
+  zip_code: number
+  buildings: number
+  createdAt: string
+  histories: History[]
+  longitude: number
+  occupancy: string
+  sale_type: string
+  updatedAt: string
+  asset_type: string
+  expiration: any
+  financials: Financials
+  highlights: string
+  multiplier: number
+  activatedAt: string
+  impressions: number
+  end_bid_time: EndBidTime
+  price_in_int: number
+  property_type: string
+  selling_point: string
+  market_summary: string
+  year_renovated: number
+  financial_files: any[]
+  property_images: string[]
+  lastBrokerUpdate: string
+  financial_summary: string
+  auction_start_time: AuctionStartTime
+  financial_file_type: string
+  financial_highlights: string
+  marketing_description: string
+}
+
+export interface Demand {
+  name: any
+  website: any
+}
+
+export interface History {
+  eventDate: any
+  eventDesc: any
+}
+
+export interface Financials {
+  full: Full
+  partial: Partial
+  projected: Projected
+}
+
+export interface Full {
+  fnoi: number
+  add_backs: number
+  adjusted_noi: number
+  room_revenue: number
+  other_revenue: number
+  total_revenue: number
+  operating_expense: number
+}
+
+export interface Partial {
+  fnoi: number
+  add_backs: number
+  adjusted_noi: number
+  room_revenue: number
+  other_revenue: number
+  total_revenue: number
+  operating_expense: number
+}
+
+export interface Projected {
+  fnoi: number
+  add_backs: number
+  adjusted_noi: number
+  room_revenue: number
+  other_revenue: number
+  total_revenue: number
+  operating_expense: number
+}
+
+export interface EndBidTime {
+  a: string
+  hh: string
+  mm: string
+}
+
+export interface AuctionStartTime {
+  a: string
+  hh: string
+  mm: string
+}
