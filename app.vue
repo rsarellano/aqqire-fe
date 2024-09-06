@@ -2,13 +2,13 @@
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
+  <FloatingChat />
 </template>
 
 <script setup lang="ts">
 //added authentication to access user specific functions 
 import { useAuth } from '#imports'
 const { signIn, token, data, status, lastRefreshedAt, signOut, getSession } = useAuth()
-
 </script> 
 
 <style>

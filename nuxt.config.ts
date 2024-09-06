@@ -31,6 +31,7 @@ export default defineNuxtConfig({
     "nuxt-primevue", 
     "@sidebase/nuxt-auth", 
     "@nuxtjs/plausible", 
+    "@productdevbook/chatwoot"
   ],
   build: {
     transpile: ["jsonwebtoken"],
@@ -62,6 +63,20 @@ export default defineNuxtConfig({
     autoPageviews: true,
     autoOutboundTracking: true,
     logIgnoredEvents: true,
+  },
+  chatwoot: {
+    init: {
+      //access token kF6A8Z1hXhsT7e3ERwrGGUne
+      websiteToken: 'oDAiucBY2iF4Z2CFFDQVKfnp',
+      baseUrl: 'https://chat.aqqire.com'
+    },
+    settings: {
+      locale: 'en',
+      position: 'left',
+      launcherTitle: 'Hello Chat',
+      // ... more settings
+    },
+    partytown: false,
   },
   auth: {
     provider: {
