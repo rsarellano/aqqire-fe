@@ -72,7 +72,7 @@ export default defineNuxtConfig({
     },
     settings: {
       locale: 'en',
-      position: 'left',
+      position: 'right',
       launcherTitle: 'Hello Chat',
       // ... more settings
     },
