@@ -1,5 +1,6 @@
 <template>
-  <div
+  <NuxtLink
+    :to="`/property/${id}`"
     class="flex flex-col w-full overflow-hidden rounded-md shadow-lg cursor-pointer md:flex-row hover:shadow-xl">
     <!-- Image -->
     <div class="relative md:w-2/5 group">
@@ -69,12 +70,16 @@
 
       <div class="flex flex-col justify-between gap-4 p-2 items-right">
         <p class="text-2xl font-bold text-blue-500">${{ props.price }}</p>
-        <Button size="small" class="!h-min">Go to Property</Button>
+        <Button
+          size="small"
+          class="!h-min">
+          Go to Property
+        </Button>
       </div>
     </div>
 
     <!-- Rating / Price -->
-  </div>
+  </NuxtLink>
 </template>
 <script lang="ts" setup>
   const props = defineProps({

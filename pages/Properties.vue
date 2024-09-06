@@ -90,6 +90,7 @@
           :key="key">
           <PropertyCardHorizontal
             :name="item.name"
+            :id='item.id'
             :location="`${item.city} ${item.address}`" />
         </div>
       </div>
