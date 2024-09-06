@@ -1,6 +1,7 @@
 <template>
-  <AdminNav />
   <div class="flex flex-col gap-4 p-4 px-12">
+    <DashboardNav />
+
     <h1 class="text-2xl font-bold capitalize">
       Edit Property
 

@@ -64,3 +64,20 @@ export const datetimeToDB = (datetime: Date) => {
 export const datetimeFromDB = (datetimeString: Date) => {
   return new Date(datetimeString) // Parse datetime string from database
 }
+
+
+export function formatISODate(date: any) {
+  // Create a new Date object from the ISO date string
+  let convertDate = new Date(date);
+
+  // Array of month names for more readable format
+  let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  
+  // Extract the parts of the date
+  let day = convertDate.getDate();
+  let month = months[convertDate.getMonth()]; // getMonth returns 0-11
+  let year = convertDate.getFullYear();
+
+  // Format the date as "Month Day, Year"
+  return `${month} ${day}, ${year}`;
+}

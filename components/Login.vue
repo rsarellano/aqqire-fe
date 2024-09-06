@@ -1,43 +1,35 @@
 <template>
-  <div class="items-center justify-center hidden card md:flex">
-    <NuxtLink to="/login">
-      <Button
-        type="button"
-        class="mb-2 border border-white"
-        >Login</Button
+  <Button
+    type="button"
+    size="large"
+    icon="pi pi-bars"
+    @click="toggle"
+    aria-haspopup="true"
+    aria-controls="login_menu"
+    class="mb-2 border border-white fill-white"
+  />
+
+  <Menu
+    ref="menu"
+    :model="routes"
+    :popup="true"
+    class="py-2"
+  >
+    <template #start>
+      <div class="block pt-2 border-b"></div>
+    </template>
+    <template #item="{ item, props }">
+      <NuxtLink
+        :to="item.route"
+        class="flex items-center gap-4 px-4 py-2 font-semibold capitalize border-b"
       >
-    </NuxtLink>
-
-    <!--
-
-          <Button
-      type="button"
-      class="mb-2 fill-white"
-      label="Sign In / Sign Up"
-      @click="toggle"
-      aria-haspopup="true"
-      aria-controls="login_menu" />
-
-    <Menu ref="menu" id="login_menu" :popup="true" class="p-4 md:w-72">
-      <template #start>
-        <div class="flex flex-col py-2">
-          <FormKit name="login" type="text" label="Username or Email" />
-          <FormKit name="password" type="password" label="Password" />
-          <Button type="button" label="Sign In" class="text-xs" />
+        <i :class="item.icon"></i>
+        <div :class="item.class">
+          {{ item.label }}
         </div>
-      </template>
-
-      <template #end>
-        <div class="py-2 border-t border-gray-500/40">
-          <NuxtLink
-            to="/register"
-            class="text-xs hover:text-blue-500 hover:underline underline-offset-4">
-            Don't have an account? Register now!
-          </NuxtLink>
-        </div>
-      </template>
-    </Menu> -->
-  </div>
+      </NuxtLink>
+    </template>
+  </Menu>
 </template>
 
 <script setup lang="ts">
@@ -46,4 +38,40 @@
   const toggle = (event: Event) => {
     menu.value.toggle(event)
   }
+
+  const routes = ref([
+    {
+      route: "login",
+      label: "login",
+      icon: "pi pi-sign-in",
+      class: "",
+    },
+    {
+      route: "register",
+      label: "register",
+      icon: "pi pi-user-plus",
+      class: "",
+    },
+    {
+      route: "properties",
+      label: "Properties",
+      class: "block lg:hidden",
+    },
+    {
+      route: "vendors",
+      label: "Vendors",
+      class: "block lg:hidden",
+    },
+
+    {
+      route: "companies",
+      label: "Companies",
+      class: "block lg:hidden",
+    },
+    {
+      route: "dashboard/property/active",
+      label: "My Properties",
+      class: "block lg:hidden",
+    },
+  ])
 </script>

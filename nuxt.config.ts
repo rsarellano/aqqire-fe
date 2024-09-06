@@ -2,6 +2,7 @@
 
 export default defineNuxtConfig({
   runtimeConfig: {
+    jwtSecret: "",
     public: {
       googleApi: "",
       mapId: "",
@@ -12,9 +13,14 @@ export default defineNuxtConfig({
     "@": "/<srcDir>",
   },
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@formkit/nuxt", "nuxt-primevue", "@sidebase/nuxt-auth"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@formkit/nuxt",
+    "nuxt-primevue",
+    "@sidebase/nuxt-auth",
+  ],
   build: {
-    transpile: ['jsonwebtoken']
+    transpile: ["jsonwebtoken"],
   },
   formkit: {
     autoImport: true,
@@ -37,27 +43,33 @@ export default defineNuxtConfig({
   },
   auth: {
     provider: {
-      type: 'local',
+      type: "local",
       isEnabled: true,
       //@todo: from .env - vary depending on dev/prod environment (will apply after generation of prod dist is fixed )
       // baseURL: process.env.AUTH_ORIGIN,
-      baseURL: '/api/auth',
+      baseURL: "/api/auth",
       endpoints: {
-        signIn: { path: '/login', method: 'post' },
-        signOut: { path: '/logout', method: 'post' },
-        signUp: { path: '/register', method: 'post' },
-        getSession: { path: '/user', method: 'get' }
+        signIn: { path: "/login", method: "post" },
+        signOut: { path: "/logout", method: "post" },
+        signUp: { path: "/register", method: "post" },
+        getSession: { path: "/user", method: "get" },
       },
       pages: {
-        login: '/'
+        login: "/",
       },
       token: {
-        signInResponseTokenPointer: '/token/accessToken'
+        signInResponseTokenPointer: "/token/accessToken",
       },
       session: {
-        dataType: { id: 'string', email: 'string', name: 'string', role: "'admin' | 'guest' | 'account'", subscriptions: "{ id: number, status: 'ACTIVE' | 'INACTIVE' }[]" },
-        dataResponsePointer: '/'
-      }
+        dataType: {
+          id: "string",
+          email: "string",
+          name: "string",
+          role: "'admin' | 'guest' | 'account'",
+          subscriptions: "{ id: number, status: 'ACTIVE' | 'INACTIVE' }[]",
+        },
+        dataResponsePointer: "/",
+      },
     },
     session: {
       // Whether to refresh the session every time the browser window is refocused.
@@ -65,10 +77,10 @@ export default defineNuxtConfig({
       enableRefreshOnWindowFocus: false,
       // Whether to refresh the session every `X` milliseconds. Set this to `false` to turn it off. The session will only be refreshed if a session already exists.
       // enableRefreshPeriodically: 5000
-      enableRefreshPeriodically: false
+      enableRefreshPeriodically: false,
     },
     globalAppMiddleware: {
-      isEnabled: true
-    }
+      isEnabled: true,
+    },
   },
 })

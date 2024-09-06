@@ -14,19 +14,13 @@ import { _backgroundSize } from '../.nuxt/types/tailwind.config';
 
     <!-- Wallpaper -->
     <div class="relative flex-1 hidden h-full lg:block" :style="background">
-      <!-- wallpaper Icon -->
-      <div class="absolute flex items-center top-44 -left-16">
-        <img
-          src="https://www2.aqqire.com/assets/auth-decoration.a3f89aec.png"
-          class="w-48 h-48" />
-      </div>
     </div>
   </main>
 </template>
 
 <script setup lang="ts">
   const background = {
-    background: `url('https://www2.aqqire.com/assets/auth-image.b4a9973b.jpg') no-repeat`,
+    background: `url('https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg') no-repeat`,
     backgroundSize: "cover",
   };
 </script>
