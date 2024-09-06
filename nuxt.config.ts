@@ -9,15 +9,29 @@ export default defineNuxtConfig({
     },
   },
   debug: true,
+  //plausible script head rendering
+  head: {
+    script: [
+      {
+        src: "https://analytics.aqqire.com/js/script.js",
+        defer: true,
+        "data-domain": "www3.aqqire.com",
+      },
+    ]
+  },
   alias: {
     "@": "/<srcDir>",
   },
-  devtools: { enabled: true },
+
+  devtools: { enabled: false },
+
   modules: [
-    "@nuxtjs/tailwindcss",
-    "@formkit/nuxt",
-    "nuxt-primevue",
-    "@sidebase/nuxt-auth",
+    "@nuxtjs/tailwindcss", 
+    "@formkit/nuxt", 
+    "nuxt-primevue", 
+    "@sidebase/nuxt-auth", 
+    "@nuxtjs/plausible", 
+    "@productdevbook/chatwoot"
   ],
   build: {
     transpile: ["jsonwebtoken"],
@@ -40,6 +54,29 @@ export default defineNuxtConfig({
       include: "*",
       exclude: ["Editor", "Chart"],
     },
+  },
+  plausible: {
+    // Prevent tracking on localhost
+    //ignoredHostnames: ['localhost'],
+    ignoredHostnames: [],
+    apiHost: 'https://analytics.aqqire.com',
+    autoPageviews: true,
+    autoOutboundTracking: true,
+    logIgnoredEvents: true,
+  },
+  chatwoot: {
+    init: {
+      //access token kF6A8Z1hXhsT7e3ERwrGGUne
+      websiteToken: 'oDAiucBY2iF4Z2CFFDQVKfnp',
+      baseUrl: 'https://chat.aqqire.com'
+    },
+    settings: {
+      locale: 'en',
+      position: 'left',
+      launcherTitle: 'Hello Chat',
+      // ... more settings
+    },
+    partytown: false,
   },
   auth: {
     provider: {
