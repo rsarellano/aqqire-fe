@@ -90,6 +90,7 @@
           :key="key">
           <PropertyCardHorizontal
             :name="item.name"
+            :id='item.id'
             :location="`${item.city} ${item.address}`" />
         </div>
       </div>
@@ -124,7 +125,7 @@
   const items = ref(10)
   const fetchResults = async () => {
     loading.value = true
-    const { data, error } = await useFetch(`https://api3.aqqire.com/search`, {
+    const { data, error } = await useFetch(`https://api3.aqqire.com/property_search?`, {
       params: {
         q: name,
         page: page,
