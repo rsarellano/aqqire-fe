@@ -7,10 +7,20 @@
       <div class="w-full p-4 mx-auto space-y-4 shadow-lg bg-slate-50 max-w-7xl">
         <h1 class="text-2xl font-bold text-gray-700">Search for Properties</h1>
         <div class="flex flex-col gap-2 md:flex-row">
-          <FormKit
-            type="text"
-            :delay="600"
-            @input="search($event)" />
+          <form
+            type="form"
+            @submit.prevent="search"
+            class="w-full">
+            <FormKit
+              type="text"
+              outer-class="!w-full"
+              v-model="query" />
+            <Button
+              type="submit"
+              class="w-full">
+              Search
+            </Button>
+          </form>
         </div>
 
         <Accordion
@@ -90,7 +100,7 @@
           :key="key">
           <PropertyCardHorizontal
             :name="item.name"
-            :id='item.id'
+            :id="item.id"
             :location="`${item.city} ${item.address}`" />
         </div>
       </div>
@@ -114,6 +124,7 @@
   const route = useRoute()
   const router = useRouter()
   const properties = ref()
+  const query = ref()
 
   definePageMeta({
     layout: "none",
@@ -125,25 +136,28 @@
   const items = ref(10)
   const fetchResults = async () => {
     loading.value = true
-    const { data, error } = await useFetch(`https://api3.aqqire.com/property_search?`, {
-      params: {
-        q: name,
-        page: page,
-        items: items,
-      },
-    })
-    console.log(data.value, 'cali')
+    const { data, error } = await useFetch(
+      `https://api3.aqqire.com/property_search?`,
+      {
+        params: {
+          q: name,
+          page: page,
+          items: items,
+        },
+      }
+    )
     if (!error.value) {
       properties.value = data.value
     }
-    loading.value = false 
+    loading.value = false
   }
 
-  const search = async (query: string | undefined) => {
-    console.log(query)
+  const search = async () => {
     page.value = 1
-    await router.push({ query: { name: query } })
-    fetchResults()
+    if (query.value) {
+      await router.push({ query: { name: query.value } })
+      fetchResults()
+    }
   }
 
   const paginate = (newPage: PageState) => {

@@ -41,35 +41,35 @@
 
   const routes = ref([
     {
-      route: "login",
+      route: "/login",
       label: "login",
       icon: "pi pi-sign-in",
       class: "",
     },
     {
-      route: "register",
+      route: "/register",
       label: "register",
       icon: "pi pi-user-plus",
       class: "",
     },
     {
-      route: "properties",
+      route: "/properties",
       label: "Properties",
       class: "block lg:hidden",
     },
     {
-      route: "vendors",
+      route: "/vendors",
       label: "Vendors",
       class: "block lg:hidden",
     },
 
     {
-      route: "companies",
+      route: "/companies",
       label: "Companies",
       class: "block lg:hidden",
     },
     {
-      route: "dashboard/property/active",
+      route: "/dashboard/property/active",
       label: "My Properties",
       class: "block lg:hidden",
     },

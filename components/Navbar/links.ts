@@ -15,5 +15,6 @@ export const links = [
   {
     destination: "/dashboard/property/active",
     text: "My Properties",
+    requiresAuth: true
   },
 ]
