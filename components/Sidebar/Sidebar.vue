@@ -50,7 +50,7 @@
             <SidebarLinkMessages />
             <SidebarLinkInbox />
             <SidebarLinkSettings />
-            <SidebarLinkUtility v-if="data.role === 'admin'" />
+            <SidebarLinkUtility v-if="data.account_type !== 'admin'" />
           </ul>
         </div>
       </div>
@@ -89,6 +89,7 @@
   const sidebar = ref()
   const { data } = useAuth()
 
+  console.log(data.value, 'datadata')
   // close if the esc key is pressed
   const keyHandler = (event: KeyboardEvent) => {
     if (event.key === "Escape" && sidebarExpanded.value === true)
