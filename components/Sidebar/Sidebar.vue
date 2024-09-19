@@ -48,7 +48,7 @@
             <SidebarLinkProperties />
             <SidebarLinkEmails />
             <SidebarLinkMessages />
-            <SidebarLinkInbox />
+            <!-- <SidebarLinkInbox /> -->
             <SidebarLinkSettings />
             <SidebarLinkUtility v-if="data.account_type !== 'admin'" />
           </ul>
