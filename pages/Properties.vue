@@ -127,7 +127,7 @@
   const layout = ref("default")
   const route = useRoute()
   const router = useRouter()
-  const properties = ref()
+  const properties = ref({ data: [] })
   const query = ref()
 
   definePageMeta({
