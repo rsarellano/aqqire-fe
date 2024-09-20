@@ -1,4 +1,5 @@
-import { createError } from "h3"
+import { createError } from "h3";
+import { useRuntimeConfig } from "#imports";
 
 type User = {
   username: string
@@ -7,8 +8,9 @@ type User = {
 
 export default async function ({ username, password }: User) {
   try {
-    // TODO change to ENV
-    const response = await fetch("https://api3.aqqire.com/login", {
+    const config = useRuntimeConfig();
+    const apiUrl = config.public.API_BASE_URL;
+    const response = await fetch(`${apiUrl}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -19,9 +21,9 @@ export default async function ({ username, password }: User) {
       }),
     })
 
-    if(response.status === 401) {
-      return createError({ 
-        statusCode: 401, 
+    if (response.status === 401) {
+      return createError({
+        statusCode: 401,
         statusMessage: "Unauthorized" 
       })
     }
@@ -29,7 +31,11 @@ export default async function ({ username, password }: User) {
     return response.json()
 
   } catch (error: any) {
-    console.error('Error in logindb', error)
-    return { ...error }
+    console.error("Error in logindb", error);
+    return createError({
+      statusCode: 500,
+      statusMessage: "Internal Server Error",
+      message: error.message,
+    });
   }
 }
