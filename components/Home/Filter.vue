@@ -5,7 +5,9 @@
         <InputText
           placeholder="Search property name"
           class="w-3/4"
-          v-model="name" />
+          v-model="name"          
+          @keyup.enter="search"
+        />
         <Button
           class="flex-grow border border-white rounded-lg h-min"
           @click="search">
