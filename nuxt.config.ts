@@ -4,11 +4,14 @@ export default defineNuxtConfig({
   runtimeConfig: {
     jwtSecret: "",
     public: {
+      API_BASE_URL: process.env.API_BASE_URL || "http://localhost:5000",
       googleApi: "",
       mapId: "",
     },
   },
-  debug: true,
+
+  debug: false,
+
   //plausible script head rendering
   head: {
     script: [
@@ -17,8 +20,9 @@ export default defineNuxtConfig({
         defer: true,
         "data-domain": "www3.aqqire.com",
       },
-    ]
+    ],
   },
+
   alias: {
     "@": "/<srcDir>",
   },
@@ -26,24 +30,28 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
 
   modules: [
-    "@nuxtjs/tailwindcss", 
-    "@formkit/nuxt", 
-    "nuxt-primevue", 
-    "@sidebase/nuxt-auth", 
-    "@nuxtjs/plausible", 
-    "@productdevbook/chatwoot"
+    "@nuxtjs/tailwindcss",
+    "@formkit/nuxt",
+    "nuxt-primevue",
+    "@sidebase/nuxt-auth",
+    "@nuxtjs/plausible",
+    "@productdevbook/chatwoot",
   ],
+
   build: {
     transpile: ["jsonwebtoken"],
   },
+
   formkit: {
     autoImport: true,
     configFile: "./formkit.config.ts",
   },
+
   tailwindcss: {
     exposeConfig: true,
     configPath: "./tailwind.config",
   },
+
   primevue: {
     options: {
       unstyled: true,
@@ -55,29 +63,34 @@ export default defineNuxtConfig({
       exclude: ["Editor", "Chart"],
     },
   },
+
   plausible: {
     // Prevent tracking on localhost
     //ignoredHostnames: ['localhost'],
     ignoredHostnames: [],
-    apiHost: 'https://analytics.aqqire.com',
+    domain: "www3.aqqire.com",
+    apiHost: "https://analytics.aqqire.com",
     autoPageviews: true,
+    trackLocalhost: true,
     autoOutboundTracking: true,
     logIgnoredEvents: true,
   },
+
   chatwoot: {
     init: {
       //access token kF6A8Z1hXhsT7e3ERwrGGUne
-      websiteToken: 'oDAiucBY2iF4Z2CFFDQVKfnp',
-      baseUrl: 'https://chat.aqqire.com'
+      websiteToken: "oDAiucBY2iF4Z2CFFDQVKfnp",
+      baseUrl: "https://chat.aqqire.com",
     },
     settings: {
-      locale: 'en',
-      position: 'right',
-      launcherTitle: 'Hello Chat',
+      locale: "en",
+      position: "right",
+      launcherTitle: "Hello Chat",
       // ... more settings
     },
     partytown: false,
   },
+
   auth: {
     provider: {
       type: "local",
@@ -120,4 +133,6 @@ export default defineNuxtConfig({
       isEnabled: true,
     },
   },
-})
+
+  compatibilityDate: "2024-09-20",
+});
