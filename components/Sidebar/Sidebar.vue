@@ -46,11 +46,11 @@
           <ul class="mt-3">
             <SidebarLinkDashboard />
             <SidebarLinkProperties />
-            <SidebarLinkEmails />
+            <!-- <SidebarLinkEmails /> -->
             <SidebarLinkMessages />
             <!-- <SidebarLinkInbox /> -->
             <SidebarLinkSettings />
-            <SidebarLinkUtility v-if="data.account_type !== 'admin'" />
+            <SidebarLinkAdmin  />
           </ul>
         </div>
       </div>
