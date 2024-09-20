@@ -1,6 +1,5 @@
 <template>
-  <div>{{ data }}</div>
-  {{status}}
+  {{ status }}
 </template>
 
 <script setup lang="ts">
@@ -8,7 +7,14 @@
     layout: "none",
     auth: false,
   })
-  const { signIn, token, data, status, lastRefreshedAt } = useAuth()
+  const { signIn, token, data, status, lastRefreshedAt, signOut, getSession } =
+    useAuth()
 
-  const test = ref()
+  const route = useRoute()
+  const router = useRouter()
+  const arr = ref()
+  const inputValue = ref()
+
+  const currentPage = ref(Number(route.params.page) || 0)
+  const items = 10
 </script>

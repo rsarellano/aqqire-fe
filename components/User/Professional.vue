@@ -5,21 +5,21 @@
     </h1>
     <div class="flex flex-col gap-2 md:flex-row">
       <FormKit label="Company"  
-      v-model="model!.companyProfessional"/>
+      v-model="model!.company_professional"/>
       <FormKit label="Job Title:"  
-      v-model="model!.jobTitle"/>
+      v-model="model!.job_title"/>
     </div>
 
     <div class="flex flex-col gap-2 md:flex-row">
       <FormKit
         label="Date Started"
         type="month"
-        v-model="model!.dateStarted"
+        v-model="model!.date_started"
       />
       <FormKit
         label="Date Finished"
         type="month"
-        v-model="model!.dateFinished"
+        v-model="model!.date_finished"
       />
     </div>
   </div>

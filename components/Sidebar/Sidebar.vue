@@ -46,11 +46,11 @@
           <ul class="mt-3">
             <SidebarLinkDashboard />
             <SidebarLinkProperties />
-            <SidebarLinkEmails />
+            <!-- <SidebarLinkEmails /> -->
             <SidebarLinkMessages />
-            <SidebarLinkInbox />
+            <!-- <SidebarLinkInbox /> -->
             <SidebarLinkSettings />
-            <SidebarLinkUtility v-if="data.role === 'admin'" />
+            <SidebarLinkAdmin  />
           </ul>
         </div>
       </div>
@@ -89,6 +89,7 @@
   const sidebar = ref()
   const { data } = useAuth()
 
+  console.log(data.value, 'datadata')
   // close if the esc key is pressed
   const keyHandler = (event: KeyboardEvent) => {
     if (event.key === "Escape" && sidebarExpanded.value === true)

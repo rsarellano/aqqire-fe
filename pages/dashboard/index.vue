@@ -26,19 +26,13 @@
         My Properties
       </h2>
 
-      <DataTable
-        :value="formattedTop"
-        paginator
-        :rows="10"
-        show-gridlines>
-        <Column
-          field="name"
-          header="Property"
-          sortable>
+      <DataTable :value="properties" paginator :rows="10" show-gridlines>
+        <Column field="name" header="Property" sortable>
           <template #body="{ data }">
             <NuxtLink
-              to="/property/asda/"
-              class="text-blue-500">
+              target="_blank"
+              :to="`/property/${data.id}`"
+              class="text-blue-500 hover:underline">
               {{ data.name }}
             </NuxtLink>
           </template>
@@ -64,16 +58,20 @@
           header="Email Impressions"
           sortable></Column>
         <Column
-          field="lastUpdated.value"
+          field="updated_at"
           header="Last Updated"
-          sortable></Column>
+          sortable>
+          <template #body="{ data }">
+            <p>{{ formatISODate(data.updated_at) }}</p>
+          </template>
+        </Column>
 
         <Column
           field="actions"
           header="Actions">
-          <template #body>
+          <template #body="{ data }">
             <div class="flex justify-center">
-              <DashboardMarketingActions />
+              <DashboardMarketingActions :id="data.id" />
             </div>
           </template>
         </Column>
@@ -83,104 +81,57 @@
 </template>
 
 <script setup lang="ts">
-  import { use } from "@formkit/core"
+import { useAuth } from "#imports";
+import { useRuntimeConfig } from "#app";
+const apiUrl = useRuntimeConfig().public.API_BASE_URL;
+const { data: authData } = useAuth();
 
-  const { signIn, token, data, status, lastRefreshedAt } = useAuth()
-  const user: any = { ...data.value! }
-  definePageMeta({
-    middleware: "auth",
-  })
+const user = computed(() => authData.value);
+const loading = ref(true);
+const properties = ref([]);
+const stats = ref({ views: 0, clicks: 0, impressions: 0 });
 
-  const formatDateTable = (arr: any) => {
-    return arr.map((item: any) => {
-      return { ...item, lastUpdated: elapsedSince(item.lastUpdated) }
-    })
+const fetchProperties = async () => {
+  if (user.value && user.value.id) {
+    loading.value = true;
+    try {
+      const { data } = await useFetch(`${apiUrl}/broker/properties`, {
+        params: {
+          userId: user.value.id,
+          page: 1,
+          size: 10,
+        },
+      });
+      properties.value = data.value?.items || [];
+      updateStats();
+    } catch (error) {
+      console.error("Error fetching properties:", error);
+    } finally {
+      loading.value = false;
+    }
   }
-  const top = [
-    {
-      name: "Berge Springs",
-      clicks: 752,
-      views: 96105,
-      impressions: 2062,
-      lastUpdated:
-        "Thu Sep 07 2023 23:28:53 GMT+0800 (Philippine Standard Time)",
-    },
-    {
-      name: "Hoppe Trail",
-      clicks: 421,
-      views: 69783,
-      impressions: 67332,
-      lastUpdated:
-        "Tue Sep 26 2023 10:56:31 GMT+0800 (Philippine Standard Time)",
-    },
-    {
-      name: "Brekke Port",
-      clicks: 359,
-      views: 71790,
-      impressions: 95046,
-      lastUpdated:
-        "Sat Feb 10 2024 03:05:17 GMT+0800 (Philippine Standard Time)",
-    },
-    {
-      name: "Madisen Freeway",
-      clicks: 474,
-      views: 95976,
-      impressions: 36169,
-      lastUpdated:
-        "Mon Aug 28 2023 09:54:45 GMT+0800 (Philippine Standard Time)",
-    },
-    {
-      name: "Alfredo Pines",
-      clicks: 46,
-      views: 53993,
-      impressions: 90555,
-      lastUpdated:
-        "Fri May 05 2023 17:39:08 GMT+0800 (Philippine Standard Time)",
-    },
-  ]
-  const low = [
-    {
-      name: "Klocko Isle",
-      clicks: 582,
-      views: 12818,
-      impressions: 28780,
-      lastUpdated:
-        "Sun Mar 24 2024 20:29:18 GMT+0800 (Philippine Standard Time)",
-    },
-    {
-      name: "Schneider Tunnel",
-      clicks: 353,
-      views: 33606,
-      impressions: 66458,
-      lastUpdated:
-        "Tue Apr 02 2024 12:18:23 GMT+0800 (Philippine Standard Time)",
-    },
-    {
-      name: "Ullrich Crossroad",
-      clicks: 612,
-      views: 50406,
-      impressions: 94756,
-      lastUpdated:
-        "Fri Aug 18 2023 04:53:21 GMT+0800 (Philippine Standard Time)",
-    },
-    {
-      name: "Tillman Falls",
-      clicks: 553,
-      views: 78391,
-      impressions: 6890,
-      lastUpdated:
-        "Sat Jul 01 2023 06:46:16 GMT+0800 (Philippine Standard Time)",
-    },
-    {
-      name: "Verner Tunnel",
-      clicks: 398,
-      views: 36811,
-      impressions: 80030,
-      lastUpdated:
-        "Wed Feb 21 2024 19:38:40 GMT+0800 (Philippine Standard Time)",
-    },
-  ]
+};
 
-  const formattedLow = ref(formatDateTable(low))
-  const formattedTop = ref(formatDateTable(top))
+const updateStats = () => {
+  stats.value = {
+    views: properties.value.reduce((sum, prop) => sum + (prop.views || 0), 0),
+    clicks: properties.value.reduce((sum, prop) => sum + (prop.clicks || 0), 0),
+    impressions: properties.value.reduce(
+      (sum, prop) => sum + (prop.impressions || 0),
+      0,
+    ),
+  };
+};
+
+onMounted(fetchProperties);
+watch(user, fetchProperties);
+
+definePageMeta({
+  middleware: "auth",
+});
+
+// Helper function to format ISO date (you might want to move this to a separate utility file)
+const formatISODate = (isoString: string) => {
+  return new Date(isoString).toLocaleDateString();
+};
 </script>

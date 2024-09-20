@@ -46,7 +46,7 @@
             v-for=", in [...new Array(10)]">
             <NuxtLink
               class="block px-4 py-2 hover:bg-slate-50"
-              to="/1"
+              to="/"
               @click="dropdownOpen = false">
               <span class="block mb-2 text-sm">
                 📣

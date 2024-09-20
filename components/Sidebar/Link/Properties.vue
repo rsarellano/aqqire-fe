@@ -102,5 +102,9 @@
       href: "/dashboard/property/sold",
       text: "Sold Properties",
     },
+    {
+      href: "/dashboard/property/analytics",
+      text: "Analytics",
+    },
   ]
 </script>

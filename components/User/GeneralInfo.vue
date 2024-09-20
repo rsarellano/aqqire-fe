@@ -8,17 +8,17 @@
       <FormKit
         type="text"
         label="First Name"
-        v-model="model!.firstName"
+        v-model="model!.first_name"
       />
       <FormKit
         type="text"
         label="Middle Name"
-        v-model="model!.middleName"
+        v-model="model!.middle_name"
       />
       <FormKit
         type="text"
         label="Last Name"
-        v-model="model!.lastName"
+        v-model="model!.last_name"
       />
     </div>
 
@@ -64,18 +64,18 @@
       <FormKit
         type="text"
         label="Work Type"
-        v-model="model!.workType"
+        v-model="model!.work_type"
       />
       <FormKit
         type="text"
         label="Company Position"
-        v-model="model!.companyPosition"
+        v-model="model!.company_position"
       />
     </div>
 
     <Editor
       editorStyle="height: 200px"
-      v-model="model!.profileDescription"
+      v-model="model!.profile_description"
     />
   </div>
 </template>

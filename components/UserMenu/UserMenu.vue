@@ -70,7 +70,7 @@
             <li>
               <NuxtLink
                 class="flex items-center w-full px-3 py-1 text-sm font-medium text-blue-700 hover:text-blue-900 hover:bg-slate-100"
-                to="broker-home"
+                to="/dashboard"
                 @click="dropdownOpen = false">
                 Dashboard
               </NuxtLink>
@@ -86,7 +86,7 @@
             <li>
               <NuxtLink
                 class="flex items-center w-full px-3 py-1 text-sm font-medium text-blue-700 hover:text-blue-900 hover:bg-slate-100"
-                to="/dashboard/properties"
+                to="/dashboard/"
                 @click="dropdownOpen = false">
                 My Listings
               </NuxtLink>
@@ -114,9 +114,9 @@
   const userProfile = {
     // profileImage: "https://picsum.photos/200/300?grayscale",
     profileImage: data.value?.picture,
-    firstName: data.value!.first_name,
-    email: data.value.username,
-    role: data.value.role,
+    firstName: data.value?.first_name,
+    email: data.value?.username,
+    role: data.value?.role,
   };
   //handle user signout
   const handleSignOut = async () => {
