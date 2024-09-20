@@ -155,6 +155,9 @@
 </template>
 
 <script setup lang="ts">
+  import { useRuntimeConfig } from "#app";
+  const apiUrl = useRuntimeConfig().public.API_BASE_URL;
+
   export interface User {
     id: number
     email: string
@@ -219,6 +222,6 @@
   const route = useRoute()
 
   const { data, refresh, execute } = await useFetch<User>(
-    "https://api3.aqqire.com/broker/" + route.params.id
+    `${apiUrl}/broker/profile/view/${route.params.id}`
   )
 </script>

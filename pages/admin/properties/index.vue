@@ -251,7 +251,9 @@
 <script setup lang="ts">
   import { FilterMatchMode } from "primevue/api"
   import type { PageState } from "primevue/paginator"
-
+  
+  import { useRuntimeConfig } from "#app";
+  const apiUrl = useRuntimeConfig().public.API_BASE_URL;
   // const filters = ref({
   //   global: { value: undefined, matchMode: FilterMatchMode.STARTS_WITH },
   //   name: { value: undefined, matchMode: FilterMatchMode.CONTAINS },
@@ -300,7 +302,7 @@
 
   const getData = async (newPage?: number) => {
     loading.value = true
-    const { data, refresh } = await useFetch("https://api3.aqqire.com/search", {
+    const { data, refresh } = await useFetch(`${apiUrl}/admin/property/search`, {
       query: {
         q: query.value,
         page: newPage || currentPage.value,
