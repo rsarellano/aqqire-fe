@@ -26,15 +26,8 @@
         My Properties
       </h2>
 
-      <DataTable
-        :value="propertyData.properties"
-        paginator
-        :rows="10"
-        show-gridlines>
-        <Column
-          field="name"
-          header="Property"
-          sortable>
+      <DataTable :value="properties" paginator :rows="10" show-gridlines>
+        <Column field="name" header="Property" sortable>
           <template #body="{ data }">
             <NuxtLink
               target="_blank"
@@ -88,13 +81,57 @@
 </template>
 
 <script setup lang="ts">
-  const { signIn, token, data, status, lastRefreshedAt } = useAuth()
-  const user: any = { ...data.value! }
-  definePageMeta({
-    middleware: "auth",
-  })
+import { useAuth } from "#imports";
+import { useRuntimeConfig } from "#app";
+const apiUrl = useRuntimeConfig().public.API_BASE_URL;
+const { data: authData } = useAuth();
 
-  const { data: propertyData } = await useFetch(
-    "https://api3.aqqire.com/properties?items=10"
-  )
+const user = computed(() => authData.value);
+const loading = ref(true);
+const properties = ref([]);
+const stats = ref({ views: 0, clicks: 0, impressions: 0 });
+
+const fetchProperties = async () => {
+  if (user.value && user.value.id) {
+    loading.value = true;
+    try {
+      const { data } = await useFetch(`${apiUrl}/broker/properties`, {
+        params: {
+          userId: user.value.id,
+          page: 1,
+          size: 10,
+        },
+      });
+      properties.value = data.value?.items || [];
+      updateStats();
+    } catch (error) {
+      console.error("Error fetching properties:", error);
+    } finally {
+      loading.value = false;
+    }
+  }
+};
+
+const updateStats = () => {
+  stats.value = {
+    views: properties.value.reduce((sum, prop) => sum + (prop.views || 0), 0),
+    clicks: properties.value.reduce((sum, prop) => sum + (prop.clicks || 0), 0),
+    impressions: properties.value.reduce(
+      (sum, prop) => sum + (prop.impressions || 0),
+      0,
+    ),
+  };
+};
+
+onMounted(fetchProperties);
+watch(user, fetchProperties);
+
+definePageMeta({
+  middleware: "auth",
+});
+
+// Helper function to format ISO date (you might want to move this to a separate utility file)
+const formatISODate = (isoString: string) => {
+  return new Date(isoString).toLocaleDateString();
+};
 </script>

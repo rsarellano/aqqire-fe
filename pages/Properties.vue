@@ -113,11 +113,15 @@
         @page="paginate"
         :totalRecords="properties.total"></Paginator>
     </div>
+
+    
   </template>
 </template>
 
 <script setup lang="ts">
   import type { PageState } from "primevue/paginator"
+  import { useRuntimeConfig } from "#app";
+  const apiUrl = useRuntimeConfig().public.API_BASE_URL;
 
   const loading = ref(false)
   const layout = ref("default")
@@ -137,7 +141,7 @@
   const fetchResults = async () => {
     loading.value = true
     const { data, error } = await useFetch(
-      `https://api3.aqqire.com/property_search?`,
+      `${apiUrl}/property/search?`,
       {
         params: {
           q: name,

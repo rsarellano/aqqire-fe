@@ -28,10 +28,12 @@
 <script setup lang="ts">
 import { user } from '~/store/editUserStore'
 import type { User } from '~/types/user';
+import { useRuntimeConfig } from "#app";
+const apiUrl = useRuntimeConfig().public.API_BASE_URL;
 
 const route = useRoute()
 
-const { data } = await useFetch<User>('https://api3.aqqire.com/user/' + route.params.id)
+const { data } = await useFetch<User>(`${apiUrl}/admin/user/${route.params.id}`)
 
 user.value = {
   ...user.value,

@@ -278,6 +278,10 @@
   import { FilterMatchMode } from "primevue/api"
   import type { PageState } from "primevue/paginator"
 
+  import { useRuntimeConfig } from "#app";
+  const apiUrl = useRuntimeConfig().public.API_BASE_URL;
+
+
   // Types
   interface User {
     id: number
@@ -335,7 +339,6 @@
     { label: "Inactive", value: false },
   ]
 
-  const apiUrl = `https://api3.aqqire.com/users`
 
   const currentPage = computed(() => Number(route.query.page) || 0)
   const numberOfRows = ref(10)
@@ -348,7 +351,7 @@
 
   const getData = async (page?: number) => {
     loading.value = true
-    const { data: fetchedData, refresh } = await useFetch<Data>(() => apiUrl, {
+    const { data: fetchedData, refresh } = await useFetch<Data>(() => `${apiUrl}/admin/users`, {
       key: `users-${currentPage.value}`,
       params: {
         page: page || currentPage.value,

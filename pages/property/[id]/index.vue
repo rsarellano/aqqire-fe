@@ -97,6 +97,9 @@
 
 <script setup lang="ts">
   import { isPremium } from "~/store/isPremium"
+  import { useRuntimeConfig } from "#app";
+  const apiUrl = useRuntimeConfig().public.API_BASE_URL;
+
   type Property = {
     id: number
     name: string
@@ -233,7 +236,7 @@
 
   const route = useRoute()
   const { data } = await useFetch<Property>(
-    `https://api3.aqqire.com/property/${route.params.id}`
+    `${apiUrl}/property/view/${route.params.id}`
   )
   const images = [
     {
