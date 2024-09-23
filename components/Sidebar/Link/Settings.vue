@@ -16,10 +16,7 @@
     >
       <div class="flex items-center justify-between">
         <div class="flex items-center">
-          <svg
-            class="w-6 h-6 shrink-0"
-            viewBox="0 0 24 24"
-          >
+          <svg class="w-6 h-6 shrink-0" viewBox="0 0 24 24">
             <path
               class="fill-current text-slate-600"
               :class="
@@ -64,10 +61,7 @@
       </div>
     </button>
     <div class="lg:block 2xl:block">
-      <ul
-        class="mt-1 pl-9"
-        :class="!parentLink.expanded && 'hidden'"
-      >
+      <ul class="mt-1 pl-9" :class="!parentLink.expanded && 'hidden'">
         <NuxtLink
           to="/dashboard/settings/account"
           custom
@@ -78,7 +72,7 @@
               class="block truncate transition duration-150 text-slate-400 hover:text-slate-200"
               :class="isExactActive && '!text-indigo-500'"
               :href="href"
-              @click.prevent="navigate"
+              @click="navigate"
             >
               <span class="text-sm font-medium duration-200"> My Account </span>
             </a>
@@ -178,6 +172,6 @@
 </template>
 
 <script setup lang="ts">
-  import { sidebarExpanded } from "../SidebarStore"
-  const currentRoute = useRouter().currentRoute.value
+import { sidebarExpanded } from "../SidebarStore";
+const currentRoute = useRouter().currentRoute.value;
 </script>
