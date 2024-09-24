@@ -123,19 +123,20 @@
               {{ data.email }}
             </div>
 
-            <div class="flex items-baseline gap-4">
+            <!-- <div class="flex items-baseline gap-4">
               <i class="pi pi-mobile"></i>
               {{ data.phone }}
-            </div>
+            </div> -->
 
-            <div class="flex items-baseline gap-4 capitalize">
+            <div class="flex items-baseline gap-4 text-xs capitalize">
               <i class="pi pi-map-marker"></i>
-              {{ data.address }}
+              {{ data.mongodata.street_address }}
+              {{ data.mongodata.city }}
             </div>
 
-            <div class="flex items-baseline gap-4 capitalize">
+            <div class="flex items-baseline gap-4 text-xs capitalize">
               <i class="pi pi-building"></i>
-              {{ data.company }}
+            {{data.mongodata.company_name}}
             </div>
           </div>
         </div>
@@ -180,8 +181,8 @@
             {{ new Date(data.lastLogin).toLocaleDateString() }} )
           </p>
           <p>
-            Joined {{ elapsedSince(data.createdOn).value }} (
-            {{ new Date(data.createdOn).toLocaleDateString() }} )
+            Joined {{ elapsedSince(data.mongodata.createdAt).value }} (
+            {{ formatISODate(data.mongodata.createdAt) }} )
           </p>
         </div>
       </template>
@@ -278,9 +279,8 @@
   import { FilterMatchMode } from "primevue/api"
   import type { PageState } from "primevue/paginator"
 
-  import { useRuntimeConfig } from "#app";
-  const apiUrl = useRuntimeConfig().public.API_BASE_URL;
-
+  import { useRuntimeConfig } from "#app"
+  const apiUrl = useRuntimeConfig().public.API_BASE_URL
 
   // Types
   interface User {
@@ -339,7 +339,6 @@
     { label: "Inactive", value: false },
   ]
 
-
   const currentPage = computed(() => Number(route.query.page) || 0)
   const numberOfRows = ref(10)
   const params = ref()
@@ -351,15 +350,18 @@
 
   const getData = async (page?: number) => {
     loading.value = true
-    const { data: fetchedData, refresh } = await useFetch<Data>(() => `${apiUrl}/admin/users`, {
-      key: `users-${currentPage.value}`,
-      params: {
-        page: page || currentPage.value,
-        items: numberOfRows,
-        field,
-        value,
-      },
-    })
+    const { data: fetchedData, refresh } = await useFetch<Data>(
+      () => `${apiUrl}/admin/users`,
+      {
+        key: `users-${currentPage.value}`,
+        params: {
+          page: page || currentPage.value,
+          items: numberOfRows,
+          field,
+          value,
+        },
+      }
+    )
 
     data.value = fetchedData.value
     loading.value = false

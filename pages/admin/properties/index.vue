@@ -1,6 +1,5 @@
 <template>
   <AdminNav />
-
   <div class="flex items-center justify-between w-full">
     <!-- Search api for records -->
     <div class="flex items-center gap-2 grow">
@@ -19,7 +18,6 @@
     <NuxtLink to="/admin/properties/add">
       <Button>Create Property</Button>
     </NuxtLink>
-    
   </div>
 
   <DataTable
@@ -30,7 +28,6 @@
     show-gridlines
     paginator
     :rows="10"
-    :rowsPerPageOptions="[10, 40, 50, 100]"
     dataKey="id"
     :total-records="properties?.total"
     :first="currentPage * numberOfRows - 1"
@@ -154,7 +151,7 @@
 
           <p class="text-xs">
             {{ data.address }}
-            <span v-if="data.city">{{ data.city }},</span>
+            <span v-if="data.city">{{ data.city + ", " }}</span>
             <span v-if="data.state">{{ data.state }}</span>
           </p>
         </div>
@@ -194,7 +191,7 @@
         <div class="max-w-xs space-y-1">
           <p class="text-sm font-bold">
             <template v-if="typeof data.propertyPrice == 'number'">$</template>
-            {{ data.property_price }}
+            {{ data.property_price || "Contact Broker" }}
           </p>
         </div>
       </template>
@@ -251,9 +248,9 @@
 <script setup lang="ts">
   import { FilterMatchMode } from "primevue/api"
   import type { PageState } from "primevue/paginator"
-  
-  import { useRuntimeConfig } from "#app";
-  const apiUrl = useRuntimeConfig().public.API_BASE_URL;
+
+  import { useRuntimeConfig } from "#app"
+  const apiUrl = useRuntimeConfig().public.API_BASE_URL
   // const filters = ref({
   //   global: { value: undefined, matchMode: FilterMatchMode.STARTS_WITH },
   //   name: { value: undefined, matchMode: FilterMatchMode.CONTAINS },
@@ -302,13 +299,16 @@
 
   const getData = async (newPage?: number) => {
     loading.value = true
-    const { data, refresh } = await useFetch(`${apiUrl}/admin/property/search`, {
-      query: {
-        q: query.value,
-        page: newPage || currentPage.value,
-        items: numberOfRows.value,
-      },
-    })
+    const { data, refresh } = await useFetch(
+      `${apiUrl}/admin/property/search`,
+      {
+        query: {
+          q: query.value,
+          page: newPage || currentPage.value,
+          items: numberOfRows.value,
+        },
+      }
+    )
     properties.value = data.value
     loading.value = false
   }
