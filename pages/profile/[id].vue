@@ -1,6 +1,5 @@
 <template>
   <div class="py-4 mx-auto space-y-2 text-gray-700 max-w-7xl">
-    {{ auth }}
     <div class="flex gap-10">
       <!-- Image -->
       <div class="size-1/3">
