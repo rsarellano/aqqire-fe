@@ -1,5 +1,5 @@
 <template>
-  <div class="py-4 mx-auto space-y-2 text-gray-700 max-w-7xl">
+  <div class="py-4 pt-8 mx-auto space-y-2 text-gray-700 max-w-7xl">
     <div class="flex gap-10">
       <!-- Image -->
       <div class="size-1/3">
