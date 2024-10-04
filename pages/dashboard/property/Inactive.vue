@@ -68,9 +68,9 @@
       <Column
         field="actions"
         header="Actions">
-        <template #body>
+        <template #body={data}>
           <div class="flex justify-center">
-            <PropertyTableActions />
+            <PropertyTableActions :id="data.id" />
           </div>
         </template>
       </Column>

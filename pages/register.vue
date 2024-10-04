@@ -31,7 +31,7 @@
         'Owner',
         'Vendor',
         'Buyer',
-        'Company Admin',
+        'Company',
         'Marketing',
       ]"
     />
