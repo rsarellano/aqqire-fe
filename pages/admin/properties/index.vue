@@ -1,6 +1,5 @@
 <template>
   <AdminNav />
-  {{ search }}
   <div class="flex items-center justify-between w-full">
     <!-- Search api for records -->
     <div class="flex items-center gap-2 grow">
@@ -59,11 +58,12 @@
               type="select"
               label="State"
               v-model="search.state"
+              clearable
               :options="states" />
             <FormKit
               placeholder="Type of Property"
               type="select"
-              label="State"
+              label="Asset Type"
               v-model="search.asset_type"
               :options="asset_types" />
           </div>
@@ -256,6 +256,8 @@
       query: {
         name: search.value.name,
         city: search.value?.city,
+        asset_type: search.value.asset_type,
+        state: search.value?.state,
         active: search.value?.active,
         page: newPage || currentPage,
         items: numberOfRows,

@@ -10,6 +10,13 @@
       </span>
     </h1>
 
+    <FormKit
+      label="Property Type"
+      type="select"
+      placeholder="Change Property Type"
+      :options="assetTypes"
+      v-model="store.propertyType" />
+
     <template v-if="store.propertyType">
       <AdminPropertyBrokerSearch v-model="store.brokers" />
       <BrokerPropertyBasicInfo v-model="store" />
@@ -17,8 +24,7 @@
       <BrokerPropertyMap v-model="store" />
 
       <h2
-        class="pb-4 text-2xl font-bold text-gray-700 capitalize border-b border-gray-700"
-      >
+        class="pb-4 text-2xl font-bold text-gray-700 capitalize border-b border-gray-700">
         {{ store.propertyType }} Detailed Information
       </h2>
 
@@ -27,171 +33,155 @@
         label="Apn ID (Assessor's Parcel Number ID)"
         type="text"
         v-model="store.apnId"
-        label-class="pb-1 text-2xl uppercase"
-      />
+        label-class="pb-1 text-2xl uppercase" />
 
       <BrokerPropertyDetailHotel
-        v-if="store.propertyType === 'Hotel'"
-        v-model="store"
-      />
+        v-if="store.propertyType === 'hotel'"
+        v-model="store" />
       <BrokerPropertyDetailGas
-        v-if="store.propertyType === 'Gas Station'"
-        v-model="store"
-      />
+        v-if="store.propertyType === 'gas'"
+        v-model="store" />
       <BrokerPropertyDetailRetail
         v-model="store"
         v-if="
-          store.propertyType === 'Retail' ||
-          store.propertyType === 'Health' ||
-          store.propertyType === 'Special'
-        "
-      />
+          store.propertyType === 'retail' ||
+          store.propertyType === 'health' ||
+          store.propertyType === 'special'
+        " />
       <BrokerPropertyDetailIndustrial
         v-model="store"
-        v-if="store.propertyType === 'Industrial'"
-      />
+        v-if="store.propertyType === 'industrial'" />
       <BrokerPropertyDetailMulti
-        v-if="store.propertyType === 'Multi-Family'"
-        v-model="store"
-      />
+        v-if="store.propertyType === 'multifamily'"
+        v-model="store" />
       <BrokerPropertyDetailRestaurant
         v-model="store"
-        v-if="store.propertyType === 'Restaurant'"
-      />
+        v-if="store.propertyType === 'restaurant'" />
       <BrokerPropertyDetailOffice
-        v-if="store.propertyType === 'Office'"
-        v-model="store"
-      />
+        v-if="store.propertyType === 'office'"
+        v-model="store" />
 
       <BrokerPropertyMarketInfo v-model="store" />
 
       <h2
-        class="pb-4 text-2xl font-bold text-gray-700 capitalize border-b border-gray-700"
-      >
+        class="pb-4 text-2xl font-bold text-gray-700 capitalize border-b border-gray-700">
         {{ store.propertyType }} Financial Information
       </h2>
 
       <BrokerPropertyFinancialHotel
-        v-if="store.propertyType === 'Hotel'"
-        v-model="store"
-      />
+        v-if="store.propertyType === 'hotel'"
+        v-model="store" />
       <BrokerPropertyFinancialGas
-        v-if="store.propertyType === 'Gas Station'"
-        v-model="store"
-      />
+        v-if="store.propertyType === 'gas'"
+        v-model="store" />
       <BrokerPropertyFinancialRetail
         v-model="store"
         v-if="
-          store.propertyType === 'Retail' ||
-          store.propertyType === 'Health' ||
-          store.propertyType === 'Special'
-        "
-      />
+          store.propertyType === 'retail' ||
+          store.propertyType === 'health' ||
+          store.propertyType === 'special'
+        " />
       <BrokerPropertyFinancialMulti
         v-model="store"
-        v-if="store.propertyType === 'Multi-Family'"
-      />
+        v-if="store.propertyType === 'multifamily'" />
       <BrokerPropertyFinancialRestaurant
         v-model="store"
-        v-if="store.propertyType === 'Restaurant'"
-      />
+        v-if="store.propertyType === 'restaurant'" />
       <BrokerPropertyFinancialOffice
-        v-if="store.propertyType === 'Office'"
-        v-model="store"
-      />
+        v-if="store.propertyType === 'office'"
+        v-model="store" />
 
       <div class="flex flex-col w-full gap-2">
-        <Button
-          @click="resetFields"
-          severity="danger"
-          >Reset Fields</Button
-        >
-        <Button @click="">Create Property</Button>
+        <Button @click="">Update Property</Button>
       </div>
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
+  import { useRuntimeConfig } from "#app"
+  const apiUrl = useRuntimeConfig().public.API_BASE_URL
   import { store, resetFields } from "~/components/Broker/Property/store"
-  import { onMounted } from "vue"
-  const propertyTypes = [
-    "Hotel",
-    "Gas Station",
-    "Retail",
-    "Multi-Family",
-    "Land",
-    "Industrial",
-    "Restaurant",
-    "Health",
-    "Office",
-    "Special",
-  ]
+  import { asset_types } from "~/pages/admin/properties/states"
 
-  onMounted(() => {
-    store.value = {
-      propertyType: "Hotel",
-      // Basic Info
-      propertyName: "Lakeside Resort",
-      price: "$10,000,000",
-      saleType: "For Sale",
-      brand: "Luxury Suites",
+  const { data: authData } = useAuth()
+  asset_types.shift()
+  const assetTypes = ref(asset_types)
 
-      // Location
-      international: false,
-      address: "123 Lakeview Dr",
-      city: "Los Angeles",
-      state: "California",
-      zip: "90001",
-      coordinates: {
-        lat: 0,
-        lng: 0,
-      },
+  const user = computed(() => authData.value)
+  const route = useRoute()
 
-      // Common Info
-      buildingSizeinSqFt: "50,000",
-      numberOfBuildings: "3",
-      numberOfUnits: "100",
-      numberOfFloors: "5",
-      yearBuilt: "1990",
-      yearRenovated: "2018",
-      lotSizeAcre: "10",
-      permitZoning: "Commercial",
-      netRentableArea: "45,000",
-      buildingClass: "A",
-      netLease: "Triple Net",
-      tenancy: "Fully Leased",
-      apnId: "123-456-789",
-      pricePerSquareFt: "$200",
-      netOperatingIncome: "$750,000",
-      capRate: "7%",
-      occupancy: "95%",
-      grossRentalIncome: "$1,000,000",
-      netRentalIncome: "$900,000",
-
-      // Market Info
-      investmentHighlights: "Prime location with high tourist traffic.",
-      propertySummary: "Luxurious lakeside resort offering premium amenities.",
-      marketSummary: "Strong demand for hospitality services in the area.",
-      trafficCount: "10,000 vehicles per day",
-
-      // Gas
-      mpd: "8",
-      gasOptions: [],
-      baysIncome: "$200,000",
-      annualFuelRevenue: "$1,500,000",
-      annualCStoreRevenue: "$1,000,000",
-      annualBayRevenue: "$300,000",
-      annualRestaurantRevenue: "$600,000",
-
-      // Hotel
-      averageDailyRate: "$200",
-      revPar: "$150",
-      multiplier: "10",
-
-      brokers: [], // No data provided for brokers
-
-      // No data provided for gas options
-    }
+  const { data } = await useFetch(`${apiUrl}/broker/properties`, {
+    params: {
+      userId: user?.value?.id,
+      property_id: route.params.id,
+    },
   })
+
+
+  store.value = {
+    propertyType: data.value.asset_type,
+
+    // Basic Info
+    propertyName: data.value.name,
+    price: data.value.mongodata.price,
+    saleType: data.value.mongodata.sale_type,
+    brand: data.value.mongodata.brand,
+
+    // Location
+    international: false,
+    address: data.value.address,
+    city: data.value.city,
+    state: data.value.state_name,
+    zip: data.value.mongodata.zip_code,
+    coordinates: {
+      lat: data.value.mongodata.latitude,
+      lng: data.value.mongodata.longitude,
+    },
+
+    // Common Info
+    buildingSizeinSqFt: data.value.mongodata.building_size,
+    numberOfBuildings: data.value.mongodata.buildings,
+    numberOfUnits: data.value.mongodata.units,
+    numberOfFloors: data.value.mongodata.floors,
+    yearBuilt: data.value.mongodata.year,
+    yearRenovated: data.value.mongodata.year_renovated,
+    lotSizeAcre: data.value.mongodata.lot_size,
+    apnId: data.value.mongodata.apn,
+    occupancy: data.value.mongodata.occupancy,
+    capRate: data.value.mongodata.cap_rate,
+    permitZoning: "",
+    netRentableArea: "",
+    buildingClass: "",
+    netLease: "",
+    tenancy: "",
+    pricePerSquareFt: "",
+    netOperatingIncome: "",
+    netRentalIncome: "",
+    grossRentalIncome: "",
+
+    // Market Info
+    investmentHighlights: data.value.mongodata.highlights,
+    propertySummary: data.value.mongodata.summary,
+    marketSummary: data.value.mongodata.market_summary,
+    trafficCount: data.value.mongodata.traffic_count,
+
+    // Gas
+    mpd: data.value.mongodata.mpd,
+    gasOptions: [],
+    baysIncome: data.value.mongodata.bays_income,
+    annualFuelRevenue: data.value.mongodata.annual_fuel_revenue,
+    annualCStoreRevenue: data.value.mongodata.annual_c_store_revenue,
+    annualBayRevenue: data.value.mongodata.annual_bay_revenue,
+    annualRestaurantRevenue: data.value.mongodata.annual_restaurant_revenue,
+
+    // Hotel
+    averageDailyRate: "",
+    revPar: data.value.mongodata.revPar,
+    multiplier: data.value.mongodata.multiplier,
+
+    brokers: [], // No data provided for brokers
+
+    // No data provided for gas options
+  }
 </script>
