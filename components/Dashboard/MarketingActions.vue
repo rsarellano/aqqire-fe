@@ -14,7 +14,7 @@
       :popup="true">
       <template #item="{ item }">
         <NuxtLink
-          :to="`${item.route}/${id}`"
+          :to="`${item.route}`"
           class="flex items-center justify-start gap-2 p-2 px-4 cursor-pointer"
           v-ripple>
           <span :class="item.icon" />
@@ -65,7 +65,7 @@
         },
         {
           label: "Edit Property",
-          route: "/admin/properties/edit",
+          route: `/dashboard/property/${id}/edit`,
         },
         {
           label: "Activate Property",
