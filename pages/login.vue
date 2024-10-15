@@ -39,6 +39,11 @@
         class="text-blue-500">
         Dont have an account? Sign up!
       </NuxtLink>
+      <NuxtLink
+        to="/Forgot-password"
+        class="text-blue-500">
+        Forgot Password?
+      </NuxtLink>
     </form>
   </div>
 </template>
