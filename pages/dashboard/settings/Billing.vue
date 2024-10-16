@@ -146,6 +146,7 @@
 
 <script setup lang="ts">
   import { useRuntimeConfig } from "#app"
+  
   import type { PageState } from "primevue/paginator"
   const apiUrl = useRuntimeConfig().public.API_BASE_URL
 

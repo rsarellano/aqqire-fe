@@ -100,8 +100,12 @@
           :key="key">
           <PropertyCardHorizontal
             :name="item.name"
+            :price="item.price"
             :id="item.id"
-            :location="`${item.city} ${item.address}`" />
+            :city="item.city"
+            :address="item.address"
+            :state="item.state"
+            :updated="item.updated_at" />
         </div>
       </div>
       <!-- Pagination -->
@@ -113,15 +117,13 @@
         @page="paginate"
         :totalRecords="properties.total"></Paginator>
     </div>
-
-    
   </template>
 </template>
 
 <script setup lang="ts">
   import type { PageState } from "primevue/paginator"
-  import { useRuntimeConfig } from "#app";
-  const apiUrl = useRuntimeConfig().public.API_BASE_URL;
+  import { useRuntimeConfig } from "#app"
+  const apiUrl = useRuntimeConfig().public.API_BASE_URL
 
   const loading = ref(false)
   const layout = ref("default")
@@ -140,16 +142,13 @@
   const items = ref(10)
   const fetchResults = async () => {
     loading.value = true
-    const { data, error } = await useFetch(
-      `${apiUrl}/property/search?`,
-      {
-        params: {
-          q: name,
-          page: page,
-          items: items,
-        },
-      }
-    )
+    const { data, error } = await useFetch(`${apiUrl}/property/search?`, {
+      params: {
+        q: name,
+        page: page,
+        items: items,
+      },
+    })
     if (!error.value) {
       properties.value = data.value
     }
