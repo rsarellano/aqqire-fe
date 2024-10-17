@@ -56,11 +56,15 @@
           <p class="max-w-sm text-gray-500 text-md line-clamp-1">
             <i
               class="pr-2 text-xs text-blue-500 pi pi-map-marker md:text-sm"></i>
-            {{ props.location }}
+            <span>
+              {{ props.address }}
+            </span>
+            <span v-if="props.city">{{ ", " + props.city }}</span>
+            <span v-if="props.state">{{ ", " + props.state }}</span>
           </p>
         </div>
         <div class="flex items-center gap-4">
-          <p class="pl-2 text-gray-500">2 Days ago</p>
+          <!-- <p class="pl-2 text-gray-500">{{ elapsedSince(updated).value }}</p> -->
           <p class="text-slate-500">
             <i class="pi pi-building"></i>
             2457 sqft
@@ -69,7 +73,9 @@
       </div>
 
       <div class="flex flex-col justify-between gap-4 p-2 items-right">
-        <p class="text-2xl font-bold text-blue-500">${{ props.price }}</p>
+        <p v-if='props.price' class="text-2xl font-bold text-blue-500">${{ props.price }}</p>
+        <p v-else class="text-lg font-bold text-blue-500">Contact Broker</p>
+        
         <Button
           size="small"
           class="!h-min">
@@ -82,11 +88,13 @@
   </NuxtLink>
 </template>
 <script lang="ts" setup>
-  const props = defineProps({
-    name: String,
-    location: String,
-    price: Number,
-    updated: String,
-    id: String,
-  })
+  const props = defineProps<{
+    name: string
+    city: string
+    state: string
+    address: string
+    price: number
+    updated: string
+    id: string
+  }>()
 </script>
