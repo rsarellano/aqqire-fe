@@ -6,7 +6,7 @@
     <div class="relative md:w-2/5 group">
       <div class="overflow-hidden max-h-72">
         <img
-          src="https://lion-coders.com/demo/html/sarchholm-real-estate-template/images/property/property_1.jpg"
+          :src="image"
           class="duration-700 ease-in-out group-hover:scale-[1.8] -z-9999 size-full" />
       </div>
 
@@ -26,7 +26,7 @@
           href="#"
           class="flex items-center gap-2">
           <img
-            src="https://lion-coders.com/dzemo/html/sarchholm-real-estate-template/images/agents/agent_min_1.jpg"
+            :src="image"
             class="h-8 rounded-full w-min" />
           <p class="text-white">Tony Stark</p>
         </a>
@@ -96,5 +96,6 @@
     price: number
     updated: string
     id: string
+    image: string
   }>()
 </script>

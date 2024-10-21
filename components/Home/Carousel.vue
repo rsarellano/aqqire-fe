@@ -26,7 +26,7 @@
     >
       <div
         :style="{
-          background: `linear-gradient(0deg, rgba(2,0,36,0.5858718487394958) 0%, rgba(184,184,193,0.11808473389355745) 39%, rgba(2,0,36,0.5662640056022409) 100%), url(${slide.image})`,
+          background: `linear-gradient(0deg, rgba(2,0,36,0.5858718487394958) 0%, rgba(184,184,193,0.11808473389355745) 100%, rgba(2,0,36,0.9662640056022409) 100%), url(${slide.image})`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundPosition: 'center center',
@@ -78,35 +78,35 @@
   let autoplay: ReturnType<typeof setInterval>
   const slides = ref([
     {
-      image: "https://picsum.photos/id/1/1920/1080",
+      image: "/img/1.jpg",
       name: "Ocean Avenue Manor",
       price: 35000,
       state: "California",
       address: "2341 Ocean Avenue",
     },
     {
-      image: "https://picsum.photos/id/2/1920/1080",
+      image: "/img/2.jpg",
       name: "Nettie Sparks",
       price: 21527,
       state: "Iraq",
       address: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     },
     {
-      image: "https://picsum.photos/id/3/1920/1080",
+      image: "/img/3.jpg",
       name: "Bertie Gill",
       price: 16335,
       state: "Cape Verde",
       address: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     },
     {
-      image: "https://picsum.photos/id/4/1920/1080",
+      image: "/img/4.jpg",
       name: "David Wells",
       price: 10953,
       state: "Anguilla",
       address: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     },
     {
-      image: "https://picsum.photos/id/5/1920/1080",
+      image: "/img/5.jpg",
       name: "Aiden Douglas",
       price: 23785,
       state: "El Salvador",
