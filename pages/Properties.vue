@@ -105,7 +105,8 @@
             :city="item.city"
             :address="item.address"
             :state="item.state"
-            :updated="item.updated_at" />
+            :updated="item.updated_at"
+            :image='images[getRandomImage()]' />
         </div>
       </div>
       <!-- Pagination -->
@@ -140,9 +141,16 @@
   const name = computed(() => route.query.name || "")
   const page = ref(1)
   const items = ref(10)
+  const images = [
+    "/test-images/1.jpg",
+    "/test-images/2.jpg",
+    "/test-images/3.jpg",
+    "/test-images/4.jpg",
+    "/test-images/5.jpg",
+  ]
   const fetchResults = async () => {
     loading.value = true
-    const { data, error } = await useFetch(`${apiUrl}/property/search?`, {
+    const { data, error } = await useFetch(`${apiUrl}/property_search?`, {
       params: {
         q: name,
         page: page,
@@ -169,4 +177,8 @@
   }
 
   watch([name, page, items], fetchResults, { immediate: true })
+
+  const getRandomImage = () => {
+    return Math.floor(Math.random() * images.length)
+  }
 </script>
