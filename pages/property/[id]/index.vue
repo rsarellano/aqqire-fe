@@ -60,7 +60,7 @@
           class="overflow-hidden rounded-md aspect-square"
           v-if="isPremium === false">
           <img
-            src="https://fastly.picsum.photos/id/400/400/400.jpg?hmac=ZpVLXxjX2uH3yZ4ClS0-ZMzDF7HCRSLmkw0w0iRjvKs"
+            :src="squareAd"
             alt="size-full rounded-md" />
         </div>
       </div>
@@ -234,6 +234,10 @@
   definePageMeta({
     auth: false,
   })
+
+  // Ad Urls
+  const squareAd =
+    "https://fastly.picsum.photos/id/400/400/400.jpg?hmac=ZpVLXxjX2uH3yZ4ClS0-ZMzDF7HCRSLmkw0w0iRjvKs"
 
   const route = useRoute()
   const { data } = await useFetch<Property>(
