@@ -6,13 +6,19 @@
     </p>
     <div
       class="flex items-center justify-center w-full h-full p-4 bg-white rounded-md overflow-clip aspect-video">
-      <img :src="imageUrl" class="object-cover" />
+      <img
+        :src="imageUrl"
+        class="object-cover" />
     </div>
     <div class="flex items-center justify-center gap-4 fill-white">
-      <button class="hover:fill-blue-400" @click="showModal">
+      <button
+        class="hover:fill-blue-400"
+        @click="showModal">
         <EditIcon />
       </button>
-      <button class="hover:fill-red-500" @click="deleteItem(id)">
+      <button
+        class="hover:fill-red-500"
+        @click="deleteItem(id)">
         <trashCan />
       </button>
     </div>
@@ -35,7 +41,9 @@
         </div>
 
         <!-- input fields -->
-        <label for="name" class="flex flex-col gap-2 text-gray-600">
+        <label
+          for="name"
+          class="flex flex-col gap-2 text-gray-600">
           Name:
           <input
             type="text"
@@ -45,7 +53,9 @@
             v-model="dialogForm.name" />
         </label>
 
-        <label for="url" class="flex flex-col gap-2 text-gray-600">
+        <label
+          for="url"
+          class="flex flex-col gap-2 text-gray-600">
           URL:
           <input
             type="text"
@@ -58,7 +68,9 @@
         <div class="flex items-center justify-center p-4">
           <img :src="dialogForm.imageUrl" />
         </div>
-        <label :for="'file' + index" class="gap-2 text-gray-600">
+        <label
+          :for="'file' + index"
+          class="gap-2 text-gray-600">
           Logo:
 
           <div class="w-full p-2 text-gray-600 bg-gray-200 rounded-md">
@@ -82,8 +94,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref, defineProps, defineEmits } from "vue";
-  import { handleFileChange, deleteItem } from "./store";
+  import { handleFileChange, deleteItem } from "./store"
 
   const props = defineProps({
     imageUrl: {
@@ -94,32 +105,32 @@
     name: String,
     index: Number,
     id: Number,
-  });
-  const emit = defineEmits(["emitValue"]);
+  })
+  const emit = defineEmits(["emitValue"])
 
-  const modal = ref();
-  const visible = ref(false);
+  const modal = ref()
+  const visible = ref(false)
   const dialogForm = ref({
     id: "",
     imageUrl: "",
     url: "",
     name: "",
-  });
+  })
 
   const showModal = () => {
     if (visible.value === true) {
-      modal.value.close();
-      visible.value = false;
-      return;
+      modal.value.close()
+      visible.value = false
+      return
     }
 
-    modal.value.showModal();
-    visible.value = true;
-  };
+    modal.value.showModal()
+    visible.value = true
+  }
 
   const emitValue = () => {
-    emit("emitValue", dialogForm.value);
-    modal.value.close();
-    visible.value = false;
-  };
+    emit("emitValue", dialogForm.value)
+    modal.value.close()
+    visible.value = false
+  }
 </script>
