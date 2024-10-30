@@ -145,7 +145,7 @@
 
   const fetchResults = async () => {
     loading.value = true
-    const { data, error } = await useFetch(`${apiUrl}/search?`, {
+    const { data, error } = await useFetch(`${apiUrl}/property/search?`, {
       params: {
         q: name,
         page: page,
