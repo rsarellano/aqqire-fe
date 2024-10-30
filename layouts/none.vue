@@ -6,6 +6,7 @@
       <slot />
     </div>
   </div>
+  <Footer />
 </template>
 
 <script setup lang="ts"></script>
