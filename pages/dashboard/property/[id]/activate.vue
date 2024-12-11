@@ -1,8 +1,8 @@
 <template>
   <div class="max-w-6xl mx-auto">
     <FormKit
-      label="Add a selling point"
       v-model="sellingPoint"
+      label="Add a selling point"
     />
     <div class="flex justify-end gap-2">
       <Button severity="success">Submit</Button>

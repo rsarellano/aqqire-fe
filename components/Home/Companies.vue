@@ -6,16 +6,16 @@
       <img
         :src="props.logo"
         alt="Aqqire logo"
-        class="object-contain h-10 my-2 invert min-h-8" />
+        class="object-contain h-10 my-2 invert min-h-8" >
     </div>
 
     <Carousel
       :value="companies"
-      :numVisible="3"
-      :numScroll="1"
+      :num-visible="3"
+      :num-scroll="1"
       circular
-      :autoplayInterval="3000"
-      :responsiveOptions="responsiveOptions"
+      :autoplay-interval="3000"
+      :responsive-options="responsiveOptions"
       class="max-w-[1300px] lg:px-32">
       <template #item="slotProps">
         <div class="w-full h-full">
@@ -23,7 +23,7 @@
             class="flex items-center justify-center h-full md:items-end md:mx-4">
             <img
               :src="slotProps.data.link"
-              class="rounded-md max-h-[120px] w-min" />
+              class="rounded-md max-h-[120px] w-min" >
           </div>
         </div>
       </template>

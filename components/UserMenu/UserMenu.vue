@@ -4,13 +4,13 @@
       ref="trigger"
       class="inline-flex items-center justify-center px-2 py-1 rounded-full shadow-md group hover:text-slate-200 bg-slate-50"
       aria-haspopup="true"
-      @click.prevent="dropdownOpen = !dropdownOpen"
-      :aria-expanded="dropdownOpen">
+      :aria-expanded="dropdownOpen"
+      @click.prevent="dropdownOpen = !dropdownOpen">
       <div v-if="isImage">
         <img
           class="object-cover w-8 h-8 rounded-full"
           alt="Q"
-          :src="userProfile.profileImage" />
+          :src="userProfile.profileImage" >
       </div>
       <div v-else>
         <div class="w-8 h-8 bg-blue-800 rounded-full hover:opacity-80">
@@ -34,7 +34,7 @@
         </svg>
       </div>
     </button>
-    <div></div>
+    <div/>
     <div>
       <transition
         enter-active-class="transition duration-200 ease-out transform"

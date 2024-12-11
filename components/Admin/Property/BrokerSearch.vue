@@ -2,17 +2,17 @@
   <div class="font-bold uppercase">Add brokers to property</div>
   <AutoComplete
     v-model="model"
-    optionLabel="login"
+    option-label="login"
     :suggestions="filteredBrokers"
-    @complete="search"
     multiple
+    @complete="search"
   >
     <template #option="props">
       <button class="flex items-center gap-2">
         <img
           :src="props.option.avatar_url"
           class="size-6"
-        />
+        >
         <div class="capitalize">{{ props.option.login }}</div>
       </button>
     </template>
@@ -22,7 +22,7 @@
         <img
           :src="props.value.avatar_url"
           class="rounded-full size-6"
-        />
+        >
         <div>{{ props.value.login }}</div>
       </div>
     </template>

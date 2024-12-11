@@ -14,7 +14,7 @@
     <!-- Wallpaper -->
     <div
       class="relative flex-1 hidden h-full lg:block"
-      :style="background"></div>
+      :style="background"/>
   </main>
 </template>
 

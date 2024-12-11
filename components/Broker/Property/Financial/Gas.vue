@@ -1,34 +1,34 @@
 <template>
   <div class="flex flex-col gap-2 py-4">
     <FormKit
+      v-model="model!.annualFuelRevenue"
       label="Annual Fuel Revenue"
       outer-class="font-bold uppercase"
-      v-model="model!.annualFuelRevenue"
     />
     <FormKit
+      v-model="model!.annualCStoreRevenue"
       label="Annual C-Store Revenue"
       outer-class="font-bold uppercase"
-      v-model="model!.annualCStoreRevenue"
     />
     <FormKit
+      v-model="model!.annualBayRevenue"
       label="Annual Bay Revenue"
       outer-class="font-bold uppercase"
-      v-model="model!.annualBayRevenue"
     />
     <FormKit
+      v-model="model!.annualRestaurantRevenue"
       label="Annual Restaurant Revenue"
       outer-class="font-bold uppercase"
-      v-model="model!.annualRestaurantRevenue"
     />
     <FormKit
+      v-model="model!.netOperatingIncome"
       label="Net Operating Income"
       outer-class="font-bold uppercase"
-      v-model="model!.netOperatingIncome"
     />
     <FormKit
+      v-model="model!.capRate"
       label="Cap Rate"
       outer-class="font-bold uppercase"
-      v-model="model!.capRate"
     />
   </div>
 </template>

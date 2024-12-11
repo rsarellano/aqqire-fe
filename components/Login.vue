@@ -3,10 +3,10 @@
     type="button"
     size="large"
     icon="pi pi-bars"
-    @click="toggle"
     aria-haspopup="true"
     aria-controls="login_menu"
     class="mb-2 border border-white fill-white"
+    @click="toggle"
   />
 
   <Menu
@@ -16,14 +16,14 @@
     class="py-2"
   >
     <template #start>
-      <div class="block pt-2 border-b"></div>
+      <div class="block pt-2 border-b"/>
     </template>
-    <template #item="{ item, props }">
+    <template #item="{ item }">
       <NuxtLink
         :to="item.route"
         class="flex items-center gap-4 px-4 py-2 font-semibold capitalize border-b"
       >
-        <i :class="item.icon"></i>
+        <i :class="item.icon"/>
         <div :class="item.class">
           {{ item.label }}
         </div>

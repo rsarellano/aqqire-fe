@@ -5,9 +5,9 @@
         <div
           class="absolute left-0 top-1/2 -mt-px w-full h-0.5 bg-slate-200"
           aria-hidden="true"
-        ></div>
+        />
         <ul class="relative flex justify-between w-full">
-          <li v-for="(item, key) in [...new Array(4)]">
+          <li v-for="(item, key) in [...new Array(4)]" :key="key">
             <NuxtLink
               class="flex items-center justify-center w-6 h-6 text-xs font-semibold text-white bg-indigo-300 rounded-full"
               :class="{ '!bg-indigo-500': navIndex === key + 1 }"

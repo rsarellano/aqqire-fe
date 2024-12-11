@@ -1,19 +1,19 @@
 <template>
   <div class="flex flex-col gap-2 py-4">
     <FormKit
+      v-model="model!.netOperatingIncome"
       label="Net Operating Income"
       outer-class="font-bold uppercase"
-      v-model="model!.netOperatingIncome"
     />
     <FormKit
+      v-model="model!.occupancy"
       label="Occupancy"
       outer-class="font-bold uppercase"
-      v-model="model!.occupancy"
     />
     <FormKit
+      v-model="model!.capRate"
       label="Cap Rate"
       outer-class="font-bold uppercase"
-      v-model="model!.capRate"
     />
   </div>
 </template>

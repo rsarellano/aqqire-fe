@@ -5,9 +5,9 @@
     </h1>
     <div class="flex flex-col gap-2 md:flex-row">
       <FormKit
+        v-model="model!.email_CC"
         type="text"
         label="Email CC"
-        v-model="model!.email_CC"
       />
     </div>
   </div>

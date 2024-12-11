@@ -15,18 +15,18 @@
       </div>
     </div>
     <div class="flex flex-col items-center justify-center gap-4">
-      <button @click="showModal" class="hover:fill-blue-500">
-        <i class="pi pi-file-edit hover:text-blue-500"></i>
+      <button class="hover:fill-blue-500" @click="showModal">
+        <i class="pi pi-file-edit hover:text-blue-500"/>
       </button>
       <button class="hover:text-red-500" @click="deleteFaq(props.id)">
-        <i class="pi pi-trash"></i>
+        <i class="pi pi-trash"/>
       </button>
     </div>
 
     <dialog
       ref="modal"
-      @close="visible = false"
-      class="p-0 bg-white rounded-md backdrop:bg-gray-800 backdrop:bg-opacity-60">
+      class="p-0 bg-white rounded-md backdrop:bg-gray-800 backdrop:bg-opacity-60"
+      @close="visible = false">
       <div class="flex flex-col gap-4 p-4 rounded-md min-w-[30rem]">
         <!-- Header -->
         <div class="flex gap-2">
@@ -35,24 +35,24 @@
             Edit FAQ
           </h2>
           <button
-            @click="showModal"
-            class="px-4 text-white bg-red-500 rounded-md p2">
+            class="px-4 text-white bg-red-500 rounded-md p2"
+            @click="showModal">
             X
           </button>
         </div>
 
         <!-- Fields -->
         <input
+          v-model="faqItem.question"
           placeholder="Question"
-          class="p-2 px-4 border border-gray-300 rounded-md"
-          v-model="faqItem.question" />
+          class="p-2 px-4 border border-gray-300 rounded-md" >
         <textarea
+          v-model="faqItem.answer"
           placeholder="Answer"
-          class="h-full min-h-[10rem] rounded"
-          v-model="faqItem.answer"></textarea>
+          class="h-full min-h-[10rem] rounded"/>
         <button
-          @click="emitValue"
-          class="p-2 px-4 text-blue-500 border border-blue-500 rounded-md hover:text-white hover:bg-blue-500">
+          class="p-2 px-4 text-blue-500 border border-blue-500 rounded-md hover:text-white hover:bg-blue-500"
+          @click="emitValue">
           Update FAQ
         </button>
       </div>

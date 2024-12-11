@@ -1,7 +1,7 @@
 <template>
   <div class="relative rounded-md w-max">
-    <button @click="toggleDialog" class="w-full">
-      <slot name="open"></slot>
+    <button class="w-full" @click="toggleDialog">
+      <slot name="open"/>
     </button>
 
     <transition
@@ -23,7 +23,7 @@
           </div>
         </button>
 
-        <slot name="content"></slot>
+        <slot name="content"/>
       </div>
     </transition>
   </div>

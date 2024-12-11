@@ -11,11 +11,11 @@
     </h1>
 
     <FormKit
+      v-model="store.propertyType"
       label="Property Type"
       type="select"
       placeholder="Change Property Type"
-      :options="assetTypes"
-      v-model="store.propertyType" />
+      :options="assetTypes" />
 
     <template v-if="store.propertyType">
       <AdminPropertyBrokerSearch v-model="store.brokers" />
@@ -30,9 +30,9 @@
 
       <!-- APN -->
       <FormKit
+        v-model="store.apnId"
         label="Apn ID (Assessor's Parcel Number ID)"
         type="text"
-        v-model="store.apnId"
         label-class="pb-1 text-2xl uppercase" />
 
       <BrokerPropertyDetailHotel
@@ -42,21 +42,21 @@
         v-if="store.propertyType === 'gas'"
         v-model="store" />
       <BrokerPropertyDetailRetail
-        v-model="store"
         v-if="
           store.propertyType === 'retail' ||
           store.propertyType === 'health' ||
           store.propertyType === 'special'
-        " />
+        "
+        v-model="store" />
       <BrokerPropertyDetailIndustrial
-        v-model="store"
-        v-if="store.propertyType === 'industrial'" />
+        v-if="store.propertyType === 'industrial'"
+        v-model="store" />
       <BrokerPropertyDetailMulti
         v-if="store.propertyType === 'multifamily'"
         v-model="store" />
       <BrokerPropertyDetailRestaurant
-        v-model="store"
-        v-if="store.propertyType === 'restaurant'" />
+        v-if="store.propertyType === 'restaurant'"
+        v-model="store" />
       <BrokerPropertyDetailOffice
         v-if="store.propertyType === 'office'"
         v-model="store" />
@@ -75,24 +75,24 @@
         v-if="store.propertyType === 'gas'"
         v-model="store" />
       <BrokerPropertyFinancialRetail
-        v-model="store"
         v-if="
           store.propertyType === 'retail' ||
           store.propertyType === 'health' ||
           store.propertyType === 'special'
-        " />
+        "
+        v-model="store" />
       <BrokerPropertyFinancialMulti
-        v-model="store"
-        v-if="store.propertyType === 'multifamily'" />
+        v-if="store.propertyType === 'multifamily'"
+        v-model="store" />
       <BrokerPropertyFinancialRestaurant
-        v-model="store"
-        v-if="store.propertyType === 'restaurant'" />
+        v-if="store.propertyType === 'restaurant'"
+        v-model="store" />
       <BrokerPropertyFinancialOffice
         v-if="store.propertyType === 'office'"
         v-model="store" />
 
       <div class="flex flex-col w-full gap-2">
-        <Button @click="">Update Property</Button>
+        <Button>Update Property</Button>
       </div>
     </template>
   </div>
@@ -100,9 +100,9 @@
 
 <script setup lang="ts">
   import { useRuntimeConfig } from "#app"
-  const apiUrl = useRuntimeConfig().public.API_BASE_URL
   import { store, resetFields } from "~/components/Broker/Property/store"
   import { asset_types } from "~/pages/admin/properties/states"
+  const apiUrl = useRuntimeConfig().public.API_BASE_URL
 
   const { data: authData } = useAuth()
   asset_types.shift()

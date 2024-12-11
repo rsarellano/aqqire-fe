@@ -52,11 +52,11 @@ export default eventHandler(async (event) => {
       },
     }
     
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error(error) // Log the error for debugging
     return createError({ 
       statusCode: 500, 
-      statusMessage: error.message || "Internal Server Error" 
+      statusMessage: (error as Error).message || "Internal Server Error" 
     })
   }
 })

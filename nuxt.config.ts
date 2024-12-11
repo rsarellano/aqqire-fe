@@ -36,6 +36,7 @@ export default defineNuxtConfig({
     "@sidebase/nuxt-auth",
     "@nuxtjs/plausible",
     "@productdevbook/chatwoot",
+    "@nuxt/eslint"
   ],
 
   build: {

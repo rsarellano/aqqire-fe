@@ -7,7 +7,7 @@
       <div class="overflow-hidden max-h-72">
         <img
           :src="image"
-          class="duration-700 ease-in-out group-hover:scale-[1.8] -z-9999 size-full" />
+          class="duration-700 ease-in-out group-hover:scale-[1.8] -z-9999 size-full" >
       </div>
 
       <div class="absolute flex gap-1 top-4 right-4">
@@ -27,7 +27,7 @@
           class="flex items-center gap-2">
           <img
             :src="image"
-            class="h-8 rounded-full w-min" />
+            class="h-8 rounded-full w-min" >
           <p class="text-white">Tony Stark</p>
         </a>
         <div class="flex gap-2 text-white">
@@ -55,7 +55,7 @@
           </h2>
           <p class="max-w-sm text-gray-500 text-md line-clamp-1">
             <i
-              class="pr-2 text-xs text-blue-500 pi pi-map-marker md:text-sm"></i>
+              class="pr-2 text-xs text-blue-500 pi pi-map-marker md:text-sm"/>
             <span>
               {{ props.address }}
             </span>
@@ -66,7 +66,7 @@
         <div class="flex items-center gap-4">
           <!-- <p class="pl-2 text-gray-500">{{ elapsedSince(updated).value }}</p> -->
           <p class="text-slate-500">
-            <i class="pi pi-building"></i>
+            <i class="pi pi-building"/>
             2457 sqft
           </p>
         </div>

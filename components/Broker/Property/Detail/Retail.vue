@@ -1,60 +1,60 @@
 <template>
   <div class="flex flex-col gap-2 py-4">
     <FormKit
+      v-model="model!.permitZoning"
       label="Permit Zoning"
       outer-class="font-bold uppercase"
-      v-model="model!.permitZoning"
     />
     <div class="flex flex-col gap-2 lg:flex-row">
       <FormKit
+        v-model="model!.buildingSizeinSqFt"
         label="Total building size in Square Foot"
         outer-class="font-bold uppercase"
-        v-model="model!.buildingSizeinSqFt"
       />
       <FormKit
+        v-model="model!.numberOfBuildings"
         label="Number of buildings"
         outer-class="font-bold uppercase"
-        v-model="model!.numberOfBuildings"
       />
     </div>
     <div class="flex flex-col gap-2 lg:flex-row">
       <FormKit
+        v-model="model!.buildingClass"
         label="Building Class"
         outer-class="font-bold uppercase"
-        v-model="model!.buildingClass"
       />
       <FormKit
+        v-model="model!.netRentableArea"
         label="Net Rentable Area"
         outer-class="font-bold uppercase"
-        v-model="model!.netRentableArea"
       />
     </div>
     <div class="flex flex-col gap-2 lg:flex-row">
       <FormKit
+        v-model="model!.netLease"
         label="Net Lease"
         outer-class="font-bold uppercase"
-        v-model="model!.netLease"
       />
       <FormKit
+        v-model="model!.tenancy"
         label="Tenancy"
         outer-class="font-bold uppercase"
-        v-model="model!.tenancy"
       />
     </div>
     <FormKit
-      label="Lot size in Acre"
       v-model="model!.lotSizeAcre"
+      label="Lot size in Acre"
     />
     <div class="flex flex-col gap-2 lg:flex-row">
       <FormKit
+        v-model="model!.yearBuilt"
         label="Year Built"
         outer-class="font-bold uppercase"
-        v-model="model!.yearBuilt"
       />
       <FormKit
+        v-model="model!.yearRenovated"
         label="Year Renovated"
         outer-class="font-bold uppercase"
-        v-model="model!.yearRenovated"
       />
     </div>
   </div>

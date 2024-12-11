@@ -19,7 +19,7 @@
         </div>
 
         <!-- Modal -->
-        <Modal id="company-banner-modal" :modalOpen="modal">
+        <Modal id="company-banner-modal" :modal-open="modal">
           <div class="flex items-center justify-center bg-blue-500">
             <p class="text-xl text-center text-white grow">Add Banner</p>
             <button
@@ -31,12 +31,12 @@
           <div class="p-4">
             <div class="flex flex-col gap-4">
               <!-- input fields -->
-              <FormKit label="Name" v-model="addItem.name" />
+              <FormKit v-model="addItem.name" label="Name" />
 
               <FormKit
+                v-model="addItem.imageUrl"
                 type="file"
                 label="Banner"
-                v-model="addItem.imageUrl"
                 accept=".jpg,.png,.webm" />
 
               <!-- <div class="flex items-center justify-center p-4">
@@ -52,16 +52,16 @@
         <draggable
           :list="banners"
           group="banners"
-          @start="drag = true"
-          @end="drag = false"
           class="flex flex-wrap items-center gap-4 mt-2"
-          item-key="id">
+          item-key="id"
+          @start="drag = true"
+          @end="drag = false">
           <template #item="{ element, index }">
             <transition-group tag="div" name="fade">
               <AdminBannerItem
-                :name="element.name"
-                :imageUrl="element.imageUrl"
                 :id="element.id"
+                :name="element.name"
+                :image-url="element.imageUrl"
                 :index="index" />
               <!-- @emit-value="editBanner"  -->
             </transition-group>

@@ -5,8 +5,8 @@
       class="flex items-center justify-center w-8 h-8 transition duration-150 rounded-full bg-slate-100 hover:bg-slate-200"
       :class="{ 'bg-slate-200': dropdownOpen }"
       aria-haspopup="true"
-      @click.prevent="dropdownOpen = !dropdownOpen"
-      :aria-expanded="dropdownOpen">
+      :aria-expanded="dropdownOpen"
+      @click.prevent="dropdownOpen = !dropdownOpen">
       <span class="sr-only">Info</span>
       <svg
         class="w-4 h-4"

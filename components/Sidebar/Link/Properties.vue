@@ -1,7 +1,7 @@
 <template>
   <SidebarLinkGroup
     v-slot="parentLink"
-    :activeCondition="currentRoute.fullPath.includes('property')">
+    :active-condition="currentRoute.fullPath.includes('property')">
     <a
       class="block truncate transition duration-150 text-slate-200 hover:text-white"
       :class="
@@ -76,7 +76,7 @@
       class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 block truncate transition duration-150 text-slate-200 hover:text-white">
       <div class="flex items-center justify-between">
         <div class="flex items-center grow">
-          <i class="pl-1 text-gray-600 pi pi-bookmark-fill"></i>
+          <i class="pl-1 text-gray-600 pi pi-bookmark-fill"/>
           <span class="pl-4 text-sm font-medium duration-200">
             Saved Properties
           </span>

@@ -10,14 +10,14 @@
           v-if="model!.profile_pic"
           :src="model!.profile_pic"
           class="size-full"
-        />
+        >
       </div>
 
       <FileUpload
         mode="basic"
         name="company-logo"
-        @select="selectImage"
         accept="image/*"
+        @select="selectImage"
       />
     </div>
   </div>

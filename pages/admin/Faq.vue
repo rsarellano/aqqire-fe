@@ -18,15 +18,15 @@
         <draggable
           v-model="faqList"
           group="faq"
+          item-key="id"
           @start="drag = true"
-          @end="drag = false"
-          item-key="id">
+          @end="drag = false">
           <template #item="{ element, index }">
             <transition-group tag="div" name="fade">
               <AdminFaqItem
+                :id="element.id"
                 :question="element.question"
                 :answer="element.answer"
-                :id="element.id"
                 :index="index"
                 @emit-value="changeValue" />
             </transition-group>

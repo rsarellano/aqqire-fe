@@ -3,6 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "build": "nuxt build",
     "dev": "nuxt dev -o --host --port 3030 --debug --verbose",
     "dev2": "nuxt dev",
@@ -31,14 +33,17 @@
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
+    "@nuxt/eslint": "^0.7.2",
     "@nuxtjs/html-validator": "^1.6.0",
     "@nuxtjs/tailwindcss": "^6.11.4",
     "@sidebase/nuxt-auth": "0.7.0-rc.0",
     "@types/google.maps": "^3.55.8",
     "@types/jsonwebtoken": "^9.0.6",
     "autoprefixer": "^10.4.19",
+    "eslint": "^9.16.0",
     "nuxt-primevue": "^0.3.1",
     "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3"
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.7.2"
   }
 }

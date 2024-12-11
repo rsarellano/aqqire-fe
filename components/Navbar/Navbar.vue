@@ -8,7 +8,7 @@
         <img
           :src="logo"
           alt="Aqqire logo"
-          class="object-contain h-10 min-h-8" />
+          class="object-contain h-10 min-h-8" >
       </NuxtLink>
     </div>
 
@@ -19,23 +19,23 @@
         v-for="(link, key) in links"
         :key="key">
         <NuxtLink
+          v-if="!!!link.requiresAuth || status === 'authenticated'"
           class="relative text-lg font-bold text-white uppercase duration-200 ease-in-out hover:drop-shadow-2xl group hover:text-slate-700"
-          :to="link.destination"
-          v-if="!!!link.requiresAuth || status === 'authenticated'">
+          :to="link.destination">
           <li>{{ link.text }}</li>
           <div
-            class="w-0 group-hover:w-full h-[2px] bg-blue-500 duration-200 ease-in-out"></div>
+            class="w-0 group-hover:w-full h-[2px] bg-blue-500 duration-200 ease-in-out"/>
         </NuxtLink>
       </template>
     </ul>
     <div
-      class="flex items-center gap-4"
-      v-if="status == 'authenticated'">
+      v-if="status == 'authenticated'"
+      class="flex items-center gap-4">
       <HomeBurgerMenu />
     </div>
     <div
-      class="flex items-center gap-4"
-      v-if="status != 'authenticated'">
+      v-if="status != 'authenticated'"
+      class="flex items-center gap-4">
       <Login />
     </div>
   </nav>
@@ -44,9 +44,9 @@
 <script setup lang="ts">
   //added authentication to access user specific functions
   import { useAuth } from "#imports"
-  const { signOut, token, data, status } = useAuth()
 
   import { links } from "./links"
+  const { signOut, token, data, status } = useAuth()
   const logo =
     "https://s3.us-west-1.amazonaws.com/storage.aqqire.com/a9ae25d8-94a0-41ff-be66-40db0720b6aa-aqq%281%29.png"
 </script>

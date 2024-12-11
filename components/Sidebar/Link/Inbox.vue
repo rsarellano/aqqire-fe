@@ -1,8 +1,8 @@
 <template>
   <NuxtLink
+    v-slot="{ href, navigate, isExactActive }"
     to="/dashboard/inbox"
-    custom
-    v-slot="{ href, navigate, isExactActive }">
+    custom>
     <li
       class="px-3 py-2 rounded-sm mb-0.5 last:mb-0"
       :class="isExactActive && 'bg-stone-800'">

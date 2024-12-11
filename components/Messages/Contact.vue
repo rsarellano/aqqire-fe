@@ -9,7 +9,7 @@
         :src="imgUrl"
         width="32"
         height="32"
-        alt="User 01" />
+        alt="User 01" >
       <div class="truncate">
         <span class="text-sm font-medium text-slate-800">{{ name }}</span>
       </div>

@@ -16,8 +16,8 @@
     <div>
       <div class="pb-4 text-xl font-bold text-slate-700">Message:</div>
       <FormKit
-        type="textarea"
-        v-model="message" />
+        v-model="message"
+        type="textarea" />
     </div>
     <Button
       class="w-full"

@@ -1,16 +1,16 @@
 <template>
   <div class="flex flex-col gap-4 py-4">
     <FormKit
+      v-model="model!.mpd"
       label="MPD(Multi Product Dispenser)"
       outer-class="font-bold uppercase"
-      v-model="model!.mpd"
     />
 
     <!-- Checkboxes -->
     <div class="flex flex-col gap-4 my-2">
       <FormKit
-        type="checkbox"
         v-model="model!.gasOptions"
+        type="checkbox"
         decorator-icon="check"
         :options="[
           'Branded Fuel',
@@ -23,40 +23,40 @@
 
       <div class="flex flex-col gap-4 lg:flex-row">
         <FormKit
+          v-model="model!.buildingSizeinSqFt"
           label="Total building size in Square Foot"
           outer-class="font-bold uppercase"
-          v-model="model!.buildingSizeinSqFt"
         />
         <FormKit
+          v-model="model!.numberOfBuildings"
           label="Number of buildings"
           outer-class="font-bold uppercase"
-          v-model="model!.numberOfBuildings"
         />
       </div>
 
       <div class="flex flex-col gap-4 lg:flex-row">
         <FormKit
+          v-model="model!.lotSizeAcre"
           label="Lot size in Acre"
           outer-class="font-bold uppercase"
-          v-model="model!.lotSizeAcre"
         />
         <FormKit
+          v-model="model!.baysIncome"
           label="Bays Income"
           outer-class="font-bold uppercase"
-          v-model="model!.baysIncome"
         />
       </div>
 
       <div class="flex flex-col gap-4 lg:flex-row">
         <FormKit
+          v-model="model!.yearBuilt"
           label="Year Built"
           outer-class="font-bold uppercase"
-          v-model="model!.yearBuilt"
         />
         <FormKit
+          v-model="model!.yearRenovated"
           label="Year Renovated"
           outer-class="font-bold uppercase"
-          v-model="model!.yearRenovated"
         />
       </div>
     </div>

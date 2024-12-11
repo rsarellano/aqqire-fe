@@ -3,9 +3,9 @@
     <h2 class="text-2xl font-bold">Features</h2>
     <ul class="grid grid-cols-1 p-2 md:grid-cols-3 gap-x-4">
       <li
-        class="py-2 break-all lg:grow"
         v-for="(item, key) in features"
-        :key="key">
+        :key="key"
+        class="py-2 break-all lg:grow">
         <p class="text-slate-700">{{ item }}</p>
       </li>
     </ul>
@@ -13,5 +13,5 @@
 </template>
 
 <script setup lang="ts">
-  const { features } = defineProps<{ features: String[] }>()
+  const { features } = defineProps<{ features: string[] }>()
 </script>

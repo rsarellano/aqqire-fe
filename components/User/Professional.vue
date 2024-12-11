@@ -4,22 +4,24 @@
       Professional Information
     </h1>
     <div class="flex flex-col gap-2 md:flex-row">
-      <FormKit label="Company"  
-      v-model="model!.company_professional"/>
-      <FormKit label="Job Title:"  
-      v-model="model!.job_title"/>
+      <FormKit
+v-model="model!.company_professional"  
+      label="Company"/>
+      <FormKit
+v-model="model!.job_title"  
+      label="Job Title:"/>
     </div>
 
     <div class="flex flex-col gap-2 md:flex-row">
       <FormKit
+        v-model="model!.date_started"
         label="Date Started"
         type="month"
-        v-model="model!.date_started"
       />
       <FormKit
+        v-model="model!.date_finished"
         label="Date Finished"
         type="month"
-        v-model="model!.date_finished"
       />
     </div>
   </div>

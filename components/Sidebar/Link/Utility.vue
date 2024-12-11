@@ -1,7 +1,7 @@
 <template>
   <SidebarLinkGroup
     v-slot="parentLink"
-    :activeCondition="currentRoute.fullPath.includes('admin')">
+    :active-condition="currentRoute.fullPath.includes('admin')">
     <a
       class="block truncate transition duration-150 text-slate-200 hover:text-white"
       :class="currentRoute.fullPath.includes('admin') && 'hover:text-slate-200'"
@@ -66,9 +66,10 @@
         :class="!parentLink.expanded && 'hidden'">
         <NuxtLink
           v-for="(link, key) in adminLinks"
+          :key='key'
+          v-slot="{ href, navigate, isExactActive }"
           :to="`/admin/${link}`"
-          custom
-          v-slot="{ href, navigate, isExactActive }">
+          custom>
           <li class="mb-1 last:mb-0">
             <a
               class="block truncate transition duration-150 text-slate-400 hover:text-slate-200"

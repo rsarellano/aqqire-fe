@@ -87,15 +87,15 @@
       <h2 class="text-xl font-bold">Invoices</h2>
 
       <DataTable
-        :value="data"
         :key="page"
-        showGridlines
+        :value="data"
+        show-gridlines
         :rows="items"
         :lazy="true"
         :first="page * items - 1"
         :total-records="1000000"
-        paginatorTemplate="PrevPageLink CurrentPageReport NextPageLink"
-        currentPageReportTemplate="{currentPage}"
+        paginator-template="PrevPageLink CurrentPageReport NextPageLink"
+        current-page-report-template="{currentPage}"
         paginator
         @page="paginate">
         <Column
@@ -119,7 +119,7 @@
         </Column>
 
         <Column field="actions">
-          <template #body="slotProps">
+          <template #body>
             <div class="flex justify-end gap-2">
               <Button
                 text

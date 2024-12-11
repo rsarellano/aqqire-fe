@@ -10,25 +10,25 @@
       <FileUpload
         mode="basic"
         accept="image/*"
-        chooseLabel="Change Avatar"
+        choose-label="Change Avatar"
         auto
-        customUpload
+        custom-upload
         @uploader="changeImage" />
 
       <FormKit
-        label="First Name"
         v-model="user.first_name"
+        label="First Name"
         outer-class="max-w-sm" />
 
       <FormKit
-        label="Last Name"
         v-model="user.last_name"
+        label="Last Name"
         outer-class="max-w-sm" />
 
       <!-- Email -->
       <FormKit
-        label="Email Address"
         v-model="user.email"
+        label="Email Address"
         outer-class="max-w-sm"
         :disabled="emailDisabled" />
       <Button
@@ -60,32 +60,32 @@
 
       <ToggleButton
         v-model="changePassword"
-        onLabel="Close Password"
-        offLabel="Change Password" />
+        on-label="Close Password"
+        off-label="Change Password" />
 
       <template v-if="changePassword">
         <div class="max-w-sm">
           <FormKit
+            v-model="password.current"
             type="password"
             label="Current Password"
-            v-model="password.current"
             suffix-icon="eyeClosed"
-            @suffix-icon-click="handleIconClick"
-            suffix-icon-class="hover:text-blue-500" />
+            suffix-icon-class="hover:text-blue-500"
+            @suffix-icon-click="handleIconClick" />
           <FormKit
+            v-model="password.newPassword"
             type="password"
             label="New Password"
-            v-model="password.newPassword"
             suffix-icon="eyeClosed"
-            @suffix-icon-click="handleIconClick"
-            suffix-icon-class="hover:text-blue-500" />
+            suffix-icon-class="hover:text-blue-500"
+            @suffix-icon-click="handleIconClick" />
           <FormKit
+            v-model="password.newPassword2"
             type="password"
             label="New Password Confirmation"
-            v-model="password.newPassword2"
             suffix-icon="eyeClosed"
-            @suffix-icon-click="handleIconClick"
-            suffix-icon-class="hover:text-blue-500" />
+            suffix-icon-class="hover:text-blue-500"
+            @suffix-icon-click="handleIconClick" />
 
           <div
             class="flex flex-col justify-end gap-2 p-4 border-b-2 lg:flex-row">

@@ -7,13 +7,13 @@
       </h1>
 
       <FormKit
+        v-model="store.propertyType"
         type="select"
         placeholder="Select Property Type"
         name="property_types"
         :options="propertyTypes"
-        v-model="store.propertyType"
-        @input="resetFields"
-        label-class="pb-1 text-2xl uppercase" />
+        label-class="pb-1 text-2xl uppercase"
+        @input="resetFields" />
 
       <template v-if="store.propertyType">
         <BrokerPropertyBasicInfo v-model="store" />
@@ -27,9 +27,9 @@
 
         <!-- APN -->
         <FormKit
+          v-model="store.apnId"
           label="Apn ID (Assessor's Parcel Number ID)"
           type="text"
-          v-model="store.apnId"
           label-class="pb-1 text-2xl uppercase" />
 
         <BrokerPropertyDetailHotel
@@ -39,21 +39,21 @@
           v-if="store.propertyType === 'Gas Station'"
           v-model="store" />
         <BrokerPropertyDetailRetail
-          v-model="store"
           v-if="
             store.propertyType === 'Retail' ||
             store.propertyType === 'Health' ||
             store.propertyType === 'Special'
-          " />
+          "
+          v-model="store" />
         <BrokerPropertyDetailIndustrial
-          v-model="store"
-          v-if="store.propertyType === 'Industrial'" />
+          v-if="store.propertyType === 'Industrial'"
+          v-model="store" />
         <BrokerPropertyDetailMulti
           v-if="store.propertyType === 'Multi-Family'"
           v-model="store" />
         <BrokerPropertyDetailRestaurant
-          v-model="store"
-          v-if="store.propertyType === 'Restaurant'" />
+          v-if="store.propertyType === 'Restaurant'"
+          v-model="store" />
         <BrokerPropertyDetailOffice
           v-if="store.propertyType === 'Office'"
           v-model="store" />
@@ -72,26 +72,26 @@
           v-if="store.propertyType === 'Gas Station'"
           v-model="store" />
         <BrokerPropertyFinancialRetail
-          v-model="store"
           v-if="
             store.propertyType === 'Retail' ||
             store.propertyType === 'Health' ||
             store.propertyType === 'Special'
-          " />
+          "
+          v-model="store" />
         <BrokerPropertyFinancialMulti
-          v-model="store"
-          v-if="store.propertyType === 'Multi-Family'" />
+          v-if="store.propertyType === 'Multi-Family'"
+          v-model="store" />
         <BrokerPropertyFinancialRestaurant
-          v-model="store"
-          v-if="store.propertyType === 'Restaurant'" />
+          v-if="store.propertyType === 'Restaurant'"
+          v-model="store" />
         <BrokerPropertyFinancialOffice
           v-if="store.propertyType === 'Office'"
           v-model="store" />
 
         <div class="flex flex-col w-full gap-2">
           <Button
-            @click="resetFields"
-            severity="danger">
+            severity="danger"
+            @click="resetFields">
             Reset Fields
           </Button>
           <Button @click="handleClick">Create Property</Button>

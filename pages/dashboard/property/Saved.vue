@@ -2,12 +2,12 @@
   <div class="">
     <DataTable
       v-model:filters="filters"
-      showGridlines
+      show-gridlines
       :rows="10"
       paginator
       size="small"
       :value="properties"
-      :globalFilterFields="[
+      :global-filter-fields="[
         'name',
         'id',
         'brokers',
@@ -25,52 +25,45 @@
         'address',
         'owner',
         'status',
-      ]"
-    >
+      ]">
       <template #header>
         <div
-          class="flex flex-col items-center justify-between w-full gap-4 md:flex-row"
-        >
+          class="flex flex-col items-center justify-between w-full gap-4 md:flex-row">
           <h1 class="text-3xl font-bold">Saved Properties</h1>
 
           <div>
             <FormKit
               v-model="filters.global.value"
-              label="Search Properties"
-            />
+              label="Search Properties" />
           </div>
         </div>
       </template>
       <Column
         sortable
         field="name"
-        header="Property Name"
-      ></Column>
+        header="Property Name" />
       <Column
         sortable
         field="propertyType"
-        header="Property Type"
-      ></Column>
+        header="Property Type" />
       <Column
         sortable
         field="propertyDate"
-        header="Date Created"
-      >
-        <template #body="{ data }">
-          {{ elapsedSince(data.propertyDate).value }}
-        </template></Column
-      >
+        header="Date Created">
+        <template #body="{ data: propertyDateData }">
+          {{ elapsedSince(propertyDateData.propertyDate).value }}
+        </template>
+      </Column>
       <Column
         sortable
         field="brokers"
-        header="Broker"
-      >
-        <template #body="{ data }">
+        header="Broker">
+        <template #body="{ data: brokersData }">
           <div class="flex gap-2">
             <div
-              class="flex"
-              v-for="broker in data.brokers"
-            >
+              v-for="(broker, key) in brokersData.brokers"
+              :key="key"
+              class="flex">
               {{ broker.name }}
             </div>
           </div>
@@ -79,18 +72,15 @@
       <Column
         sortable
         field="views"
-        header="Views"
-      ></Column>
+        header="Views" />
 
       <Column
         field="actions"
-        header="Actions"
-      >
-        <template #body="{ data }">
+        header="Actions">
+        <template #body="{ data: actionsData }">
           <NuxtLink
-            :to="'/property/' + data.id"
-            class="flex justify-center hover:text-blue-500"
-          >
+            :to="'/property/' + actionsData.id"
+            class="flex justify-center hover:text-blue-500">
             View Property
           </NuxtLink>
         </template>

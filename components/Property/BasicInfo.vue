@@ -7,7 +7,7 @@
         {{ name }}
       </h1>
       <p class="space-x-2 text-center md:text-left">
-        <i class="text-blue-500 pi pi-map-marker"></i>
+        <i class="text-blue-500 pi pi-map-marker"/>
         <span class="italic text-gray-400">
           {{ address }},
           <template v-if="city">{{ city.trim() }},</template>
@@ -16,9 +16,9 @@
         </span>
       </p>
       <p
-        class="text-sm text-center text-gray-400 md:text-left"
-        v-if="size">
-        <i class="pi pi-building"></i>
+        v-if="size"
+        class="text-sm text-center text-gray-400 md:text-left">
+        <i class="pi pi-building"/>
         Building Size {{ size }} sq. ft.
       </p>
     </div>
@@ -30,8 +30,8 @@
         {{ asset }}
       </Tag>
       <p
-        class="flex flex-col items-end text-2xl font-bold text-blue-500"
-        v-if="price">
+        v-if="price"
+        class="flex flex-col items-end text-2xl font-bold text-blue-500">
         <span class='text-xs'>Price</span>
         {{
           !isNaN(checkPrice)
@@ -40,8 +40,8 @@
         }}
       </p>
       <p
-        class="text-sm text-gray-400"
-        v-if="capRate">
+        v-if="capRate"
+        class="text-sm text-gray-400">
         Cap Rate {{ capRate }}%
       </p>
     </div>
@@ -56,9 +56,9 @@
       address?: string
       size?: string
       state?: string
-      price?: any
+      price?: string
       capRate?: number
       asset?: string
     }>()
-  const checkPrice = Number(cleanString(price))
+  const checkPrice = Number(cleanString(price!))
 </script>

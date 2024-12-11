@@ -17,9 +17,9 @@
         <button
           ref="trigger"
           class="text-white hover:text-slate-400"
-          @click="toggleSidebar"
           aria-controls="sidebar"
           :aria-expanded="sidebarExpanded"
+          @click="toggleSidebar"
         >
           <span class="sr-only">Close sidebar</span>
           <IconArrowLeft />

@@ -4,23 +4,20 @@
       <Button
         size="small"
         class="hover:text-pink-500">
-        <i class="pi pi-heart-fill"></i>
+        <i class="pi pi-heart-fill"/>
       </Button>
       <Button
         size="small"
         class="hover:text-yellow-500"
-        ><i class="pi pi-share-alt"></i
-      ></Button>
+        ><i class="pi pi-share-alt"/></Button>
       <Button
         size="small"
         class="hover:text-yellow-500"
-        ><i class="pi pi-envelope"></i
-      ></Button>
+        ><i class="pi pi-envelope"/></Button>
       <Button
         size="small"
         class="hover:text-red-500"
-        ><i class="pi pi-flag-fill"></i
-      ></Button>
+        ><i class="pi pi-flag-fill"/></Button>
     </div>
   </section>
 </template>

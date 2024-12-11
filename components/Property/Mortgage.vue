@@ -16,12 +16,12 @@
         prefix-icon="dollar"
       />
       <FormKit
+        v-model="downpayment"
         type="range"
         prefix-icon="dollar"
         :label="`Down Payment (${downpayment})%`"
         :min="20"
         max="100"
-        v-model="downpayment"
       />
     </div>
     <div class="px-4">

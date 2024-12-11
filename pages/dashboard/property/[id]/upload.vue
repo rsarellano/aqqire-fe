@@ -8,7 +8,7 @@
     <FileUpload
       mode="basic"
       name="demo[]"
-      :maxFileSize="1000000"
+      :max-file-size="1000000"
     />
   </div>
 </template>

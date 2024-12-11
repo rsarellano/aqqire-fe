@@ -5,15 +5,15 @@
     </h1>
     <div class="flex flex-col gap-2 md:flex-row">
       <FormKit
+        v-model="model!.license_state"
         type="select"
         :options="states"
         label="License State"
-        selectIcon="caretDown"
-        v-model="model!.license_state"
+        select-icon="caretDown"
       />
       <FormKit
-        label="License Number"
         v-model="model!.license_number"
+        label="License Number"
       />
       <Button class="!p-2 !px-4 my-auto h-min">Add License</Button>
     </div>

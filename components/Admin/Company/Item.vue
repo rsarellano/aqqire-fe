@@ -18,15 +18,15 @@
       </button>
       <button
         class="hover:fill-red-500"
-        @click="deleteItem(id)">
+        @click="deleteItem(id!)">
         <trashCan />
       </button>
     </div>
 
     <dialog
       ref="modal"
-      @close="visible = false"
-      class="min-w-[300px] w-full max-w-[600px] rounded-md py-4">
+      class="min-w-[300px] w-full max-w-[600px] rounded-md py-4"
+      @close="visible = false">
       <div class="flex flex-col gap-2 p-4">
         <div class="flex items-center gap-2">
           <p
@@ -46,23 +46,23 @@
           class="flex flex-col gap-2 text-gray-600">
           Name:
           <input
+            id="name"
+            v-model="dialogForm.name"
             type="text"
             name=""
-            id="name"
-            class="rounded-md"
-            v-model="dialogForm.name" />
+            class="rounded-md" />
         </label>
 
         <label
-          for="url"
+          for="link"
           class="flex flex-col gap-2 text-gray-600">
-          URL:
+          LINK:
           <input
+            id="link"
+            v-model="dialogForm.link"
             type="text"
             name=""
-            id="url"
-            class="rounded-md"
-            v-model="dialogForm.url" />
+            class="rounded-md" />
         </label>
 
         <div class="flex items-center justify-center p-4">
@@ -76,16 +76,16 @@
           <div class="w-full p-2 text-gray-600 bg-gray-200 rounded-md">
             Select File
             <input
-              type="file"
               :id="'file' + index"
+              type="file"
               class="hidden"
               @input="handleFileChange($event, dialogForm)" />
           </div>
         </label>
 
         <button
-          @click="emitValue"
-          class="p-2 mt-2 text-white bg-blue-500 rounded-md hover:bg-blue-600">
+          class="p-2 mt-2 text-white bg-blue-500 rounded-md hover:bg-blue-600"
+          @click="emitValue">
           Update
         </button>
       </div>
@@ -101,7 +101,7 @@
       type: String,
       default: "",
     },
-    url: "",
+    link: String,
     name: String,
     index: Number,
     id: Number,
@@ -113,7 +113,7 @@
   const dialogForm = ref({
     id: "",
     imageUrl: "",
-    url: "",
+    link: "",
     name: "",
   })
 

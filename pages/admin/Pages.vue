@@ -40,12 +40,12 @@
                 to="#"
                 class="p-1 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500"
                 title="Info">
-                <i class="text-gray-500 hover:text-blue-500 pi pi-info"></i>
+                <i class="text-gray-500 hover:text-blue-500 pi pi-info"/>
               </NuxtLink>
               <NuxtLink
                 to="#"
                 class="p-1 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500">
-                <i class="pi pi-pencil" title="Edit"></i>
+                <i class="pi pi-pencil" title="Edit"/>
               </NuxtLink>
 
               <button title="Enable or Disable(Soft Delete)">
