@@ -62,9 +62,9 @@
     lotSize?: string | number
     year?: string | number
     type?: string
-    price?: any
+    price?: string
     id?: string
   }>()
 
-  const checkPrice = Number(cleanString(price))
+  const checkPrice = Number(cleanString(price!))
 </script>

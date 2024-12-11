@@ -5,7 +5,7 @@
     :max-file-size="1000000"
   >
     <template
-      #header="{ chooseCallback, uploadCallback, clearCallback, files }"
+      #header="{ chooseCallback, uploadCallback, clearCallback }"
     >
       <div
         class="flex flex-wrap flex-1 gap-2 justify-content-between align-items-center"

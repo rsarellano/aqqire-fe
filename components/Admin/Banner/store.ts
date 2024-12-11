@@ -24,10 +24,10 @@ export const banners = ref([
   }
 ]);
 
-export const addItem = ref<{ name: string; imageUrl: any; id: number | null }>({
+export const addItem = ref<{ name: string; imageUrl: string; id: number | null }>({
   id: null,
   name: "",
-  imageUrl: null,
+  imageUrl: "",
 });
 
 // export const editBanner = (newItem: typeof addItem.value) => {

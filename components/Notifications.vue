@@ -42,7 +42,8 @@
           @focusin="dropdownOpen = true"
           @focusout="dropdownOpen = false">
           <li
-            v-for=", in [...new Array(10)]"
+            v-for="_,key in [...new Array(10)]"
+            :key="key"
             class="border-b border-slate-200 last:border-0">
             <NuxtLink
               class="block px-4 py-2 hover:bg-slate-50"

@@ -42,7 +42,7 @@
 
       <h1 class="text-3xl font-bold">FAQs</h1>
       <div class="space-y-6">
-        <div v-for="item in faqs" class="space-y-2">
+        <div v-for="item,key in faqs" :key="key" class="space-y-2">
           <div class="text-lg font-bold text-gray-700">
             {{ item.title }}
           </div>

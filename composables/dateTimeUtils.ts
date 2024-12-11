@@ -1,4 +1,4 @@
-export const elapsedSince = (timestamp: any) => {
+export const elapsedSince = (timestamp: Date) => {
   const now: Date = new Date()
   const past: Date = new Date(timestamp)
   const diffTime = now.valueOf() - past.valueOf()

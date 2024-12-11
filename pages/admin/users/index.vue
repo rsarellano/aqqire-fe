@@ -103,40 +103,40 @@
       field="email"
       header="User Information"
       :show-filter-menu="false">
-      <template #body="{ data }">
+      <template #body="{ data: emailData }">
         <div class="flex items-center max-w-xs gap-4">
           <div class="min-w-20 max-w-20 aspect-square">
             <img
-              :src="data.profile_pic"
-              :alt="`${data.first_name + data.last_name}'s profile picture`"
-              class="!size-full" >
+              :src="emailData.profile_pic"
+              :alt="`${emailData.first_name + emailData.last_name}'s profile picture`"
+              class="!size-full" />
           </div>
 
           <div class="space-y-1">
             <div class="flex items-baseline gap-4 font-bold">
-              <i class="pi pi-user"/>
-              {{ data.first_name + data.last_name }}
+              <i class="pi pi-user" />
+              {{ emailData.first_name + emailData.last_name }}
             </div>
 
             <div class="flex items-baseline gap-4">
-              <i class="pi pi-envelope"/>
-              {{ data.email }}
+              <i class="pi pi-envelope" />
+              {{ emailData.email }}
             </div>
 
             <!-- <div class="flex items-baseline gap-4">
               <i class="pi pi-mobile"></i>
-              {{ data.phone }}
+              {{ emailData.phone }}
             </div> -->
 
             <div class="flex items-baseline gap-4 text-xs capitalize">
-              <i class="pi pi-map-marker"/>
-              {{ data.mongodata.street_address }}
-              {{ data.mongodata.city }}
+              <i class="pi pi-map-marker" />
+              {{ emailData.mongodata.street_address }}
+              {{ emailData.mongodata.city }}
             </div>
 
             <div class="flex items-baseline gap-4 text-xs capitalize">
-              <i class="pi pi-building"/>
-            {{data.mongodata.company_name}}
+              <i class="pi pi-building" />
+              {{ emailData.mongodata.company_name }}
             </div>
           </div>
         </div>
@@ -149,62 +149,62 @@
       sort-field="lastLogin"
       sortable
       :show-filter-menu="false">
-      <template #body="{ data }">
+      <template #body="{ data: idData }">
         <div class="flex flex-col max-w-xs gap-2">
           <div class="flex gap-2">
             <Tag>
-              {{ data.id }}
+              {{ idData.id }}
             </Tag>
             <Tag
-              v-if="data.work_type"
+              v-if="idData.work_type"
               class="capitalize">
-              {{ data.work_type }}
+              {{ idData.work_type }}
             </Tag>
             <Tag
               :severity="
-                data.account_type === 'limited' ? 'warning' : 'primary'
+                idData.account_type === 'limited' ? 'warning' : 'primary'
               "
-              :value="data.account_type"
-              class="capitalize"/>
+              :value="idData.account_type"
+              class="capitalize" />
           </div>
 
           <p
             class="text-green-500"
             :class="{
               'text-red-500 font-bold':
-                elapsedSince(data.lastLogin).numerical?.months! > 6,
+                elapsedSince(idData.lastLogin).numerical?.months! > 6,
               'text-yellow-500 font-semibold':
-                elapsedSince(data.lastLogin).numerical?.months! < 6 &&
-                elapsedSince(data.lastLogin).numerical?.months! > 3,
+                elapsedSince(idData.lastLogin).numerical?.months! < 6 &&
+                elapsedSince(idData.lastLogin).numerical?.months! > 3,
             }">
-            Recent Login {{ elapsedSince(data.lastLogin).value }} (
-            {{ new Date(data.lastLogin).toLocaleDateString() }} )
+            Recent Login {{ elapsedSince(idData.lastLogin).value }} (
+            {{ new Date(idData.lastLogin).toLocaleDateString() }} )
           </p>
           <p>
-            Joined {{ elapsedSince(data.mongodata.createdAt).value }} (
-            {{ formatISODate(data.mongodata.createdAt) }} )
+            Joined {{ elapsedSince(idData.mongodata.createdAt).value }} (
+            {{ formatISODate(idData.mongodata.createdAt) }} )
           </p>
         </div>
       </template>
 
-      <template #filter="{ filterModel, filterCallback }"/>
+      <template #filter />
     </Column>
 
     <Column
       field="status"
       header="Status"
       :show-filter-menu="false">
-      <template #body="{ data }">
+      <template #body="{ data: statusData }">
         <div class="max-w-xs mx-auto space-y-1 w-fit">
           <Tag
-            v-if="data.active"
+            v-if="statusData.active"
             icon="pi pi-check"
-            value="Active"/>
+            value="Active" />
           <Tag
             v-else
             icon="pi pi-times"
             severity="warning"
-            value="Inactive"/>
+            value="Inactive" />
         </div>
       </template>
     </Column>
@@ -213,31 +213,31 @@
       field="actions"
       header="Actions"
       :show-filter-menu="false">
-      <template #body="{ data }">
+      <template #body="{ data: actionsData }">
         <div class="flex items-center justify-center max-w-xs gap-1">
           <NuxtLink
-            :to="'/user/' + data.id"
+            :to="'/user/' + actionsData.id"
             class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500">
-            <i class="pi pi-info"/>
+            <i class="pi pi-info" />
           </NuxtLink>
           <NuxtLink
-            :to="'/admin/users/edit/' + data.id"
+            :to="'/admin/users/edit/' + actionsData.id"
             class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500">
             <i
               class="pi pi-pencil"
-              title="Edit"/>
+              title="Edit" />
           </NuxtLink>
 
           <button
             class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-red-500 hover:text-red-500"
-            @click="deleteUser(data)">
+            @click="deleteUser(actionsData)">
             <i
               class="pi pi-trash"
-              title="Edit"/>
+              title="Edit" />
           </button>
 
           <button title="Enable or Disable(Soft Delete)">
-            <InputSwitch v-model="data.active" />
+            <InputSwitch v-model="actionsData.active" />
           </button>
         </div>
       </template>
@@ -255,11 +255,13 @@
       <div class="overflow-hidden border rounded-md size-44">
         <img
           :src="currentUser.profile_pic"
-          class="size-full" >
+          class="size-full" />
       </div>
 
       <div class="flex flex-col gap-2">
-        <template v-for="(name, key) in currentUser">
+        <template
+          v-for="(name, key) in currentUser"
+          :key="key">
           <div class="flex gap-2 grow">
             <div class="font-bold capitalize">{{ key }}:</div>
             <div class="text-blue-500 capitalize">{{ name }}:</div>
@@ -271,7 +273,7 @@
     <Button
       severity="danger"
       icon="pi pi-trash"
-      class="w-full"/>
+      class="w-full" />
   </Dialog>
 </template>
 

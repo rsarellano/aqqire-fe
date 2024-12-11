@@ -8,7 +8,7 @@
       class="flex items-center justify-center w-full h-full p-4 bg-white rounded-md overflow-clip aspect-video">
       <img
         :src="imageUrl"
-        class="object-cover" >
+        class="object-cover" />
     </div>
     <div class="flex items-center justify-center gap-4 fill-white">
       <button
@@ -18,7 +18,7 @@
       </button>
       <button
         class="hover:fill-red-500"
-        @click="deleteItem(id)">
+        @click="deleteItem(id!)">
         <trashCan />
       </button>
     </div>
@@ -50,23 +50,23 @@
             v-model="dialogForm.name"
             type="text"
             name=""
-            class="rounded-md" >
+            class="rounded-md" />
         </label>
 
         <label
-          for="url"
+          for="link"
           class="flex flex-col gap-2 text-gray-600">
-          URL:
+          LINK:
           <input
-            id="url"
-            v-model="dialogForm.url"
+            id="link"
+            v-model="dialogForm.link"
             type="text"
             name=""
-            class="rounded-md" >
+            class="rounded-md" />
         </label>
 
         <div class="flex items-center justify-center p-4">
-          <img :src="dialogForm.imageUrl" >
+          <img :src="dialogForm.imageUrl" />
         </div>
         <label
           :for="'file' + index"
@@ -79,7 +79,7 @@
               :id="'file' + index"
               type="file"
               class="hidden"
-              @input="handleFileChange($event, dialogForm)" >
+              @input="handleFileChange($event, dialogForm)" />
           </div>
         </label>
 
@@ -101,7 +101,7 @@
       type: String,
       default: "",
     },
-    url: "",
+    link: String,
     name: String,
     index: Number,
     id: Number,
@@ -113,7 +113,7 @@
   const dialogForm = ref({
     id: "",
     imageUrl: "",
-    url: "",
+    link: "",
     name: "",
   })
 

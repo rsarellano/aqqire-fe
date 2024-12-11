@@ -92,7 +92,7 @@
         v-model="store" />
 
       <div class="flex flex-col w-full gap-2">
-        <Button @click="">Update Property</Button>
+        <Button @click="() => {}">Update Property</Button>
       </div>
     </template>
   </div>

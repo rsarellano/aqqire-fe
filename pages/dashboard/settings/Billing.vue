@@ -119,7 +119,7 @@
         </Column>
 
         <Column field="actions">
-          <template #body="slotProps">
+          <template #body>
             <div class="flex justify-end gap-2">
               <Button
                 text

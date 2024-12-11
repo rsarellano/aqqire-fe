@@ -20,20 +20,20 @@
               <br >
               <br >
               AQQIRE (“AQQIRE”), its affiliates, partners, subsidiaries and
-              related websites and entities (collectively, "AQQIRE", "we," our,
+              related websites and entities (collectively, "AQQIRE", "we," our,
               "us" or the "Company") all greatly value your privacy and want to
               ensure that you fully understand how AQQIRE uses and compiles your
               information. In this Privacy Statement, we will describe how
               AQQIRE handles your personal information when you use the
-              Company's websites (including www.AQQIRE.com or any other website
+              Company's websites (including www.AQQIRE.com or any other website
               where this Privacy Statement is posted), programs, mobile apps,
               and all other related services (collectively, "Applications"). By
               using the Applications, you expressly consent to our collection,
               storage, management, treatment, use and disclosure of your
-              personal information as described in this Statement.  
+              personal information as described in this Statement.  
               <br >
               <br >
-              2. AQQIRE's Dedication to Maintaining Your Privacy  
+              2. AQQIRE's Dedication to Maintaining Your Privacy  
               <br >
               <br >
               AQQIRE takes your concerns about privacy very seriously, and is
@@ -57,12 +57,12 @@
               further questions or concerns regarding your privacy, please feel
               free to email us at privacy@AQQIRE.com
               <br >
-               
+               
               <br >
-              3. How AQQIRE Collects Your Information  
+              3. How AQQIRE Collects Your Information  
               <br >
               <br >
-              Personal Information. While AQQIRE does need detailed information
+              Personal Information. While AQQIRE does need detailed information
               from its Brokers, Buyers and Sellers, we do not collect such
               personal information (including: names, addresses, telephone
               numbers, email addresses, or financial account information) from
@@ -75,21 +75,21 @@
               specific property, submitting an employment application,
               completing online forms, executing a non-disclosure and/or
               confidentiality agreement, or in any other way creating a
-              contractual agreement with us).   
+              contractual agreement with us).   
               <br >
               <br >
               AQQIRE automatically analyzes and stores all communications
               content sent or received via the AQQIRE.com message feature,
-              including email content from incoming and outgoing email.   This
+              including email content from incoming and outgoing email.   This
               analysis occurs as it is sent, received, and when it is
-              stored.  In certain use cases, AQQIRE runs automated algorithms on
+              stored.  In certain use cases, AQQIRE runs automated algorithms on
               such communications to create generic templates (e.g., using
               common terms to identify the elements of a request for information
-              about a Property).  These templates do not include the recipient’s
-              personal data.  AQQIRE may review the templates to improve our
-              Applications and personalization of your experience.  Unless
+              about a Property).  These templates do not include the recipient’s
+              personal data.  AQQIRE may review the templates to improve our
+              Applications and personalization of your experience.  Unless
               expressly stated otherwise, you may not opt out of these
-              features.    
+              features.    
               <br >
               <br >
               AQQIRE uses information, without limitation: to conduct research
@@ -100,10 +100,10 @@
               properties or services that we provide to you and to match and
               serve targeted advertising and promotions; to detect spam, malware
               and other malicious links or content; and for abuse protection –
-              all as further discussed in this Privacy Statement.    
+              all as further discussed in this Privacy Statement.    
               <br >
               <br >
-              Automatic Data Collection. AQQIRE will automatically collect
+              Automatic Data Collection. AQQIRE will automatically collect
               information about the computers, tablets, smartphones or other
               current or future mobile or stationary devices that you use to
               login to your account, access the AQQIRE Applications, or
@@ -131,10 +131,10 @@
               want to see, while filtering out anything that you may not be
               interested in. In sum, the information AQQIRE collects
               automatically helps us know you better, which allows us to provide
-              a user experience that continues to improve on multiple levels.  
+              a user experience that continues to improve on multiple levels.  
               <br >
               <br >
-              Disabling Location Information Tracker. If you are uncomfortable
+              Disabling Location Information Tracker. If you are uncomfortable
               providing us your location statistics, you can disable our ability
               to track that information by following these instructions. If you
               are using an Apple device, click on "General," then "Reset," then
@@ -142,13 +142,13 @@
               functionality for all of your service programs, so that the next
               time you download or use an "app," you will be asked again to
               provide your consent for us and others to access your location
-              information.  
+              information.  
               <br >
               <br >
               If you are using an Android device, visit the device settings,
               click "Location," and then click the boxes for the particular
               applications for which you would like to disable location
-              Applications.  
+              Applications.  
               <br >
               <br >
               Please note that the instructions provided above may be inaccurate
@@ -157,10 +157,10 @@
               tracked after the publication of this Privacy Statement.
               Therefore, should the above directions prove ineffective, please
               consult your device's user manual, or contact your service
-              provider or device's manufacturer.  
+              provider or device's manufacturer.  
               <br >
               <br >
-              Cookies. The Applications often uses the latest cookie technology,
+              Cookies. The Applications often uses the latest cookie technology,
               in addition to other related online tools, such as web beacons and
               web pixels, to generate the information necessary to best serve
               our clients. "Cookies" are small files that a website stores on a
@@ -188,10 +188,10 @@
               decide to block cookies, this may interfere with your ability to
               perform certain actions on the Applications, use certain features
               available thereon, or access content and information that would
-              otherwise be fully available to you.  
+              otherwise be fully available to you.  
               <br >
               <br >
-              Communications with You. We may use the contact information we
+              Communications with You. We may use the contact information we
               collect from you during registration, as well as the information
               in the AQQIRE database (including your first and last name,
               company name, telephone number, postal address, email address and
@@ -199,45 +199,45 @@
               inquiries and related research to you. For example, we may use
               this information to follow-up on properties or services that we
               provide to you and to inform you of other opportunities, products
-              and services that we think will be of interest to you.  
+              and services that we think will be of interest to you.  
               <br >
               <br >
-              4. Use of Your Information  
+              4. Use of Your Information  
               <br >
               <br >
               We will use your information in a way that is consistent with your
               defined interests, and for purposes that enhance your user
               experience at AQQIRE, including, but not limited to, the below
-              examples:  
+              examples:  
               <br >
               <br >
-              (a) Build and maintain a membership profile for your account;
+              (a) Build and maintain a membership profile for your account;
               <br >
-              (b) Enhance the user experience;
+              (b) Enhance the user experience;
               <br >
-              (c) Perform research and analytics;
+              (c) Perform research and analytics;
               <br >
-              (d) Customize and personalize the content and advertising that you
+              (d) Customize and personalize the content and advertising that you
               see on the Applications;
               <br >
-              (e) Respond to and fulfill your requests for Applications;
+              (e) Respond to and fulfill your requests for Applications;
               <br >
-              (f) Determine your eligibility and profile for certain Real
+              (f) Determine your eligibility and profile for certain Real
               Properties available for Purchase, or for determining the best
               Application for your current needs;
               <br >
-              (g) Send you information about topics or commercial properties
+              (g) Send you information about topics or commercial properties
               that may be of interest to you, based on your previous searches,
               submitted offers, purchases and other indicators; and
               <br >
-              (h) Send you a variety of communications and information related
+              (h) Send you a variety of communications and information related
               to your membership account, and alert you to the latest
               developments and features of the Applications currently offered at
               AQQIRE that may assist in your use of the AQQIRE platform.
               <br >
-               
+               
               <br >
-              5. Advertising Analytics  
+              5. Advertising Analytics  
               <br >
               <br >
               The Applications that AQQIRE offers its users may include third
@@ -257,36 +257,36 @@
               you. To the extent any of this information is collected by third
               parties, you acknowledge and agree that such collection and use is
               governed by those third parties' privacy policies and we are not
-              responsible for the privacy practices of such third parties.  
+              responsible for the privacy practices of such third parties.  
               <br >
               <br >
               If you are interested in more information about personalized user
               ads and how to prevent third parties from delivering personalized
-              ads, you may visit the following third-party websites: the Network
-              Advertising Initiative Consumer Opt-Out Page or the Digital
+              ads, you may visit the following third-party websites: the Network
+              Advertising Initiative Consumer Opt-Out Page or the Digital
               Advertising Alliance's Consumer Opt-Out Page. Please note that, to
               the extent ad technology is integrated into the Applications, you
               may still receive ads even if you opt-out of tailored ads. In that
-              case, the ads will just not be tailored to your interests.  
+              case, the ads will just not be tailored to your interests.  
               <br >
               <br >
               If you are using an iOS device and you do not want to receive
               tailored in-application ads that relate to your interests, you may
               opt-out by accessing the following link on your
-              device. http://oo.apple.com. If you are using an Android device
+              device. http://oo.apple.com. If you are using an Android device
               and you do not wish to receive tailored in-application ads, you
-              can visit Google's Ads Preferences page from a browser on your
+              can visit Google's Ads Preferences page from a browser on your
               device and make your choices there. Please feel free to contact
               AQQIRE Customer Service at any time should you be concerned with
               any data or information being acquired by third parties, and how
-              to successfully limit the distribution of your data.  
+              to successfully limit the distribution of your data.  
               <br >
               <br >
-              6. How AQQIRE Discloses Your Information  
+              6. How AQQIRE Discloses Your Information  
               <br >
               <br >
               While AQQIRE does take your privacy extremely seriously, we may
-              disclose your information in the following ways:  
+              disclose your information in the following ways:  
               <br >
               <br >
               (a) Make information collected through the Applications available
@@ -348,9 +348,9 @@
               including any de-identified and aggregated data with third
               parties, without limitation.
               <br >
-               
+               
               <br >
-              7. How to Opt Out of Email Correspondence  
+              7. How to Opt Out of Email Correspondence  
               <br >
               <br >
               AQQIRE will send you e-mail communications from time to time,
@@ -362,10 +362,10 @@
               information. If you would rather not receive these communications,
               you may "opt out" by clicking the "Unsubscribe" tab included at
               the base of each e-mail that you are sent by AQQIRE, or by
-              contacting AQQIRE Customer Service at privacy@AQQIRE.com. Our team
+              contacting AQQIRE Customer Service at privacy@AQQIRE.com. Our team
               will gladly comply with all requests for removal, which AQQIRE
               will execute as soon as possible, within the limits stated in
-              applicable law.  
+              applicable law.  
               <br >
               <br >
               However, certain e-mail communications and confirmations regarding
@@ -376,10 +376,10 @@
               each of them will lack an "Unsubscribe" tab at the base of the
               message body. Should you have any questions or concerns regarding
               our "opt out" process, please feel free to contact us at your
-              convenience at privacy@AQQIRE.com.  
+              convenience at privacy@AQQIRE.com.  
               <br >
               <br >
-              8. Account Protection and Security  
+              8. Account Protection and Security  
               <br >
               <br >
               We have implemented commercially viable electronic, technical,
@@ -390,23 +390,23 @@
               let us know immediately if you suspect that a misuse of your
               information has taken place; and we appreciate your continued
               efforts to safeguard the privacy of your information and that of
-              all AQQIRE users.  
+              all AQQIRE users.  
               <br >
               <br >
-              9. Children's Information  
+              9. Children's Information  
               <br >
               <br >
               AQQIRE does not knowingly market to, or collect, any personal
               information from children under the age of 18. If a parent or
               guardian believe that we have, in our database, the personal
               information of any child under the age of 18, we ask that you
-              please contact us immediately at privacy@AQQIRE.com. We will use
+              please contact us immediately at privacy@AQQIRE.com. We will use
               our best efforts to promptly remove all such information from our
               database, and endeavor to prevent its further distribution on the
-              Applications.  
+              Applications.  
               <br >
               <br >
-              10. Access to Your Personal Information  
+              10. Access to Your Personal Information  
               <br >
               <br >
               If any of your personal information changes or becomes inaccurate
@@ -414,10 +414,10 @@
               update your records. If you no longer wish to use the Applications
               and other services provided by AQQIRE, or if you have any other
               concerns or questions regarding your information, please contact
-              us at privacy@AQQIRE.com.  
+              us at privacy@AQQIRE.com.  
               <br >
               <br >
-              11. Third-Party Links and Applications  
+              11. Third-Party Links and Applications  
               <br >
               <br >
               Many of the Applications provided or offered by AQQIRE may include
@@ -435,10 +435,10 @@
               website or service provider will not be covered by the AQQIRE
               Privacy Statement. We encourage you to read and fully understand
               the privacy policies of any other websites that you may offer your
-              personal information to.  
+              personal information to.  
               <br >
               <br >
-              12. Amendments to Privacy Statement  
+              12. Amendments to Privacy Statement  
               <br >
               <br >
               From time to time, AQQIRE may determine that it is necessary to
@@ -448,10 +448,10 @@
               any changes shall mean that you accept all such revisions. If and
               when we make any significant changes to this Privacy Statement,
               you will be notified as soon as possible via e-mail or other
-              notification methods.  
+              notification methods.  
               <br >
               <br >
-              13. International Transfers of Information  
+              13. International Transfers of Information  
               <br >
               <br >
               Many of the uses and disclosures mentioned in this Privacy
@@ -459,15 +459,15 @@
               various countries around the world that may have different levels
               of privacy protection than your country. By submitting your
               personal information, you consent to any such transfers, and to
-              abide by any resultant regulations or rules.  
+              abide by any resultant regulations or rules.  
               <br >
               <br >
-              14. Contacting Us  
+              14. Contacting Us  
               <br >
               <br >
               Should you have any questions, concerns or comments about this
               Privacy Statement, please contact us by sending an e-mail
-              to privacy@AQQIRE.com. In your message, we ask that you please
+              to privacy@AQQIRE.com. In your message, we ask that you please
               provide your name, and mailing address. Please note that we may
               record the conversations that some of you have with AQQIRE
               customer service representatives, agents or employees, so that we
@@ -478,10 +478,10 @@
               service protocols, but also to ensure that all AQQIRE
               representatives are following corporate guidelines and providing
               you with the most accurate and beneficial information available at
-              that time.  
+              that time.  
               <br >
               <br >
-                This Privacy Statement was last updated on September 18, 2017.
+                This Privacy Statement was last updated on September 18, 2017.
             </div>
           </div>
         </div>

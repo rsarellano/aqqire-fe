@@ -66,6 +66,7 @@
         :class="!parentLink.expanded && 'hidden'">
         <NuxtLink
           v-for="(link, key) in adminLinks"
+          :key='key'
           v-slot="{ href, navigate, isExactActive }"
           :to="`/admin/${link}`"
           custom>

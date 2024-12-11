@@ -18,7 +18,7 @@
       ref="menu"
       :model="items"
       :popup="true">
-      <template #item="{ item, props }">
+      <template #item="{ item }">
         <button class="w-full p-1 px-2 font-semibold text-left">
           {{ item.label }}
         </button>

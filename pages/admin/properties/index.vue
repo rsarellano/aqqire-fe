@@ -22,11 +22,11 @@
 
   <DataTable
     :key="currentPage"
+    ref="dt"
     :value="properties?.items"
     class="text-sm"
     :loading="loading"
     show-gridlines
-    ref="dt"
     paginator
     :rows="10"
     data-key="id"

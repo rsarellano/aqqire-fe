@@ -18,7 +18,7 @@
     <template #start>
       <div class="block pt-2 border-b"/>
     </template>
-    <template #item="{ item, props }">
+    <template #item="{ item }">
       <NuxtLink
         :to="item.route"
         class="flex items-center gap-4 px-4 py-2 font-semibold capitalize border-b"

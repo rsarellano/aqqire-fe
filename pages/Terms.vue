@@ -21,12 +21,12 @@
               real estate information services provided thereon (collectively,
               the "Service") is subject to the following contractually binding
               terms and conditions (the "Terms and Conditions" or the
-              "Agreement").  
+              "Agreement").  
               <br >
               <br >
               If you are viewing, using, or accessing the Service for free, you
               are a "User." If you are viewing, using, or accessing the Service
-              and posting for free, you are a "Member."   If you are viewing,
+              and posting for free, you are a "Member."   If you are viewing,
               using or accessing the Service and posting under a paid
               membership, you are a "Paid Member." These Terms and Conditions
               refer to Users, Members and Paid Members collectively as "You." No
@@ -38,7 +38,7 @@
               warrant that You are not a competitor of AQQIRE or any of its
               affiliates, including without limitation any company owned or
               operated by "AQQIRE" or acting on behalf of a competitor of AQQIRE
-              in registering for or accessing the Service.  
+              in registering for or accessing the Service.  
               <br >
               <br >
               By viewing, using or accessing the Service, You agree that these
@@ -51,18 +51,18 @@
               use of a AQQIRE product or service, the terms and conditions of
               such agreement shall control with respect to such product or
               service to the extent they are inconsistent with these Terms and
-              Conditions.  
+              Conditions.  
               <br >
               <br >
               All questions concerning these Terms and Conditions should be
               directed to:AQQIRE. AQQIRE may update these Terms and Conditions
               at any time, with or without notice to You. The latest version of
-              the Terms and Conditions is available on the AQQIRE website.  
+              the Terms and Conditions is available on the AQQIRE website.  
               <br >
               <br >
               GENERAL PROVISIONS
               <br >
-              User Privileges  
+              User Privileges  
               <br >
               User privileges are granted by AQQIRE to individuals exclusively
               and are granted specifically to the subscribing registered user
@@ -79,7 +79,7 @@
               individual, organization, or firm (and all persons associated or
               affiliated with said organization or firm) that fails to abide by
               the Terms and Conditions as posted and displayed on the AQQIRE
-              website, or abuses its rights related to the Service..  
+              website, or abuses its rights related to the Service..  
               <br >
               <br >
               AQQIRE utilizes email as a vital and primary communication channel
@@ -94,10 +94,10 @@
               acknowledge and agree that the Company may record telephone and
               other electronic communications it has with you for their internal
               business purposes, including but not limited to training and
-              quality assurance purposes.  
+              quality assurance purposes.  
               <br >
               <br >
-              Submission and Administration of Listings  
+              Submission and Administration of Listings  
               <br >
               Members and Paid Members (“Customer”) may submit to AQQIRE
               property descriptions, photographs, images, videos (which may
@@ -211,7 +211,7 @@
               breach of security and of these Terms and Conditions.
               <br >
               <br >
-              Listing Review 
+              Listing Review 
               <br >
               All listings entered on AQQIRE may be subject to review by AQQIRE
               company personnel ("Listing Review") prior to becoming available
@@ -219,13 +219,13 @@
               obligation, to review any listing entered by Customer on AQQIRE.
               Although Customer’s listings may be subject to Listing Review,
               Customer remains solely responsible for abiding by AQQIRE’s Terms
-              and Conditions.   By entering listings on AQQIRE, Customer
+              and Conditions.   By entering listings on AQQIRE, Customer
               warrants and represents that Customer owns or otherwise controls
               all of the rights to such content including, without limitation,
               all the rights necessary for Customer to provide, post, upload,
               input or submit such content. Customer acknowledges that AQQIRE
               cannot police or control all of the content provided by
-              Customer(s) that is made available on AQQIRE.  
+              Customer(s) that is made available on AQQIRE.  
               <br >
               <br >
               Listings that violate any of the policies stated herein will not
@@ -250,30 +250,30 @@
               Customer fails to respond to the communication from Listing
               Review, AQQIRE in its sole discretion reserves the right to remove
               any and all content that continues to violate the Listing
-              Policies, including disallowing listings from the Service.  
+              Policies, including disallowing listings from the Service.  
               <br >
               <br >
-              Required Fields  
+              Required Fields  
               <br >
               All fields noted by an asterisk (*) on the add property page are
               required fields and must be completed with valid data pertaining
               to the property being listed ("Required Fields"). Property
               listings where data is missing or data entered in the Required
               Fields is deemed illogical will be removed from the site until
-              valid content is entered in the Required Fields.  
+              valid content is entered in the Required Fields.  
               <br >
               <br >
-              Address Fields  
+              Address Fields  
               <br >
               All Address fields on AQQIRE including Address, City, State and
               Zip Code are recommended fields. These fields are intended for
               listing the physical address of the property being listed. AQQIRE
               reserves the right to remove any and all property listings with
               non-address related or invalid information in any address specific
-              field with or without contacting the listing broker.  
+              field with or without contacting the listing broker.  
               <br >
               <br >
-              Property Description  
+              Property Description  
               <br >
               Property descriptions are for the description of the property that
               is for sale or for lease only. The posting of contact name, phone
@@ -284,10 +284,10 @@
               the listing broker will receive an email informing them of the
               change. Habitual violations of this policy will result in AQQIRE's
               removal of all of such Customer's active listings on the Service
-              until all such content has been appropriately rectified.  
+              until all such content has been appropriately rectified.  
               <br >
               <br >
-              Pricing  
+              Pricing  
               <br >
               A valid Sales Price in the Price Asking field for the listed
               property is recommended for all AQQIRE Sale Listings and a valid
@@ -297,16 +297,16 @@
               searches. AQQIRE reserves the right to remove all listings that
               are deemed to have invalid prices or rental rates including any
               listing with $0 listed in Lease Rate, Sales Price and Opinion of
-              Value fields.  
+              Value fields.  
               <br >
               <br >
-              Listing Parameters  
+              Listing Parameters  
               <br >
               In order to maximize the features of the AQQIRE service, Customers
-              should note certain parameters in the listing process.  
+              should note certain parameters in the listing process.  
               <br >
               <br >
-              Commercial Property  
+              Commercial Property  
               <br >
               AQQIRE is a web site for commercial real estate. Listing of
               single-family residences is prohibited on the AQQIRE website,
@@ -319,21 +319,21 @@
               single-family residence will be removed from the system during the
               listing approval process and an email will be sent to the Customer
               stating that the property has been identified as a single-family
-              residential property.  
+              residential property.  
               <br >
               <br >
-              Duplicates  
+              Duplicates  
               <br >
-              Property Listings  AQQIRE prohibits the listing of a single
+              Property Listings  AQQIRE prohibits the listing of a single
               property more than once on the web site at the same time. A
               duplicate is defined as the same physical property listed under
               more than one property ID. AQQIRE reserves the right to remove any
               and all properties that are determined to be duplicates with or
               without contacting the listing broker. Customers may, however,
-              list a property for sale and for lease at the same time.  
+              list a property for sale and for lease at the same time.  
               <br >
               <br >
-              Space Listings  AQQIRE prohibits the listing of the same space
+              Space Listings  AQQIRE prohibits the listing of the same space
               more than once on the web site at the same time. A space listing
               is defined as a single suite or unit of space listed for lease.
               AQQIRE provides minimum divisible/maximum contiguous options for
@@ -342,17 +342,17 @@
               exceed the total square footage of the building. AQQIRE reserves
               the right to combine duplicate space listings into a single
               listing or to remove the listing from the system with or without
-              contacting the listing broker.  
+              contacting the listing broker.  
               <br >
               <br >
-              Listing Quantity, Submission, and Display  
+              Listing Quantity, Submission, and Display  
               <br >
               <br >
               Customers may list an unlimited number of listings on AQQIRE.com.
-               
+               
               <br >
               <br >
-              Use of Photographs  
+              Use of Photographs  
               <br >
               Building photographs posted, attached, or affixed to listings must
               be actual photographs of the building being listed. All such
@@ -364,7 +364,7 @@
               advertising the subject property. Photographs uploaded that are
               not directly related to the building or property being listed,
               including brokerage company logos, may be removed at the
-              discretion of AQQIRE.  
+              discretion of AQQIRE.  
               <br >
               <br >
               Prohibited Conduct
@@ -374,17 +374,17 @@
               Service.
               <br >
               <br >
-              "Billboard" Listings  
+              "Billboard" Listings  
               <br >
               Listings on AQQIRE are for properties that are currently offered
               for Sale or Lease. It is not permitted to post listings on the
               Service that have already been sold or are no longer on the
               market, i.e. posting listings on the Service for marketing or
               advertising purposes ("Billboard Listings"). All listings for
-              properties already sold or off-market will be removed.  
+              properties already sold or off-market will be removed.  
               <br >
               <br >
-              Keyword Manipulation  
+              Keyword Manipulation  
               <br >
               AQQIRE offers the ability to search for properties on key words.
               This is designed to enable searchers to narrow their criteria
@@ -397,10 +397,10 @@
               Customer may, at the sole discretion of AQQIRE, lead to the
               removal of all of that Customer's active listings from the web
               site and suspension of that Customer's ability to list properties
-              on the Service.  
+              on the Service.  
               <br >
               <br >
-              Offensive Language  
+              Offensive Language  
               <br >
               Use of profanity or vulgar language in any section of the AQQIRE
               database is strictly prohibited. This includes the use of language
@@ -409,10 +409,10 @@
               profane language will be removed from the Service immediately.
               Customers posting such language to the AQQIRE web site may be
               subject to disciplinary action, including indefinite suspension of
-              a Customer's account, temporary suspension or a formal warning.  
+              a Customer's account, temporary suspension or a formal warning.  
               <br >
               <br >
-              Use of Information  
+              Use of Information  
               <br >
               You agree to treat all information obtained from the Service,
               including AQQIRE Materials, listings, member directory, and any
@@ -424,7 +424,7 @@
               or recommend any Content and You use such Content at Your own
               risk. You may view, access, or otherwise use the Content solely to
               obtain initial information from which further evaluation and
-              investigation may commence.  
+              investigation may commence.  
               <br >
               <br >
               You shall limit access to, viewing of, and use of active property
@@ -450,10 +450,10 @@
               services or information; decompile, decode or reverse engineer
               AQQIRE software; or use AQQIRE products or services in an unlawful
               manner, such as for offensive, abusive, tortious, libelous,
-              defamatory or other illegal purposes.  
+              defamatory or other illegal purposes.  
               <br >
               <br >
-              Passwords/Logins  
+              Passwords/Logins  
               <br >
               You are required to maintain the confidentiality of all logins and
               passwords. You are responsible for the activities that occur under
@@ -464,10 +464,10 @@
               in the User Privileges, Use of Information or Ownership and
               License Grant sections of these binding Terms and Conditions that
               relate to confidentiality of account, login or password
-              information.  
+              information.  
               <br >
               <br >
-                Payment Terms  
+                Payment Terms  
               <br >
               Customer agrees to pay for all products ordered through the AQQIRE
               website or via the AQQIRE sales team using the payment method
@@ -505,30 +505,30 @@
               non-renewal requests by Customer will be processed within five (5)
               business days. Once the cancellation is processed, a confirmation
               email will be sent via the Customer's email account on record with
-              AQQIRE.  
+              AQQIRE.  
               <br >
               <br >
               If Customer has a question about a cancellation, Customer should
               contact AQQIRE accounting team at accounting@AQQIRE.com or at
               408-573-1210. The Company reserves the right to change its fees or
               billing methods at any time. The Company will provide timely
-              notice to the affected Customers of any such changes.  
+              notice to the affected Customers of any such changes.  
               <br >
               <br >
               It is the Customer's responsibility to promptly provide the
               Company with any contact or billing information changes or updates
               (including phone number, email address, credit card numbers,
-              etc.).  
+              etc.).  
               <br >
               <br >
               The Customer must notify AQQIRE about any billing problems or
               discrepancies within 90 days after charges first appear on their
               Account statement. If it is not brought to AQQIRE's attention
               within 90 days, Customer agrees to waive their right to dispute
-              such problems or discrepancies.  
+              such problems or discrepancies.  
               <br >
               <br >
-                Unsolicited Commercial Email (Spam)  
+                Unsolicited Commercial Email (Spam)  
               <br >
               AQQIRE prohibits the use of our system or its tools to generate or
               send unsolicited commercial email (spam). You may not use the
@@ -539,10 +539,10 @@
               to send email only to those who have given You consent or with
               whom You have an established business relationship. AQQIRE has the
               right to revoke the privileges of any party who breaches these
-              terms.    
+              terms.    
               <br >
               <br >
-              Termination  
+              Termination  
               <br >
               AQQIRE reserves the right to terminate or suspend a Customer's
               account upon a good faith determination of a violation of these
@@ -555,10 +555,10 @@
               owed by you in connection with AQQIRE or its affiliates' services,
               account inactivity or technical or security issues. Upon
               termination, AQQIRE shall have no obligation to maintain or
-              forward any content in your account.  
+              forward any content in your account.  
               <br >
               <br >
-                Ownership and License Grant  
+                Ownership and License Grant  
               <br >
               AQQIRE retains all rights (including Intellectual Property Rights
               as defined below), title and interest in the Service, the AQQIRE
@@ -574,7 +574,7 @@
               through that Your login ID/email and password; nor shall any
               Member use the AQQIRE system to list properties or conduct
               searches on behalf of other non-Member brokerage, research,
-              analyst, sales or other similar personnel.  
+              analyst, sales or other similar personnel.  
               <br >
               <br >
               Intellectual Property Rights means all intellectual property
@@ -594,10 +594,10 @@
               proprietary rights relating to intangible property; and (e)
               divisions, continuations, renewals, reissues, and extensions of
               the foregoing (as and to the extent applicable) now existing,
-              later filed, issued, or acquired.  
+              later filed, issued, or acquired.  
               <br >
               <br >
-                Limitation of Liability and Indemnification  
+                Limitation of Liability and Indemnification  
               <br >
               IN NO EVENT SHALL AQQIRE BE LIABLE FOR ANY INDIRECT, EXEMPLARY,
               PUNITIVE, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES (INCLUDING
@@ -625,10 +625,10 @@
               any person other than Customer arising from Customer's use or
               application of the Deliverables. Some jurisdictions do not allow
               the exclusion of liability for certain damages. As a result, some
-              of the exclusions above may not apply to you.  
+              of the exclusions above may not apply to you.  
               <br >
               <br >
-                Warranty Disclaimers  
+                Warranty Disclaimers  
               <br >
               THE LISTINGS, SERVICE, ARE PROVIDED "AS IS" WITHOUT WARRANTY OF
               ANY KIND. AQQIRE MAKES NO PROMISES, REPRESENTATION OR WARRANTIES,
@@ -653,10 +653,10 @@
               OBTAINED FROM AQQIRE OR ITS SERVICES SHALL CREATE ANY WARRANTY NOT
               EXPRESSLY STATED IN THE TERMS AND CONDITIONS. SOME JURISDICTIONS
               DO NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES. AS A RESULT,
-              SOME OF THE EXCLUSIONS ABOVE MAY NOT APPLY TO YOU  
+              SOME OF THE EXCLUSIONS ABOVE MAY NOT APPLY TO YOU  
               <br >
               <br >
-                Links to Third Party Sites  
+                Links to Third Party Sites  
               <br >
               This website may contain hyperlinks to other websites operated by
               parties other than AQQIRE which are beyond AQQIRE's control.
@@ -679,10 +679,10 @@
               apply. AQQIRE also does not assume, and expressly disclaims, all
               liability for any viruses, worms, Trojan horses, defects, or other
               malfunctions caused by, resulting from, existing within, or in
-              connection with such third party sites and any links thereto.  
+              connection with such third party sites and any links thereto.  
               <br >
               <br >
-                Other Rights of AQQIRE, Inc.  
+                Other Rights of AQQIRE, Inc.  
               <br >
               You agree that AQQIRE shall have the right to use Listings and
               other information submitted to it for any purpose, including
@@ -697,14 +697,14 @@
               the right to modify or change any and all terms and conditions at
               any time. The most current copy of these terms and conditions will
               be posted and available for review on AQQIRE's corporate website,
-              located at�http://www.AQQIRE.com.  
+              located at�http://www.AQQIRE.com.  
               <br >
               <br >
-                Claims of Copyright Infringement  
+                Claims of Copyright Infringement  
               <br >
               If you believe that your work has been copied onto AQQIRE in a way
               that constitutes copyright infringement, please provide AQQIRE's
-              registered DMCA agent the written information specified below:  
+              registered DMCA agent the written information specified below:  
               <br >
               <br >
               A description of the copyrighted work that you claim has been
@@ -721,7 +721,7 @@
               law; and under penalty of perjury, that that you are the copyright
               owner or are authorized to act on the copyright owner's behalf.
               <br >
-               
+               
               <br >
               Address for AQQIRE's DMCA registered agent:
               <br >

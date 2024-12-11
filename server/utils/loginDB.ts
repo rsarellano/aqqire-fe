@@ -30,12 +30,12 @@ export default async function ({ username, password }: User) {
 
     return response.json()
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Error in logindb", error);
     return createError({
       statusCode: 500,
       statusMessage: "Internal Server Error",
-      message: error.message,
+      message: (error as Error).message,
     });
   }
 }

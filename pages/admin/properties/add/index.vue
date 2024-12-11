@@ -3,14 +3,12 @@
   <div class="flex flex-col gap-4 p-4 px-12">
     <h1
       v-if="store.propertyType"
-      class="px-2 text-2xl font-bold capitalize"
-    >
+      class="px-2 text-2xl font-bold capitalize">
       Add {{ store.propertyType }} Property
     </h1>
     <h1
       v-else
-      class="px-2 text-2xl font-bold capitalize"
-    >
+      class="px-2 text-2xl font-bold capitalize">
       Select Property type
     </h1>
 
@@ -21,8 +19,7 @@
       name="property_types"
       :options="propertyTypes"
       label-class="pb-1 text-2xl uppercase"
-      @input="resetFields"
-    />
+      @input="resetFields" />
 
     <template v-if="store.propertyType">
       <AdminPropertyBrokerSearch v-model="store.brokers" />
@@ -30,10 +27,8 @@
       <BrokerPropertyLocation v-model="store" />
       <BrokerPropertyMap v-model="store" />
 
-
       <h2
-        class="pb-4 text-2xl font-bold text-gray-700 capitalize border-b border-gray-700"
-      >
+        class="pb-4 text-2xl font-bold text-gray-700 capitalize border-b border-gray-700">
         {{ store.propertyType }} Detailed Information
       </h2>
 
@@ -42,86 +37,71 @@
         v-model="store.apnId"
         label="Apn ID (Assessor's Parcel Number ID)"
         type="text"
-        label-class="pb-1 text-2xl uppercase"
-      />
+        label-class="pb-1 text-2xl uppercase" />
 
       <BrokerPropertyDetailHotel
         v-if="store.propertyType === 'Hotel'"
-        v-model="store"
-      />
+        v-model="store" />
       <BrokerPropertyDetailGas
         v-if="store.propertyType === 'Gas Station'"
-        v-model="store"
-      />
+        v-model="store" />
       <BrokerPropertyDetailRetail
         v-if="
           store.propertyType === 'Retail' ||
           store.propertyType === 'Health' ||
           store.propertyType === 'Special'
         "
-        v-model="store"
-      />
+        v-model="store" />
       <BrokerPropertyDetailIndustrial
         v-if="store.propertyType === 'Industrial'"
-        v-model="store"
-      />
+        v-model="store" />
       <BrokerPropertyDetailMulti
         v-if="store.propertyType === 'Multi-Family'"
-        v-model="store"
-      />
+        v-model="store" />
       <BrokerPropertyDetailRestaurant
         v-if="store.propertyType === 'Restaurant'"
-        v-model="store"
-      />
+        v-model="store" />
       <BrokerPropertyDetailOffice
         v-if="store.propertyType === 'Office'"
-        v-model="store"
-      />
+        v-model="store" />
 
       <BrokerPropertyMarketInfo v-model="store" />
 
       <h2
-        class="pb-4 text-2xl font-bold text-gray-700 capitalize border-b border-gray-700"
-      >
+        class="pb-4 text-2xl font-bold text-gray-700 capitalize border-b border-gray-700">
         {{ store.propertyType }} Financial Information
       </h2>
 
       <BrokerPropertyFinancialHotel
         v-if="store.propertyType === 'Hotel'"
-        v-model="store"
-      />
+        v-model="store" />
       <BrokerPropertyFinancialGas
         v-if="store.propertyType === 'Gas Station'"
-        v-model="store"
-      />
+        v-model="store" />
       <BrokerPropertyFinancialRetail
         v-if="
           store.propertyType === 'Retail' ||
           store.propertyType === 'Health' ||
           store.propertyType === 'Special'
         "
-        v-model="store"
-      />
+        v-model="store" />
       <BrokerPropertyFinancialMulti
         v-if="store.propertyType === 'Multi-Family'"
-        v-model="store"
-      />
+        v-model="store" />
       <BrokerPropertyFinancialRestaurant
         v-if="store.propertyType === 'Restaurant'"
-        v-model="store"
-      />
+        v-model="store" />
       <BrokerPropertyFinancialOffice
         v-if="store.propertyType === 'Office'"
-        v-model="store"
-      />
+        v-model="store" />
 
       <div class="flex flex-col w-full gap-2">
         <Button
           severity="danger"
-          @click="resetFields"
-          >Reset Fields</Button
-        >
-        <Button @click="">Create Property</Button>
+          @click="resetFields">
+          Reset Fields
+        </Button>
+        <Button @click="() => {}">Create Property</Button>
       </div>
     </template>
   </div>

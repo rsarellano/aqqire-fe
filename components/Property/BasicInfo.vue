@@ -56,9 +56,9 @@
       address?: string
       size?: string
       state?: string
-      price?: any
+      price?: string
       capRate?: number
       asset?: string
     }>()
-  const checkPrice = Number(cleanString(price))
+  const checkPrice = Number(cleanString(price!))
 </script>

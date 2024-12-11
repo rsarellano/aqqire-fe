@@ -6,18 +6,16 @@
         :delay="180"
         type="text"
         placeholder="Search for a location"
-        @input="searchPlace"
-      />
+        @input="searchPlace" />
       <div
         v-if="autocompleteInput"
-        class="absolute inset-x-0 z-50 flex flex-col w-full top-11"
-      >
+        class="absolute inset-x-0 z-50 flex flex-col w-full top-11">
         <button
-          v-for="place in autoCompletePlaces"
+          v-for="(place, key) in autoCompletePlaces"
+          :key="key"
           class="p-2 text-left bg-white border hover:text-white hover:bg-blue-500"
-          @click="addPin(place.location)"
-        >
-          <i class="pi pi-map-marker"/>
+          @click="addPin(place.location)">
+          <i class="pi pi-map-marker" />
           <span class="font-bold text-slate-700">{{ place.displayName }}</span>
         </button>
       </div>
@@ -25,8 +23,7 @@
     <div
       id="map"
       ref="mainMap"
-      class="w-full h-[30rem] rounded-md"
-    />
+      class="w-full h-[30rem] rounded-md" />
   </div>
 </template>
 
