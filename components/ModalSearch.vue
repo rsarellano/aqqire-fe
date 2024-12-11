@@ -10,7 +10,7 @@
     <div
       v-show="modalOpen"
       class="fixed inset-0 bg-slate-900 bg-opacity-30 z-50 transition-opacity"
-      aria-hidden="true"></div>
+      aria-hidden="true"/>
   </transition>
   <!-- Modal dialog -->
   <transition
@@ -35,10 +35,10 @@
             <label :for="searchId" class="sr-only">Search</label>
             <input
               :id="searchId"
+              ref="searchInput"
               class="w-full border-0 focus:ring-transparent placeholder-slate-400 appearance-none py-3 pl-10 pr-4"
               type="search"
-              placeholder="Search Anything…"
-              ref="searchInput" />
+              placeholder="Search Anything…" >
             <button
               class="absolute inset-0 right-auto group"
               type="submit"

@@ -8,7 +8,7 @@
       class="flex items-center justify-center w-full h-full p-4 bg-white rounded-md overflow-clip aspect-video">
       <img
         :src="imageUrl"
-        class="object-cover" />
+        class="object-cover" >
     </div>
     <div class="flex items-center justify-center gap-4 fill-white">
       <button
@@ -25,8 +25,8 @@
 
     <dialog
       ref="modal"
-      @close="visible = false"
-      class="min-w-[300px] w-full max-w-[600px] rounded-md py-4">
+      class="min-w-[300px] w-full max-w-[600px] rounded-md py-4"
+      @close="visible = false">
       <div class="flex flex-col gap-2 p-4">
         <div class="flex items-center gap-2">
           <p
@@ -46,11 +46,11 @@
           class="flex flex-col gap-2 text-gray-600">
           Name:
           <input
+            id="name"
+            v-model="dialogForm.name"
             type="text"
             name=""
-            id="name"
-            class="rounded-md"
-            v-model="dialogForm.name" />
+            class="rounded-md" >
         </label>
 
         <label
@@ -58,15 +58,15 @@
           class="flex flex-col gap-2 text-gray-600">
           URL:
           <input
+            id="url"
+            v-model="dialogForm.url"
             type="text"
             name=""
-            id="url"
-            class="rounded-md"
-            v-model="dialogForm.url" />
+            class="rounded-md" >
         </label>
 
         <div class="flex items-center justify-center p-4">
-          <img :src="dialogForm.imageUrl" />
+          <img :src="dialogForm.imageUrl" >
         </div>
         <label
           :for="'file' + index"
@@ -76,16 +76,16 @@
           <div class="w-full p-2 text-gray-600 bg-gray-200 rounded-md">
             Select File
             <input
-              type="file"
               :id="'file' + index"
+              type="file"
               class="hidden"
-              @input="handleFileChange($event, dialogForm)" />
+              @input="handleFileChange($event, dialogForm)" >
           </div>
         </label>
 
         <button
-          @click="emitValue"
-          class="p-2 mt-2 text-white bg-blue-500 rounded-md hover:bg-blue-600">
+          class="p-2 mt-2 text-white bg-blue-500 rounded-md hover:bg-blue-600"
+          @click="emitValue">
           Update
         </button>
       </div>

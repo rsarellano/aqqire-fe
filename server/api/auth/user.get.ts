@@ -1,4 +1,5 @@
-import { createError, eventHandler, getRequestHeader, H3Event } from "h3"
+import type { H3Event } from "h3";
+import { createError, eventHandler, getRequestHeader } from "h3"
 import { verify } from "jsonwebtoken"
 
 const TOKEN_TYPE = "Bearer"

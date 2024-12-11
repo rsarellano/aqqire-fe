@@ -5,8 +5,8 @@
       class="flex items-center justify-center w-8 h-8 transition duration-150 rounded-full bg-slate-100 hover:bg-slate-200"
       :class="{ 'bg-slate-200': dropdownOpen }"
       aria-haspopup="true"
-      @click.prevent="dropdownOpen = !dropdownOpen"
-      :aria-expanded="dropdownOpen">
+      :aria-expanded="dropdownOpen"
+      @click.prevent="dropdownOpen = !dropdownOpen">
       <span class="sr-only">Notifications</span>
       <svg
         class="w-4 h-4"
@@ -20,7 +20,7 @@
           d="M16 9.5c0-.987-.429-1.897-1.147-2.639C14.124 10.348 10.66 13 6.5 13c-.103 0-.202-.018-.305-.021C7.231 13.617 8.556 14 10 14c.449 0 .886-.04 1.307-.11L15 16v-4h-.012C15.627 11.285 16 10.425 16 9.5z" />
       </svg>
       <div
-        class="absolute top-0 right-0 w-2.5 h-2.5 bg-rose-500 border-2 border-white rounded-full"></div>
+        class="absolute top-0 right-0 w-2.5 h-2.5 bg-rose-500 border-2 border-white rounded-full"/>
     </button>
     <transition
       enter-active-class="transition duration-200 ease-out transform"
@@ -42,8 +42,8 @@
           @focusin="dropdownOpen = true"
           @focusout="dropdownOpen = false">
           <li
-            class="border-b border-slate-200 last:border-0"
-            v-for=", in [...new Array(10)]">
+            v-for=", in [...new Array(10)]"
+            class="border-b border-slate-200 last:border-0">
             <NuxtLink
               class="block px-4 py-2 hover:bg-slate-50"
               to="/"

@@ -4,13 +4,13 @@
       class="!p-1 !w-min bg-transparent !text-blue-500 hover:!text-white"
       type="button"
       icon="pi pi-ellipsis-v"
-      @click="toggle"
       aria-haspopup="true"
       aria-controls="overlay_menu"
+      @click="toggle"
     />
     <Menu
-      ref="menu"
       id="overlay_menu"
+      ref="menu"
       :model="items"
       :popup="true"
     >
@@ -28,9 +28,9 @@
           </NuxtLink>
         </div>
         <div
-          class="px-4 py-2 space-x-4 cursor-pointer hover:text-green-600"
           v-else
           v-ripple
+          class="px-4 py-2 space-x-4 cursor-pointer hover:text-green-600"
         >
           <i :class="item.icon" />
           <span class="ml-2">{{ item.label }} </span>

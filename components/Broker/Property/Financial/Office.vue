@@ -1,24 +1,24 @@
 <template>
   <div class="flex flex-col gap-2 py-4">
     <FormKit
-      label="Price per Square Foot"
       v-model="model!.pricePerSquareFt"
+      label="Price per Square Foot"
     />
     <FormKit
-      label="Gross Rental Income"
       v-model="model!.grossRentalIncome"
+      label="Gross Rental Income"
     />
     <FormKit
-      label="Net Rental Income"
       v-model="model!.netRentalIncome"
+      label="Net Rental Income"
     />
     <FormKit
-      label="Net Operating Income"
       v-model="model!.netOperatingIncome"
+      label="Net Operating Income"
     />
     <FormKit
-      label="Cap Rate"
       v-model="model!.capRate"
+      label="Cap Rate"
     />
   </div>
 </template>

@@ -5,14 +5,14 @@
     <div class="relative flex flex-col flex-1 overflow-x-hidden">
       <!-- Site header -->
       <Header
-        :sidebarOpen="sidebar"
+        :sidebar-open="sidebar"
         @toggle-sidebar="toggleSideBar"
       />
       <section
         v-if="isPremium === false && !route.path.startsWith('/admin/')"
         class="relative flex flex-col items-center justify-center max-w-6xl gap-4 p-4 mx-auto mt-2 lg:flex-row"
       >
-        <img src="https://picsum.photos/700/100" />
+        <img src="https://picsum.photos/700/100" >
         <p class="absolute p-4 font-bold bg-white rounded-md/80"
           >Advertisement</p
         >
@@ -50,7 +50,7 @@
         v-if="isPremium === false && !route.path.startsWith('/admin/')"
         class="relative flex flex-col items-center justify-center max-w-6xl gap-4 p-4 mx-auto mt-2 lg:flex-row"
       >
-        <img src="https://picsum.photos/700/100" />
+        <img src="https://picsum.photos/700/100" >
         <p class="absolute p-4 font-bold bg-white rounded-md/80"
           >Advertisement</p
         >

@@ -36,8 +36,8 @@
           :options="['USA', 'ITALY', 'UNITED KINGDOM']"
         />
         <FormKit
-          label="Street Address"
           id="street"
+          label="Street Address"
           class="w-full form-input"
           type="text"
         />
@@ -47,13 +47,13 @@
           class="p-2 px-4 text-white bg-indigo-500 rounded-md btn hover:bg-indigo-600"
           to="/onboarding/onboarding02"
         >
-          <i class="pi pi-caret-left"></i>
+          <i class="pi pi-caret-left"/>
         </NuxtLink>
         <NuxtLink
           class="p-2 px-4 text-white bg-indigo-500 rounded-md btn hover:bg-indigo-600"
           to="/onboarding/onboarding04"
         >
-          <i class="pi pi-caret-right"></i>
+          <i class="pi pi-caret-right"/>
         </NuxtLink>
       </div>
     </div>

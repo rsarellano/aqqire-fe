@@ -8,11 +8,11 @@
 
     <Carousel
       :value="properties"
-      :numVisible="3"
-      :numScroll="1"
+      :num-visible="3"
+      :num-scroll="1"
       circular
-      :autoplayInterval="3000"
-      :responsiveOptions="responsiveOptions"
+      :autoplay-interval="3000"
+      :responsive-options="responsiveOptions"
       :pt="{
         indicators: {
           class: 'flex gap-2 pt-4 justify-center',

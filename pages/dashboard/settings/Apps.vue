@@ -14,10 +14,10 @@
           <div class="flex flex-wrap gap-4">
             <BrokerAppsCard
               v-for="(item, key) in data"
+              :key="key"
               :title="item.title"
               :rating="item.rating"
-              :description="item.description"
-              :key="key" />
+              :description="item.description" />
           </div>
         </TabPanel>
         <TabPanel>
@@ -27,10 +27,10 @@
           <div class="flex flex-wrap gap-4">
             <BrokerAppsCard
               v-for="(item, key) in utility"
+              :key="key"
               :title="item.title"
               :rating="item.rating"
-              :description="item.description"
-              :key="key" />
+              :description="item.description" />
           </div>
         </TabPanel>
         <TabPanel>
@@ -40,10 +40,10 @@
           <div class="flex flex-wrap gap-4">
             <BrokerAppsCard
               v-for="(item, key) in marketing"
+              :key="key"
               :title="item.title"
               :rating="item.rating"
-              :description="item.description"
-              :key="key" />
+              :description="item.description" />
           </div>
         </TabPanel>
         <TabPanel>
@@ -53,10 +53,10 @@
           <div class="flex flex-wrap gap-4">
             <BrokerAppsCard
               v-for="(item, key) in development"
+              :key="key"
               :title="item.title"
               :rating="item.rating"
-              :description="item.description"
-              :key="key" />
+              :description="item.description" />
           </div>
         </TabPanel>
       </TabView>

@@ -6,7 +6,7 @@
 
         <img
           src="https://cdn4.iconfinder.com/data/icons/social-media-and-logos-11/32/Logo_Google-512.png"
-          class="w-8 h-8" />
+          class="w-8 h-8" >
       </div>
     </template>
 
@@ -19,7 +19,7 @@
     <template #footer>
       <div class="flex justify-between">
         <p class="flex items-center gap-2">
-          <i class="pi pi-star"></i>
+          <i class="pi pi-star"/>
           <span>{{ props.rating }}</span>
         </p>
 

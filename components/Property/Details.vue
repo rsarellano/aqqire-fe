@@ -4,8 +4,8 @@
 
     <div class="grid grid-cols-1 gap-4 p-2 md:grid-cols-3">
       <div
-        class="lg:grow"
-        v-if="price">
+        v-if="price"
+        class="lg:grow">
         <p>Property Price:</p>
         <p class="font-semibold text-blue-400">
           {{
@@ -27,8 +27,8 @@
       </div>
 
       <div
-        class=""
-        v-if="floors">
+        v-if="floors"
+        class="">
         <p>floors:</p>
         <p class="font-semibold text-blue-400">{{ floors }}</p>
       </div>
@@ -39,15 +39,15 @@
       </div>
 
       <div
-        class="lg:grow"
-        v-if="year">
+        v-if="year"
+        class="lg:grow">
         <p>Year Built:</p>
         <p class="font-semibold text-blue-400">{{ year }}</p>
       </div>
 
       <div
-        class="lg:grow"
-        v-if="lotSize">
+        v-if="lotSize"
+        class="lg:grow">
         <p>Lot Size:</p>
         <p class="font-semibold text-blue-400">{{ lotSize }}</p>
       </div>

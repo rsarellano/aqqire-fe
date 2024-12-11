@@ -1,7 +1,7 @@
 <template>
   <SidebarLinkGroup
     v-slot="parentLink"
-    :activeCondition="currentRoute.fullPath.includes('/dashboard/settings')">
+    :active-condition="currentRoute.fullPath.includes('/dashboard/settings')">
     <button
       class="block w-full truncate transition duration-150 text-slate-200 hover:text-white"
       :class="
@@ -61,10 +61,10 @@
         :class="!parentLink.expanded && 'hidden'">
         <template v-for="route in routes">
           <NuxtLink
-            :to="`/dashboard/settings/${route.route}`"
             v-if="route.active"
-            custom
-            v-slot="{ href, navigate, isExactActive }">
+            v-slot="{ href, navigate, isExactActive }"
+            :to="`/dashboard/settings/${route.route}`"
+            custom>
             <li class="mb-1 last:mb-0">
               <a
                 class="block truncate transition duration-150 text-slate-400 hover:text-slate-200"

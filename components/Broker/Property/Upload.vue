@@ -2,7 +2,7 @@
   <FileUpload
     :multiple="props.multiple"
     :accept="props.accept"
-    :maxFileSize="1000000"
+    :max-file-size="1000000"
   >
     <template
       #header="{ chooseCallback, uploadCallback, clearCallback, files }"
@@ -13,24 +13,24 @@
         <!-- Header Buttons -->
         <Button
           icon="pi pi-images"
-          @click="chooseCallback"
           rounded
           outlined
-        ></Button>
+          @click="chooseCallback"
+        />
 
         <Button
           icon="pi pi-cloud-upload"
-          @click="uploadCallback"
           rounded
           outlined
-        ></Button>
+          @click="uploadCallback"
+        />
 
         <Button
           icon="pi pi-times"
-          @click="clearCallback"
           rounded
           outlined
-        ></Button>
+          @click="clearCallback"
+        />
       </div>
     </template>
 

@@ -27,7 +27,7 @@
       required
       label="Close Date"
       help="Click the Icon select a date"
-      suffixClass="cursor-pointer"
+      suffix-class="cursor-pointer"
     />
 
     <FormKit
@@ -35,8 +35,8 @@
       label="Make Public or Private"
       required
       :options="['Public', 'Private']"
-      decoratorIcon="circle"
-      optionsClass="flex gap-2"
+      decorator-icon="circle"
+      options-class="flex gap-2"
     />
     <div class="flex gap-2">
       <FormKit
@@ -51,8 +51,8 @@
     </div>
 
     <FormKit
-      type="radio"
       v-model="lead"
+      type="radio"
       label="Origin of lead that resulted in this sale"
       required
       :options="[
@@ -65,7 +65,7 @@
         'Phone',
         'Others',
       ]"
-      decoratorIcon="circle"
+      decorator-icon="circle"
     />
     <FormKit
       v-if="lead === 'Others'"

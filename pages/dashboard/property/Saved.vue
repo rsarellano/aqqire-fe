@@ -2,12 +2,12 @@
   <div class="">
     <DataTable
       v-model:filters="filters"
-      showGridlines
+      show-gridlines
       :rows="10"
       paginator
       size="small"
       :value="properties"
-      :globalFilterFields="[
+      :global-filter-fields="[
         'name',
         'id',
         'brokers',
@@ -45,12 +45,12 @@
         sortable
         field="name"
         header="Property Name"
-      ></Column>
+      />
       <Column
         sortable
         field="propertyType"
         header="Property Type"
-      ></Column>
+      />
       <Column
         sortable
         field="propertyDate"
@@ -68,8 +68,8 @@
         <template #body="{ data }">
           <div class="flex gap-2">
             <div
-              class="flex"
               v-for="broker in data.brokers"
+              class="flex"
             >
               {{ broker.name }}
             </div>
@@ -80,7 +80,7 @@
         sortable
         field="views"
         header="Views"
-      ></Column>
+      />
 
       <Column
         field="actions"

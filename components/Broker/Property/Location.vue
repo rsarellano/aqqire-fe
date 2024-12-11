@@ -8,14 +8,14 @@
       <p class="flex items-end gap-2 font-semibold text-gray-700 text-md">
         International Property?
         <i
-          class="p-1 text-gray-900 cursor-pointer text pi pi-info-circle w-min"
           v-tooltip.top="{
             value: 'Check if your property is outside United States ',
             pt: {
               text: 'text-xs text-gray-700 p-2 ',
             },
           }"
-        ></i>
+          class="p-1 text-gray-900 cursor-pointer text pi pi-info-circle w-min"
+        />
       </p>
     </div>
     <p class="text-sm italic">
@@ -31,32 +31,32 @@
 
     <div class="flex flex-col gap-4 lg:flex-row">
       <FormKit
+        v-model="model!.address"
         label="Address"
         validation="required|length:4"
         type="text"
         label-class="pb-1 text-2xl uppercase"
-        v-model="model!.address"
       />
       <FormKit
+        v-model="model!.city"
         label="City"
         validation="required|length:4"
         type="text"
         label-class="pb-1 text-2xl uppercase"
-        v-model="model!.city"
       />
     </div>
     <div class="flex flex-col gap-4 lg:flex-row">
       <FormKit
+        v-model="model!.state"
         label="State"
         validation="required|length:4"
         label-class="pb-1 text-2xl uppercase"
-        v-model="model!.state"
       />
       <FormKit
+        v-model="model!.zip"
         label="Zip Code"
         validation="required|length:4"
         label-class="pb-1 text-2xl uppercase"
-        v-model="model!.zip"
       />
     </div>
     <!-- Map -->

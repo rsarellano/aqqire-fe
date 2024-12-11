@@ -22,7 +22,7 @@
           class="h-min !p-2 w-min"
           icon="pi pi-plus"
           @click="addAffiliate(affiliate)"
-        ></Button>
+        />
       </li>
     </ul>
 
@@ -39,7 +39,7 @@
           icon="pi pi-times"
           severity="danger"
           @click="removeAffiliate(affiliate)"
-        ></Button>
+        />
       </li>
     </ul>
   </div>

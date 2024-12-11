@@ -9,8 +9,8 @@ import { sidebarExpanded } from '../Sidebar/SidebarStore';
           <!-- Hamburger button -->
           <button
             class="text-white"
-            @click="toggleSidebar"
             aria-controls="sidebar"
+            @click="toggleSidebar"
             >
             <span class="sr-only">Open sidebar</span>
             <IconBurger />
@@ -22,16 +22,16 @@ import { sidebarExpanded } from '../Sidebar/SidebarStore';
           <button
             class="flex items-center justify-center w-8 h-8 p-1 ml-3 transition duration-150 rounded-full bg-slate-100 hover:bg-slate-200"
             :class="{ 'bg-slate-200': searchModalOpen }"
-            @click.stop="searchModalOpen = true"
-            aria-controls="search-modal">
+            aria-controls="search-modal"
+            @click.stop="searchModalOpen = true">
             <span class="sr-only">Search</span>
             <IconSearch />
           </button>
 
           <ModalSearch
             id="search-modal"
-            searchId="search"
-            :modalOpen="searchModalOpen"
+            search-id="search"
+            :modal-open="searchModalOpen"
             @open-modal="searchModalOpen = true"
             @close-modal="searchModalOpen = false" />
 
@@ -40,7 +40,7 @@ import { sidebarExpanded } from '../Sidebar/SidebarStore';
           <Help align="right" />
 
           <!-- Divider -->
-          <hr class="w-px h-6 bg-slate-200" />
+          <hr class="w-px h-6 bg-slate-200" >
 
           <UserMenu align="right" />
         </div>

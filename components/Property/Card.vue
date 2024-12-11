@@ -1,5 +1,6 @@
 <template>
-  <Card class="mx-1 overflow-hidden border border-black grow" 
+  <Card
+class="mx-1 overflow-hidden border border-black grow" 
   :pt="{
     content: { class: '!py-0'}
   }">
@@ -8,7 +9,7 @@
         class="group relative block max-h-[200px] size-full hover:!bg-[400%] duration-300 overflow-hidden">
         <img
           :src="image"
-          class="scale-125 duration-700 ease-in-out group-hover:scale-[1.8] -z-9999" />
+          class="scale-125 duration-700 ease-in-out group-hover:scale-[1.8] -z-9999" >
 
         <div class="absolute flex gap-1 top-4 right-4">
           <div class="p-1 px-2 text-xs font-bold text-white bg-blue-500">
@@ -29,7 +30,7 @@
             class="flex items-center gap-2">
             <img
               src="https://lion-coders.com/dzemo/html/sarchholm-real-estate-template/images/agents/agent_min_1.jpg"
-              class="h-8 rounded-full w-min" />
+              class="h-8 rounded-full w-min" >
             <p class="text-white">Tony Stark</p>
           </a>
           <div class="flex gap-2 text-white">
@@ -66,7 +67,7 @@
         <div>- 2 Garage</div>
         <div>- 2142 sq. ft</div>
       </div>
-      <div class="w-full h-[1px] mt-4 bg-gray-500"></div>
+      <div class="w-full h-[1px] mt-4 bg-gray-500"/>
       <div class="flex justify-between mt-2">
         <div class="pl-2 font-bold">Tony Stark</div>
         <div class="flex items-baseline gap-1">

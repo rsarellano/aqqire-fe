@@ -2,20 +2,20 @@
   <div class="">
     <DashboardNav />
     <DataTable
-      dataKey="id"
       :key="currentPage"
+      data-key="id"
       :loading="loading"
-      showGridlines
+      show-gridlines
       :rows="items"
       :lazy="true"
       :first="currentPage * items - 1"
       :total-records="1000000"
-      paginatorTemplate="PrevPageLink CurrentPageReport NextPageLink"
-      currentPageReportTemplate="{currentPage}"
-      @page="paginate"
+      paginator-template="PrevPageLink CurrentPageReport NextPageLink"
+      current-page-report-template="{currentPage}"
       paginator
       :value="properties"
-      size="small">
+      size="small"
+      @page="paginate">
 
       <!-- Header -->
       <template #header>
@@ -39,7 +39,7 @@
       <Column
         sortable
         field="name"
-        header="Property Name"></Column>
+        header="Property Name"/>
       <Column
         sortable
         field="asset_type"
@@ -59,11 +59,11 @@
       <Column
         sortable
         field="impressions"
-        header="Impressions"></Column>
+        header="Impressions"/>
       <Column
         sortable
         field="views"
-        header="Views"></Column>
+        header="Views"/>
       <Column
         field="actions"
         header="Actions">

@@ -16,8 +16,8 @@
     <!-- Slides -->
     <transition
       v-for="(slide, index) in slides"
-      :key="index"
       v-show="index === currentIndex"
+      :key="index"
       enter-from-class="opacity-0"
       enter-active-class="transition-all duration-300 ease-in-out"
       enter-to-class="opacity-1">

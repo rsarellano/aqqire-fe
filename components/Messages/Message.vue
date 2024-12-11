@@ -3,7 +3,7 @@
     <div class="flex-shrink-0 rounded-full size-12">
       <img
         src="https://picsum.photos/200/300"
-        class="rounded-full size-full" />
+        class="rounded-full size-full" >
     </div>
 
     <div>
@@ -16,7 +16,7 @@
         <i
           :class="{
             'pi pi-check text-green-500': true,
-          }"></i>
+          }"/>
       </div>
     </div>
   </div>

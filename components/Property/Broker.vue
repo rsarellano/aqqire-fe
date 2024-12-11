@@ -11,7 +11,7 @@
           ' https://fastly.picsum.photos/id/928/200/300.jpg?hmac=0vBcHV9dVfFTsvcFDn8PRUQiOaH72_2aaKnmlU1PHWk'
         "
         alt="Broker Profile Picture"
-        class="w-full h-full" />
+        class="w-full h-full" >
     </NuxtLink>
 
     <NuxtLink
@@ -27,7 +27,7 @@
         v-if="logo"
         :src="logo"
         class="max-w-28"
-        alt="Broker Company Logo" />
+        alt="Broker Company Logo" >
     </NuxtLink>
   </div>
 </template>

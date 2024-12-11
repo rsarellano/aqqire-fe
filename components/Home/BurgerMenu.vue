@@ -4,24 +4,24 @@
       type="button"
       icon="pi pi-align-justify"
       class="mb-2 border border-white fill-white"
-      @click="toggle"
       aria-haspopup="true"
       aria-controls="overlay_menu"
+      @click="toggle"
     />
 
     <Menu
-      ref="menu"
       id="overlay_menu"
+      ref="menu"
       :popup="true"
       :model="items"
       class="md:w-60"
     >
       <template #start>
         <NuxtLink
-          class="lg:hidden"
           v-for="(link, key) in mobileLinks"
-          :to="link.destination"
           :key="key"
+          class="lg:hidden"
+          :to="link.destination"
         >
           <div
             v-ripple
@@ -38,7 +38,7 @@
             class="flex gap-2 border-b-2 hover:text-blue-500 align-items-center"
             v-bind="props.action"
           >
-            <span :class="item.icon"></span>
+            <span :class="item.icon"/>
             <p class="text-xs">{{ item.label }}</p>
           </a>
         </NuxtLink>
@@ -50,6 +50,8 @@
 <script setup lang="ts">
   //added authentication to access user specific functions
   import { useAuth } from "#imports"
+
+  import { links } from "../Navbar/links"
   const { signOut, token, data, status, lastRefreshedAt } = useAuth()
   const userProfile = {
     profileImage: data.value.picture,
@@ -57,8 +59,6 @@
     email: data.value.username,
     role: data.value.role,
   }
-
-  import { links } from "../Navbar/links"
   const menu = ref()
   const mobileLinks = [...links]
 

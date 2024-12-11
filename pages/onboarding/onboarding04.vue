@@ -10,7 +10,7 @@
           to="/"
         >
           Go To Dashboard
-          <i class="pi pi-caret-right"></i>
+          <i class="pi pi-caret-right"/>
         </NuxtLink>
       </div>
     </div>

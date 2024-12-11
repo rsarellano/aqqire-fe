@@ -5,7 +5,7 @@
     <div class="relative flex flex-col flex-1 overflow-x-hidden">
       <!-- Site header -->
       <Header
-        :sidebarOpen="sidebar"
+        :sidebar-open="sidebar"
         @toggle-sidebar="toggleSideBar" />
 
       <div class="size-full">

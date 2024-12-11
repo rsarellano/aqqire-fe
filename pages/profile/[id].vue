@@ -6,7 +6,7 @@
         <img
           :src="data?.profile_pic"
           class="size-full"
-          alt="test" />
+          alt="test" >
       </div>
       <!-- Info -->
       <div class="space-y-4 grow">
@@ -61,8 +61,8 @@
                 '158956',
                 '17298',
               ]"
-              :label="'#' + number"
-              :key="key" />
+              :key="key"
+              :label="'#' + number" />
           </div>
         </div>
 
@@ -133,8 +133,8 @@
       </div>
     </div>
     <h2
-      class="pt-8 text-4xl font-bold text-center"
-      id="contact">
+      id="contact"
+      class="pt-8 text-4xl font-bold text-center">
       Ask a question
     </h2>
     <div class="flex flex-col w-full max-w-4xl p-4 mx-auto">

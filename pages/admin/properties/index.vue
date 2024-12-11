@@ -4,14 +4,14 @@
     <!-- Search api for records -->
     <div class="flex items-center gap-2 grow">
       <FormKit
-        outerClass="!max-w-[30%] w-full"
+        v-model="search.name"
+        outer-class="!max-w-[30%] w-full"
         type="text"
-        label="Search"
-        v-model="search.name" />
+        label="Search" />
       <Button
-        @click="getData(1)"
         class="!h-min mt-1.5 px-6"
-        size="small">
+        size="small"
+        @click="getData(1)">
         Search
       </Button>
     </div>
@@ -26,23 +26,23 @@
     class="text-sm"
     :loading="loading"
     show-gridlines
+    ref="dt"
     paginator
     :rows="10"
-    dataKey="id"
+    data-key="id"
     :total-records="properties.total"
     :first="currentPage * numberOfRows - 1"
-    @page="paginate"
     :lazy="true"
-    :showFilterOperator="false"
-    ref="dt">
+    :show-filter-operator="false"
+    @page="paginate">
     <template #empty>No Properties found.</template>
     <template #header>
       <h1 class="pb-4 text-2xl text-center text-blue-500">Properties</h1>
 
       <!-- Search table -->
       <Accordion
-        expandIcon="pi pi-caret-down"
-        collapseIcon="pi pi-caret-up">
+        expand-icon="pi pi-caret-down"
+        collapse-icon="pi pi-caret-up">
         <AccordionTab>
           <template #header>
             <h2 class="w-full text-right">Advanced Search Options</h2>
@@ -54,17 +54,17 @@
               type="text"
               label="City" />
             <FormKit
+              v-model="search.state"
               placeholder="Pick a State"
               type="select"
               label="State"
-              v-model="search.state"
               clearable
               :options="states" />
             <FormKit
+              v-model="search.asset_type"
               placeholder="Type of Property"
               type="select"
               label="Asset Type"
-              v-model="search.asset_type"
               :options="asset_types" />
           </div>
         </AccordionTab>
@@ -74,7 +74,7 @@
     <Column
       field="name"
       header="Name"
-      :showFilterMenu="false"
+      :show-filter-menu="false"
       sortable
       sort-field="lastUpdated">
       <template #body="{ data }">
@@ -105,22 +105,22 @@
     <Column
       field="address"
       header="Address"
-      :showFilterMenu="false">
+      :show-filter-menu="false">
       <template #body="{ data }">
         <div class="max-w-xs px-4 space-x-2 space-y-2">
           <Tag>
             {{ data.id }}
           </Tag>
           <Tag
-            value="primary"
             v-if="data.asset_type"
+            value="primary"
             class="capitalize">
             {{ data.asset_type }}
           </Tag>
 
           <Tag
-            value="primary"
             v-if="data.property_type"
+            value="primary"
             class="capitalize">
             {{ data.property_type }}
           </Tag>
@@ -138,7 +138,7 @@
     <Column
       field="brokers"
       header="Broker Information"
-      :showFilterMenu="false"
+      :show-filter-menu="false"
       body-class="max-w-xs">
       <template #body="{ data }">
         <div class="space-y-1 w-fit">
@@ -158,7 +158,7 @@
     <Column
       field="propertyPrice"
       header="Price"
-      :showFilterMenu="false">
+      :show-filter-menu="false">
       <template #body="{ data }">
         <div class="max-w-xs space-y-1">
           <p class="text-sm font-bold">
@@ -175,18 +175,18 @@
     <Column
       field="status"
       header="Status"
-      :showFilterMenu="false">
+      :show-filter-menu="false">
       <template #body="{ data }">
         <div class="max-w-xs mx-auto space-y-1 w-fit">
           <Tag
             v-if="data.active"
             icon="pi pi-check"
-            value="Active"></Tag>
+            value="Active"/>
           <Tag
             v-else
             icon="pi pi-times"
             severity="warning"
-            value="Inactive"></Tag>
+            value="Inactive"/>
         </div>
       </template>
     </Column>
@@ -194,13 +194,13 @@
     <Column
       field="actions"
       header="Actions"
-      :showFilterMenu="false">
+      :show-filter-menu="false">
       <template #body="{ data }">
         <div class="flex items-center justify-center max-w-xs gap-1">
           <NuxtLink
             :to="'/property/' + data.id"
             class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500">
-            <i class="pi pi-info"></i>
+            <i class="pi pi-info"/>
           </NuxtLink>
 
           <NuxtLink
@@ -208,7 +208,7 @@
             class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500">
             <i
               class="pi pi-pencil"
-              title="Edit"></i>
+              title="Edit"/>
           </NuxtLink>
 
           <button title="Enable or Disable(Soft Delete)">

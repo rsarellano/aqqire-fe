@@ -3,7 +3,7 @@
     <div
       class="flex flex-col w-full max-w-5xl gap-6 px-12 py-8 mx-auto lg:px-4">
       <h1 class="text-2xl font-bold">Frequently Asked questions</h1>
-      <div class="h-[1px] bg-gray-400 w-full"></div>
+      <div class="h-[1px] bg-gray-400 w-full"/>
 
       <div>
         <h2 class="text-lg font-bold">Is AQQIRE a brokerage firm?</h2>

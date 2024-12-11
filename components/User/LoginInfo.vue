@@ -4,15 +4,16 @@
 
     <!-- Email -->
     <div>
-      <p class="italic text-red-500" v-if="!checkRoute">
+      <p v-if="!checkRoute" class="italic text-red-500">
         Be extra careful when
-        <button @click="disabled = !disabled" class="p-1 px-2 font-bold text-white bg-red-500 rounded cursor-pointer"
-          v-tooltip="'Click to edit'">
+        <button
+v-tooltip="'Click to edit'" class="p-1 px-2 font-bold text-white bg-red-500 rounded cursor-pointer"
+          @click="disabled = !disabled">
           EDITING
         </button>
         this field.
       </p>
-      <FormKit type="email" v-model="model!.email" label="Email" :disabled="disabled" />
+      <FormKit v-model="model!.email" type="email" label="Email" :disabled="disabled" />
     </div>
 
     <h2 class="pb-3 text-xl font-semibold border-b border-slate-200">User Role</h2>
@@ -41,7 +42,8 @@
     
     <div class="flex flex-col gap-4 p-1 grow">
       <h2 class="pb-3 text-xl font-semibold border-b border-slate-200">Account Type</h2>
-      <FormKit v-model="model!.account_type" type="radio" :options="packages" decorator-icon="circle"
+      <FormKit
+v-model="model!.account_type" type="radio" :options="packages" decorator-icon="circle"
         options-class="flex flex-col gap-8 capitalize md:flex-row" />
     </div>
 

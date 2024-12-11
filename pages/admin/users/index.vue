@@ -3,14 +3,14 @@
   <div class="flex items-center justify-between w-full px-4">
     <div class="flex items-center gap-2 grow">
       <FormKit
-        outerClass="!max-w-[30%] w-full"
+        v-model="value"
+        outer-class="!max-w-[30%] w-full"
         type="text"
-        label="Search"
-        v-model="value" />
+        label="Search" />
       <Button
-        @click="getData(0)"
         class="!h-min mt-1.5 px-6"
-        size="small">
+        size="small"
+        @click="getData(0)">
         Search
       </Button>
     </div>
@@ -21,20 +21,19 @@
   </div>
   <DataTable
     :key="currentPage"
-    class="text-sm"
     v-model:filters="filters"
+    class="text-sm"
     :value="data?.users"
     show-gridlines
-    dataKey="id"
+    data-key="id"
     :loading="loading"
     :total-records="data?.total"
     :first="currentPage * numberOfRows"
     :rows="numberOfRows"
-    @page="paginate"
-    sortMode="multiple"
+    sort-mode="multiple"
     paginator
     :lazy="true"
-    :globalFilterFields="[
+    :global-filter-fields="[
       'id',
       'email',
       'first_name',
@@ -62,7 +61,8 @@
       // 'lastLogin',
       // 'createdOn',
     ]"
-    :showFilterOperator="false">
+    :show-filter-operator="false"
+    @page="paginate">
     <template #empty>
       <div class="text-center">No Users found.</div>
     </template>
@@ -71,8 +71,8 @@
 
       <!-- Search table -->
       <Accordion
-        expandIcon="pi pi-caret-down"
-        collapseIcon="pi pi-caret-up">
+        expand-icon="pi pi-caret-down"
+        collapse-icon="pi pi-caret-up">
         <AccordionTab>
           <template #header>
             <h2 class="w-full text-right">Table Filter Options</h2>
@@ -102,24 +102,24 @@
     <Column
       field="email"
       header="User Information"
-      :showFilterMenu="false">
+      :show-filter-menu="false">
       <template #body="{ data }">
         <div class="flex items-center max-w-xs gap-4">
           <div class="min-w-20 max-w-20 aspect-square">
             <img
               :src="data.profile_pic"
               :alt="`${data.first_name + data.last_name}'s profile picture`"
-              class="!size-full" />
+              class="!size-full" >
           </div>
 
           <div class="space-y-1">
             <div class="flex items-baseline gap-4 font-bold">
-              <i class="pi pi-user"></i>
+              <i class="pi pi-user"/>
               {{ data.first_name + data.last_name }}
             </div>
 
             <div class="flex items-baseline gap-4">
-              <i class="pi pi-envelope"></i>
+              <i class="pi pi-envelope"/>
               {{ data.email }}
             </div>
 
@@ -129,13 +129,13 @@
             </div> -->
 
             <div class="flex items-baseline gap-4 text-xs capitalize">
-              <i class="pi pi-map-marker"></i>
+              <i class="pi pi-map-marker"/>
               {{ data.mongodata.street_address }}
               {{ data.mongodata.city }}
             </div>
 
             <div class="flex items-baseline gap-4 text-xs capitalize">
-              <i class="pi pi-building"></i>
+              <i class="pi pi-building"/>
             {{data.mongodata.company_name}}
             </div>
           </div>
@@ -148,7 +148,7 @@
       header="Account Information"
       sort-field="lastLogin"
       sortable
-      :showFilterMenu="false">
+      :show-filter-menu="false">
       <template #body="{ data }">
         <div class="flex flex-col max-w-xs gap-2">
           <div class="flex gap-2">
@@ -156,8 +156,8 @@
               {{ data.id }}
             </Tag>
             <Tag
-              class="capitalize"
-              v-if="data.work_type">
+              v-if="data.work_type"
+              class="capitalize">
               {{ data.work_type }}
             </Tag>
             <Tag
@@ -165,7 +165,7 @@
                 data.account_type === 'limited' ? 'warning' : 'primary'
               "
               :value="data.account_type"
-              class="capitalize"></Tag>
+              class="capitalize"/>
           </div>
 
           <p
@@ -187,24 +187,24 @@
         </div>
       </template>
 
-      <template #filter="{ filterModel, filterCallback }"></template>
+      <template #filter="{ filterModel, filterCallback }"/>
     </Column>
 
     <Column
       field="status"
       header="Status"
-      :showFilterMenu="false">
+      :show-filter-menu="false">
       <template #body="{ data }">
         <div class="max-w-xs mx-auto space-y-1 w-fit">
           <Tag
             v-if="data.active"
             icon="pi pi-check"
-            value="Active"></Tag>
+            value="Active"/>
           <Tag
             v-else
             icon="pi pi-times"
             severity="warning"
-            value="Inactive"></Tag>
+            value="Inactive"/>
         </div>
       </template>
     </Column>
@@ -212,28 +212,28 @@
     <Column
       field="actions"
       header="Actions"
-      :showFilterMenu="false">
+      :show-filter-menu="false">
       <template #body="{ data }">
         <div class="flex items-center justify-center max-w-xs gap-1">
           <NuxtLink
             :to="'/user/' + data.id"
             class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500">
-            <i class="pi pi-info"></i>
+            <i class="pi pi-info"/>
           </NuxtLink>
           <NuxtLink
             :to="'/admin/users/edit/' + data.id"
             class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500">
             <i
               class="pi pi-pencil"
-              title="Edit"></i>
+              title="Edit"/>
           </NuxtLink>
 
           <button
-            @click="deleteUser(data)"
-            class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-red-500 hover:text-red-500">
+            class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-red-500 hover:text-red-500"
+            @click="deleteUser(data)">
             <i
               class="pi pi-trash"
-              title="Edit"></i>
+              title="Edit"/>
           </button>
 
           <button title="Enable or Disable(Soft Delete)">
@@ -255,7 +255,7 @@
       <div class="overflow-hidden border rounded-md size-44">
         <img
           :src="currentUser.profile_pic"
-          class="size-full" />
+          class="size-full" >
       </div>
 
       <div class="flex flex-col gap-2">
@@ -271,7 +271,7 @@
     <Button
       severity="danger"
       icon="pi pi-trash"
-      class="w-full"></Button>
+      class="w-full"/>
   </Dialog>
 </template>
 

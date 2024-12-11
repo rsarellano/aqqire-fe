@@ -2,19 +2,19 @@
   <div
     class="container flex flex-col items-center justify-center gap-2 p-4 mx-auto xs:max-w-80 bg-slate-50">
     <Galleria
-      v-model:activeIndex="activeIndex"
+      v-model:active-index="activeIndex"
       circular
-      autoPlay
-      :showThumbnails="false"
-      showItemNavigators
+      auto-play
+      :show-thumbnails="false"
+      show-item-navigators
       :value="images"
-      :responsiveOptions="responsiveOptions"
+      :responsive-options="responsiveOptions"
       container-class="w-full xs:w-6/7">
       <template #item="slotProps">
         <img
           :src="slotProps.item.itemImageSrc"
           :alt="slotProps.item.alt"
-          class="w-full !max-h-[44rem] h-full" />
+          class="w-full !max-h-[44rem] h-full" >
       </template>
     </Galleria>
 
@@ -57,11 +57,11 @@
 
         <!-- Square Ad section -->
         <div
-          class="overflow-hidden rounded-md aspect-square"
-          v-if="isPremium === false">
+          v-if="isPremium === false"
+          class="overflow-hidden rounded-md aspect-square">
           <img
             :src="squareAd"
-            alt="size-full rounded-md" />
+            alt="size-full rounded-md" >
         </div>
       </div>
     </section>
@@ -80,8 +80,8 @@
 
         <!-- Seller Details -->
         <PropertyBroker
-          :firstName="data?.user_first_name"
-          :lastName="data?.user_last_name" />
+          :first-name="data?.user_first_name"
+          :last-name="data?.user_last_name" />
       </div>
 
       <section class="flex flex-col w-full h-full gap-4 mt-2 md:max-w-6xl">

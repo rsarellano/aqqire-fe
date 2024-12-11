@@ -10,8 +10,8 @@
       {{ checkMessage }}
     </div>
     <form
-      @submit.prevent="handleSignIn()"
-      class="flex flex-col gap-4 px-4 md:px-0">
+      class="flex flex-col gap-4 px-4 md:px-0"
+      @submit.prevent="handleSignIn()">
       <FormKit
         v-model="username"
         label="Email Address"
@@ -27,11 +27,11 @@
         required />
 
       <FormKit
+        v-model="rememberMe"
         type="checkbox"
         label="Remember Me"
         name="rememberMe"
-        v-model="rememberMe"
-        decoratorIcon="check" />
+        decorator-icon="check" />
 
       <Button type="submit">Sign In</Button>
       <NuxtLink

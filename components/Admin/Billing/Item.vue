@@ -22,8 +22,8 @@
     <div
       class="flex items-center justify-center col-span-1 gap-2 my-1 bg-gray-100 rounded-md overflow-clip">
       <button
-        @click="modal = !modal"
-        class="p-1 rounded-md hover:bg-gray-200 fill-blue-500">
+        class="p-1 rounded-md hover:bg-gray-200 fill-blue-500"
+        @click="modal = !modal">
         <EditIcon />
       </button>
       <button
@@ -34,7 +34,7 @@
     </div>
   </div>
 
-  <Modal :modalOpen="modal">
+  <Modal :modal-open="modal">
     <div class="flex items-center pl-4 text-white bg-blue-500">
       <p class="font-bold grow">Edit Billing</p>
       <button class="p-2 px-4 font-bold bg-red-500" @click="modal = !modal">
@@ -46,22 +46,22 @@
       <label for="price">
         Price:
         <input
-          type="text"
           id="price"
           v-model="dialogForm.price"
-          class="w-full rounded-md" />
+          type="text"
+          class="w-full rounded-md" >
       </label>
       <label for="packageName">
         Package Name:
         <input
-          type="text"
           id="packageName"
           v-model="dialogForm.name"
-          class="w-full rounded-md" />
+          type="text"
+          class="w-full rounded-md" >
       </label>
 
-      <textarea v-model="dialogForm.description" class="rounded-md"></textarea>
-      <button @click="edit" class="py-2 text-white bg-blue-500 rounded-md">
+      <textarea v-model="dialogForm.description" class="rounded-md"/>
+      <button class="py-2 text-white bg-blue-500 rounded-md" @click="edit">
         Update
       </button>
     </div>

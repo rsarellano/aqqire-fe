@@ -2,57 +2,57 @@
   <div class="flex flex-col gap-2 py-4">
     <div class="flex flex-col gap-2 lg:flex-row">
       <FormKit
+        v-model="model!.numberOfBuildings"
         label="Number of Buildings"
         outer-class="font-bold uppercase"
-        v-model="model!.numberOfBuildings"
       />
       <FormKit
+        v-model="model!.numberOfUnits"
         label="Number of Units"
         outer-class="font-bold uppercase"
-        v-model="model!.numberOfUnits"
       />
     </div>
     <div class="flex flex-col gap-2 lg:flex-row">
       <FormKit
+        v-model="model!.buildingSizeinSqFt"
         label="Total building size in Square Foot"
         outer-class="font-bold uppercase"
-        v-model="model!.buildingSizeinSqFt"
       />
       <FormKit
+        v-model="model!.numberOfFloors"
         label="Number of Floors"
         outer-class="font-bold uppercase"
-        v-model="model!.numberOfFloors"
       />
     </div>
 
     <div class="flex flex-col gap-2 lg:flex-row">
       <FormKit
+        v-model="model!.pricePerSquareFt"
         label="Price per Square Foot"
         outer-class="font-bold uppercase"
-        v-model="model!.pricePerSquareFt"
       />
       <FormKit
+        v-model="model!.netRentableArea"
         label="Net Rentable Area"
         outer-class="font-bold uppercase"
-        v-model="model!.netRentableArea"
       />
     </div>
 
     <FormKit
+      v-model="model!.lotSizeAcre"
       label="Lot size in Acre"
       outer-class="font-bold uppercase"
-      v-model="model!.lotSizeAcre"
     />
     <div class="flex flex-col gap-2 lg:flex-row">
       <FormKit
+        v-model="model!.yearBuilt"
         label="Year Built"
         outer-class="font-bold uppercase"
-        v-model="model!.yearBuilt"
       />
       <FormKit
+        v-model="model!.yearRenovated"
         label="Year Renovated"
         outer-class="font-bold uppercase"
-        v-model="model!.yearRenovated"
       />
     </div>
   </div>

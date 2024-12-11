@@ -10,7 +10,7 @@
         v-for="(item, key) in users"
         :key="key">
         <MessagesContact
-          :imgUrl="'https://i.imgur.com/ETJzZb9.jpeg'"
+          :img-url="'https://i.imgur.com/ETJzZb9.jpeg'"
           :name="item"
           :messages="2"
           :active="key === 2 ? true : false" />

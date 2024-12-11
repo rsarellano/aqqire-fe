@@ -1,7 +1,7 @@
 <template>
   <SidebarLinkGroup
     v-slot="parentLink"
-    :activeCondition="currentRoute.fullPath.includes('property')"
+    :active-condition="currentRoute.fullPath.includes('property')"
   >
     <a
       class="block truncate transition duration-150 text-slate-200 hover:text-white"

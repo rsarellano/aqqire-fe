@@ -14,7 +14,7 @@
               name="radio-buttons"
               class="sr-only peer"
               checked
-            />
+            >
             <div
               class="flex items-center p-4 text-sm font-medium duration-150 ease-in-out bg-white border rounded shadow-sm text-slate-800 border-slate-200 hover:border-slate-300"
             >
@@ -40,14 +40,14 @@
             <div
               class="absolute inset-0 border-2 border-transparent rounded pointer-events-none peer-checked:border-indigo-400"
               aria-hidden="true"
-            ></div>
+            />
           </label>
           <label class="relative block cursor-pointer">
             <input
               type="radio"
               name="radio-buttons"
               class="sr-only peer"
-            />
+            >
             <div
               class="flex items-center p-4 text-sm font-medium duration-150 ease-in-out bg-white border rounded shadow-sm text-slate-800 border-slate-200 hover:border-slate-300"
             >
@@ -69,14 +69,14 @@
             <div
               class="absolute inset-0 border-2 border-transparent rounded pointer-events-none peer-checked:border-indigo-400"
               aria-hidden="true"
-            ></div>
+            />
           </label>
           <label class="relative block cursor-pointer">
             <input
               type="radio"
               name="radio-buttons"
               class="sr-only peer"
-            />
+            >
             <div
               class="flex items-center p-4 text-sm font-medium duration-150 ease-in-out bg-white border rounded shadow-sm text-slate-800 border-slate-200 hover:border-slate-300"
             >
@@ -94,7 +94,7 @@
             <div
               class="absolute inset-0 border-2 border-transparent rounded pointer-events-none peer-checked:border-indigo-400"
               aria-hidden="true"
-            ></div>
+            />
           </label>
         </div>
         <div class="flex items-center justify-between">
@@ -102,7 +102,7 @@
             class="p-2 px-4 ml-auto text-white bg-indigo-500 rounded-md btn hover:bg-indigo-600"
             to="/onboarding/onboarding02"
           >
-            <i class="pi pi-caret-right"></i>
+            <i class="pi pi-caret-right"/>
           </NuxtLink>
         </div>
       </form>

@@ -9,12 +9,12 @@
         <div class="flex flex-col gap-2 md:flex-row">
           <form
             type="form"
-            @submit.prevent="search"
-            class="w-full">
+            class="w-full"
+            @submit.prevent="search">
             <FormKit
+              v-model="query"
               type="text"
-              outer-class="!w-full"
-              v-model="query" />
+              outer-class="!w-full" />
             <Button
               type="submit"
               class="w-full">
@@ -24,8 +24,8 @@
         </div>
 
         <Accordion
-          expandIcon="pi pi-caret-down"
-          collapseIcon="pi pi-caret-up">
+          expand-icon="pi pi-caret-down"
+          collapse-icon="pi pi-caret-up">
           <AccordionTab>
             <template #header>
               <h2 class="w-full text-right">More Filter Options</h2>
@@ -95,13 +95,13 @@
         </div>
         <!-- Listing Items -->
         <div
-          class="col-span-6 py-4"
           v-for="(item, key) in properties.data"
-          :key="key">
+          :key="key"
+          class="col-span-6 py-4">
           <PropertyCardHorizontal
+            :id="item.id"
             :name="item.name"
             :price="item.price"
-            :id="item.id"
             :city="item.city"
             :address="item.address"
             :state="item.state"
@@ -115,8 +115,8 @@
         class="w-full"
         :first="(page - 1) * items"
         :rows="items"
-        @page="paginate"
-        :totalRecords="properties.total"></Paginator>
+        :total-records="properties.total"
+        @page="paginate"/>
     </div>
   </template>
 </template>

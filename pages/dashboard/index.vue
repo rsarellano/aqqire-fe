@@ -40,23 +40,23 @@
         <Column
           field="clicks"
           header="Clicks"
-          sortable></Column>
+          sortable/>
         <Column
           field="views"
           header="Views"
-          sortable></Column>
+          sortable/>
         <Column
           field="impressions"
           header="Total Impressions"
-          sortable></Column>
+          sortable/>
         <Column
           field="impressions"
           header="Website Impressions"
-          sortable></Column>
+          sortable/>
         <Column
           field="impressions"
           header="Email Impressions"
-          sortable></Column>
+          sortable/>
         <Column
           field="updated_at"
           header="Last Updated"
