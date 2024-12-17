@@ -8,7 +8,6 @@
         currentRoute.fullPath.includes('/dashboard/settings/account') &&
         'hover:text-slate-200'
       "
-      href="#0"
       @click.prevent="
         sidebarExpanded ? parentLink.handleClick() : (sidebarExpanded = true)
       ">
@@ -59,14 +58,15 @@
       <ul
         class="mt-1 pl-9"
         :class="!parentLink.expanded && 'hidden'">
-        <template v-for="route in routes">
+        <template v-for="(route, key) in routes">
           <NuxtLink
             v-if="route.active"
+            :key="key"
             v-slot="{ href, navigate, isExactActive }"
             :to="`/dashboard/settings/${route.route}`"
             custom>
             <li class="mb-1 last:mb-0">
-              <a
+              <button
                 class="block truncate transition duration-150 text-slate-400 hover:text-slate-200"
                 :class="isExactActive && '!text-indigo-500'"
                 :href="href"
@@ -74,7 +74,7 @@
                 <span class="text-sm font-medium duration-200">
                   {{ route.text }}
                 </span>
-              </a>
+              </button>
             </li>
           </NuxtLink>
         </template>

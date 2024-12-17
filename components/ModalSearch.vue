@@ -1,5 +1,6 @@
 <template>
   <!-- Modal backdrop -->
+  
   <transition
     enter-active-class="transition duration-200 ease-out"
     enter-from-class="opacity-0"
@@ -143,11 +144,11 @@
 <script lang="ts" setup>
   import { ref, nextTick, onMounted, onUnmounted, watch } from "vue"
 
-  const props = defineProps({
-    id: String,
-    searchId: String,
-    modalOpen: Boolean,
-  })
+  const props = defineProps<{
+    id: string
+    searchId: string
+    modalOpen: boolean
+  }>()
 
   const emit = defineEmits(["open-modal", "close-modal"])
   const modalContent = ref()
@@ -177,8 +178,6 @@
 
   watch(
     () => props.modalOpen,
-    (open) => {
-      open && nextTick(() => searchInput.value.focus())
-    }
+    (open) => open && nextTick(() => searchInput.value.focus())
   )
 </script>

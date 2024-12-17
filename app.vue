@@ -2,7 +2,7 @@
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
-  <FloatingChat />
+  <!-- <FloatingChat /> -->
 </template>
 
 <script setup lang="ts">
@@ -13,6 +13,5 @@ const { signIn, token, data, status, lastRefreshedAt, signOut, getSession } = us
 
 <style>
   @import url("~/assets/css/base.css");
-  @import url('primeicons/primeicons.css')
-
+  @import url('primeicons/primeicons.css');
 </style>

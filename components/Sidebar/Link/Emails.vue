@@ -6,7 +6,7 @@
     <li
       class="px-3 py-2 rounded-sm mb-0.5 last:mb-0"
       :class="isExactActive && 'bg-stone-800'">
-      <a
+      <button
         class="block truncate transition duration-150 text-slate-200 hover:text-white"
         :class="isExactActive && 'hover:text-slate-200'"
         :href="href"
@@ -42,7 +42,7 @@
             </span>
           </div>
         </div>
-      </a>
+      </button>
     </li>
   </NuxtLink>
 </template>

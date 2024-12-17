@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-center w-full pt-4 mt-auto bg-blue-600">
+  <div class="flex items-center justify-center w-full pt-4 mt-auto bg-main">
     <div class="container flex flex-col items-center gap-12 p-4">
       <!-- logo -->
 
@@ -36,7 +36,11 @@
           v-for="(link, key) in footerLinks"
           :key="key"
           class="cursor-pointer hover:underline underline-offset-2">
-          <NuxtLink :to="link.destination">{{ link.text }}</NuxtLink>
+          <NuxtLink
+            :to="link.destination"
+            class="font-semibold">
+            {{ link.text }}
+          </NuxtLink>
         </li>
       </ul>
     </div>
