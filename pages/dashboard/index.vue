@@ -93,6 +93,7 @@ const stats = ref({ views: 0, clicks: 0, impressions: 0 });
 
 const fetchProperties = async () => {
   if (user.value && user.value.id) {
+    console.log(user.value.id)
     loading.value = true;
     try {
       const { data } = await useFetch(`${apiUrl}/broker/properties`, {

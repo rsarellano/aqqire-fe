@@ -3,6 +3,7 @@ export default {
         class: [
             // Sizing and Shape
             'min-w-[12rem]',
+            '!z-[9999]',
             'rounded-md',
             '!mt-2',
             // Spacing
@@ -17,6 +18,7 @@ export default {
         class: [
             // Spacings and Shape
             'list-none',
+            'z-[9999]',
             'm-0',
             'p-0',
             'outline-none'

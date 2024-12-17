@@ -1,4 +1,4 @@
-export const elapsedSince = (timestamp: Date) => {
+export const elapsedSince = (timestamp: string) => {
   const now: Date = new Date()
   const past: Date = new Date(timestamp)
   const diffTime = now.valueOf() - past.valueOf()
@@ -66,7 +66,7 @@ export const datetimeFromDB = (datetimeString: Date) => {
 }
 
 
-export function formatISODate(date: any) {
+export function formatISODate(date: Date) {
   // Create a new Date object from the ISO date string
   const convertDate = new Date(date);
 

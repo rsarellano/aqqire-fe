@@ -1,6 +1,6 @@
 <template>
   <div
-    class="transition-transform transform w-full min-w-[300px] flex flex-col gap-2 max-w-[350px] max-h-[200px] bg-blue-500 rounded-md p-4 cursor-move grow">
+    class="transition-transform transform w-full min-w-[300px] flex flex-col gap-2 max-w-[350px] max-h-[200px] bg-main rounded-md p-4 cursor-move grow">
     <p class="font-bold text-center text-white">
       {{ name || "Banner Name" }} {{ dialogForm.id }}
     </p>
@@ -24,7 +24,7 @@
       <div class="flex flex-col gap-2 p-4">
         <div class="flex items-center gap-2">
           <p
-            class="p-2 font-bold text-center text-white bg-blue-500 rounded-md grow">
+            class="p-2 font-bold text-center text-white rounded-md bg-main grow">
             Edit banner
           </p>
           <button
@@ -63,7 +63,7 @@
         </label>
 
         <button
-          class="p-2 mt-2 text-white bg-blue-500 rounded-md hover:bg-blue-600"
+          class="p-2 mt-2 text-white rounded-md bg-main hover:bg-blue-600"
           @click="emitValue">
           Update
         </button>

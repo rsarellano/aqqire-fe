@@ -6,7 +6,7 @@
         <img
           :src="data?.profile_pic"
           class="size-full"
-          alt="test" >
+          alt="test" />
       </div>
       <!-- Info -->
       <div class="space-y-4 grow">
@@ -154,8 +154,8 @@
 </template>
 
 <script setup lang="ts">
-  import { useRuntimeConfig } from "#app";
-  const apiUrl = useRuntimeConfig().public.API_BASE_URL;
+  import { useRuntimeConfig } from "#app"
+  const apiUrl = useRuntimeConfig().public.API_BASE_URL
 
   export interface User {
     id: number
@@ -215,7 +215,7 @@
   }
 
   definePageMeta({
-    middleware: ['check-layout'],
+    middleware: ["check-layout"],
     auth: false,
   })
   const route = useRoute()

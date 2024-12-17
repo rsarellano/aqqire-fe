@@ -2,12 +2,11 @@
   <SidebarLinkGroup
     v-slot="parentLink"
     :active-condition="currentRoute.fullPath.includes('property')">
-    <a
+    <button
       class="block truncate transition duration-150 text-slate-200 hover:text-white"
       :class="
         currentRoute.fullPath.includes('utility') && 'hover:text-slate-200'
       "
-      href="#0"
       @click.prevent="
         sidebarExpanded ? parentLink.handleClick() : (sidebarExpanded = true)
       ">
@@ -53,7 +52,7 @@
           </svg>
         </div>
       </div>
-    </a>
+    </button>
     <div class="lg:block 2xl:block">
       <ul
         class="mt-1 pl-9"
@@ -76,7 +75,7 @@
       class="px-3 py-2 rounded-sm mb-0.5 last:mb-0 block truncate transition duration-150 text-slate-200 hover:text-white">
       <div class="flex items-center justify-between">
         <div class="flex items-center grow">
-          <i class="pl-1 text-gray-600 pi pi-bookmark-fill"/>
+          <i class="pl-1 text-gray-600 pi pi-bookmark-fill" />
           <span class="pl-4 text-sm font-medium duration-200">
             Saved Properties
           </span>

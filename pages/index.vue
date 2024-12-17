@@ -1,15 +1,15 @@
 <template>
-  <div class="w-full">
+  <div class="w-full bg-slate-100/40">
     <HomeCarousel />
     <HomeFilter />
 
     <HomeAdvertisements />
-    <h1 class="text-5xl font-bold text-center mt-14">Properties</h1>
+    <h1 class="text-5xl font-bold text-center ">Properties</h1>
 
     <HomeProperties />
     <HomePopularProperties />
     <HomeCompanies :logo="logo" />
-    <Footer />
+    <TrialFooter />
   </div>
 </template>
 

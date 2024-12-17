@@ -102,6 +102,7 @@
             </div>
           </template>
         </Column>
+        
       </DataTable>
     </div>
 
@@ -207,8 +208,8 @@
 </template>
 
 <script setup lang="ts">
-  const formatDateTable = (arr: any) => {
-    return arr.map((item: any) => {
+  const formatDateTable = (arr: typeof top) => {
+    return arr.map((item: typeof top[0]) => {
       return { ...item, lastUpdated: elapsedSince(item.lastUpdated) }
     })
   }
