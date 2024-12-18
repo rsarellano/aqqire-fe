@@ -9,14 +9,14 @@
     <Carousel
       :value="properties"
       :num-visible="3"
-      :num-scroll="1"
+      :num-scroll="3"
       circular
       :autoplay-interval="3000"
       :responsive-options="responsiveOptions"
       :pt="{
         indicators: {
-          class: 'flex gap-2 pt-4 justify-center'
-        }
+          class: 'flex gap-2 pt-4 justify-center',
+        },
       }">
       <template #item="propertyDetails">
         <PropertyCard />
@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-  const properties = ref([...new Array(12)])
+  const properties = ref([...new Array(6)])
   const responsiveOptions = ref([
     {
       breakpoint: "1199px",
@@ -35,7 +35,7 @@
     },
     {
       breakpoint: "767px",
-      numVisible: 2,
+      numVisible: 3,
       numScroll: 3,
     },
     {

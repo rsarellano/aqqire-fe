@@ -8,7 +8,7 @@
         class="py-2 break-all lg:grow"
       >
         <p class="text-slate-700">{{ item.name }}</p>
-        <p class="text-sm text-blue-500">{{ item.distance }}</p>
+        <p class="text-sm text-main">{{ item.distance }}</p>
       </li>
     </ul>
   </div>

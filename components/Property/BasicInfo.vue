@@ -7,7 +7,7 @@
         {{ name }}
       </h1>
       <p class="space-x-2 text-center md:text-left">
-        <i class="text-blue-500 pi pi-map-marker"/>
+        <i class="text-main pi pi-map-marker"/>
         <span class="italic text-gray-400">
           {{ address }},
           <template v-if="city">{{ city.trim() }},</template>
@@ -31,7 +31,7 @@
       </Tag>
       <p
         v-if="price"
-        class="flex flex-col items-end text-2xl font-bold text-blue-500">
+        class="flex flex-col items-end text-2xl font-bold text-main">
         <span class='text-xs'>Price</span>
         {{
           !isNaN(checkPrice)

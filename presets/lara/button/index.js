@@ -57,7 +57,7 @@ export default {
           !props.text &&
           !props.outlined &&
           !props.plain,
-        "bg-blue-500 dark:bg-blue-400":
+        "bg-main":
           !props.link &&
           props.severity === null &&
           !props.text &&
@@ -467,4 +467,4 @@ export default {
       },
     ],
   }),
-};
+}

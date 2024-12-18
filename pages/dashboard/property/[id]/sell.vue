@@ -4,7 +4,7 @@
     <p class="my-4 text-2xl font-semibold">Congratulations, John Doe</p>
     <p>
       To increase the number of
-      <span class="font-bold text-blue-500">"Sold Properties"</span> on your
+      <span class="font-bold text-main">"Sold Properties"</span> on your
       profile page, please provide the following information so that we can
       confim the sale. Increasing this number will add credibility to your
       profile page.

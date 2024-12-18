@@ -80,7 +80,7 @@
         <template #body="{ data: actionsData }">
           <NuxtLink
             :to="'/property/' + actionsData.id"
-            class="flex justify-center hover:text-blue-500">
+            class="flex justify-center hover:text-main">
             View Property
           </NuxtLink>
         </template>

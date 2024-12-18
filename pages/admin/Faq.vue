@@ -3,7 +3,7 @@
     <AdminNav />
 
     <div class="p-4">
-      <div class="p-2 font-bold text-center text-white bg-blue-500 rounded-md">
+      <div class="p-2 font-bold text-center text-white rounded-md bg-main">
         Frequently Asked Questions
       </div>
       <div class="w-full h-full p-4 my-2 bg-white rounded-md">

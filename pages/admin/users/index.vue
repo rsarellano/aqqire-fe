@@ -67,7 +67,7 @@
       <div class="text-center">No Users found.</div>
     </template>
     <template #header>
-      <h1 class="pb-4 text-2xl text-center text-blue-500">Users</h1>
+      <h1 class="pb-4 text-2xl text-center text-main">Users</h1>
 
       <!-- Search table -->
       <Accordion
@@ -217,12 +217,12 @@
         <div class="flex items-center justify-center max-w-xs gap-1">
           <NuxtLink
             :to="'/user/' + actionsData.id"
-            class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500">
+            class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-main hover:text-main">
             <i class="pi pi-info" />
           </NuxtLink>
           <NuxtLink
             :to="'/admin/users/edit/' + actionsData.id"
-            class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500">
+            class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-main hover:text-main">
             <i
               class="pi pi-pencil"
               title="Edit" />
@@ -264,7 +264,7 @@
           :key="key">
           <div class="flex gap-2 grow">
             <div class="font-bold capitalize">{{ key }}:</div>
-            <div class="text-blue-500 capitalize">{{ name }}:</div>
+            <div class="capitalize text-main">{{ name }}:</div>
           </div>
         </template>
       </div>

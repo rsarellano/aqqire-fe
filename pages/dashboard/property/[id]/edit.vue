@@ -5,7 +5,7 @@
     <h1 class="text-2xl font-bold capitalize">
       Edit Property
 
-      <span class="text-blue-500">
+      <span class="text-main">
         {{ store.propertyName }}
       </span>
     </h1>

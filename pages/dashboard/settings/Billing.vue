@@ -4,7 +4,7 @@
       class="h-full p-4 space-y-5 text-gray-700 rounded px-7 lg:p-6 lg:px-12 bg-slate-100">
       <h1 class="text-3xl font-bold">Billing & Invoices</h1>
 
-      <div class="!mb-8 italic text-sm text-blue-500">
+      <div class="!mb-8 italic text-sm text-main">
         This workspace’s Basic Plan is set to $34 per month and will renew on
         July 9, 2021.
       </div>

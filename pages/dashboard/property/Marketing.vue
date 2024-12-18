@@ -115,7 +115,7 @@
     <div class="flex flex-wrap gap-2">
       <Button
         v-ripple
-        class="!p-1 group bg-blue-500 max-w-64 w-full"
+        class="!p-1 group bg-main max-w-64 w-full"
       >
         <Card class="p-2 !bg-blue-600 w-max h-full">
           <template #title>
@@ -135,7 +135,7 @@
       </Button>
 
       <!-- <Button
-        class="!p-1 group bg-blue-500 max-w-64 w-full"
+        class="!p-1 group bg-main max-w-64 w-full"
         v-ripple
       >
         <Card class="p-2 !bg-blue-600 w-full h-full">
@@ -162,7 +162,7 @@
 
       <Button
         v-ripple
-        class="!p-1 group bg-blue-500 max-w-64 w-full"
+        class="!p-1 group bg-main max-w-64 w-full"
       >
         <Card class="p-2 !bg-blue-600 w-max h-full">
           <template #title>
@@ -184,7 +184,7 @@
 
       <Button
         v-ripple
-        class="!p-1 group bg-blue-500 max-w-64 w-full"
+        class="!p-1 group bg-main max-w-64 w-full"
       >
         <Card class="p-2 !bg-blue-600 w-max h-full">
           <template #title>

@@ -8,7 +8,7 @@
 
     <div>
       <div
-        class="p-3 mb-1 text-sm text-white bg-blue-500 border border-transparent rounded-lg rounded-tl-none shadow-md w-min">
+        class="p-3 mb-1 text-sm text-white border border-transparent rounded-lg rounded-tl-none shadow-md bg-main w-min">
         {{ message }}
       </div>
       <div class="flex items-center justify-between">

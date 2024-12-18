@@ -11,13 +11,13 @@
       </div>
 
       <div class="absolute flex gap-1 top-4 right-4">
-        <div class="p-1 px-2 text-xs font-bold text-white bg-blue-500">
+        <div class="p-1 px-2 text-xs font-bold text-white bg-main">
           For Sale
         </div>
-        <div class="p-1 px-2 text-xs font-bold text-white bg-blue-500">
+        <div class="p-1 px-2 text-xs font-bold text-white bg-main">
           Featured
         </div>
-        <div class="p-1 px-2 text-xs font-bold text-white bg-blue-500">New</div>
+        <div class="p-1 px-2 text-xs font-bold text-white bg-main">New</div>
       </div>
 
       <div
@@ -54,7 +54,7 @@
             {{ props.name }}
           </h2>
           <p class="max-w-sm text-gray-500 text-md line-clamp-1">
-            <i class="pr-2 text-xs text-blue-500 pi pi-map-marker md:text-sm" />
+            <i class="pr-2 text-xs text-main pi pi-map-marker md:text-sm" />
             <span>
               {{ props.address }}
             </span>
@@ -74,12 +74,12 @@
       <div class="flex flex-col justify-between gap-4 p-2 items-right">
         <p
           v-if="props.price"
-          class="text-2xl font-bold text-blue-500">
+          class="text-2xl font-bold text-main">
           ${{ props.price }}
         </p>
         <p
           v-else
-          class="text-lg font-bold text-blue-500">
+          class="text-lg font-bold text-main">
           Contact Broker
         </p>
 

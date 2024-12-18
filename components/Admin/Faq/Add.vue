@@ -1,7 +1,7 @@
 <template>
   <!-- Add FAQ Modal -->
   <button
-    class="p-4 py-2 text-gray-700 duration-300 border border-gray-700 rounded hover:bg-blue-500 hover:border-blue-500 hover:text-white"
+    class="p-4 py-2 text-gray-700 duration-300 border border-gray-700 rounded hover:bg-main hover:border-main hover:text-white"
     @click="showModal">
     Add FAQ
   </button>
@@ -14,7 +14,7 @@
       <!-- Header -->
       <div class="flex gap-2">
         <h2
-          class="p-4 py-2 font-bold text-center text-white bg-blue-500 rounded grow">
+          class="p-4 py-2 font-bold text-center text-white rounded bg-main grow">
           Add FAQ
         </h2>
         <button
@@ -34,7 +34,7 @@
         placeholder="Answer"
         class="h-full min-h-[10rem] rounded"/>
       <button
-        class="p-2 px-4 text-blue-500 border border-blue-500 rounded-md hover:text-white hover:bg-blue-500"
+        class="p-2 px-4 border rounded-md text-main border-main hover:text-white hover:bg-main"
         @click="addItem">
         ADD FAQ
       </button>
