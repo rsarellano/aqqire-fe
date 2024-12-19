@@ -23,7 +23,7 @@
       be shown on our
       <NuxtLink
         to="/properties/unmapped"
-        class="text-blue-500"
+        class="text-main"
       >
         unmapped properties
       </NuxtLink>

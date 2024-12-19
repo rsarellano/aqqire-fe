@@ -17,7 +17,7 @@
 
         <Column field="Price" header="Price" class="font-bold text-gray-700">
           <template #body="props">
-            <div class="text-sm italic font-medium text-blue-500 line-clamp-1">
+            <div class="text-sm italic font-medium text-main line-clamp-1">
               $ {{ props.data.price }}
             </div>
           </template>
@@ -69,7 +69,7 @@
     <!-- Edit Modal -->
     <Modal :modal-open="modal">
       <!-- Header -->
-      <div class="flex justify-between bg-blue-500">
+      <div class="flex justify-between bg-main">
         <p class="p-2 text-lg font-semibold text-white">Edit Item</p>
         <button
           class="h-full p-3 text-white bg-red-500"
@@ -90,7 +90,7 @@
           type="text"
           label="Description" />
         <button
-          class="w-full p-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600"
+          class="w-full p-4 py-2 text-white rounded-md bg-main hover:bg-blue-600"
           @click="editPlan">
           Edit
         </button>

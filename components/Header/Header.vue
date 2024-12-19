@@ -1,7 +1,7 @@
 import { sidebarExpanded } from '../Sidebar/SidebarStore';
 <template>
   <!-- <header class="sticky top-0 z-30 border-b bg-blue border-slate-200"> -->
-  <header class="sticky top-0 z-30 bg-blue-600">
+  <header class="sticky top-0 z-30 bg-main">
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 -mb-px">
         <!-- Header: Left side -->

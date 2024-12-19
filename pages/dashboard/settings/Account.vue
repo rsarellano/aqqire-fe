@@ -70,21 +70,21 @@
             type="password"
             label="Current Password"
             suffix-icon="eyeClosed"
-            suffix-icon-class="hover:text-blue-500"
+            suffix-icon-class="hover:text-main"
             @suffix-icon-click="handleIconClick" />
           <FormKit
             v-model="password.newPassword"
             type="password"
             label="New Password"
             suffix-icon="eyeClosed"
-            suffix-icon-class="hover:text-blue-500"
+            suffix-icon-class="hover:text-main"
             @suffix-icon-click="handleIconClick" />
           <FormKit
             v-model="password.newPassword2"
             type="password"
             label="New Password Confirmation"
             suffix-icon="eyeClosed"
-            suffix-icon-class="hover:text-blue-500"
+            suffix-icon-class="hover:text-main"
             @suffix-icon-click="handleIconClick" />
 
           <div

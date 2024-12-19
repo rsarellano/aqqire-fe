@@ -1,17 +1,16 @@
 <template>
-  <div class="p-4 bg-blue-500 lg:pt-8">
+  <div class="p-4 bg-main lg:pt-8">
     <div class="container md:mx-auto">
       <div class="flex items-start justify-between gap-2">
         <InputText
           v-model="name"
           placeholder="Search property name"
-          class="w-3/4"          
-          @keyup.enter="search"
-        />
+          class="w-3/4"
+          @keyup.enter="search" />
         <Button
-          class="flex-grow border border-white rounded-lg h-min"
+          class="flex-grow border border-white rounded-lg h-min bg-main hover:bg-white hover:text-main"
           @click="search">
-          Search Properties
+          Search for Properties
         </Button>
       </div>
 

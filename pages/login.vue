@@ -36,12 +36,12 @@
       <Button type="submit">Sign In</Button>
       <NuxtLink
         to="/register"
-        class="text-blue-500">
+        class="text-main">
         Dont have an account? Sign up!
       </NuxtLink>
       <NuxtLink
         to="/Forgot-password"
-        class="text-blue-500">
+        class="text-main">
         Forgot Password?
       </NuxtLink>
     </form>

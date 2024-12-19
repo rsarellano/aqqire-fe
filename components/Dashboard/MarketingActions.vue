@@ -1,7 +1,7 @@
 <template>
   <div class="flex card justify-content-center">
     <Button
-      class="!p-1 !w-min bg-transparent !text-blue-500 hover:!text-white"
+      class="!p-1 !w-min bg-transparent !text-main hover:!text-white"
       type="button"
       icon="pi pi-ellipsis-v"
       aria-haspopup="true"

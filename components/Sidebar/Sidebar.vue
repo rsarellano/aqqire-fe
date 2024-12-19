@@ -47,7 +47,7 @@
             <SidebarLinkDashboard />
             <SidebarLinkProperties />
             <!-- <SidebarLinkEmails /> -->
-            <SidebarLinkMessages />
+            <!-- <SidebarLinkMessages /> -->
             <!-- <SidebarLinkInbox /> -->
             <SidebarLinkSettings />
             <SidebarLinkAdmin  />

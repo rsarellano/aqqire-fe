@@ -13,7 +13,7 @@
         <button
           v-for="(place, key) in autoCompletePlaces"
           :key="key"
-          class="p-2 text-left bg-white border hover:text-white hover:bg-blue-500"
+          class="p-2 text-left bg-white border hover:text-white hover:bg-main"
           @click="addPin(place.location)">
           <i class="pi pi-map-marker" />
           <span class="font-bold text-slate-700">{{ place.displayName }}</span>

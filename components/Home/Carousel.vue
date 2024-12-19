@@ -38,7 +38,7 @@
             <div
               v-if="index === currentIndex"
               class="container flex flex-col items-start p-4 mx-auto text-left md:p-16 md:pb-4">
-              <div class="p-2 text-xl font-bold tracking-wider bg-blue-500">
+              <div class="p-2 text-xl font-bold tracking-wider bg-main">
                 ${{ slide.price.toLocaleString() }}
               </div>
               <h2 class="mt-2 text-3xl font-semibold">{{ slide.name }}</h2>
@@ -55,7 +55,7 @@
           <transition v-show="index === currentIndex">
             <NuxtLink
               to="#"
-              class="container z-50 flex items-center gap-2 p-4 pt-4 mx-auto my-10 font-semibold duration-200 ease-in-out border-t cursor-pointer md:px-16 md:pt-10 fill-white hover:fill-blue-500 hover:text-blue-500">
+              class="container z-50 flex items-center gap-2 p-4 pt-4 mx-auto my-10 font-semibold duration-200 ease-in-out border-t cursor-pointer md:px-16 md:pt-10 fill-white hover:fill-main hover:text-main">
               <span>Read More</span>
               <IconChevronRight class="size-6" />
             </NuxtLink>

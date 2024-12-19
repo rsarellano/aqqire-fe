@@ -4,7 +4,7 @@
 
     <div class="p-4">
       <div
-        class="p-4 py-2 mx-auto my-2 font-bold text-center text-white bg-blue-500 rounded-t-md">
+        class="p-4 py-2 mx-auto my-2 font-bold text-center text-white bg-main rounded-t-md">
         Featured Logos
       </div>
 
@@ -12,7 +12,7 @@
         <div class="flex flex-col justify-between gap-4 md:flex-row">
           <h2 class="text-2xl font-bold">Drag and Drop to change sorting</h2>
           <button
-            class="p-2 px-4 text-white bg-blue-500 rounded-md"
+            class="p-2 px-4 text-white rounded-md bg-main"
             @click="modal = !modal">
             Add Logo
           </button>
@@ -22,7 +22,7 @@
         <Modal
           id="featured-logo-modal"
           :modal-open="modal">
-          <div class="flex items-center justify-center bg-blue-500">
+          <div class="flex items-center justify-center bg-main">
             <p class="text-xl text-center text-white grow">Add Featured Logo</p>
             <button
               class="p-4 py-2 text-white bg-red-500"

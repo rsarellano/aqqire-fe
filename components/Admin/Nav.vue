@@ -8,7 +8,7 @@
         :to="'/admin/' + route.path"
         class="flex items-center justify-center h-full gap-2 p-2 [x=4] text-gray-400 duration-300 ease-in-out fill-gray-400"
         :class="{
-          'font-bold rounded-md bg-blue-600 text-white fill-white': activeRoute(
+          'font-bold rounded-md bg-main text-white fill-white': activeRoute(
             `/admin/${route.path}`
           ),
         }">

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex gap-4 p-6 my-2 transition-transform transform border border-blue-500 rounded-md cursor-move gap-x-6 hover:scale-100">
+    class="flex gap-4 p-6 my-2 transition-transform transform border rounded-md cursor-move border-main gap-x-6 hover:scale-100">
     <div class="flex items-center justify-center text-4xl font-bold w-[8%]">
       {{ props.index + 1 }}.
     </div>
@@ -15,8 +15,8 @@
       </div>
     </div>
     <div class="flex flex-col items-center justify-center gap-4">
-      <button class="hover:fill-blue-500" @click="showModal">
-        <i class="pi pi-file-edit hover:text-blue-500"/>
+      <button class="hover:fill-main" @click="showModal">
+        <i class="pi pi-file-edit hover:text-main"/>
       </button>
       <button class="hover:text-red-500" @click="deleteFaq(props.id)">
         <i class="pi pi-trash"/>
@@ -31,7 +31,7 @@
         <!-- Header -->
         <div class="flex gap-2">
           <h2
-            class="p-4 py-2 font-bold text-center text-white bg-blue-500 rounded grow">
+            class="p-4 py-2 font-bold text-center text-white rounded bg-main grow">
             Edit FAQ
           </h2>
           <button
@@ -51,7 +51,7 @@
           placeholder="Answer"
           class="h-full min-h-[10rem] rounded"/>
         <button
-          class="p-2 px-4 text-blue-500 border border-blue-500 rounded-md hover:text-white hover:bg-blue-500"
+          class="p-2 px-4 border rounded-md text-main border-main hover:text-white hover:bg-main"
           @click="emitValue">
           Update FAQ
         </button>

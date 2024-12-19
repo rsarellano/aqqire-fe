@@ -19,11 +19,11 @@
     <div class="flex gap-2 ml-auto">
       <Button
         severity="contrast"
-        class="!p-1 !px-1.5 w-min shadow-md h-min border hover:bg-blue-500 hover:text-white duration-300 ease-in-out"
+        class="!p-1 !px-1.5 w-min shadow-md h-min border hover:bg-main hover:text-white duration-300 ease-in-out"
         icon="pi pi-info-circle"/>
       <Button
         severity="contrast"
-        class="!p-1 !px-1.5 w-min shadow-md h-min border hover:bg-blue-500 hover:text-white duration-300 ease-in-out"
+        class="!p-1 !px-1.5 w-min shadow-md h-min border hover:bg-main hover:text-white duration-300 ease-in-out"
         icon="pi pi-check"/>
     </div>
   </div>

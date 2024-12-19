@@ -6,10 +6,25 @@
       <img
         :src="props.logo"
         alt="Aqqire logo"
-        class="object-contain h-10 my-2 invert min-h-8" >
+        class="object-contain h-10 my-2 invert min-h-8" />
     </div>
 
-    <Carousel
+    <div
+      class="max-w-[1000px] grid items-center justify-center grid-cols-3 gap-8">
+      <Card
+        v-for="(company, key) in companies"
+        :key="key"
+        class="flex items-center justify-center h-full p-2 grow">
+        <template #content>
+          <img
+            :src="company.link"
+            class="mx-auto size-full max-w-[85%]"
+            alt="" />
+        </template>
+      </Card>
+    </div>
+
+    <!-- <Carousel
       :value="companies"
       :num-visible="3"
       :num-scroll="1"
@@ -27,14 +42,14 @@
           </div>
         </div>
       </template>
-    </Carousel>
+    </Carousel> -->
   </section>
 </template>
 
 <script setup lang="ts">
   const props = defineProps({
     logo: String,
-  });
+  })
 
   const companies = ref([
     {
@@ -46,7 +61,7 @@
     {
       link: "https://s3-us-west-1.amazonaws.com/storage.aqqire.com/company_pic/1505951359228-Leisure%20Real%20Estate%20logo.png",
     },
-  ]);
+  ])
 
   const responsiveOptions = ref([
     {
@@ -64,5 +79,5 @@
       numVisible: 1,
       numScroll: 1,
     },
-  ]);
+  ])
 </script>
