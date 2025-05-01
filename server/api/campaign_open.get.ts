@@ -12,7 +12,7 @@ export default eventHandler(async (event) => {
 
     while (hasMoreData) {
       const getData = await $fetch<{ Results: opens[] }>(
-        `https://api.createsend.com/api/v3.3/campaigns/${query.id}/opens.json`,
+        `https://api.createsend.com/api/v3.3/campaigns/${id}/opens.json`,
         {
           headers: {
             Authorization: "Basic " + btoa(process.env.CAMPAIGN_API_KEY!),

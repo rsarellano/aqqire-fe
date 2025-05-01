@@ -27,18 +27,14 @@ export default eventHandler(async (event) => {
         if (item.URL.startsWith("https://www.aqqire.com/property/")) {
           const splitUrl = item.URL.split("/")
           let propertyName: string
-          let propertyID: string
 
           if (/^\d+$/.test(splitUrl[splitUrl.length - 1])) {
             propertyName = splitUrl[splitUrl.length - 2].split("-").join(" ")
-            propertyID = splitUrl[splitUrl.length - 2]
           } else {
             propertyName = splitUrl[splitUrl.length - 1].split("-").join(" ")
-            propertyID = splitUrl[splitUrl.length - 1]
-
           }
 
-          propertyClicks.push({ ...item, PropertyName: propertyName, PropertyID: propertyID })
+          propertyClicks.push({ ...item, PropertyName: propertyName })
         } else {
           miscClicks.push(item)
         }
@@ -52,7 +48,6 @@ export default eventHandler(async (event) => {
     }
 
     setResponseStatus(event, 200)
-    console.log(propertyClicks.length, miscClicks.length)
     return {
       status: "OK",
       propertyClicks: propertyClicks,

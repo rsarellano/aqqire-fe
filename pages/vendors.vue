@@ -1,3 +1,7 @@
 <template>
-  <div> Vendors </div>
+  <div>{{ x }}</div>
 </template>
+
+<script setup lang="ts">
+  const x = ref("x")
+</script>
