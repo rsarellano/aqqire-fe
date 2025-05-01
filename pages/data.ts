@@ -1,4 +1,13 @@
-
+export const images = [
+  "/test-images/1.jpg",
+  "/test-images/2.jpg",
+  "/test-images/3.jpg",
+  "/test-images/4.jpg",
+  "/test-images/5.jpg",
+]
+export const getRandomImage = () => {
+  return Math.floor(Math.random() * images.length)
+}
 
 export const data = [
   {

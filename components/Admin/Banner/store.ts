@@ -1,4 +1,5 @@
-import { ref } from "vue";
+import { ref } from "vue"
+import type { FormKitFile } from "@formkit/inputs"
 export const banners = ref([
   {
     id: 0,
@@ -21,14 +22,18 @@ export const banners = ref([
   {
     id: 3,
     name: "Test Company",
-  }
-]);
+  },
+])
 
-export const addItem = ref<{ name: string; imageUrl: any; id: number | null }>({
-  id: null,
+export const addItem = ref<{
+  name: string
+  imageUrl?: FormKitFile[]
+  id: number | null
+}>({
   name: "",
-  imageUrl: null,
-});
+  id: null,
+  imageUrl: undefined,
+})
 
 // export const editBanner = (newItem: typeof addItem.value) => {
 //   banners.value.forEach((item, index) => {
@@ -46,5 +51,5 @@ export const addItem = ref<{ name: string; imageUrl: any; id: number | null }>({
 // };
 
 export const deleteItem = (id: number) => {
-  banners.value = banners.value.filter((item) => item.id !== id);
-};
+  banners.value = banners.value.filter((item) => item.id !== id)
+}

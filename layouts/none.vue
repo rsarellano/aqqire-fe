@@ -1,11 +1,10 @@
 <template>
-  <div class="flex overflow-hidden bg-white">
-    <div class="relative flex-1 overflow-x-hidden overflow-y-auto">
-      <Navbar />
+  <div class="min-h-screen bg-white">
+    <Navbar />
 
-      <slot />
-    </div>
+    <slot />
   </div>
+  <Footer />
 </template>
 
 <script setup lang="ts"></script>

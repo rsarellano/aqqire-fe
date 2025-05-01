@@ -3,31 +3,27 @@
     <div class="relative">
       <FormKit
         v-model="autocompleteInput"
-        @input="searchPlace"
         :delay="180"
         type="text"
         placeholder="Search for a location"
-      />
+        @input="searchPlace" />
       <div
-        class="absolute inset-x-0 z-50 flex flex-col w-full top-11"
         v-if="autocompleteInput"
-      >
+        class="absolute inset-x-0 z-50 flex flex-col w-full top-11">
         <button
-          v-for="place in autoCompletePlaces"
-          class="p-2 text-left bg-white border hover:text-white hover:bg-blue-500"
-          @click="addPin(place.location)"
-        >
-          <i class="pi pi-map-marker"></i>
+          v-for="(place, key) in autoCompletePlaces"
+          :key="key"
+          class="p-2 text-left bg-white border hover:text-white hover:bg-main"
+          @click="addPin(place.location)">
+          <i class="pi pi-map-marker" />
           <span class="font-bold text-slate-700">{{ place.displayName }}</span>
         </button>
       </div>
     </div>
     <div
-      ref="mainMap"
       id="map"
-      class="w-full h-[30rem] rounded-md"
-    >
-    </div>
+      ref="mainMap"
+      class="w-full h-[30rem] rounded-md" />
   </div>
 </template>
 
@@ -101,7 +97,7 @@
     })
 
     // Tooltip when first opening the map at the page
-    let infoWindow = new InfoWindow({
+    const infoWindow = new InfoWindow({
       content: "Click on map to pin your property location",
       position: defaultLocation,
     })

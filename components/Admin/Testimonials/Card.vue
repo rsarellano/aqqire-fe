@@ -21,8 +21,8 @@
 
     <template #footer>
       <div class="flex items-center justify-center gap-4">
-        <button class="hover:fill-blue-500" @click="edit">
-          <i class="pi pi-pencil"></i>
+        <button class="hover:fill-main" @click="edit">
+          <i class="pi pi-pencil"/>
         </button>
       </div>
     </template>

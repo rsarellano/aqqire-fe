@@ -3,22 +3,22 @@
     <Button
       class="flex items-center gap-4 text-lg font-bold"
       severity="contrast"
-      @click="toggle"
       aria-haspopup="true"
-      aria-controls="overlay_menu">
+      aria-controls="overlay_menu"
+      @click="toggle">
       <div class="size-10">
         <img
           class="rounded-full size-full"
-          src="https://picsum.photos/200/300" />
+          src="https://picsum.photos/200/300" >
       </div>
       <p>#Marketing</p>
-      <i class="mt-1 pi pi-chevron-down"></i>
+      <i class="mt-1 pi pi-chevron-down"/>
     </Button>
     <Menu
       ref="menu"
       :model="items"
       :popup="true">
-      <template #item="{ item, props }">
+      <template #item="{ item }">
         <button class="w-full p-1 px-2 font-semibold text-left">
           {{ item.label }}
         </button>
@@ -27,7 +27,7 @@
 
     <button
       class="px-2 py-1 ml-2 border rounded shadow-sm h-min border-slate-200 hover:border-slate-300">
-      <i class="pi pi-pencil"></i>
+      <i class="pi pi-pencil"/>
     </button>
   </div>
 </template>

@@ -1,16 +1,16 @@
 <template>
   <div class="flex card justify-content-center">
     <Button
-      class="!p-1 !w-min bg-transparent !text-blue-500 hover:!text-white"
+      class="!p-1 !w-min bg-transparent !text-main hover:!text-white"
       type="button"
       icon="pi pi-ellipsis-v"
-      @click="toggle"
       aria-haspopup="true"
       aria-controls="overlay_menu"
+      @click="toggle"
     />
     <Menu
-      ref="menu"
       id="overlay_menu"
+      ref="menu"
       :model="items"
       :popup="true"
     >
@@ -21,16 +21,16 @@
         >
           <NuxtLink
             :to="`/dashboard/property/edit/${item.id}`"
-            class="p-4 py-2 space-x-4 cursor-pointer hover:text-blue-500 grow"
+            class="p-4 py-2 space-x-4 cursor-pointer hover:text-main grow"
           >
             <i :class="item.icon" />
             <span>{{ item.label }} </span>
           </NuxtLink>
         </div>
         <div
-          class="px-4 py-2 space-x-4 cursor-pointer hover:text-green-600"
           v-else
           v-ripple
+          class="px-4 py-2 space-x-4 cursor-pointer hover:text-green-600"
         >
           <i :class="item.icon" />
           <span class="ml-2">{{ item.label }} </span>
@@ -75,7 +75,7 @@
     },
   ])
 
-  const toggle = (event: any) => {
+  const toggle = (event: Event) => {
     menu.value.toggle(event)
   }
 </script>

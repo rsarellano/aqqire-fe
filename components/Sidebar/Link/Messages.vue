@@ -1,8 +1,8 @@
 <template>
   <NuxtLink
+    v-slot="{ href, navigate, isExactActive }"
     to="/dashboard/messages"
     custom
-    v-slot="{ href, navigate, isExactActive }"
   >
     <li
       class="px-3 py-2 rounded-sm mb-0.5 last:mb-0"

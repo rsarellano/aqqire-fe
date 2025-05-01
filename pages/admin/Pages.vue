@@ -38,14 +38,14 @@
             <div class="flex items-center gap-2">
               <NuxtLink
                 to="#"
-                class="p-1 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500"
+                class="p-1 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-main hover:text-main"
                 title="Info">
-                <i class="text-gray-500 hover:text-blue-500 pi pi-info"></i>
+                <i class="text-gray-500 hover:text-main pi pi-info"/>
               </NuxtLink>
               <NuxtLink
                 to="#"
-                class="p-1 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500">
-                <i class="pi pi-pencil" title="Edit"></i>
+                class="p-1 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-main hover:text-main">
+                <i class="pi pi-pencil" title="Edit"/>
               </NuxtLink>
 
               <button title="Enable or Disable(Soft Delete)">

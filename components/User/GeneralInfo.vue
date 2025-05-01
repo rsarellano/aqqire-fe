@@ -6,76 +6,76 @@
 
     <div class="flex flex-wrap gap-4 justify-evenly">
       <FormKit
+        v-model="model!.first_name"
         type="text"
         label="First Name"
-        v-model="model!.first_name"
       />
       <FormKit
+        v-model="model!.middle_name"
         type="text"
         label="Middle Name"
-        v-model="model!.middle_name"
       />
       <FormKit
+        v-model="model!.last_name"
         type="text"
         label="Last Name"
-        v-model="model!.last_name"
       />
     </div>
 
     <div class="flex flex-wrap gap-4 justify-evenly">
       <FormKit
+        v-model="model!.phone"
         type="text"
         label="Phone"
-        v-model="model!.phone"
       />
       <FormKit
+        v-model="model!.street"
         type="text"
         label="Street Address"
-        v-model="model!.street"
       />
       <FormKit
+        v-model="model!.city"
         type="text"
         label="City"
-        v-model="model!.city"
       />
     </div>
 
     <div class="flex flex-wrap gap-4 justify-evenly">
       <FormKit
+        v-model="model!.state"
         type="select"
         :options="states"
-        selectIcon="caretDown"
+        select-icon="caretDown"
         label="State"
-        v-model="model!.state"
       />
       <FormKit
+        v-model="model!.zip"
         type="text"
         label="Zip"
-        v-model="model!.zip"
       />
     </div>
 
     <div class="flex flex-wrap gap-4 justify-evenly">
       <FormKit
+        v-model="model!.company"
         type="text"
         label="Company Name"
-        v-model="model!.company"
       />
       <FormKit
+        v-model="model!.work_type"
         type="text"
         label="Work Type"
-        v-model="model!.work_type"
       />
       <FormKit
+        v-model="model!.company_position"
         type="text"
         label="Company Position"
-        v-model="model!.company_position"
       />
     </div>
 
     <Editor
-      editorStyle="height: 200px"
       v-model="model!.profile_description"
+      editor-style="height: 200px"
     />
   </div>
 </template>

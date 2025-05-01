@@ -7,7 +7,7 @@
     <div
       id="sidebar"
       ref="sidebar"
-      class="fixed z-[100] max-w-full flex flex-col h-screen overflow-y-scroll transition-all duration-200 ease-in-out transform lg:max-w-[25%] 2xl:max-w-[15%] lg:static lg:overflow-y-auto overflow-x-hidden no-scrollbar shrink-0 bg-stone-950"
+      class="fixed z-[100] max-w-full flex flex-col min-h-screen   overflow-y-scroll transition-all duration-200 ease-in-out transform lg:max-w-[25%] 2xl:max-w-[15%] lg:static lg:overflow-y-auto overflow-x-hidden no-scrollbar shrink-0 bg-stone-950"
       :class="sidebarExpanded ? 'w-full p-4' : 'w-0'"
     >
       <!-- Sidebar header -->
@@ -17,9 +17,9 @@
         <button
           ref="trigger"
           class="text-white hover:text-slate-400"
-          @click="toggleSidebar"
           aria-controls="sidebar"
           :aria-expanded="sidebarExpanded"
+          @click="toggleSidebar"
         >
           <span class="sr-only">Close sidebar</span>
           <IconArrowLeft />
@@ -47,7 +47,7 @@
             <SidebarLinkDashboard />
             <SidebarLinkProperties />
             <!-- <SidebarLinkEmails /> -->
-            <SidebarLinkMessages />
+            <!-- <SidebarLinkMessages /> -->
             <!-- <SidebarLinkInbox /> -->
             <SidebarLinkSettings />
             <SidebarLinkAdmin  />

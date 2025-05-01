@@ -1,4 +1,4 @@
-export const elapsedSince = (timestamp: any) => {
+export const elapsedSince = (timestamp: string) => {
   const now: Date = new Date()
   const past: Date = new Date(timestamp)
   const diffTime = now.valueOf() - past.valueOf()
@@ -65,6 +65,7 @@ export const datetimeFromDB = (datetimeString: Date) => {
   return new Date(datetimeString) // Parse datetime string from database
 }
 
+<<<<<<< HEAD
 export function formatISODate(date: any) {
   // Create a new Date object from the ISO date string
   let convertDate = new Date(date)
@@ -89,6 +90,20 @@ export function formatISODate(date: any) {
   let day = convertDate.getDate()
   let month = months[convertDate.getMonth()] // getMonth returns 0-11
   let year = convertDate.getFullYear()
+=======
+
+export function formatISODate(date: Date) {
+  // Create a new Date object from the ISO date string
+  const convertDate = new Date(date);
+
+  // Array of month names for more readable format
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  
+  // Extract the parts of the date
+  const day = convertDate.getDate();
+  const month = months[convertDate.getMonth()]; // getMonth returns 0-11
+  const year = convertDate.getFullYear();
+>>>>>>> 5076da6abaf8d40f7008fb519de725f732fb6b7d
 
   // Format the date as "Month Day, Year"
   return `${month} ${day}, ${year}`

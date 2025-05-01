@@ -1,11 +1,10 @@
 <template>
   <SidebarLinkGroup
     v-slot="parentLink"
-    :activeCondition="currentRoute.fullPath.includes('admin')">
-    <a
+    :active-condition="currentRoute.fullPath.includes('admin')">
+    <button
       class="block truncate transition duration-150 text-slate-200 hover:text-white"
       :class="currentRoute.fullPath.includes('admin') && 'hover:text-slate-200'"
-      href="#0"
       @click.prevent="
         sidebarExpanded ? parentLink.handleClick() : (sidebarExpanded = true)
       ">
@@ -59,26 +58,26 @@
           </svg>
         </div>
       </div>
-    </a>
+    </button>
     <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
       <ul
         class="mt-1 pl-9"
         :class="!parentLink.expanded && 'hidden'">
         <NuxtLink
           v-for="(link, key) in adminLinks"
+          :key='key'
+          v-slot="{ navigate, isExactActive }"
           :to="`/admin/${link}`"
-          custom
-          v-slot="{ href, navigate, isExactActive }">
+          custom>
           <li class="mb-1 last:mb-0">
-            <a
+            <button
               class="block truncate transition duration-150 text-slate-400 hover:text-slate-200"
               :class="isExactActive && '!text-indigo-500'"
-              :href="href"
               @click="navigate">
               <span class="text-sm font-medium capitalize duration-200">
                 {{ link }}
               </span>
-            </a>
+            </button>
           </li>
         </NuxtLink>
       </ul>

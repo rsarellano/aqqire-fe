@@ -6,15 +6,15 @@
           severity="contrast"
           size="large"
           class="mb-4 !p-2 align-middle">
-          <i class="text-2xl pi pi-plus-circle"></i>
+          <i class="text-2xl pi pi-plus-circle"/>
         </Button>
         <FormKit
+          v-model="message"
           outer-class="w-full"
           type="text"
-          v-model="message"
           placeholder="Send a message" />
         <button type="submit" class="p-2 mb-3">
-          <i class="text-2xl pi pi-send"></i>
+          <i class="text-2xl pi pi-send"/>
         </button>
       </div>
     </form>

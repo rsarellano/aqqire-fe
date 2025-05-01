@@ -1,42 +1,45 @@
 <template>
   <nav
-    class="z-[9999] flex items-center justify-between w-full md:p-12 p-4 text-gray-700 bg-blue-500">
+    class="top-0 w-full py-2 text-gray-700 bg-slate-100 z-[9998] sticky shadow-md">
     <!-- Logo -->
-    <div
-      class="flex items-center h-full duration-200 ease-in-out hover:drop-shadow-2xl">
+    <div class="flex items-center justify-between mx-auto max-w-7xl">
       <NuxtLink to="/">
-        <img
-          :src="logo"
-          alt="Aqqire logo"
-          class="object-contain h-10 min-h-8" />
+        <div
+          class="flex items-center h-full duration-200 ease-in-out hover:drop-shadow-2xl">
+          <img
+            src="/logo.png"
+            alt="Aqqire logo"
+            class="object-contain size-12 min-h-8" />
+          <h2 class="ml-4 text-xl font-bold tracking-wide uppercase">Aqqire</h2>
+        </div>
       </NuxtLink>
-    </div>
 
-    <!-- Main Nav Links -->
-    <ul
-      class="z-50 items-center justify-center hidden h-full gap-12 p-4 text-sm lg:flex">
-      <template
-        v-for="(link, key) in links"
-        :key="key">
-        <NuxtLink
-          class="relative text-lg font-bold text-white uppercase duration-200 ease-in-out hover:drop-shadow-2xl group hover:text-slate-700"
-          :to="link.destination"
-          v-if="!!!link.requiresAuth || status === 'authenticated'">
-          <li>{{ link.text }}</li>
-          <div
-            class="w-0 group-hover:w-full h-[2px] bg-blue-500 duration-200 ease-in-out"></div>
-        </NuxtLink>
-      </template>
-    </ul>
-    <div
-      class="flex items-center gap-4"
-      v-if="status == 'authenticated'">
-      <HomeBurgerMenu />
-    </div>
-    <div
-      class="flex items-center gap-4"
-      v-if="status != 'authenticated'">
-      <Login />
+      <!-- Main Nav Links -->
+      <ul
+        class="z-[9999] items-center justify-center hidden h-full gap-12 p-4 text-sm lg:flex">
+        <template
+          v-for="(link, key) in links"
+          :key="key">
+          <NuxtLink
+            v-if="!!!link.requiresAuth || status === 'authenticated'"
+            class="relative font-semibold text-gray-600 duration-200 ease-in-out hover:drop-shadow-2xl group hover:text-slate-900"
+            :to="link.destination">
+            <li>{{ link.text }}</li>
+            <div
+              class="w-0 group-hover:w-full h-[2px] bg-main duration-200 ease-in-out" />
+          </NuxtLink>
+        </template>
+      </ul>
+      <div
+        v-if="status == 'authenticated'"
+        class="flex items-center gap-4">
+        <HomeBurgerMenu />
+      </div>
+      <div
+        v-if="status != 'authenticated'"
+        class="flex items-center gap-4">
+        <Login />
+      </div>
     </div>
   </nav>
 </template>
@@ -44,9 +47,9 @@
 <script setup lang="ts">
   //added authentication to access user specific functions
   import { useAuth } from "#imports"
-  const { signOut, token, data, status } = useAuth()
 
   import { links } from "./links"
+  const { signOut, token, data, status } = useAuth()
   const logo =
     "https://s3.us-west-1.amazonaws.com/storage.aqqire.com/a9ae25d8-94a0-41ff-be66-40db0720b6aa-aqq%281%29.png"
 </script>

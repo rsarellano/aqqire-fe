@@ -2,14 +2,14 @@
   <div>
     <AdminNav />
     <div class="flex flex-col">
-      <div class="font-bold text-center text-white bg-blue-500 rounded-t-md">
+      <div class="font-bold text-center text-white bg-main rounded-t-md">
         Banners
       </div>
       <div class="h-full p-4 bg-white">
         <div class="flex justify-between">
           <h2 class="text-xl">Drag and Drop to change Sorting</h2>
           <button
-            class="p-2 px-4 text-white bg-blue-500 rounded-md"
+            class="p-2 px-4 text-white rounded-md bg-main"
             @click="modal = !modal">
             Add Banner
           </button>
@@ -19,8 +19,10 @@
         </div>
 
         <!-- Modal -->
-        <Modal id="company-banner-modal" :modalOpen="modal">
-          <div class="flex items-center justify-center bg-blue-500">
+        <Modal
+          id="company-banner-modal"
+          :modal-open="modal">
+          <div class="flex items-center justify-center bg-main">
             <p class="text-xl text-center text-white grow">Add Banner</p>
             <button
               class="p-4 py-2 text-white bg-red-500"
@@ -31,12 +33,14 @@
           <div class="p-4">
             <div class="flex flex-col gap-4">
               <!-- input fields -->
-              <FormKit label="Name" v-model="addItem.name" />
+              <FormKit
+                v-model="addItem.name"
+                label="Name" />
 
               <FormKit
+                v-model="addItem.imageUrl"
                 type="file"
                 label="Banner"
-                v-model="addItem.imageUrl"
                 accept=".jpg,.png,.webm" />
 
               <!-- <div class="flex items-center justify-center p-4">
@@ -52,16 +56,18 @@
         <draggable
           :list="banners"
           group="banners"
-          @start="drag = true"
-          @end="drag = false"
           class="flex flex-wrap items-center gap-4 mt-2"
-          item-key="id">
+          item-key="id"
+          @start="drag = true"
+          @end="drag = false">
           <template #item="{ element, index }">
-            <transition-group tag="div" name="fade">
+            <transition-group
+              tag="div"
+              name="fade">
               <AdminBannerItem
-                :name="element.name"
-                :imageUrl="element.imageUrl"
                 :id="element.id"
+                :name="element.name"
+                :image-url="element.imageUrl"
                 :index="index" />
               <!-- @emit-value="editBanner"  -->
             </transition-group>
@@ -73,19 +79,19 @@
 </template>
 
 <script setup lang="ts">
-  import draggable from "vuedraggable";
-  import { banners, addItem } from "~/components/Admin/Banner/store";
+  import draggable from "vuedraggable"
+  import { banners, addItem } from "~/components/Admin/Banner/store"
 
-  const drag = ref(false);
-  const modal = ref(false);
-
-
+  const drag = ref(false)
+  const modal = ref(false)
 
   const addBanner = () => {
+    console.log(URL.createObjectURL(addItem.value.imageUrl[0].file)+'.jpeg')
     banners.value.push({
-      ...addItem.value,
+      name: addItem.value.name,
       id: banners.value.length + 1,
-    });
-    modal.value = false;
-  };
+      // imageUrl: URL.createObjectURL(addItem.value.imageUrl[0].file)
+    })
+    modal.value = false
+  }
 </script>

@@ -10,7 +10,7 @@
     <div
       v-show="modalOpen"
       class="fixed inset-0 z-50 transition-opacity bg-slate-900 bg-opacity-30"
-      aria-hidden="true"></div>
+      aria-hidden="true"/>
   </transition>
   <!-- Modal dialog -->
   <transition

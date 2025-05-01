@@ -1,6 +1,5 @@
 <template>
-  <div class="py-4 mx-auto space-y-2 text-gray-700 max-w-7xl">
-    {{ auth }}
+  <div class="py-4 pt-8 mx-auto space-y-2 text-gray-700 max-w-7xl">
     <div class="flex gap-10">
       <!-- Image -->
       <div class="size-1/3">
@@ -62,8 +61,8 @@
                 '158956',
                 '17298',
               ]"
-              :label="'#' + number"
-              :key="key" />
+              :key="key"
+              :label="'#' + number" />
           </div>
         </div>
 
@@ -134,8 +133,8 @@
       </div>
     </div>
     <h2
-      class="pt-8 text-4xl font-bold text-center"
-      id="contact">
+      id="contact"
+      class="pt-8 text-4xl font-bold text-center">
       Ask a question
     </h2>
     <div class="flex flex-col w-full max-w-4xl p-4 mx-auto">
@@ -155,8 +154,8 @@
 </template>
 
 <script setup lang="ts">
-  import { useRuntimeConfig } from "#app";
-  const apiUrl = useRuntimeConfig().public.API_BASE_URL;
+  import { useRuntimeConfig } from "#app"
+  const apiUrl = useRuntimeConfig().public.API_BASE_URL
 
   export interface User {
     id: number
@@ -216,7 +215,7 @@
   }
 
   definePageMeta({
-    middleware: ['check-layout'],
+    middleware: ["check-layout"],
     auth: false,
   })
   const route = useRoute()

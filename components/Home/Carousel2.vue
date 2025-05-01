@@ -17,11 +17,11 @@
     <transition
       v-for="(slide, index) in slides"
       :key="index"
-      v-show="index === currentIndex"
       enter-from-class="opacity-0"
       enter-active-class="transition-all duration-300 ease-in-out"
       enter-to-class="opacity-1">
       <div
+        v-show="index === currentIndex"
         :style="{
           background: `linear-gradient(0deg, rgba(2,0,36,0.5858718487394958) 0%, rgba(184,184,193,0.11808473389355745) 39%, rgba(2,0,36,0.5662640056022409) 100%), url(${slide.image})`,
         }"
@@ -29,12 +29,13 @@
         <div class="absolute bottom-0 z-50 w-full md:bg-cover">
           <!-- Property Details -->
           <transition
-            v-show="index === currentIndex"
             enter-from-class="translate-y-4 opacity-0"
             enter-active-class="transition-all duration-300 ease-in-out"
             enter-to-class="translate-y-0 opacity-1">
-            <div class="container flex flex-col items-start p-4 mx-auto text-left">
-              <div class="p-2 text-xl font-bold tracking-wider bg-blue-500">
+            <div
+              v-show="index === currentIndex"
+              class="container flex flex-col items-start p-4 mx-auto text-left">
+              <div class="p-2 text-xl font-bold tracking-wider bg-main">
                 ${{ slide.price.toLocaleString() }}
               </div>
               <h2 class="mt-2 text-3xl font-semibold">{{ slide.name }}</h2>
@@ -51,7 +52,7 @@
           <transition v-show="index === currentIndex">
             <NuxtLink
               to="#"
-              class="container z-50 flex items-center gap-2 p-4 pt-4 mx-auto my-10 font-semibold duration-200 ease-in-out border-t cursor-pointer fill-white hover:fill-blue-500 hover:text-blue-500">
+              class="container z-50 flex items-center gap-2 p-4 pt-4 mx-auto my-10 font-semibold duration-200 ease-in-out border-t cursor-pointer fill-white hover:fill-main hover:text-main">
               <span>Read More</span>
               <IconChevronRight class="size-6" />
             </NuxtLink>
@@ -63,8 +64,8 @@
 </template>
 
 <script setup lang="ts">
-  const currentIndex = ref(1);
-  let autoplay: ReturnType<typeof setInterval>;
+  const currentIndex = ref(1)
+  let autoplay: ReturnType<typeof setInterval>
   const slides = ref([
     {
       image: "https://picsum.photos/id/1/1920/1080",
@@ -101,37 +102,37 @@
       state: "El Salvador",
       address: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     },
-  ]);
+  ])
 
   const slideShow = (delay: number) => {
     autoplay = setInterval(() => {
-      currentIndex.value = (currentIndex.value + 1) % slides.value.length;
+      currentIndex.value = (currentIndex.value + 1) % slides.value.length
 
       if (currentIndex.value === 0) {
         setTimeout(() => {
-          currentIndex.value = 0;
-        }, 1000);
+          currentIndex.value = 0
+        }, 1000)
       }
-    }, delay);
-  };
+    }, delay)
+  }
 
   const control = (direction: string) => {
-    clearInterval(autoplay);
+    clearInterval(autoplay)
     if (direction === "prev") {
       currentIndex.value =
         currentIndex.value === 0
           ? (currentIndex.value = slides.value.length - 1)
-          : currentIndex.value - 1;
+          : currentIndex.value - 1
     }
     if (direction === "next") {
       currentIndex.value =
         currentIndex.value === slides.value.length - 1
           ? (currentIndex.value = 0)
-          : currentIndex.value + 1;
+          : currentIndex.value + 1
     }
-  };
+  }
 
   onMounted(() => {
-    slideShow(3000);
-  });
+    slideShow(3000)
+  })
 </script>

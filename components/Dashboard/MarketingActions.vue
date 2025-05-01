@@ -1,22 +1,22 @@
 <template>
   <div class="flex card justify-content-center">
     <Button
-      class="!p-1 !w-min bg-transparent !text-blue-500 hover:!text-white"
+      class="!p-1 !w-min bg-transparent !text-main hover:!text-white"
       type="button"
       icon="pi pi-ellipsis-v"
-      @click="toggle"
       aria-haspopup="true"
-      aria-controls="overlay_menu" />
+      aria-controls="overlay_menu"
+      @click="toggle" />
     <Menu
-      ref="menu"
       id="overlay_menu"
+      ref="menu"
       :model="items"
       :popup="true">
       <template #item="{ item }">
         <NuxtLink
-          :to="`${item.route}/${id}`"
-          class="flex items-center justify-start gap-2 p-2 px-4 cursor-pointer"
-          v-ripple>
+          v-ripple
+          :to="`${item.route}`"
+          class="flex items-center justify-start gap-2 p-2 px-4 cursor-pointer">
           <span :class="item.icon" />
           <span>{{ item.label }}</span>
           <Badge
@@ -65,7 +65,7 @@
         },
         {
           label: "Edit Property",
-          route: "/admin/properties/edit",
+          route: `/dashboard/property/${id}/edit`,
         },
         {
           label: "Activate Property",
@@ -79,7 +79,7 @@
     },
   ])
 
-  const toggle = (event: any) => {
+  const toggle = (event: Event) => {
     menu.value.toggle(event)
   }
 </script>

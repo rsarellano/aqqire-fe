@@ -11,7 +11,7 @@
         <span
           v-bind="props.label"
           class="capitalize text-slate-500"
-          :class="{ 'font-bold !text-blue-500': route.path === item.route }"
+          :class="{ 'font-bold !text-main': route.path === item.route }"
         >
           {{ item.label }}
         </span>

@@ -4,7 +4,7 @@
     <h2 class="text-2xl font-bold">Property Description</h2>
     <div
       class="flex flex-col gap-2 text-sm text-slate-500"
-      v-html="description"></div>
+      v-html="description"/>
   </div>
 </template>
 

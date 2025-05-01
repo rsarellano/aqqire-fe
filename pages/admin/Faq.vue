@@ -3,7 +3,7 @@
     <AdminNav />
 
     <div class="p-4">
-      <div class="p-2 font-bold text-center text-white bg-blue-500 rounded-md">
+      <div class="p-2 font-bold text-center text-white rounded-md bg-main">
         Frequently Asked Questions
       </div>
       <div class="w-full h-full p-4 my-2 bg-white rounded-md">
@@ -18,15 +18,15 @@
         <draggable
           v-model="faqList"
           group="faq"
+          item-key="id"
           @start="drag = true"
-          @end="drag = false"
-          item-key="id">
+          @end="drag = false">
           <template #item="{ element, index }">
             <transition-group tag="div" name="fade">
               <AdminFaqItem
+                :id="element.id"
                 :question="element.question"
                 :answer="element.answer"
-                :id="element.id"
                 :index="index"
                 @emit-value="changeValue" />
             </transition-group>

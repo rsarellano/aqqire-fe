@@ -3,12 +3,12 @@
     <div class="flex-shrink-0 rounded-full size-12">
       <img
         src="https://picsum.photos/200/300"
-        class="rounded-full size-full" />
+        class="rounded-full size-full" >
     </div>
 
     <div>
       <div
-        class="p-3 mb-1 text-sm text-white bg-blue-500 border border-transparent rounded-lg rounded-tl-none shadow-md w-min">
+        class="p-3 mb-1 text-sm text-white border border-transparent rounded-lg rounded-tl-none shadow-md bg-main w-min">
         {{ message }}
       </div>
       <div class="flex items-center justify-between">
@@ -16,7 +16,7 @@
         <i
           :class="{
             'pi pi-check text-green-500': true,
-          }"></i>
+          }"/>
       </div>
     </div>
   </div>

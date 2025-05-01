@@ -49,7 +49,7 @@ export default {
 
             // Colors
             'text-white dark:text-surface-900',
-            'bg-primary-500 dark:bg-primary-400',
+            'bg-main',
             'border-primary-500 dark:border-primary-400',
 
             // States
@@ -156,7 +156,7 @@ export default {
                 'absolute flex items-center justify-center overflow-hidden',
 
                 // Colors
-                'bg-primary-500 dark:bg-primary-400',
+                'bg-main',
 
                 // Spacing & Sizing
                 'm-0',

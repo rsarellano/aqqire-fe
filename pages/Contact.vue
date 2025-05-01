@@ -32,13 +32,13 @@
 
       <div class="flex justify-center w-full">
         <FormKit
+          v-model="form.message"
           type="textarea"
           name="message"
           label="Message"
           :help="`${form.message ? form.message.length : 0} / 400`"
           validation="length:0,120"
           validation-visibility="live"
-          v-model="form.message"
           :validation-messages="{
             length: 'Instructions cannot be more than 400 characters.',
           }" />

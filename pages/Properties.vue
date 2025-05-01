@@ -9,12 +9,12 @@
         <div class="flex flex-col gap-2 md:flex-row">
           <form
             type="form"
-            @submit.prevent="search"
-            class="w-full">
+            class="w-full"
+            @submit.prevent="search">
             <FormKit
+              v-model="query"
               type="text"
-              outer-class="!w-full"
-              v-model="query" />
+              outer-class="!w-full" />
             <Button
               type="submit"
               class="w-full">
@@ -24,8 +24,8 @@
         </div>
 
         <Accordion
-          expandIcon="pi pi-caret-down"
-          collapseIcon="pi pi-caret-up">
+          expand-icon="pi pi-caret-down"
+          collapse-icon="pi pi-caret-up">
           <AccordionTab>
             <template #header>
               <h2 class="w-full text-right">More Filter Options</h2>
@@ -95,13 +95,18 @@
         </div>
         <!-- Listing Items -->
         <div
-          class="col-span-6 py-4"
           v-for="(item, key) in properties.data"
-          :key="key">
+          :key="key"
+          class="col-span-6 py-4">
           <PropertyCardHorizontal
-            :name="item.name"
             :id="item.id"
-            :location="`${item.city} ${item.address}`" />
+            :name="item.name"
+            :price="item.price"
+            :city="item.city"
+            :address="item.address"
+            :state="item.state"
+            :updated="item.updated_at"
+            :image="images[getRandomImage()]" />
         </div>
       </div>
       <!-- Pagination -->
@@ -110,18 +115,17 @@
         class="w-full"
         :first="(page - 1) * items"
         :rows="items"
-        @page="paginate"
-        :totalRecords="properties.total"></Paginator>
+        :total-records="properties.total"
+        @page="paginate"/>
     </div>
-
-    
   </template>
 </template>
 
 <script setup lang="ts">
+  import { getRandomImage, images } from "./data"
   import type { PageState } from "primevue/paginator"
-  import { useRuntimeConfig } from "#app";
-  const apiUrl = useRuntimeConfig().public.API_BASE_URL;
+  import { useRuntimeConfig } from "#app"
+  const apiUrl = useRuntimeConfig().public.API_BASE_URL
 
   const loading = ref(false)
   const layout = ref("default")
@@ -138,18 +142,16 @@
   const name = computed(() => route.query.name || "")
   const page = ref(1)
   const items = ref(10)
+
   const fetchResults = async () => {
     loading.value = true
-    const { data, error } = await useFetch(
-      `${apiUrl}/property/search?`,
-      {
-        params: {
-          q: name,
-          page: page,
-          items: items,
-        },
-      }
-    )
+    const { data, error } = await useFetch(`${apiUrl}/property/search?`, {
+      params: {
+        q: name,
+        page: page,
+        items: items,
+      },
+    })
     if (!error.value) {
       properties.value = data.value
     }

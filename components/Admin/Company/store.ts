@@ -1,11 +1,11 @@
-import { ref } from "vue";
+import { ref } from "vue"
 
 type logo = {
-  id: number;
-  name: string;
-  url: string;
-  imageUrl: string;
-};
+  id: number
+  name: string
+  url: string
+  imageUrl: string
+}
 
 export const featuredLogos = ref([
   {
@@ -34,30 +34,29 @@ export const featuredLogos = ref([
     name: "Test Company",
     url: "test",
   },
-]);
+])
 
-export const addItem = ref({
+export const addItem = ref<Omit<logo, "id">>({
+  imageUrl: "",
   name: "",
   url: "",
-  imageUrl: "",
-});
+})
 
 export const editLogo = (newItem: logo) => {
   featuredLogos.value.forEach((item, index) => {
     if (item.id === newItem.id) {
-      featuredLogos.value[index] = { ...newItem };
+      featuredLogos.value[index] = { ...newItem }
     }
-  });
-};
+  })
+}
 
-export const handleFileChange = (event: Event, fileRef: any) => {
-  const target = event.target as HTMLInputElement;
-  const file = target?.files?.[0];
-
-  fileRef.imageUrl = URL.createObjectURL(file!);
-};
+export const handleFileChange = (event: Event, fileRef: Omit<logo, "id">) => {
+  const target = event.target as HTMLInputElement
+  const file = target?.files?.[0]
+  fileRef.imageUrl = URL.createObjectURL(file!)
+}
 
 export const deleteItem = (id: number) => {
-  console.log(id);
-  featuredLogos.value = featuredLogos.value.filter((item) => item.id !== id);
-};
+  console.log(id)
+  featuredLogos.value = featuredLogos.value.filter((item) => item.id !== id)
+}

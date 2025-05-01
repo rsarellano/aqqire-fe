@@ -3,14 +3,14 @@
   <div class="flex items-center justify-between w-full px-4">
     <div class="flex items-center gap-2 grow">
       <FormKit
-        outerClass="!max-w-[30%] w-full"
+        v-model="value"
+        outer-class="!max-w-[30%] w-full"
         type="text"
-        label="Search"
-        v-model="value" />
+        label="Search" />
       <Button
-        @click="getData(0)"
         class="!h-min mt-1.5 px-6"
-        size="small">
+        size="small"
+        @click="getData(0)">
         Search
       </Button>
     </div>
@@ -21,20 +21,19 @@
   </div>
   <DataTable
     :key="currentPage"
-    class="text-sm"
     v-model:filters="filters"
+    class="text-sm"
     :value="data?.users"
     show-gridlines
-    dataKey="id"
+    data-key="id"
     :loading="loading"
     :total-records="data?.total"
     :first="currentPage * numberOfRows"
     :rows="numberOfRows"
-    @page="paginate"
-    sortMode="multiple"
+    sort-mode="multiple"
     paginator
     :lazy="true"
-    :globalFilterFields="[
+    :global-filter-fields="[
       'id',
       'email',
       'first_name',
@@ -62,17 +61,18 @@
       // 'lastLogin',
       // 'createdOn',
     ]"
-    :showFilterOperator="false">
+    :show-filter-operator="false"
+    @page="paginate">
     <template #empty>
       <div class="text-center">No Users found.</div>
     </template>
     <template #header>
-      <h1 class="pb-4 text-2xl text-center text-blue-500">Users</h1>
+      <h1 class="pb-4 text-2xl text-center text-main">Users</h1>
 
       <!-- Search table -->
       <Accordion
-        expandIcon="pi pi-caret-down"
-        collapseIcon="pi pi-caret-up">
+        expand-icon="pi pi-caret-down"
+        collapse-icon="pi pi-caret-up">
         <AccordionTab>
           <template #header>
             <h2 class="w-full text-right">Table Filter Options</h2>
@@ -102,40 +102,41 @@
     <Column
       field="email"
       header="User Information"
-      :showFilterMenu="false">
-      <template #body="{ data }">
+      :show-filter-menu="false">
+      <template #body="{ data: emailData }">
         <div class="flex items-center max-w-xs gap-4">
           <div class="min-w-20 max-w-20 aspect-square">
             <img
-              :src="data.profile_pic"
-              :alt="`${data.first_name + data.last_name}'s profile picture`"
+              :src="emailData.profile_pic"
+              :alt="`${emailData.first_name + emailData.last_name}'s profile picture`"
               class="!size-full" />
           </div>
 
           <div class="space-y-1">
             <div class="flex items-baseline gap-4 font-bold">
-              <i class="pi pi-user"></i>
-              {{ data.first_name + data.last_name }}
+              <i class="pi pi-user" />
+              {{ emailData.first_name + emailData.last_name }}
             </div>
 
             <div class="flex items-baseline gap-4">
-              <i class="pi pi-envelope"></i>
-              {{ data.email }}
+              <i class="pi pi-envelope" />
+              {{ emailData.email }}
             </div>
 
-            <div class="flex items-baseline gap-4">
+            <!-- <div class="flex items-baseline gap-4">
               <i class="pi pi-mobile"></i>
-              {{ data.phone }}
+              {{ emailData.phone }}
+            </div> -->
+
+            <div class="flex items-baseline gap-4 text-xs capitalize">
+              <i class="pi pi-map-marker" />
+              {{ emailData.mongodata.street_address }}
+              {{ emailData.mongodata.city }}
             </div>
 
-            <div class="flex items-baseline gap-4 capitalize">
-              <i class="pi pi-map-marker"></i>
-              {{ data.address }}
-            </div>
-
-            <div class="flex items-baseline gap-4 capitalize">
-              <i class="pi pi-building"></i>
-              {{ data.company }}
+            <div class="flex items-baseline gap-4 text-xs capitalize">
+              <i class="pi pi-building" />
+              {{ emailData.mongodata.company_name }}
             </div>
           </div>
         </div>
@@ -147,63 +148,63 @@
       header="Account Information"
       sort-field="lastLogin"
       sortable
-      :showFilterMenu="false">
-      <template #body="{ data }">
+      :show-filter-menu="false">
+      <template #body="{ data: idData }">
         <div class="flex flex-col max-w-xs gap-2">
           <div class="flex gap-2">
             <Tag>
-              {{ data.id }}
+              {{ idData.id }}
             </Tag>
             <Tag
-              class="capitalize"
-              v-if="data.work_type">
-              {{ data.work_type }}
+              v-if="idData.work_type"
+              class="capitalize">
+              {{ idData.work_type }}
             </Tag>
             <Tag
               :severity="
-                data.account_type === 'limited' ? 'warning' : 'primary'
+                idData.account_type === 'limited' ? 'warning' : 'primary'
               "
-              :value="data.account_type"
-              class="capitalize"></Tag>
+              :value="idData.account_type"
+              class="capitalize" />
           </div>
 
           <p
             class="text-green-500"
             :class="{
               'text-red-500 font-bold':
-                elapsedSince(data.lastLogin).numerical?.months! > 6,
+                elapsedSince(idData.lastLogin).numerical?.months! > 6,
               'text-yellow-500 font-semibold':
-                elapsedSince(data.lastLogin).numerical?.months! < 6 &&
-                elapsedSince(data.lastLogin).numerical?.months! > 3,
+                elapsedSince(idData.lastLogin).numerical?.months! < 6 &&
+                elapsedSince(idData.lastLogin).numerical?.months! > 3,
             }">
-            Recent Login {{ elapsedSince(data.lastLogin).value }} (
-            {{ new Date(data.lastLogin).toLocaleDateString() }} )
+            Recent Login {{ elapsedSince(idData.lastLogin).value }} (
+            {{ new Date(idData.lastLogin).toLocaleDateString() }} )
           </p>
           <p>
-            Joined {{ elapsedSince(data.createdOn).value }} (
-            {{ new Date(data.createdOn).toLocaleDateString() }} )
+            Joined {{ elapsedSince(idData.mongodata.createdAt).value }} (
+            {{ formatISODate(idData.mongodata.createdAt) }} )
           </p>
         </div>
       </template>
 
-      <template #filter="{ filterModel, filterCallback }"></template>
+      <template #filter />
     </Column>
 
     <Column
       field="status"
       header="Status"
-      :showFilterMenu="false">
-      <template #body="{ data }">
+      :show-filter-menu="false">
+      <template #body="{ data: statusData }">
         <div class="max-w-xs mx-auto space-y-1 w-fit">
           <Tag
-            v-if="data.active"
+            v-if="statusData.active"
             icon="pi pi-check"
-            value="Active"></Tag>
+            value="Active" />
           <Tag
             v-else
             icon="pi pi-times"
             severity="warning"
-            value="Inactive"></Tag>
+            value="Inactive" />
         </div>
       </template>
     </Column>
@@ -211,32 +212,32 @@
     <Column
       field="actions"
       header="Actions"
-      :showFilterMenu="false">
-      <template #body="{ data }">
+      :show-filter-menu="false">
+      <template #body="{ data: actionsData }">
         <div class="flex items-center justify-center max-w-xs gap-1">
           <NuxtLink
-            :to="'/user/' + data.id"
-            class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500">
-            <i class="pi pi-info"></i>
+            :to="'/user/' + actionsData.id"
+            class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-main hover:text-main">
+            <i class="pi pi-info" />
           </NuxtLink>
           <NuxtLink
-            :to="'/admin/users/edit/' + data.id"
-            class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500">
+            :to="'/admin/users/edit/' + actionsData.id"
+            class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-main hover:text-main">
             <i
               class="pi pi-pencil"
-              title="Edit"></i>
+              title="Edit" />
           </NuxtLink>
 
           <button
-            @click="deleteUser(data)"
-            class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-red-500 hover:text-red-500">
+            class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-red-500 hover:text-red-500"
+            @click="deleteUser(actionsData)">
             <i
               class="pi pi-trash"
-              title="Edit"></i>
+              title="Edit" />
           </button>
 
           <button title="Enable or Disable(Soft Delete)">
-            <InputSwitch v-model="data.active" />
+            <InputSwitch v-model="actionsData.active" />
           </button>
         </div>
       </template>
@@ -258,10 +259,12 @@
       </div>
 
       <div class="flex flex-col gap-2">
-        <template v-for="(name, key) in currentUser">
+        <template
+          v-for="(name, key) in currentUser"
+          :key="key">
           <div class="flex gap-2 grow">
             <div class="font-bold capitalize">{{ key }}:</div>
-            <div class="text-blue-500 capitalize">{{ name }}:</div>
+            <div class="capitalize text-main">{{ name }}:</div>
           </div>
         </template>
       </div>
@@ -270,7 +273,7 @@
     <Button
       severity="danger"
       icon="pi pi-trash"
-      class="w-full"></Button>
+      class="w-full" />
   </Dialog>
 </template>
 
@@ -278,9 +281,8 @@
   import { FilterMatchMode } from "primevue/api"
   import type { PageState } from "primevue/paginator"
 
-  import { useRuntimeConfig } from "#app";
-  const apiUrl = useRuntimeConfig().public.API_BASE_URL;
-
+  import { useRuntimeConfig } from "#app"
+  const apiUrl = useRuntimeConfig().public.API_BASE_URL
 
   // Types
   interface User {
@@ -339,7 +341,6 @@
     { label: "Inactive", value: false },
   ]
 
-
   const currentPage = computed(() => Number(route.query.page) || 0)
   const numberOfRows = ref(10)
   const params = ref()
@@ -351,15 +352,18 @@
 
   const getData = async (page?: number) => {
     loading.value = true
-    const { data: fetchedData, refresh } = await useFetch<Data>(() => `${apiUrl}/admin/users`, {
-      key: `users-${currentPage.value}`,
-      params: {
-        page: page || currentPage.value,
-        items: numberOfRows,
-        field,
-        value,
-      },
-    })
+    const { data: fetchedData, refresh } = await useFetch<Data>(
+      () => `${apiUrl}/admin/users`,
+      {
+        key: `users-${currentPage.value}`,
+        params: {
+          page: page || currentPage.value,
+          items: numberOfRows,
+          field,
+          value,
+        },
+      }
+    )
 
     data.value = fetchedData.value
     loading.value = false

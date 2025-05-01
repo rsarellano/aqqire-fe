@@ -9,7 +9,7 @@
       width="760"
       height="1024"
       alt="x"
-    />
+    >
   </div>
 </template>
 

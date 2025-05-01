@@ -31,7 +31,7 @@
         'Owner',
         'Vendor',
         'Buyer',
-        'Company Admin',
+        'Company',
         'Marketing',
       ]"
     />
@@ -39,7 +39,7 @@
     <Button>Register</Button>
     <NuxtLink
       to="/login"
-      class="text-blue-500"
+      class="text-main"
     >
       Already have an account? Login.
     </NuxtLink>

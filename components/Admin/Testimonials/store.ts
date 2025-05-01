@@ -54,7 +54,7 @@ export const addTestimonial = () => {
 };
 
 export const setValue = (id: number) => {
-  let index = testimonials.value.find((testimonial) => testimonial.id === id);
+  const index = testimonials.value.find((testimonial) => testimonial.id === id);
 
   // Use index to modify value
   if (index) {

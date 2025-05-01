@@ -14,7 +14,8 @@
     <p>Search</p>
     <ul class="flex flex-col gap-2">
       <li
-        v-for="affiliate in affiliates"
+        v-for="affiliate,key in affiliates"
+        :key='key'
         class="flex items-center justify-between gap-2 p-1 px-4 border rounded-md grow"
       >
         <p class="text-sm font-semibold">{{ affiliate }}</p>
@@ -22,7 +23,7 @@
           class="h-min !p-2 w-min"
           icon="pi pi-plus"
           @click="addAffiliate(affiliate)"
-        ></Button>
+        />
       </li>
     </ul>
 
@@ -31,6 +32,7 @@
     <ul class="flex flex-col gap-4">
       <li
         v-for="(affiliate, key) in model!.affiliates"
+        :key="key"
         class="flex items-center justify-between gap-2 p-1 px-4 border rounded-md grow"
       >
         <p class="text-sm font-semibold">{{ affiliate }}</p>
@@ -39,7 +41,7 @@
           icon="pi pi-times"
           severity="danger"
           @click="removeAffiliate(affiliate)"
-        ></Button>
+        />
       </li>
     </ul>
   </div>

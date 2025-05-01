@@ -8,11 +8,11 @@
         :to="'/admin/' + route.path"
         class="flex items-center justify-center h-full gap-2 p-2 [x=4] text-gray-400 duration-300 ease-in-out fill-gray-400"
         :class="{
-          'font-bold rounded-md bg-blue-600 text-white fill-white': activeRoute(
+          'font-bold rounded-md bg-main text-white fill-white': activeRoute(
             `/admin/${route.path}`
           ),
         }">
-        <i v-if="route?.icon" :class="route.icon"></i>
+        <i v-if="route?.icon" :class="route.icon"/>
         <span>{{ route.text }}</span>
       </NuxtLink>
     </div>
@@ -34,10 +34,10 @@
       <!-- Navigation Links -->
       <div
         class="absolute inset-x-0 flex flex-col items-start duration-500 ease-in-out bg-white"
-        @click="open = !open"
         :class="{
           '-translate-y-[150%]': open,
-        }">
+        }"
+        @click="open = !open">
         <NuxtLink
           v-for="route in routes"
           :key="route.path"
@@ -48,7 +48,7 @@
               `/admin/${route.path}`
             ),
           }">
-          <i v-if="route?.icon" :class="route.icon"></i>
+          <i v-if="route?.icon" :class="route.icon"/>
 
           <span>{{ route.text }}</span>
         </NuxtLink>

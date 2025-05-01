@@ -4,9 +4,9 @@
       Change Password
     </h1>
     <FormKit
+      v-model="model!.password"
       type="password"
       label="New password"
-      v-model="model!.password"
     />
   </div>
 </template>

@@ -1,16 +1,23 @@
 <template>
   <div class="max-w-6xl py-8 mx-auto">
     <!-- properties list -->
-    <h1 class="w-full mt-4 text-4xl font-bold text-center uppercase lg:text-left px-12 p-4">New</h1>
+    <h1
+      class="w-full p-4 px-12 mt-4 text-4xl font-bold text-center uppercase lg:text-left">
+      New
+    </h1>
 
     <Carousel
       :value="properties"
-      :numVisible="3"
-      :numScroll="1"
+      :num-visible="3"
+      :num-scroll="3"
       circular
-      :autoplayInterval="3000"
-      :responsiveOptions="responsiveOptions"
-      >
+      :autoplay-interval="3000"
+      :responsive-options="responsiveOptions"
+      :pt="{
+        indicators: {
+          class: 'flex gap-2 pt-4 justify-center',
+        },
+      }">
       <template #item="propertyDetails">
         <PropertyCard />
       </template>
@@ -19,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-  const properties = ref([...new Array(12)]);
+  const properties = ref([...new Array(6)])
   const responsiveOptions = ref([
     {
       breakpoint: "1199px",
@@ -28,13 +35,13 @@
     },
     {
       breakpoint: "767px",
-      numVisible: 2,
-      numScroll: 3 ,
+      numVisible: 3,
+      numScroll: 3,
     },
     {
       breakpoint: "575px",
       numVisible: 1,
       numScroll: 1,
     },
-  ]);
+  ])
 </script>

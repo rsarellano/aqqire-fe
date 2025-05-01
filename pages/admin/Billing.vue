@@ -17,7 +17,7 @@
 
         <Column field="Price" header="Price" class="font-bold text-gray-700">
           <template #body="props">
-            <div class="text-sm italic font-medium text-blue-500 line-clamp-1">
+            <div class="text-sm italic font-medium text-main line-clamp-1">
               $ {{ props.data.price }}
             </div>
           </template>
@@ -55,7 +55,7 @@
           <template #body="props">
             <div class="flex items-center gap-4">
               <button @click="openModal(props.data)">
-                <i class="text-2xl pi pi-pencil"></i>
+                <i class="text-2xl pi pi-pencil"/>
               </button>
               <button title="Enable or Disable(Soft Delete)">
                 <InputSwitch v-model="props.data.disabled" />
@@ -67,31 +67,31 @@
     </div>
 
     <!-- Edit Modal -->
-    <Modal :modalOpen="modal">
+    <Modal :modal-open="modal">
       <!-- Header -->
-      <div class="flex justify-between bg-blue-500">
+      <div class="flex justify-between bg-main">
         <p class="p-2 text-lg font-semibold text-white">Edit Item</p>
         <button
-          @click="modal = !modal"
-          class="h-full p-3 text-white bg-red-500">
-          <i class="pi pi-times"></i>
+          class="h-full p-3 text-white bg-red-500"
+          @click="modal = !modal">
+          <i class="pi pi-times"/>
         </button>
       </div>
 
       <!-- Edit Fields -->
       <div class="p-4">
-        <FormKit type="text" label="Price" v-model="modalData.price" />
+        <FormKit v-model="modalData.price" type="text" label="Price" />
         <FormKit
+          v-model="modalData.packageName"
           type="text"
-          label="Package Name"
-          v-model="modalData.packageName" />
+          label="Package Name" />
         <FormKit
+          v-model="modalData.description"
           type="text"
-          label="Description"
-          v-model="modalData.description" />
+          label="Description" />
         <button
-          @click="editPlan"
-          class="w-full p-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600">
+          class="w-full p-4 py-2 text-white rounded-md bg-main hover:bg-blue-600"
+          @click="editPlan">
           Edit
         </button>
       </div>

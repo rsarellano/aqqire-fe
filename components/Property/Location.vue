@@ -1,10 +1,9 @@
 <template>
   <div
-    ref="mainMap"
     id="map"
+    ref="mainMap"
     class="w-full h-[30rem] rounded-md max-w-6xl"
-  >
-  </div>
+  />
 </template>
 
 <script setup lang="ts">

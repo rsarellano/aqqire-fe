@@ -1,102 +1,72 @@
 <template>
   <AdminNav />
-
   <div class="flex items-center justify-between w-full">
     <!-- Search api for records -->
     <div class="flex items-center gap-2 grow">
       <FormKit
-        outerClass="!max-w-[30%] w-full"
+        v-model="search.name"
+        outer-class="!max-w-[30%] w-full"
         type="text"
-        label="Search"
-        v-model="query" />
+        label="Search" />
       <Button
-        @click="getData(1)"
         class="!h-min mt-1.5 px-6"
-        size="small">
+        size="small"
+        @click="getData(1)">
         Search
       </Button>
     </div>
     <NuxtLink to="/admin/properties/add">
       <Button>Create Property</Button>
     </NuxtLink>
-    
   </div>
 
   <DataTable
     :key="currentPage"
-    :value="properties.data"
+    ref="dt"
+    :value="properties?.items"
     class="text-sm"
     :loading="loading"
     show-gridlines
     paginator
     :rows="10"
-    :rowsPerPageOptions="[10, 40, 50, 100]"
-    dataKey="id"
-    :total-records="properties?.total"
+    data-key="id"
+    :total-records="properties.total"
     :first="currentPage * numberOfRows - 1"
-    @page="paginate"
     :lazy="true"
-    :globalFilterFields="[
-      'name',
-      'id',
-      'brokers',
-      'email',
-      'propertyType',
-      'propertyDate',
-      'propertyAddress',
-      'propertyAssetType',
-      'propertyUrl',
-      'propertyPrice',
-      'propertyDate',
-      'lastUpdated',
-      'active',
-      'disabled',
-      'address',
-      'owner',
-      'status',
-    ]"
-    :showFilterOperator="false"
-    ref="dt">
+    :show-filter-operator="false"
+    @page="paginate">
     <template #empty>No Properties found.</template>
     <template #header>
-      <h1 class="pb-4 text-2xl text-center text-blue-500">Properties</h1>
+      <h1 class="pb-4 text-2xl text-center text-main">Properties</h1>
 
       <!-- Search table -->
       <Accordion
-        expandIcon="pi pi-caret-down"
-        collapseIcon="pi pi-caret-up">
+        expand-icon="pi pi-caret-down"
+        collapse-icon="pi pi-caret-up">
         <AccordionTab>
           <template #header>
-            <h2 class="w-full text-right">Table Filter Options</h2>
+            <h2 class="w-full text-right">Advanced Search Options</h2>
           </template>
-          <!-- <div
-          <!-- <div
+          <div
             class="grid flex-col items-center justify-center w-full grid-cols-2 gap-2 py-2 pt-4 mt-2">
             <FormKit
-              v-model="filters.global.value"
+              v-model="search.city"
               type="text"
-              :delay="400"
-              label="Search Table" />
-
+              label="City" />
             <FormKit
-              v-model="search"
-              type="text"
-              label="Search by Broker"
-              :delay="400" />
-
-            <FormKit
+              v-model="search.state"
+              placeholder="Pick a State"
               type="select"
-              label="Property Type"
-              placeholder="Filter by Property Type"
-              v-model="filters.propertyType.value"
-              :options="propertyTypes" />
-
+              label="State"
+              clearable
+              :options="states" />
             <FormKit
+              v-model="search.asset_type"
+              placeholder="Type of Property"
               type="select"
-              label="Status"
-              v-model="filters.status.value"
-              :options="statusOptions" />
-          </div> -->
+              label="Asset Type"
+              :options="asset_types" />
+          </div>
         </AccordionTab>
       </Accordion>
     </template>
@@ -104,14 +74,11 @@
     <Column
       field="name"
       header="Name"
-      :showFilterMenu="false"
+      :show-filter-menu="false"
       sortable
       sort-field="lastUpdated">
       <template #body="{ data }">
         <div class="max-w-xs space-y-1">
-          <Tag>
-            {{ data.id }}
-          </Tag>
           <p class="font-bold">
             {{ data.name }}
           </p>
@@ -127,7 +94,10 @@
             Last Updated {{ elapsedSince(data.updated_at).value }} (
             {{ new Date(data.updated_at).toLocaleDateString() }} )
           </p>
-          <p></p>
+          <p>
+            Created {{ elapsedSince(data.created_at).value }} (
+            {{ new Date(data.created_at).toLocaleDateString() }} )
+          </p>
         </div>
       </template>
     </Column>
@@ -135,66 +105,68 @@
     <Column
       field="address"
       header="Address"
-      :showFilterMenu="false">
+      :show-filter-menu="false">
       <template #body="{ data }">
-        <div class="max-w-xs space-x-2 space-y-2">
+        <div class="max-w-xs px-4 space-x-2 space-y-2">
+          <Tag>
+            {{ data.id }}
+          </Tag>
           <Tag
-            value="primary"
             v-if="data.asset_type"
+            value="primary"
             class="capitalize">
             {{ data.asset_type }}
           </Tag>
 
           <Tag
-            value="primary"
             v-if="data.property_type"
+            value="primary"
             class="capitalize">
             {{ data.property_type }}
           </Tag>
-
-          <p class="text-xs">
-            {{ data.address }}
-            <span v-if="data.city">{{ data.city }},</span>
-            <span v-if="data.state">{{ data.state }}</span>
+          <p class="!m-0 py-2">
+            <span v-if="data.address">
+              {{ data.address.trimEnd() + ", " }}
+            </span>
+            <span v-if="data.city">{{ data.city + ", " }}</span>
+            <span v-if="data.state_name">{{ data.state_name }}</span>
           </p>
         </div>
       </template>
     </Column>
 
-    <!-- <Column
+    <Column
       field="brokers"
       header="Broker Information"
-      :showFilterMenu="false"
+      :show-filter-menu="false"
       body-class="max-w-xs">
       <template #body="{ data }">
         <div class="space-y-1 w-fit">
-          <div
-            class="p-4 space-y-1"
-            v-for="(broker, key) in data.brokers"
-            :key="key">
-            <Tag :severity="broker.status === 'Limited' ? 'warning' : 'info'">
-              {{ broker.status }}
-            </Tag>
-            <p class="font-bold">
-              {{ broker.name }}
-            </p>
+          <div class="p-4 space-y-1">
+            <!-- <Tag :severity="broker.status === 'Limited' ? 'warning' : 'info'">
+              {{ data.status }}
+            </Tag> -->
+            <p class="font-bold">{{ data.first_name }} {{ data.last_name }}</p>
             <p class="text-gray-500">
-              {{ broker.email }}
+              {{ data.email }}
             </p>
           </div>
         </div>
       </template>
-    </Column> -->
+    </Column>
 
     <Column
       field="propertyPrice"
       header="Price"
-      :showFilterMenu="false">
+      :show-filter-menu="false">
       <template #body="{ data }">
         <div class="max-w-xs space-y-1">
           <p class="text-sm font-bold">
-            <template v-if="typeof data.propertyPrice == 'number'">$</template>
-            {{ data.property_price }}
+            {{
+              isNaN(data.mongodata.price)
+                ? "Contact Broker"
+                : "$" + Number(data.mongodata.price).toLocaleString("en-US")
+            }}
           </p>
         </div>
       </template>
@@ -203,18 +175,18 @@
     <Column
       field="status"
       header="Status"
-      :showFilterMenu="false">
+      :show-filter-menu="false">
       <template #body="{ data }">
         <div class="max-w-xs mx-auto space-y-1 w-fit">
           <Tag
             v-if="data.active"
             icon="pi pi-check"
-            value="Active"></Tag>
+            value="Active"/>
           <Tag
             v-else
             icon="pi pi-times"
             severity="warning"
-            value="Inactive"></Tag>
+            value="Inactive"/>
         </div>
       </template>
     </Column>
@@ -222,21 +194,21 @@
     <Column
       field="actions"
       header="Actions"
-      :showFilterMenu="false">
+      :show-filter-menu="false">
       <template #body="{ data }">
         <div class="flex items-center justify-center max-w-xs gap-1">
           <NuxtLink
             :to="'/property/' + data.id"
-            class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500">
-            <i class="pi pi-info"></i>
+            class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-main hover:text-main">
+            <i class="pi pi-info"/>
           </NuxtLink>
 
           <NuxtLink
             :to="'/admin/properties/edit/' + data.id"
-            class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-blue-500 hover:text-blue-500">
+            class="p-1.5 px-2 text-gray-500 border-2 border-gray-500 rounded-full hover:border-main hover:text-main">
             <i
               class="pi pi-pencil"
-              title="Edit"></i>
+              title="Edit"/>
           </NuxtLink>
 
           <button title="Enable or Disable(Soft Delete)">
@@ -249,51 +221,29 @@
 </template>
 
 <script setup lang="ts">
-  import { FilterMatchMode } from "primevue/api"
   import type { PageState } from "primevue/paginator"
-  
-  import { useRuntimeConfig } from "#app";
-  const apiUrl = useRuntimeConfig().public.API_BASE_URL;
-  // const filters = ref({
-  //   global: { value: undefined, matchMode: FilterMatchMode.STARTS_WITH },
-  //   name: { value: undefined, matchMode: FilterMatchMode.CONTAINS },
-  //   address: { value: undefined, matchMode: FilterMatchMode.STARTS_WITH },
-  //   status: { value: undefined, matchMode: FilterMatchMode.EQUALS },
-  //   brokers: { value: undefined, matchMode: FilterMatchMode.CONTAINS },
-  //   propertyType: { value: undefined, matchMode: FilterMatchMode.EQUALS },
-  // })
+  import { states, asset_types } from "./states"
 
-  // const statusOptions = [
-  //   { label: "Any", value: null },
-  //   { label: "Active", value: true },
-  //   { label: "Inactive", value: false },
-  // ]
-
-  // const propertyTypes = [
-  //   { label: "All", value: null },
-  //   { label: "Hotel", value: "Hotel" },
-  //   { label: "Gas Station", value: "Gas Station" },
-  //   { label: "Retail", value: "Retail" },
-  //   { label: "Multi Family", value: "Multi Family" },
-  //   { label: "Restaurant", value: "Restaurant" },
-  //   { label: "Land", value: "Land" },
-  //   { label: "Industrial", value: "Industrial" },
-  //   { label: "Health Office", value: "Health Office" },
-  //   { label: "Specialty", value: "Specialty" },
-  //   { label: "Office", value: "Office" },
-  // ]
+  import { useRuntimeConfig } from "#app"
+  const apiUrl = useRuntimeConfig().public.API_BASE_URL
 
   const route = useRoute()
   const router = useRouter()
-  const search = ref()
+  const search = ref<{
+    name: string
+    city?: string
+    state?: string
+    asset_type?: string
+    active?: boolean
+  }>({
+    name: "california",
+  })
 
   // Ref for exporting the data on the table
   const dt = ref()
   // const exportCSV = () => {
   //   dt.value.exportCSV()
   // }
-
-  const query = ref("california")
 
   const currentPage = computed(() => Number(route.query.page) || 1)
   const numberOfRows = ref(10)
@@ -302,11 +252,15 @@
 
   const getData = async (newPage?: number) => {
     loading.value = true
-    const { data, refresh } = await useFetch(`${apiUrl}/admin/property/search`, {
+    const { data } = await useFetch(`${apiUrl}/admin/properties`, {
       query: {
-        q: query.value,
-        page: newPage || currentPage.value,
-        items: numberOfRows.value,
+        name: search.value.name,
+        city: search.value?.city,
+        asset_type: search.value.asset_type,
+        state: search.value?.state,
+        active: search.value?.active,
+        page: newPage || currentPage,
+        items: numberOfRows,
       },
     })
     properties.value = data.value
@@ -316,27 +270,11 @@
   const paginate = async (event: PageState) => {
     await router.push({
       query: {
-        page: event?.page + 1 || 1,
+        page: event.page + 1 || 1,
       },
     })
-    getData()
+    await getData()
   }
-
-  // const searchApi = async () => {
-  //   const apiLink = ""
-
-  //   page.value = parseInt(route.query.page as string)
-  //   try {
-  //     let { data, clear, error } = await useFetch(apiLink, {
-  //       query: {
-  //         page: route.query.page || 0,
-  //         items: route.query.items || 20,
-  //       },
-  //     })
-  //   } catch (e) {
-  //     console.error(e)
-  //   }
-  // }
 
   await getData()
 </script>

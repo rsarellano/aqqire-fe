@@ -20,27 +20,27 @@
           field="name"
           header="Property"
           sortable
-        ></Column>
+        />
         <Column
           field="clicks"
           header="Clicks"
           sortable
-        ></Column>
+        />
         <Column
           field="views"
           header="Views"
           sortable
-        ></Column>
+        />
         <Column
           field="impressions"
           header="Impressions"
           sortable
-        ></Column>
+        />
         <Column
           field="lastUpdated.value"
           header="Last Updated"
           sortable
-        ></Column>
+        />
 
         <Column
           field="actions"
@@ -70,27 +70,27 @@
           field="name"
           header="Property"
           sortable
-        ></Column>
+        />
         <Column
           field="clicks"
           header="Clicks"
           sortable
-        ></Column>
+        />
         <Column
           field="views"
           header="Views"
           sortable
-        ></Column>
+        />
         <Column
           field="impressions"
           header="Impressions"
           sortable
-        ></Column>
+        />
         <Column
           field="lastUpdated.value"
           header="Last Updated"
           sortable
-        ></Column>
+        />
 
         <Column
           field="actions"
@@ -102,6 +102,7 @@
             </div>
           </template>
         </Column>
+        
       </DataTable>
     </div>
 
@@ -113,13 +114,13 @@
 
     <div class="flex flex-wrap gap-2">
       <Button
-        class="!p-1 group bg-blue-500 max-w-64 w-full"
         v-ripple
+        class="!p-1 group bg-main max-w-64 w-full"
       >
         <Card class="p-2 !bg-blue-600 w-max h-full">
           <template #title>
             <div class="flex justify-start text-white">
-              <i class="text-3xl pi pi-envelope"></i>
+              <i class="text-3xl pi pi-envelope"/>
             </div>
           </template>
           <template #content>
@@ -134,7 +135,7 @@
       </Button>
 
       <!-- <Button
-        class="!p-1 group bg-blue-500 max-w-64 w-full"
+        class="!p-1 group bg-main max-w-64 w-full"
         v-ripple
       >
         <Card class="p-2 !bg-blue-600 w-full h-full">
@@ -160,13 +161,13 @@
       </Button> -->
 
       <Button
-        class="!p-1 group bg-blue-500 max-w-64 w-full"
         v-ripple
+        class="!p-1 group bg-main max-w-64 w-full"
       >
         <Card class="p-2 !bg-blue-600 w-max h-full">
           <template #title>
             <div class="flex justify-start text-white">
-              <i class="text-3xl pi pi-flag"></i>
+              <i class="text-3xl pi pi-flag"/>
             </div>
           </template>
           <template #content>
@@ -182,13 +183,13 @@
       </Button>
 
       <Button
-        class="!p-1 group bg-blue-500 max-w-64 w-full"
         v-ripple
+        class="!p-1 group bg-main max-w-64 w-full"
       >
         <Card class="p-2 !bg-blue-600 w-max h-full">
           <template #title>
             <div class="flex justify-start text-white">
-              <i class="text-3xl pi pi-ellipsis-h"></i>
+              <i class="text-3xl pi pi-ellipsis-h"/>
             </div>
           </template>
           <template #content>
@@ -207,8 +208,8 @@
 </template>
 
 <script setup lang="ts">
-  const formatDateTable = (arr: any) => {
-    return arr.map((item: any) => {
+  const formatDateTable = (arr: typeof top) => {
+    return arr.map((item: typeof top[0]) => {
       return { ...item, lastUpdated: elapsedSince(item.lastUpdated) }
     })
   }

@@ -4,11 +4,11 @@
 
     <div class="grid grid-cols-1 p-4 md:grid-cols-3">
       <NuxtLink
-        href="/"
-        class="flex items-center gap-4 py-2 text-lg break-all group lg:grow hover:text-blue-500"
         v-for="(file, key) in files"
-        :key="key">
-        <i class="pi pi-file"></i>
+        :key="key"
+        href="/"
+        class="flex items-center gap-4 py-2 text-lg break-all group lg:grow hover:text-main">
+        <i class="pi pi-file"/>
         <p class="group-hover:underline underline-offset-4">{{ file.name }}</p>
       </NuxtLink>
     </div>
