@@ -65,19 +65,51 @@ export const datetimeFromDB = (datetimeString: Date) => {
   return new Date(datetimeString) // Parse datetime string from database
 }
 
-
-export function formatISODate(date: Date) {
+export function formatISODate(date: any) {
   // Create a new Date object from the ISO date string
-  const convertDate = new Date(date);
+  const convertDate = new Date(date)
 
   // Array of month names for more readable format
-  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ]
+
   // Extract the parts of the date
-  const day = convertDate.getDate();
-  const month = months[convertDate.getMonth()]; // getMonth returns 0-11
-  const year = convertDate.getFullYear();
+  const day = convertDate.getDate()
+  const month = months[convertDate.getMonth()] // getMonth returns 0-11
+  const year = convertDate.getFullYear()
 
   // Format the date as "Month Day, Year"
-  return `${month} ${day}, ${year}`;
+  return `${month} ${day}, ${year}`
+}
+
+export function formatCMDate(date: Date) {
+  if (!date) {
+    return
+  }
+
+  const newDate = new Date(date)
+  const year =
+    newDate.getUTCFullYear() < 10
+      ? `0${newDate.getUTCFullYear()}`
+      : newDate.getUTCFullYear()
+  const month =
+    newDate.getUTCMonth() < 10
+      ? `0${newDate.getUTCMonth()}`
+      : newDate.getUTCMonth()
+  const day =
+    newDate.getUTCDay() < 10 ? `0${newDate.getUTCDay()}` : newDate.getUTCDay()
+
+  return `${year}-${month}-${day} 00:00:00`
 }
