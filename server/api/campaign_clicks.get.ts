@@ -1,13 +1,14 @@
 import { eventHandler, getRequestHeader } from "h3"
-import { clicks, opens, propertyClicks } from "~/types/campaign"
+import type { clicks, propertyClicks } from "~/types/campaign";
+import { opens } from "~/types/campaign"
 
 export default eventHandler(async (event) => {
   const query = getQuery(event)
   try {
     let hasMoreData = true
     let page = 1
-    let propertyClicks: propertyClicks[] = []
-    let miscClicks: clicks[] = []
+    const propertyClicks: propertyClicks[] = []
+    const miscClicks: clicks[] = []
 
     while (hasMoreData) {
       const getData = await $fetch<{ Results: clicks[] }>(

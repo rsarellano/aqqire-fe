@@ -15,16 +15,16 @@
 
             <div class="flex items-center justify-center gap-4 p-2">
               <Calendar
-                placeholder="From Date"
                 v-model="fromDate"
+                placeholder="From Date"
                 :max-date="toDate"
                 date-format="yy/mm/dd"
                 :show-icon="true"
                 showButtonBar />
 
               <Calendar
-                showButtonBar
                 v-model="toDate"
+                showButtonBar
                 placeholder="To Date"
                 :min-date="fromDate"
                 date-format="yy/mm/dd"
@@ -108,9 +108,9 @@
       :rows="rowsPerpage"
       :totalRecords="data?.TotalNumberOfRecords"
       :rowsPerPageOptions="[10, 25, 50, 100]"
-      @page="paginate($event)"
       template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink JumpToPageDropdown JumpToPageInput RowsPerPageDropdown"
-      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} "></Paginator>
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} "
+      @page="paginate($event)"></Paginator>
   </div>
 </template>
 

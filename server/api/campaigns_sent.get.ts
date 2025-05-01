@@ -1,5 +1,5 @@
 import { eventHandler, getRequestHeader } from "h3"
-import { sent } from "../../types/campaign"
+import type { sent } from "../../types/campaign"
 
 export default eventHandler(async (event) => {
   const query = getQuery(event)
