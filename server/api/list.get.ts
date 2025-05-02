@@ -3,12 +3,14 @@ import { useFetch } from "nuxt/app"
 
 export default eventHandler(async (event) => {
   const query = getQuery(event)
+  const config = useRuntimeConfig()
+
   try {
     const getData = await $fetch(
       `https://api.createsend.com/api/v3.3/lists/${query.id}/active.json`,
       {
         headers: {
-          Authorization: "Basic " + btoa(process.env.CAMPAIGN_API_KEY!),
+          Authorization: "Basic " + btoa(config.campaignApiKey!),
         },
       }
     )

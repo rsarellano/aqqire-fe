@@ -3,15 +3,17 @@ import { useFetch } from "nuxt/app"
 
 export default eventHandler(async (event) => {
   const query = getQuery(event)
+  const config = useRuntimeConfig()
 
-  const id = btoa(process.env.CAMPAIGN_CLIENT_ID!)
+
+  const id = btoa(config.campaignClientId!)
   try {
     const getData = await $fetch(
       // Client ID
       `https://api.createsend.com/api/v3.3/clients/${id}/campaigns.json?sentFromDate=2020-01-01`,
       {
         headers: {
-          Authorization: "Basic " + btoa(process.env.CAMPAIGN_API_KEY!),
+          Authorization: "Basic " + btoa(config.campaignApiKey!),
         },
       }
     )

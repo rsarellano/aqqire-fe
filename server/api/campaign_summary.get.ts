@@ -2,6 +2,7 @@ import { eventHandler, getRequestHeader } from "h3"
 
 export default eventHandler(async (event) => {
   const query = getQuery(event)
+  const config = useRuntimeConfig()
 
 
   try {
@@ -9,7 +10,7 @@ export default eventHandler(async (event) => {
       `https://api.createsend.com/api/v3.3/campaigns/${query.id}/clicks.json`,
       {
         headers: {
-          Authorization: "Basic " + btoa(process.env.CAMPAIGN_API_KEY!),
+          Authorization: "Basic " + btoa(config.campaignApiKey!),
         },
       }
     )
