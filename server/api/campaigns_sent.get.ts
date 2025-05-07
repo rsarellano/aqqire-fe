@@ -3,7 +3,8 @@ import type { sent } from "../../types/campaign"
 
 export default eventHandler(async (event) => {
   const query = getQuery(event)
-  const clientId = process.env.CAMPAIGN_CLIENT_ID
+  const config = useRuntimeConfig()
+  const clientId = config.campaignClientId
 
   try {
     const getData = await $fetch<{
@@ -19,7 +20,7 @@ export default eventHandler(async (event) => {
       `https://api.createsend.com/api/v3.3/clients/${clientId}/campaigns.json`,
       {
         headers: {
-          Authorization: "Basic " + btoa(process.env.CAMPAIGN_API_KEY!),
+          Authorization: "Basic " + btoa(config.campaignApiKey!),
         },
         query: {
           pagesize: query.pagesize || 25,

@@ -3,6 +3,8 @@
 export default defineNuxtConfig({
   runtimeConfig: {
     jwtSecret: "",
+    campaignApiKey: process.env.CAMPAIGN_API_KEY,
+    campaignClientId: process.env.CAMPAIGN_CLIENT_ID,
     public: {
       API_BASE_URL: process.env.API_BASE_URL || "http://localhost:5000",
       googleApi: "",
@@ -36,7 +38,7 @@ export default defineNuxtConfig({
     "@sidebase/nuxt-auth",
     "@nuxtjs/plausible",
     "@productdevbook/chatwoot",
-    "@nuxt/eslint"
+    "@nuxt/eslint",
   ],
 
   build: {
@@ -136,4 +138,4 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: "2024-09-20",
-});
+})

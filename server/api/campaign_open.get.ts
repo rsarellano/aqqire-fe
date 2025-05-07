@@ -3,6 +3,8 @@ import type { opens } from "~/types/campaign"
 
 export default eventHandler(async (event) => {
   const query = getQuery(event)
+  const config = useRuntimeConfig()
+
   const { id } = query
 
   try {
@@ -15,7 +17,7 @@ export default eventHandler(async (event) => {
         `https://api.createsend.com/api/v3.3/campaigns/${id}/opens.json`,
         {
           headers: {
-            Authorization: "Basic " + btoa(process.env.CAMPAIGN_API_KEY!),
+            Authorization: "Basic " + btoa(config.campaignApiKey!),
           },
           query: {
             pagesize: 1000,
