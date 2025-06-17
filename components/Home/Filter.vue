@@ -6,17 +6,17 @@
           v-model="name"
           placeholder="Search property name"
           class="w-3/4"
-          @keyup.enter="search" />
+          @keyup.enter="search"
+        />
         <Button
           class="flex-grow border border-white rounded-lg h-min bg-main hover:bg-white hover:text-main"
-          @click="search">
+          @click="search"
+        >
           Search for Properties
         </Button>
       </div>
 
-      <Accordion
-        v-if="advancedSearch"
-        class="w-full py-2">
+      <Accordion v-if="advancedSearch" class="w-full py-2">
         <AccordionTab>
           <template #header>
             <div class="ml-auto">Advanced Search Options</div>
@@ -29,7 +29,8 @@
               :options="property_types"
               placeholder="Select property type"
               outer-class="!max-w-full"
-              inner-class="p-1 rounded-lg" />
+              inner-class="p-1 rounded-lg"
+            />
             <FormKit
               v-model="state"
               type="select"
@@ -39,7 +40,8 @@
               :disabled="checkType"
               outer-class="!max-w-full"
               wrapper-class="w-full"
-              inner-class="p-1 rounded-lg" />
+              inner-class="p-1 rounded-lg"
+            />
 
             <FormKit
               v-model="price"
@@ -50,14 +52,16 @@
               prefix-icon="dollar"
               :disabled="checkType"
               outer-class="!max-w-full"
-              inner-class="p-1 rounded-lg" />
+              inner-class="p-1 rounded-lg"
+            />
           </div>
         </AccordionTab>
       </Accordion>
       <button
         v-else
         class="py-2 text-xs text-white"
-        @click="advancedSearch = !advancedSearch">
+        @click="advancedSearch = !advancedSearch"
+      >
         Advanced Search Options
       </button>
     </div>
@@ -65,84 +69,84 @@
 </template>
 
 <script setup lang="ts">
-  const name = ref()
-  const type = ref("")
-  const state = ref("")
-  const price = ref("")
-  const advancedSearch = ref(false)
-  const router = useRouter()
+const name = ref();
+const type = ref("");
+const state = ref("");
+const price = ref("");
+const advancedSearch = ref(false);
+const router = useRouter();
 
-  const property_types = [
-    { label: "Hotel", value: "hotel", attrs: { disabled: false } },
-    { label: "Gas Station", value: "gas", attrs: { disabled: false } },
-    { label: "Retail", value: "retail", attrs: { disabled: false } },
-    {
-      label: "Multi-Family",
-      value: "multi-family",
-      attrs: { disabled: false },
-    },
-    { label: "Land", value: "land", attrs: { disabled: false } },
-    { label: "Industrial", value: "industrial", attrs: { disabled: false } },
-    { label: "Restaurant", value: "restaurant", attrs: { disabled: false } },
-  ]
-  const states = [
-    "Any",
-    "Alabama",
-    "Alaska",
-    "Arizona",
-    "Arkansas",
-    "California",
-    "Colorado",
-    "Connecticut",
-    "Delaware",
-    "Florida",
-    "Georgia",
-    "Hawaii",
-    "Idaho",
-    "Illinois",
-    "Indiana",
-    "Iowa",
-    "Kansas",
-    "Kentucky",
-    "Louisiana",
-    "Maine",
-    "Maryland",
-    "Massachusetts",
-    "Michigan",
-    "Minnesota",
-    "Mississippi",
-    "Missouri",
-    "Montana",
-    "Nebraska",
-    "Nevada",
-    "New Hampshire",
-    "New Jersey",
-    "New Mexico",
-    "New York",
-    "North Carolina",
-    "North Dakota",
-    "Ohio",
-    "Oklahoma",
-    "Oregon",
-    "Pennsylvania",
-    "Rhode Island",
-    "South Carolina",
-    "South Dakota",
-    "Tennessee",
-    "Texas",
-    "Utah",
-    "Vermont",
-    "Virginia",
-    "Washington",
-    "West Virginia",
-    "Wisconsin",
-    "Wyoming",
-  ]
-  const price_ranges = ["Any", "10,000 - 20,000", "20,001 - 30,000"]
+const property_types = [
+  { label: "Hotel", value: "hotel", attrs: { disabled: false } },
+  { label: "Gas Station", value: "gas", attrs: { disabled: false } },
+  { label: "Retail", value: "retail", attrs: { disabled: false } },
+  {
+    label: "Multi-Family",
+    value: "multi-family",
+    attrs: { disabled: false },
+  },
+  { label: "Land", value: "land", attrs: { disabled: false } },
+  { label: "Industrial", value: "industrial", attrs: { disabled: false } },
+  { label: "Restaurant", value: "restaurant", attrs: { disabled: false } },
+];
+const states = [
+  "Any",
+  "Alabama",
+  "Alaska",
+  "Arizona",
+  "Arkansas",
+  "California",
+  "Colorado",
+  "Connecticut",
+  "Delaware",
+  "Florida",
+  "Georgia",
+  "Hawaii",
+  "Idaho",
+  "Illinois",
+  "Indiana",
+  "Iowa",
+  "Kansas",
+  "Kentucky",
+  "Louisiana",
+  "Maine",
+  "Maryland",
+  "Massachusetts",
+  "Michigan",
+  "Minnesota",
+  "Mississippi",
+  "Missouri",
+  "Montana",
+  "Nebraska",
+  "Nevada",
+  "New Hampshire",
+  "New Jersey",
+  "New Mexico",
+  "New York",
+  "North Carolina",
+  "North Dakota",
+  "Ohio",
+  "Oklahoma",
+  "Oregon",
+  "Pennsylvania",
+  "Rhode Island",
+  "South Carolina",
+  "South Dakota",
+  "Tennessee",
+  "Texas",
+  "Utah",
+  "Vermont",
+  "Virginia",
+  "Washington",
+  "West Virginia",
+  "Wisconsin",
+  "Wyoming",
+];
+const price_ranges = ["Any", "10,000 - 20,000", "20,001 - 30,000"];
 
-  const checkType = computed(() => (type.value === "" ? true : false))
+const checkType = computed(() => (type.value === "" ? true : false));
 
-  const search = () => {
-    router.push({ path: "/properties", query: { name: name.value } })
-  }
+const search = () => {
+  router.push({ path: "/properties", query: { name: name.value } });
+};
 </script>

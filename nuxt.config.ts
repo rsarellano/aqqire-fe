@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     campaignClientId: process.env.CAMPAIGN_CLIENT_ID,
     public: {
       API_BASE_URL: process.env.API_BASE_URL || "http://localhost:5000",
+      CUSTOM_API_BASE: process.env.CUSTOM_API_BASE || "http://127.0.0.1:8000",
       googleApi: "",
       mapId: "",
     },
@@ -138,4 +139,4 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: "2024-09-20",
-})
+});
