@@ -21,6 +21,7 @@
     "@nuxtjs/plausible": "^1.0.2",
     "@productdevbook/chatwoot": "^1.5.0",
     "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
     "next-auth": "4.21.1",
     "nuxt": "3.17",
     "pinia": "^2.1.7",

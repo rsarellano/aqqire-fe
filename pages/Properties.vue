@@ -102,6 +102,7 @@
             :image="images[getRandomImage()]"
           />
         </div>
+        <div>Property Page Cards</div>
       </div>
       <!-- Pagination -->
 
@@ -117,6 +118,8 @@
 </template>
 
 <script setup lang="ts">
+import { debounce } from "lodash";
+import { ref, watch } from "vue";
 import { getRandomImage, images } from "./data";
 import type { PageState } from "primevue/paginator";
 import { useRuntimeConfig } from "#app";
@@ -139,7 +142,11 @@ const name = computed(() => route.query.name || "");
 const page = ref(1);
 const items = ref(10);
 
-const fetchProperty = async () => {};
+const fetchProperty = async () => {
+  try {
+    const response = await useFetch(`${customApiUrl}/property/`);
+  } catch {}
+};
 
 const fetchResults = async () => {
   loading.value = true;
