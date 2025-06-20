@@ -130,7 +130,7 @@ const loading = ref(false);
 const layout = ref("default");
 const route = useRoute();
 const router = useRouter();
-const properties = ref({ data: [] });
+// const properties = ref({ data: [] });
 const query = ref();
 
 definePageMeta({
@@ -142,11 +142,28 @@ const name = computed(() => route.query.name || "");
 const page = ref(1);
 const items = ref(10);
 
-const fetchProperty = async () => {
+//Property search
+
+const {
+  data: properties,
+  refresh,
+  error,
+} = await useAsyncData("properties", () =>
+  $fetch(`${customApiUrl}/properties/`)
+);
+
+const fetchProperties = async () => {
   try {
-    const response = await useFetch(`${customApiUrl}/property/`);
-  } catch {}
+    await refresh(); // triggers the useAsyncData fetch again
+    console.log("Re-fetched:", properties.value);
+  } catch (err) {
+    console.error("Manual refresh failed", err);
+  }
 };
+
+onMounted(() => {
+  fetchProperties();
+});
 
 const fetchResults = async () => {
   loading.value = true;
