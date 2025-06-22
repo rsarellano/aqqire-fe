@@ -101,8 +101,9 @@
             :updated="item.updated_at"
             :image="images[getRandomImage()]"
           />
+
+          <div>Property Page Cards</div>
         </div>
-        <div>Property Page Cards</div>
       </div>
       <!-- Pagination -->
 
@@ -120,6 +121,7 @@
 <script setup lang="ts">
 import { debounce } from "lodash";
 import { ref, watch } from "vue";
+import type { Property } from "../types/property";
 import { getRandomImage, images } from "./data";
 import type { PageState } from "primevue/paginator";
 import { useRuntimeConfig } from "#app";
@@ -131,7 +133,7 @@ const layout = ref("default");
 const route = useRoute();
 const router = useRouter();
 // const properties = ref({ data: [] });
-const query = ref();
+const query = ref("");
 
 definePageMeta({
   layout: "none",
@@ -148,18 +150,18 @@ const {
   data: properties,
   refresh,
   error,
-} = await useAsyncData("properties", () =>
+} = await useAsyncData<Property[]>("properties", () =>
   $fetch(`${customApiUrl}/properties/`)
 );
 
-const fetchProperties = async () => {
+const fetchProperties = debounce(async () => {
   try {
-    await refresh(); // triggers the useAsyncData fetch again
+    await refresh();
     console.log("Re-fetched:", properties.value);
   } catch (err) {
     console.error("Manual refresh failed", err);
   }
-};
+}, 300);
 
 onMounted(() => {
   fetchProperties();
