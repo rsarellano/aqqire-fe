@@ -120,7 +120,7 @@
 
 <script setup lang="ts">
 import { debounce } from "lodash";
-import { ref, watch } from "vue";
+import { ref, watch, computed, onMounted } from "vue";
 import type { Property } from "../types/property";
 import { getRandomImage, images } from "./data";
 import type { PageState } from "primevue/paginator";
@@ -132,8 +132,8 @@ const loading = ref(false);
 const layout = ref("default");
 const route = useRoute();
 const router = useRouter();
-// const properties = ref({ data: [] });
 const query = ref("");
+const searchTerm = ref("");
 
 definePageMeta({
   layout: "none",
@@ -155,13 +155,22 @@ const {
 );
 
 const fetchProperties = debounce(async () => {
+  loading.value = true;
   try {
-    await refresh();
+    const result = await $fetch(`${customApiUrl}/properties/`, {
+      params: { q: searchTerm.value },
+    });
     console.log("Re-fetched:", properties.value);
   } catch (err) {
     console.error("Manual refresh failed", err);
   }
 }, 300);
+
+watch(searchTerm, (newVal) => {
+  if (newVal.length >= 2 || newVal.length === 0) {
+    fetchProperties();
+  }
+});
 
 onMounted(() => {
   fetchProperties();
@@ -169,14 +178,17 @@ onMounted(() => {
 
 const fetchResults = async () => {
   loading.value = true;
-  const { data, error } = await useFetch(`${apiUrl}/property/search?`, {
-    params: {
-      q: name,
-      page: page,
-      items: items,
-    },
-  });
-  if (!error.value) {
+  const { data, error } = await useFetch<Property[]>(
+    `${apiUrl}/property/search?`,
+    {
+      params: {
+        q: name,
+        page: page,
+        items: items,
+      },
+    }
+  );
+  if (!error.value && data.value) {
     properties.value = data.value;
   }
   loading.value = false;
