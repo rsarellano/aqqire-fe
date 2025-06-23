@@ -12,14 +12,14 @@
     >
       <div class="p-2 space-y-2">
         <div class="flex gap-[2px] text-white">
-          <Tag
+          <!-- <Tag
             value="$11,000"
             class="p-1 text-xs bg-blue-400 rounded w-min"
             :class="{
               'line-through': props.sale === true,
               'font-bold': props.sale === false,
             }"
-          />
+          /> -->
         </div>
         <div class="text-sm font-semibold text-white">3398 Lodgeville Road</div>
       </div>
@@ -31,8 +31,15 @@
   </div>
 </template>
 
-<script setup lang="ts">
-const props = defineProps({
-  sale: Boolean,
-});
+<script lang="ts" setup>
+const props = defineProps<{
+  name: string;
+  city: string;
+  state: string;
+  address: string;
+  price: number;
+  updated: string;
+  id: string;
+  image: string;
+}>();
 </script>

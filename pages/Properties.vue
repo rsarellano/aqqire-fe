@@ -8,8 +8,12 @@
         <h1 class="text-2xl font-bold text-gray-700">Search for Properties</h1>
         <div class="flex flex-col gap-2 md:flex-row">
           <form type="form" class="w-full" @submit.prevent="search">
-            <FormKit v-model="query" type="text" outer-class="!w-full" />
-            <Button type="submit" class="w-full"> Search </Button>
+            <FormKit type="text" outer-class="!w-full" />
+            <div>
+              <Button type="submit" class="w-full" @click="fetchProperties">
+                Search
+              </Button>
+            </div>
           </form>
         </div>
 
@@ -154,17 +158,19 @@ const {
   $fetch(`${customApiUrl}/properties/`)
 );
 
-const fetchProperties = debounce(async () => {
+const fetchProperties = async () => {
   loading.value = true;
   try {
     const result = await $fetch(`${customApiUrl}/properties/`, {
       params: { q: searchTerm.value },
     });
-    console.log("Re-fetched:", properties.value);
+    console.log("Re-fetched:", result);
   } catch (err) {
     console.error("Manual refresh failed", err);
+  } finally {
+    loading.value = false;
   }
-}, 300);
+};
 
 watch(searchTerm, (newVal) => {
   if (newVal.length >= 2 || newVal.length === 0) {
