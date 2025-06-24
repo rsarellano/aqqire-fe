@@ -3,16 +3,17 @@
 export type Property = {
   propertyType: string;
   // Basic Info
-  propertyName: string;
-  price: string;
+  property_name: string;
+  property_price: number;
   saleType: string;
   brand: string;
+  id: number;
 
   // Location
   international: boolean;
-  address: string;
-  city: string;
-  state: string;
+  property_address: string;
+  property_city: string;
+  property_state: string;
   zip: string;
   coordinates: {
     lat: number;

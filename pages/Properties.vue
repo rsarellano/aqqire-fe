@@ -91,11 +91,11 @@
         </div>
         <!-- Listing Items -->
         <div
-          v-for="(item, key) in properties.data"
+          v-for="(property, key) in properties"
           :key="key"
           class="col-span-6 py-4"
         >
-          <PropertyCardHorizontal
+          <!-- <PropertyCardHorizontal
             :id="item.id"
             :name="item.name"
             :price="item.price"
@@ -104,20 +104,28 @@
             :state="item.state"
             :updated="item.updated_at"
             :image="images[getRandomImage()]"
+          /> -->
+          {{ console.log(property) }}
+          <PropertyPageCards
+            :id="property.id"
+            :property_name="property.property_name"
+            :property_price="property.property_price"
+            :property_city="property.property_city"
+            :property_address="property.property_address"
+            :property_state="property.property_state"
+            :image="images[getRandomImage()]"
           />
-
-          <div>Property Page Cards</div>
         </div>
       </div>
       <!-- Pagination -->
 
-      <Paginator
+      <!-- <Paginator
         class="w-full"
         :first="(page - 1) * items"
         :rows="items"
         :total-records="properties.total"
         @page="paginate"
-      />
+      /> -->
     </div>
   </template>
 </template>
@@ -147,23 +155,17 @@ definePageMeta({
 const name = computed(() => route.query.name || "");
 const page = ref(1);
 const items = ref(10);
+const properties = ref<Property[]>([]);
 
 //Property search
-
-const {
-  data: properties,
-  refresh,
-  error,
-} = await useAsyncData<Property[]>("properties", () =>
-  $fetch(`${customApiUrl}/properties/`)
-);
 
 const fetchProperties = async () => {
   loading.value = true;
   try {
-    const result = await $fetch(`${customApiUrl}/properties/`, {
+    const result = await $fetch<Property[]>(`${customApiUrl}/properties/`, {
       params: { q: searchTerm.value },
     });
+    properties.value = result;
     console.log("Re-fetched:", result);
   } catch (err) {
     console.error("Manual refresh failed", err);
@@ -172,11 +174,11 @@ const fetchProperties = async () => {
   }
 };
 
-watch(searchTerm, (newVal) => {
-  if (newVal.length >= 2 || newVal.length === 0) {
-    fetchProperties();
-  }
-});
+// watch(searchTerm, (newVal) => {
+//   if (newVal.length >= 2 || newVal.length === 0) {
+//     fetchProperties();
+//   }
+// });
 
 onMounted(() => {
   fetchProperties();

@@ -21,7 +21,9 @@
             }"
           /> -->
         </div>
-        <div class="text-sm font-semibold text-white">3398 Lodgeville Road</div>
+        <div class="text-sm font-semibold text-white">
+          {{ props.property_name }}
+        </div>
       </div>
     </div>
 
@@ -33,13 +35,12 @@
 
 <script lang="ts" setup>
 const props = defineProps<{
-  name: string;
-  city: string;
-  state: string;
-  address: string;
-  price: number;
-  updated: string;
-  id: string;
+  property_name: string;
+  property_city: string;
+  property_state: string;
+  property_address: string;
+  property_price: number;
+  id: number;
   image: string;
 }>();
 </script>
