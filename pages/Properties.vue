@@ -93,7 +93,7 @@
         <div
           v-for="(property, key) in properties"
           :key="key"
-          class="col-span-6 py-4"
+          class="grid grid-cols-3 gap-4"
         >
           <!-- <PropertyCardHorizontal
             :id="item.id"
@@ -131,7 +131,7 @@
 </template>
 
 <script setup lang="ts">
-import { debounce } from "lodash";
+// import { debounce } from "lodash";
 import { ref, watch, computed, onMounted } from "vue";
 import type { Property } from "../types/property";
 import { getRandomImage, images } from "./data";

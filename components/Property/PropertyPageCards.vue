@@ -24,6 +24,18 @@
         <div class="text-sm font-semibold text-white">
           {{ props.property_name }}
         </div>
+        <div class="text-sm font-semibold text-white">
+          {{ props.property_city }}
+        </div>
+        <div class="text-sm font-semibold text-white">
+          {{ props.property_state }}
+        </div>
+        <div class="text-sm font-semibold text-white">
+          {{ props.property_address }}
+        </div>
+        <div class="text-sm font-semibold text-white">
+          {{ props.property_price }}
+        </div>
       </div>
     </div>
 
